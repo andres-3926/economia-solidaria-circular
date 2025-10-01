@@ -11,6 +11,7 @@ $sql = "SELECT t.*, u.emprendimiento AS nombre_empresa, u.celular AS numero_cont
         FROM trueques t
         JOIN usuarios u ON t.numero_documento = u.numero_documento
         WHERE t.estado = 'activo'
+        AND (t.fecha_expiracion IS NULL OR t.fecha_expiracion >= CURDATE())
         ORDER BY t.fecha_publicacion DESC";
 $result = $conn->query($sql);
 $trueques_publicados = $result->fetch_all(MYSQLI_ASSOC);

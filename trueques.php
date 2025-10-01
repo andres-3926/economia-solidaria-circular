@@ -2,6 +2,8 @@
 $pagina_activa = 'trueques';
 session_start();
 include("conexion.php");
+$usuario_actual_id = null;
+$dueno_trueque_id = null;
 
 // --- Lógica para mostrar el detalle de un trueque ---
 $detalle_trueque = null;
@@ -9,9 +11,9 @@ if (isset($_GET['id'])) {
     $id = intval($_GET['id']);
     $sql = "SELECT t.*, u.emprendimiento AS nombre_empresa, u.celular AS numero_contacto, u.nombre_completo
             FROM trueques t
-            JOIN usuarios u ON t.numero_documento = u.numero_documento
-            AND (t.fecha_expiracion IS NULL OR t.fecha_expiracion >= CURDATE())
-            WHERE t.id = ?";
+            JOIN usuarios u ON t.numero_documento = u.numero_documento            
+            WHERE t.id = ?
+            AND (t.fecha_expiracion IS NULL OR t.fecha_expiracion >= CURDATE())";            
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("i", $id);
     $stmt->execute();
@@ -145,63 +147,137 @@ if (isset($_GET['id'])) {
                             </ul>
                         <?php endif; ?>
                     </div>
-                    <?php $stmt_vistos->close(); ?>
+                    <?php $stmt_vistos->close(); ?>                 
 
-                    <!-- Formulario para publicar preguntas -->
-                    <?php if (isset($_SESSION['numero_documento']) && $trueque['numero_documento'] != $_SESSION['numero_documento']): ?>
-                        <form method="POST" action="publicar_pregunta.php" class="mb-3">
-                            <input type="hidden" name="trueque_id" value="<?php echo $trueque['id']; ?>">
-                            <div class="mb-2">
-                                <label class="form-label fw-bold">¿Tienes una pregunta para el dueño?</label>
-                                <textarea name="pregunta" class="form-control" rows="2" required></textarea>
-                            </div>
-                            <button type="submit" class="btn btn-primary btn-sm"><i class="fa fa-question"></i> Publicar pregunta</button>
-                        </form>
-                    <?php endif; ?>
-
-                    <!-- Mostrar preguntas y respuestas -->                 
+                    <!-- CHAT/HILO ENTRE DUEÑO Y USUARIO SELECCIONADO -->
                     <?php
-                    $sql_preguntas = "SELECT p.*, u.nombre_completo FROM preguntas_trueques p JOIN usuarios u ON p.usuario_id = u.id WHERE p.trueque_id = ? ORDER BY p.fecha_pregunta DESC";
-                    $stmt_preguntas = $conn->prepare($sql_preguntas);
-                    $stmt_preguntas->bind_param("i", $trueque['id']);
-                    $stmt_preguntas->execute();
-                    $res_preguntas = $stmt_preguntas->get_result();
+                    // Obtener IDs de usuario actual y dueño del trueque
+                    $usuario_actual_id = null;
+                    $dueno_trueque_id = null;
+                    if(isset($_SESSION['numero_documento'])) {
+                        $stmt = $conn->prepare("SELECT id FROM usuarios WHERE numero_documento = ?");
+                        $stmt->bind_param("s", $_SESSION['numero_documento']);
+                        $stmt->execute();
+                        $res = $stmt->get_result();
+                        if($row = $res->fetch_assoc()) {
+                            $usuario_actual_id = $row['id'];
+                        }
+                        $stmt->close();
+                    }
+                    $stmt = $conn->prepare("SELECT id FROM usuarios WHERE numero_documento = ?");
+                    $stmt->bind_param("s", $trueque['numero_documento']);
+                    $stmt->execute();
+                    $res = $stmt->get_result();
+                    if($row = $res->fetch_assoc()) {
+                        $dueno_trueque_id = $row['id'];
+                    }
+                    $stmt->close();
+
+                    // Si el usuario actual es el dueño, mostrar lista de usuarios con los que ha conversado
+                    if ($usuario_actual_id == $dueno_trueque_id) {
+                        $stmt_usuarios = $conn->prepare(
+                            "SELECT DISTINCT u.id, u.nombre_completo
+                            FROM mensajes_trueque m
+                            JOIN usuarios u ON m.de_usuario_id = u.id
+                            WHERE m.trueque_id = ? AND m.de_usuario_id != ?");
+                        $stmt_usuarios->bind_param("ii", $trueque['id'], $dueno_trueque_id);
+                        $stmt_usuarios->execute();
+                        $res_usuarios = $stmt_usuarios->get_result();
+                        $usuarios_interesados = [];
+                        while ($row = $res_usuarios->fetch_assoc()) {
+                            $usuarios_interesados[] = $row;
+                        }
+                        $stmt_usuarios->close();
+
+                        // Selección de usuario (por GET)
+                        $usuario_seleccionado_id = isset($_GET['usuario']) ? intval($_GET['usuario']) : ($usuarios_interesados[0]['id'] ?? null);
+                    }
                     ?>
-                    <div class="mt-4">
-                        <h6><i class="fa fa-comments text-info"></i> Preguntas y respuestas</h6>
-                        <?php if ($res_preguntas->num_rows == 0): ?>
-                            <div class="text-muted">Aún no hay preguntas.</div>
-                        <?php else: ?>
-                            <ul class="list-group">
-                                <?php while ($preg = $res_preguntas->fetch_assoc()): ?>
-                                    <li class="list-group-item">
-                                        <strong><?php echo htmlspecialchars($preg['nombre_completo']); ?>:</strong>
-                                        <?php echo htmlspecialchars($preg['pregunta']); ?>
-                                        <br>
-                                        <small class="text-muted"><?php echo date('d/m/Y H:i', strtotime($preg['fecha_pregunta'])); ?></small>
-                                        <?php if (!empty($preg['respuesta'])): ?>
-                                            <div class="mt-2 ms-3 alert alert-success py-1 px-2 mb-0">
-                                                <strong>Respuesta:</strong> <?php echo htmlspecialchars($preg['respuesta']); ?>
-                                                <br>
-                                                <small class="text-muted"><?php echo date('d/m/Y H:i', strtotime($preg['fecha_respuesta'])); ?></small>
-                                            </div>
-                                        <?php elseif (isset($_SESSION['numero_documento']) && $trueque['numero_documento'] == $_SESSION['numero_documento']): ?>
-                                            <!-- Formulario para responder (solo dueño del trueque) -->
-                                            <form method="POST" action="responder_pregunta.php" class="mt-2 ms-3">
-                                                <input type="hidden" name="pregunta_id" value="<?php echo $preg['id']; ?>">
-                                                <input type="hidden" name="trueque_id" value="<?php echo $trueque['id']; ?>">
-                                                <div class="input-group input-group-sm">
-                                                    <input type="text" name="respuesta" class="form-control" placeholder="Responder..." required>
-                                                    <button type="submit" class="btn btn-success"><i class="fa fa-reply"></i></button>
-                                                </div>
-                                            </form>
-                                        <?php endif; ?>
-                                    </li>
-                                <?php endwhile; ?>
-                            </ul>
-                        <?php endif; ?>
+
+                    <?php
+                    // Mostrar mensajes del hilo entre el usuario actual y el usuario seleccionado
+                    $stmt_mensajes = $conn->prepare(
+                        "SELECT m.*, 
+                                u1.nombre_completo AS nombre_remitente, 
+                                u2.nombre_completo AS nombre_destinatario
+                        FROM mensajes_trueque m
+                        JOIN usuarios u1 ON m.de_usuario_id = u1.id
+                        JOIN usuarios u2 ON m.para_usuario_id = u2.id
+                        WHERE m.trueque_id = ?
+                        ORDER BY m.fecha_envio ASC"
+                    );
+                    $stmt_mensajes->bind_param("i", $trueque['id']);
+                    $stmt_mensajes->execute();
+                    $res_mensajes = $stmt_mensajes->get_result();
+                    $mensajes = [];
+                    while($msg = $res_mensajes->fetch_assoc()) {
+                        $mensajes[$msg['respuesta_a_id']][] = $msg;
+                    }
+                    $stmt_mensajes->close();
+
+                    // Función recursiva para mostrar mensajes y respuestas
+                    function mostrar_mensajes($mensajes, $padre_id = null, $dueno_trueque_id, $usuario_actual_id, $nivel = 0) {
+                        if(empty($mensajes[$padre_id])) return;
+                        foreach($mensajes[$padre_id] as $msg) {
+                            $es_dueno = $msg['de_usuario_id'] == $dueno_trueque_id;
+                            $bg = $es_dueno ? 'background:#e6ffe6;' : 'background:#f0f0f0;';
+                            $margin_left = $nivel * 40;
+                            $align = $es_dueno ? 'text-align:right;' : '';
+                            $form_id = 'form-responder-'.$msg['id'];
+                            echo '<div class="mb-2" style="margin-left:'.$margin_left.'px;'.$align.'">';
+                            // INICIO BURBUJA
+                            echo '<div class="list-group-item" style="'.$bg.';border-radius:18px;box-shadow:0 1px 4px #0001;display:inline-block;max-width:90%;">';
+                            echo '<strong>'.htmlspecialchars($msg['nombre_remitente']).':</strong> ';
+                            echo nl2br(htmlspecialchars($msg['mensaje']));
+                            echo '<br><small class="text-muted">'.date('d/m/Y H:i', strtotime($msg['fecha_envio'])).'</small>';
+                            // SOLO mostrar "Responder" en mensajes raíz (nivel 0)
+                            if($nivel == 0 && isset($_SESSION['numero_documento']) && $usuario_actual_id) {
+                                echo '<div style="margin-top:6px;">';
+                                echo '<a href="javascript:void(0);" class="btn btn-outline-primary btn-sm" style="border-radius:12px;padding:2px 12px;font-size:0.95em;" onclick="mostrarFormulario(\''.$form_id.'\')">Responder</a>';
+                                // Formulario oculto por defecto
+                                echo '<div id="'.$form_id.'" style="display:none;margin-top:8px;">';
+                                echo '<form method="POST" action="enviar_mensaje_trueque.php">';
+                                echo '<input type="hidden" name="trueque_id" value="'.intval($msg['trueque_id']).'">';
+                                echo '<input type="hidden" name="de_usuario_id" value="'.$usuario_actual_id.'">';
+                                echo '<input type="hidden" name="para_usuario_id" value="'.$msg['de_usuario_id'].'">';
+                                echo '<input type="hidden" name="respuesta_a_id" value="'.$msg['id'].'">';
+                                echo '<textarea name="mensaje" class="form-control mb-2" rows="1" placeholder="Responder a '.htmlspecialchars($msg['nombre_remitente']).'" required></textarea>';
+                                echo '<button type="submit" class="btn btn-primary btn-sm">Enviar respuesta</button>';
+                                echo '</form>';
+                                echo '</div>';
+                                echo '</div>';
+                            }
+                            echo '</div>'; // FIN BURBUJA
+                            // Mostrar respuestas anidadas (nivel + 1)
+                            mostrar_mensajes($mensajes, $msg['id'], $dueno_trueque_id, $usuario_actual_id, $nivel + 1);
+                            echo '</div>';
+                        }
+                    }
+                    ?>
+
+                    <div id="mensajes" class="mb-3 mt-4">
+                        <h6><i class="fa fa-comments text-success"></i> Conversación</h6>
+                        <?php
+                        if(empty($mensajes[null])) {
+                            echo '<div class="text-muted">No hay mensajes aún.</div>';
+                        } else {
+                            mostrar_mensajes($mensajes, null, $dueno_trueque_id, $usuario_actual_id);
+                        }
+                        ?>
                     </div>
-                    <?php $stmt_preguntas->close(); ?>
+
+                    <!-- Formulario para que cualquier usuario escriba al dueño (mensaje raíz) -->
+                    <?php if(isset($_SESSION['numero_documento']) && $usuario_actual_id != $dueno_trueque_id): ?>
+                    <form method="POST" action="enviar_mensaje_trueque.php" class="mt-3">
+                        <input type="hidden" name="trueque_id" value="<?php echo $trueque['id']; ?>">
+                        <input type="hidden" name="de_usuario_id" value="<?php echo $usuario_actual_id; ?>">
+                        <input type="hidden" name="para_usuario_id" value="<?php echo $dueno_trueque_id; ?>">
+                        <textarea name="mensaje" class="form-control mb-2" rows="2" placeholder="Escribe tu mensaje..." required></textarea>
+                        <button type="submit" class="btn btn-success btn-sm">Enviar mensaje</button>
+                        <input type="hidden" name="respuesta_a_id" value="">
+                    </form>
+                    <?php endif; ?>
+                    <!-- FIN BLOQUE DE CHAT/HILO -->                  
                 </div>
             </div>
         </div>
@@ -707,6 +783,18 @@ $trueques_publicados = $result->fetch_all(MYSQLI_ASSOC);
             });
         });
     });
+    </script>
+
+    <script>
+    function mostrarFormulario(id) {
+        // Oculta todos los formularios primero
+        document.querySelectorAll('[id^="form-responder-"]').forEach(function(div) {
+            div.style.display = 'none';
+        });
+        // Muestra solo el formulario seleccionado
+        var form = document.getElementById(id);
+        if(form) form.style.display = 'block';
+    }
     </script>
 </body>
 </html>
