@@ -288,10 +288,9 @@ if ($usuario['rol'] === 'administrador') {
                 <div class="col-lg-8 mx-auto">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb justify-content-center mb-0" style="background: transparent;">
-                            <li class="breadcrumb-item">
-                                <a class="text-white" href="index.php">Inicio</a>
-                            </li>
-                            <li class="breadcrumb-item text-white active" aria-current="page">Perfil</li>
+                            <li class="breadcrumb-item"><a class="text-white" href="index.php">Inicio</a></li>
+                            <li class="breadcrumb-item"><a class="text-white" href="trueques.php">Trueques</a></li>
+                            <li class="breadcrumb-item"><a class="text-white" href="aprende.php">Aprende</a></li>
                         </ol>
                     </nav>
                 </div>      

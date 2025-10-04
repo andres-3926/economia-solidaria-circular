@@ -432,3 +432,57 @@
     padding-right: 0;
     border-right: none;
 }
+
+.header-trueques {
+    background: linear-gradient(rgba(24, 29, 56, .7), rgba(24, 29, 56, .7)), url(../img/trueque.png) !important;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+}
+
+.header-aprende {
+    background: linear-gradient(rgba(24, 29, 56, .7), rgba(24, 29, 56, .7)), url(../img/portada.JPG) !important;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+}
+
+.header-aprende {
+    min-height: 700px;
+    display: flex;
+    align-items: center;
+}
+
+.logo-sena-header {
+    height: 150px; /* Ajusta el tamaño según lo necesites */
+}
+
+.header-aprende-h3 {
+    color: #ff9800 !important; /* Cambia este color por el que prefieras */
+    text-align: right;
+    max-width: 60%;
+}
+
+.header-aprende-botton {
+    width: 100%;
+    position: absolute;
+    right: 0px;
+    left: 0px;
+    padding-right: 40px;
+    padding-left: 40px;
+    bottom: 20px;
+    z-index: 2;
+}
+
+.breadcrumb .breadcrumb-item a {
+    background-color: #43be16 !important;
+    color: #fff !important;
+    padding: 6px 16px;
+    border-radius: 20px;
+    text-decoration: none;
+    transition: background 0.2s;
+}
+.breadcrumb .breadcrumb-item a:hover {
+    background-color: #369d12 !important;
+    color: #fff !important;
+}

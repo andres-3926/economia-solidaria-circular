@@ -1,9 +1,48 @@
+<?php
+$pagina_activa = 'aprende';
+session_start();
+include("conexion.php");
+
+    // Array de páginas de la cartilla, incluyendo la portada como página 0
+    $cartilla = [
+        [
+            "tipo" => "portada",
+            "titulo" => '"Reciclando Juntas Produciendo Futuro"',
+            "subtitulo" => '"Economía Solidaria y Circular para Unidades Productivas de Cali".',
+            "frase" => '"El SENA te acompaña en la construcción de un futuro más próspero y sostenible."',
+            "logo" => "img/Logo-sena-blanco-sin-fondo.webp"
+        ],
+        [
+            "tipo" => "contenido",
+            "titulo" => "¡Hola, Emprendedora!",
+            "texto" => "Sabemos que tu esfuerzo diario construye futuro. Esta guía está diseñada para acompañarte en un viaje donde cada residuo se convierte en una nueva oportunidad para tu negocio y tu comunidad. ¡Juntas vamos a transformar Cali!",
+            "imagen" => "img/bienvenida.jpg"
+        ],
+        [
+            "tipo" => "contenido",
+            "titulo" => "Por Qué Esta Guía Es Para Ti",
+            "texto" => "<ul>
+                <li><b>Reduce Costos:</b> Menos gastos en materiales nuevos, menos dinero en basura.</li>
+                <li><b>Genera Ingresos Extra:</b> Transforma residuos en productos o vendiendo reciclables.</li>
+                <li><b>Mejora tu Entorno:</b> Contribuye a una comunidad más limpia y sana.</li>
+                <li><b>Fortalece Tu Comunidad:</b> Trabaja en equipo y conecta con otras emprendedoras.</li>
+            </ul>",
+            "logo" => "img/Logo-sena-blanco-sin-fondo.webp"
+        ]
+        // ...agrega el resto de páginas aquí...
+    ];
+
+    // Página actual (por defecto 0 = portada)
+    $pagina = isset($_GET['pagina']) ? intval($_GET['pagina']) : 0;
+    $total_paginas = count($cartilla);
+    ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="utf-8">
-    <title>Reciclando Juntas Produciendo Futuro</title>
+    <title>Aprende</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -18,7 +57,7 @@
 
     <!-- Icon Font Stylesheet -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
 
     <!-- Libraries Stylesheet -->
     <link href="/economia-solidaria-circular/lib/animate/animate.min.css" rel="stylesheet">
@@ -40,253 +79,109 @@
     </div>
     <!-- Spinner End -->
 
-
     <!-- Navbar Start -->
     <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
         <a href="index.php" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
-            <h2 class="m-0 text-primary"><i class="fa fa-book me-3"></i>eLEARNING</h2>
+        <h2 class="m-0 text-shadow" style="color: #43be16;"><i class="fa-solid fa-recycle fa-beat fa-xl me-4"></i>Economía Solidaria y Circular</h2>
         </a>
         <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto p-4 p-lg-0">
-                <a href="index.html" class="nav-item nav-link">Home</a>  
-                <a href="trueques.html" class="nav-item nav-link">Trueques</a>
-                <a href="courses.html" class="nav-item nav-link active">Courses</a>
+                <a href="index.php" class="nav-item nav-link<?php echo $pagina_activa === 'inicio' ? ' active text-primary' : ' text-dark'; ?>">Inicio</a>
+                <a href="trueques.php#trueques" class="nav-item nav-link<?php echo $pagina_activa === 'trueques' ? ' active text-primary' : ' text-dark'; ?>">Trueques</a>
+                <a href="aprende.php" class="nav-item nav-link<?php echo $pagina_activa === 'aprende' ? ' active text-primary' : ' text-dark'; ?>">Aprende</a>                
                 <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
+                    <a href="#" class="nav-link dropdown-toggle<?php echo $pagina_activa === 'comunidades' ? ' active text-primary' : ' text-dark'; ?>" data-bs-toggle="dropdown">Comunidades</a>
                     <div class="dropdown-menu fade-down m-0">
                         <a href="team.html" class="dropdown-item">Our Team</a>
                         <a href="testimonial.html" class="dropdown-item">Testimonial</a>
                         <a href="404.html" class="dropdown-item">404 Page</a>
                     </div>
                 </div>
-                <a href="contact.html" class="nav-item nav-link">Contact</a>
+                <?php
+                if(isset($_SESSION['numero_documento'])) {
+                    $clase_perfil = $pagina_activa === 'perfil' ? ' active text-primary' : ' text-dark';
+                    echo '<a href="perfil.php" class="nav-item nav-link' . $clase_perfil . '">Perfil</a>';
+                }
+                ?>
+                <?php
+                if (isset($_SESSION['numero_documento'])) {
+                    //Boton de cerrar sesión
+                    echo '<a href="logout.php" class="btn py-4 px-lg-5 d-none d-lg-block text-white" style="background-color: #43be16;">Cerrar sesión<i class="fa fa-arrow-right ms-3"></i></a>';
+                }else {
+                    //Boton registrate ahora solo si NO está logueado
+                    echo '<a href="registro.php" class="btn py-4 px-lg-5 d-none d-lg-block text-white" style="background-color: #43be16;">Registrate Ahora<i class="fa fa-arrow-right ms-3"></i></a>';  
+                }
+                ?>    
             </div>
-            <a href="" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block">Join Now<i class="fa fa-arrow-right ms-3"></i></a>
         </div>
     </nav>
     <!-- Navbar End -->
 
-
-    <!-- Header Start -->
-    <div class="container-fluid bg-primary py-5 mb-5 page-header">
-        <div class="container py-5">
+    <!-- Cartilla Virtual: Portada y páginas siguientes con mismo estilo -->
+    <?php if ($cartilla[$pagina]['tipo'] === 'portada'): ?>
+    <div class="container-fluid bg-primary py-5 mb-5 page-header header-aprende" style="position: relative;">
+        <div class="container pt-0 py-5">
             <div class="row justify-content-center">
                 <div class="col-lg-10 text-center">
-                    <h1 class="display-3 text-white animated slideInDown">Courses</h1>
-                    <nav aria-label="breadcrumb">
+                    <h1 class="display-3 text-white animated slideInDown mb-2" style="margin-top: -20px;"><?php echo $cartilla[$pagina]['titulo']; ?></h1>  
+                    <h2 class="text-white mb-4" style="margin-top: 40px;"><?php echo $cartilla[$pagina]['subtitulo']; ?></h2>                                      
+                    <nav aria-label="breadcrumb" class="position-relative">
                         <ol class="breadcrumb justify-content-center">
-                            <li class="breadcrumb-item"><a class="text-white" href="#">Home</a></li>
-                            <li class="breadcrumb-item"><a class="text-white" href="#">Pages</a></li>
-                            <li class="breadcrumb-item text-white active" aria-current="page">Courses</li>
+                            <li class="breadcrumb-item"><a class="text-white" href="index.php">Inicio</a></li>
+                            <li class="breadcrumb-item"><a class="text-white" href="trueques.php">Trueques</a></li>
                         </ol>
+                        <a href="aprende.php?pagina=1" class="btn btn-lg text-white position-absolute end-0 top-50 translate-middle-y" style="background-color: #43be16; z-index: 2;">
+                            Siguiente <i class="fa fa-arrow-right ms-2"></i>
+                        </a>
                     </nav>
+                    <div class="header-aprende-botton d-flex justify-content-end align-items-end mt-5" style="min-height: 120px;">
+                        <h3 class="text-white mb-4 header-aprende-h3" style="margin-right: 60px;"><?php echo $cartilla[$pagina]['frase']; ?></h3>                    
+                        <img src="<?php echo $cartilla[$pagina]['logo']; ?>" alt="Logo SENA" class="logo-sena-header" style="height: 150px;">
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- Header End -->
-
-
-    <!-- Categories Start -->
-    <div class="container-xxl py-5 category">
-        <div class="container">
-            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-                <h6 class="section-title bg-white text-center text-primary px-3">Categories</h6>
-                <h1 class="mb-5">Courses Categories</h1>
-            </div>
-            <div class="row g-3">
-                <div class="col-lg-7 col-md-6">
-                    <div class="row g-3">
-                        <div class="col-lg-12 col-md-12 wow zoomIn" data-wow-delay="0.1s">
-                            <a class="position-relative d-block overflow-hidden" href="">
-                                <img class="img-fluid" src="img/cat-1.jpg" alt="">
-                                <div class="bg-white text-center position-absolute bottom-0 end-0 py-2 px-3" style="margin: 1px;">
-                                    <h5 class="m-0">Web Design</h5>
-                                    <small class="text-primary">49 Courses</small>
-                                </div>
+    <?php else: ?>
+    <div class="container-fluid bg-primary py-5 mb-5 page-header header-aprende" style="position: relative;">
+        <div class="container pt-0 py-5">
+            <div class="row justify-content-center">
+                <div class="col-lg-10 text-center">
+                    <h1 class="display-5 text-white animated slideInDown mb-2"><?php echo $cartilla[$pagina]['titulo']; ?></h1>
+                    <?php if (!empty($cartilla[$pagina]['subtitulo'])): ?>
+                        <h2 class="text-white mb-4" style="margin-top: 40px;"><?php echo $cartilla[$pagina]['subtitulo']; ?></h2>
+                    <?php endif; ?>
+                    <?php if (isset($cartilla[$pagina]['imagen'])): ?>
+                        <img src="<?php echo $cartilla[$pagina]['imagen']; ?>" class="img-fluid mb-4 rounded" alt="Imagen de la sección" style="max-height: 300px;">
+                    <?php endif; ?>
+                    <?php if (isset($cartilla[$pagina]['texto'])): ?>
+                        <div class="mb-3 text-white fs-5 text-start d-inline-block" style="max-width: 700px;"><?php echo $cartilla[$pagina]['texto']; ?></div>
+                    <?php endif; ?>
+                    <?php if (isset($cartilla[$pagina]['logo'])): ?>
+                        <div class="mt-3">
+                            <img src="<?php echo $cartilla[$pagina]['logo']; ?>" style="height: 60px;" alt="Logo SENA">
+                        </div>
+                    <?php endif; ?>
+                    <div class="d-flex justify-content-between align-items-center mt-5">
+                        <a href="aprende.php?pagina=<?php echo $pagina-1; ?>" class="btn btn-lg text-white" style="background-color: #43be16;">
+                            <i class="fa fa-arrow-left me-2"></i> Anterior
+                        </a>
+                        <?php if ($pagina < $total_paginas-1): ?>
+                            <a href="aprende.php?pagina=<?php echo $pagina+1; ?>" class="btn btn-lg text-white" style="background-color: #43be16;">
+                                Siguiente <i class="fa fa-arrow-right ms-2"></i>
                             </a>
-                        </div>
-                        <div class="col-lg-6 col-md-12 wow zoomIn" data-wow-delay="0.3s">
-                            <a class="position-relative d-block overflow-hidden" href="">
-                                <img class="img-fluid" src="img/cat-2.jpg" alt="">
-                                <div class="bg-white text-center position-absolute bottom-0 end-0 py-2 px-3" style="margin: 1px;">
-                                    <h5 class="m-0">Graphic Design</h5>
-                                    <small class="text-primary">49 Courses</small>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-lg-6 col-md-12 wow zoomIn" data-wow-delay="0.5s">
-                            <a class="position-relative d-block overflow-hidden" href="">
-                                <img class="img-fluid" src="img/cat-3.jpg" alt="">
-                                <div class="bg-white text-center position-absolute bottom-0 end-0 py-2 px-3" style="margin: 1px;">
-                                    <h5 class="m-0">Video Editing</h5>
-                                    <small class="text-primary">49 Courses</small>
-                                </div>
-                            </a>
-                        </div>
+                        <?php endif; ?>
                     </div>
-                </div>
-                <div class="col-lg-5 col-md-6 wow zoomIn" data-wow-delay="0.7s" style="min-height: 350px;">
-                    <a class="position-relative d-block h-100 overflow-hidden" href="">
-                        <img class="img-fluid position-absolute w-100 h-100" src="img/cat-4.jpg" alt="" style="object-fit: cover;">
-                        <div class="bg-white text-center position-absolute bottom-0 end-0 py-2 px-3" style="margin:  1px;">
-                            <h5 class="m-0">Online Marketing</h5>
-                            <small class="text-primary">49 Courses</small>
-                        </div>
-                    </a>
+                    <div class="mt-2 text-white-50">Página <?php echo $pagina+1; ?> de <?php echo $total_paginas; ?></div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- Categories Start -->
-
-
-    <!-- Courses Start -->
-    <div class="container-xxl py-5">
-        <div class="container">
-            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-                <h6 class="section-title bg-white text-center text-primary px-3">Courses</h6>
-                <h1 class="mb-5">Popular Courses</h1>
-            </div>
-            <div class="row g-4 justify-content-center">
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="course-item bg-light">
-                        <div class="position-relative overflow-hidden">
-                            <img class="img-fluid" src="img/course-1.jpg" alt="">
-                            <div class="w-100 d-flex justify-content-center position-absolute bottom-0 start-0 mb-4">
-                                <a href="#" class="flex-shrink-0 btn btn-sm btn-primary px-3 border-end" style="border-radius: 30px 0 0 30px;">Read More</a>
-                                <a href="#" class="flex-shrink-0 btn btn-sm btn-primary px-3" style="border-radius: 0 30px 30px 0;">Join Now</a>
-                            </div>
-                        </div>
-                        <div class="text-center p-4 pb-0">
-                            <h3 class="mb-0">$149.00</h3>
-                            <div class="mb-3">
-                                <small class="fa fa-star text-primary"></small>
-                                <small class="fa fa-star text-primary"></small>
-                                <small class="fa fa-star text-primary"></small>
-                                <small class="fa fa-star text-primary"></small>
-                                <small class="fa fa-star text-primary"></small>
-                                <small>(123)</small>
-                            </div>
-                            <h5 class="mb-4">Web Design & Development Course for Beginners</h5>
-                        </div>
-                        <div class="d-flex border-top">
-                            <small class="flex-fill text-center border-end py-2"><i class="fa fa-user-tie text-primary me-2"></i>John Doe</small>
-                            <small class="flex-fill text-center border-end py-2"><i class="fa fa-clock text-primary me-2"></i>1.49 Hrs</small>
-                            <small class="flex-fill text-center py-2"><i class="fa fa-user text-primary me-2"></i>30 Students</small>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="course-item bg-light">
-                        <div class="position-relative overflow-hidden">
-                            <img class="img-fluid" src="img/course-2.jpg" alt="">
-                            <div class="w-100 d-flex justify-content-center position-absolute bottom-0 start-0 mb-4">
-                                <a href="#" class="flex-shrink-0 btn btn-sm btn-primary px-3 border-end" style="border-radius: 30px 0 0 30px;">Read More</a>
-                                <a href="#" class="flex-shrink-0 btn btn-sm btn-primary px-3" style="border-radius: 0 30px 30px 0;">Join Now</a>
-                            </div>
-                        </div>
-                        <div class="text-center p-4 pb-0">
-                            <h3 class="mb-0">$149.00</h3>
-                            <div class="mb-3">
-                                <small class="fa fa-star text-primary"></small>
-                                <small class="fa fa-star text-primary"></small>
-                                <small class="fa fa-star text-primary"></small>
-                                <small class="fa fa-star text-primary"></small>
-                                <small class="fa fa-star text-primary"></small>
-                                <small>(123)</small>
-                            </div>
-                            <h5 class="mb-4">Web Design & Development Course for Beginners</h5>
-                        </div>
-                        <div class="d-flex border-top">
-                            <small class="flex-fill text-center border-end py-2"><i class="fa fa-user-tie text-primary me-2"></i>John Doe</small>
-                            <small class="flex-fill text-center border-end py-2"><i class="fa fa-clock text-primary me-2"></i>1.49 Hrs</small>
-                            <small class="flex-fill text-center py-2"><i class="fa fa-user text-primary me-2"></i>30 Students</small>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                    <div class="course-item bg-light">
-                        <div class="position-relative overflow-hidden">
-                            <img class="img-fluid" src="img/course-3.jpg" alt="">
-                            <div class="w-100 d-flex justify-content-center position-absolute bottom-0 start-0 mb-4">
-                                <a href="#" class="flex-shrink-0 btn btn-sm btn-primary px-3 border-end" style="border-radius: 30px 0 0 30px;">Read More</a>
-                                <a href="#" class="flex-shrink-0 btn btn-sm btn-primary px-3" style="border-radius: 0 30px 30px 0;">Join Now</a>
-                            </div>
-                        </div>
-                        <div class="text-center p-4 pb-0">
-                            <h3 class="mb-0">$149.00</h3>
-                            <div class="mb-3">
-                                <small class="fa fa-star text-primary"></small>
-                                <small class="fa fa-star text-primary"></small>
-                                <small class="fa fa-star text-primary"></small>
-                                <small class="fa fa-star text-primary"></small>
-                                <small class="fa fa-star text-primary"></small>
-                                <small>(123)</small>
-                            </div>
-                            <h5 class="mb-4">Web Design & Development Course for Beginners</h5>
-                        </div>
-                        <div class="d-flex border-top">
-                            <small class="flex-fill text-center border-end py-2"><i class="fa fa-user-tie text-primary me-2"></i>John Doe</small>
-                            <small class="flex-fill text-center border-end py-2"><i class="fa fa-clock text-primary me-2"></i>1.49 Hrs</small>
-                            <small class="flex-fill text-center py-2"><i class="fa fa-user text-primary me-2"></i>30 Students</small>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Courses End -->
-
-
-    <!-- Testimonial Start -->
-    <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
-        <div class="container">
-            <div class="text-center">
-                <h6 class="section-title bg-white text-center text-primary px-3">Testimonial</h6>
-                <h1 class="mb-5">Our Students Say!</h1>
-            </div>
-            <div class="owl-carousel testimonial-carousel position-relative">
-                <div class="testimonial-item text-center">
-                    <img class="border rounded-circle p-2 mx-auto mb-3" src="img/testimonial-1.jpg" style="width: 80px; height: 80px;">
-                    <h5 class="mb-0">Client Name</h5>
-                    <p>Profession</p>
-                    <div class="testimonial-text bg-light text-center p-4">
-                    <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>
-                    </div>
-                </div>
-                <div class="testimonial-item text-center">
-                    <img class="border rounded-circle p-2 mx-auto mb-3" src="img/testimonial-2.jpg" style="width: 80px; height: 80px;">
-                    <h5 class="mb-0">Client Name</h5>
-                    <p>Profession</p>
-                    <div class="testimonial-text bg-light text-center p-4">
-                    <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>
-                    </div>
-                </div>
-                <div class="testimonial-item text-center">
-                    <img class="border rounded-circle p-2 mx-auto mb-3" src="img/testimonial-3.jpg" style="width: 80px; height: 80px;">
-                    <h5 class="mb-0">Client Name</h5>
-                    <p>Profession</p>
-                    <div class="testimonial-text bg-light text-center p-4">
-                    <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>
-                    </div>
-                </div>
-                <div class="testimonial-item text-center">
-                    <img class="border rounded-circle p-2 mx-auto mb-3" src="img/testimonial-4.jpg" style="width: 80px; height: 80px;">
-                    <h5 class="mb-0">Client Name</h5>
-                    <p>Profession</p>
-                    <div class="testimonial-text bg-light text-center p-4">
-                    <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Testimonial End -->
-        
+    <?php endif; ?>
+    <!-- Fin Cartilla Virtual -->
 
     <!-- Footer Start -->
     <div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
@@ -369,7 +264,6 @@
     </div>
     <!-- Footer End -->
 
-
     <!-- Back to Top -->
     <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
 
@@ -384,6 +278,11 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
-</body>
 
+    <script>
+    document.getElementById('btn-siguiente-header').onclick = function() {
+        window.location.href = "categorias.php";
+    };
+    </script>
+</body>
 </html>

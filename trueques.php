@@ -323,7 +323,7 @@ $trueques_publicados = $result->fetch_all(MYSQLI_ASSOC);
     <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
 
     <!-- Icon Font Stylesheet -->
-   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
 
     <!-- Libraries Stylesheet -->
@@ -399,7 +399,7 @@ $trueques_publicados = $result->fetch_all(MYSQLI_ASSOC);
 
 
         <!-- Header Start -->
-        <div class="container-fluid bg-primary py-5 mb-5 page-header">
+        <div class="container-fluid bg-primary py-5 mb-5 page-header header-trueques">
             <div class="container py-5">
                 <div class="row justify-content-center">
                     <div class="col-lg-10 text-center">
@@ -410,7 +410,9 @@ $trueques_publicados = $result->fetch_all(MYSQLI_ASSOC);
                         </p>
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb justify-content-center">
-                                <li class="breadcrumb-item"><a class="text-white" href="index.php">Inicio</a></li>                        
+                                <li class="breadcrumb-item"><a class="text-white" href="index.php">Inicio</a></li>
+                                <li class="breadcrumb-item"><a class="text-white" href="aprende.php">Aprende</a></li>
+                                <li class="breadcrumb-item"><a class="text-white" href="perfil.php">Perfil</a></li>
                             </ol>
                         </nav>
                         <a class="btn btn-success py-3 px-5 mt-2" href="#trueques-publicados">Ver Trueques Publicados</a>
