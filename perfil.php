@@ -1,4 +1,5 @@
 <?php
+$pagina_activa = 'perfil';
 session_start();
 include("conexion.php");
 
@@ -197,17 +198,18 @@ if ($usuario['rol'] === 'administrador') {
 
     <!-- Navbar Start -->
     <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
-        <a href="index.php" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
-            <h2 class="m-0 text-shadow" style="color: #43be16;"><i class="fa-solid fa-recycle fa-beat fa-xl me-4"></i>Economía Solidaria y Circular</h2>
+        <a href="index.php" class="navbar-brand d-flex align-items-center px-2 px-lg-5">
+            <h2 class="m-0 text-shadow titulo-navbar text-break" style="color: #43be16;"><i class="fa-solid fa-recycle fa-beat fa-xl me-2"></i>Economía Solidaria y Circular</h2>
         </a>
         <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto p-4 p-lg-0">
-                <a href="index.php" class="nav-item nav-link fw-bold">Inicio</a>
-                <a href="trueques.php" class="nav-item nav-link fw-bold">Trueques</a>
-                <a href="perfil.php" class="nav-item nav-link active fw-bold">Perfil</a>
+                <a href="index.php" class="nav-item nav-link <?php echo $pagina_activa === 'inicio' ? 'active text-primary' : 'text-dark'; ?> fw-bold">Inicio</a>
+                <a href="trueques.php" class="nav-item nav-link <?php echo $pagina_activa === 'trueques' ? 'active text-primary' : 'text-dark'; ?> fw-bold">Trueques</a>
+                <a href="aprende.php" class="nav-item nav-link <?php echo $pagina_activa === 'aprende' ? 'active text-primary' : 'text-dark'; ?> fw-bold">Aprende</a>
+                <a href="perfil.php" class="nav-item nav-link <?php echo $pagina_activa === 'perfil' ? 'active text-primary' : 'text-dark'; ?> fw-bold">Perfil</a>
                 <?php if (isset($usuario['rol']) && $usuario['rol'] === 'administrador'): ?>
                     <a href="admin_panel.php" 
                         class="nav-item nav-link fw-bold <?php echo ($noti_pendientes > 0 ? 'animate__animated animate__flash animate__infinite' : ''); ?>">

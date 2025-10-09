@@ -3,14 +3,20 @@ $pagina_activa = 'aprende';
 session_start();
 include("conexion.php");
 
+if (!isset($_SESSION['numero_documento'])) {
+    header('Location: login.php');
+    exit;
+}
+
     // Array de páginas de la cartilla, incluyendo la portada como página 0
     $cartilla = [
         [
             "tipo" => "portada",
-            "titulo" => '"Reciclando Juntas Produciendo Futuro"',
-            "subtitulo" => '"Economía Solidaria y Circular para Unidades Productivas de Cali".',
-            "frase" => '"El SENA te acompaña en la construcción de un futuro más próspero y sostenible."',
-            "logo" => "img/Logo-sena-blanco-sin-fondo.webp"
+            "titulo" => 'Reciclando Juntas Produciendo Futuro',
+            "subtitulo" => 'Economía Solidaria y Circular para Unidades Productivas de Cali.',
+            "frase" => 'El SENA te acompaña en la construcción de un futuro más próspero y sostenible.',
+            "logo" => "img/Logo-sena-blanco-sin-fondo.webp",
+            "fondo" => "img/afro.webp" 
         ],
         [
             "tipo" => "contenido",
@@ -56,18 +62,17 @@ include("conexion.php");
     <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
 
     <!-- Icon Font Stylesheet -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
 
     <!-- Libraries Stylesheet -->
-    <link href="/economia-solidaria-circular/lib/animate/animate.min.css" rel="stylesheet">
-    <link href="/economia-solidaria-circular/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
 
     <!-- Customized Bootstrap Stylesheet -->
-    <link href="/economia-solidaria-circular/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Template Stylesheet -->
-    <link href="/economia-solidaria-circular/css/style.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
 </head>
 
 <body>
@@ -81,68 +86,87 @@ include("conexion.php");
 
     <!-- Navbar Start -->
     <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
-        <a href="index.php" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
-        <h2 class="m-0 text-shadow" style="color: #43be16;"><i class="fa-solid fa-recycle fa-beat fa-xl me-4"></i>Economía Solidaria y Circular</h2>
+        <a href="index.php" class="navbar-brand d-flex align-items-center px-2 px-lg-5">
+        <h2 class="m-0 text-shadow titulo-navbar text-break" style="color: #43be16;"><i class="fa-solid fa-recycle fa-beat fa-xl me-2"></i>Economía Solidaria y Circular</h2>
         </a>
         <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
-            <div class="navbar-nav ms-auto p-4 p-lg-0">
-                <a href="index.php" class="nav-item nav-link<?php echo $pagina_activa === 'inicio' ? ' active text-primary' : ' text-dark'; ?>">Inicio</a>
-                <a href="trueques.php#trueques" class="nav-item nav-link<?php echo $pagina_activa === 'trueques' ? ' active text-primary' : ' text-dark'; ?>">Trueques</a>
-                <a href="aprende.php" class="nav-item nav-link<?php echo $pagina_activa === 'aprende' ? ' active text-primary' : ' text-dark'; ?>">Aprende</a>                
-                <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle<?php echo $pagina_activa === 'comunidades' ? ' active text-primary' : ' text-dark'; ?>" data-bs-toggle="dropdown">Comunidades</a>
-                    <div class="dropdown-menu fade-down m-0">
-                        <a href="team.html" class="dropdown-item">Our Team</a>
-                        <a href="testimonial.html" class="dropdown-item">Testimonial</a>
-                        <a href="404.html" class="dropdown-item">404 Page</a>
-                    </div>
-                </div>
+            <ul class="navbar-nav ms-auto p-4 p-lg-0">
+                <li class="nav-item">
+                    <a href="index.php" class="nav-link<?php echo $pagina_activa === 'inicio' ? ' active text-primary' : ' text-dark'; ?>">Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a href="trueques.php#trueques" class="nav-link<?php echo $pagina_activa === 'trueques' ? ' active text-primary' : ' text-dark'; ?>">Trueques</a>
+                </li>  
+                <li class="nav-item">
+                    <a href="aprende.php" class="nav-link<?php echo $pagina_activa === 'aprende' ? ' active text-primary' : ' text-dark'; ?>">Aprende</a>
+                </li>            
                 <?php
                 if(isset($_SESSION['numero_documento'])) {
                     $clase_perfil = $pagina_activa === 'perfil' ? ' active text-primary' : ' text-dark';
-                    echo '<a href="perfil.php" class="nav-item nav-link' . $clase_perfil . '">Perfil</a>';
+                    echo '<li class="nav-item"><a href="perfil.php" class="nav-link' . $clase_perfil . '">Perfil</a></li>';
                 }
                 ?>
                 <?php
                 if (isset($_SESSION['numero_documento'])) {
-                    //Boton de cerrar sesión
-                    echo '<a href="logout.php" class="btn py-4 px-lg-5 d-none d-lg-block text-white" style="background-color: #43be16;">Cerrar sesión<i class="fa fa-arrow-right ms-3"></i></a>';
-                }else {
-                    //Boton registrate ahora solo si NO está logueado
-                    echo '<a href="registro.php" class="btn py-4 px-lg-5 d-none d-lg-block text-white" style="background-color: #43be16;">Registrate Ahora<i class="fa fa-arrow-right ms-3"></i></a>';  
+                    // Escritorio
+                    echo '<li class="nav-item d-none d-lg-block">
+                        <a href="logout.php" class="btn btn-success cerrar-sesion-btn mx-auto px-4 py-2" style="background-color: #43be16; min-width: 150px;">
+                            Cerrar sesión <i class="fa fa-arrow-right ms-2"></i>
+                        </a>
+                    </li>';
+                    // Móvil
+                    echo '<li class="nav-item d-block d-lg-none">
+                        <a href="logout.php" class="btn btn-success cerrar-sesion-btn mx-auto my-4 px-4 py-2" style="background-color: #43be16; min-width: 150px;">
+                            Cerrar sesión <i class="fa fa-arrow-right ms-2"></i>
+                        </a>
+                    </li>';
+                } else {
+                    // Escritorio
+                    echo '<li class="nav-item d-none d-lg-block">
+                        <a href="registro.php" class="btn btn-success cerrar-sesion-btn mx-auto px-4 py-2" style="background-color: #43be16; min-width: 150px;">
+                            Registrate Ahora <i class="fa fa-arrow-right ms-2"></i>
+                        </a>
+                    </li>';
+                    // Móvil
+                    echo '<li class="nav-item d-block d-lg-none">
+                        <a href="registro.php" class="btn btn-success cerrar-sesion-btn mx-auto my-4 px-4 py-2" style="background-color: #43be16; min-width: 150px;">
+                            Registrate Ahora <i class="fa fa-arrow-right ms-2"></i>
+                        </a>
+                    </li>';
                 }
-                ?>    
-            </div>
+                ?>
+            </ul>
         </div>
     </nav>
     <!-- Navbar End -->
 
     <!-- Cartilla Virtual: Portada y páginas siguientes con mismo estilo -->
     <?php if ($cartilla[$pagina]['tipo'] === 'portada'): ?>
-    <div class="container-fluid bg-primary py-5 mb-5 page-header header-aprende" style="position: relative;">
-        <div class="container pt-0 py-5">
-            <div class="row justify-content-center">
-                <div class="col-lg-10 text-center">
-                    <h1 class="display-3 text-white animated slideInDown mb-2" style="margin-top: -20px;"><?php echo $cartilla[$pagina]['titulo']; ?></h1>  
-                    <h2 class="text-white mb-4" style="margin-top: 40px;"><?php echo $cartilla[$pagina]['subtitulo']; ?></h2>                                      
-                    <nav aria-label="breadcrumb" class="position-relative">
-                        <ol class="breadcrumb justify-content-center">
-                            <li class="breadcrumb-item"><a class="text-white" href="index.php">Inicio</a></li>
-                            <li class="breadcrumb-item"><a class="text-white" href="trueques.php">Trueques</a></li>
-                        </ol>
-                        <a href="aprende.php?pagina=1" class="btn btn-lg text-white position-absolute end-0 top-50 translate-middle-y" style="background-color: #43be16; z-index: 2;">
+    <div class="container-fluid header-aprende"
+        style="position: relative; background-image: url('<?php echo $cartilla[$pagina]['fondo']; ?>'); background-size: cover; background-position: center;">
+        <div class="container-fluid pt-0 m-0 contenido-header" style="background: transparent;">
+            <div class="row g-0 justify-content-center mt-4">    
+                <div class="col-12 col-lg-10 mx-auto px-0">
+                    <h1 class="display-3 text-white animated slideInDown mb-5 mt-4 text-center">
+                        <?php echo $cartilla[$pagina]['titulo']; ?>
+                    </h1>
+                    <h2 class="text-white mb-5 mt-4 text-center">
+                        <?php echo $cartilla[$pagina]['subtitulo']; ?>
+                    </h2>                    
+                    <div class="text-end mt-4" style="padding-right: 1rem;">
+                        <a href="aprende.php?pagina=1" class="btn btn-lg text-white" style="background-color: #43be16;">
                             Siguiente <i class="fa fa-arrow-right ms-2"></i>
                         </a>
-                    </nav>
-                    <div class="header-aprende-botton d-flex justify-content-end align-items-end mt-5" style="min-height: 120px;">
-                        <h3 class="text-white mb-4 header-aprende-h3" style="margin-right: 60px;"><?php echo $cartilla[$pagina]['frase']; ?></h3>                    
-                        <img src="<?php echo $cartilla[$pagina]['logo']; ?>" alt="Logo SENA" class="logo-sena-header" style="height: 150px;">
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="header-aprende-botton d-flex justify-content-end align-items-end mt-5" style="min-height: 120px;">
+            <h3 class="text-white mb-4 header-aprende-h3" style="margin-left: 40px; margin-bottom: 0;"><?php echo $cartilla[$pagina]['frase']; ?></h3>                    
+            <img src="<?php echo $cartilla[$pagina]['logo']; ?>" alt="Logo SENA" class="logo-sena-header" style="height: 150px; margin-right: 40px;">            
         </div>
     </div>
     <?php else: ?>
@@ -162,7 +186,7 @@ include("conexion.php");
                     <?php endif; ?>
                     <?php if (isset($cartilla[$pagina]['logo'])): ?>
                         <div class="mt-3">
-                            <img src="<?php echo $cartilla[$pagina]['logo']; ?>" style="height: 60px;" alt="Logo SENA">
+                            <img src="<?php echo $cartilla[$pagina]['logo']; ?>" style="height: 100px;" alt="Logo SENA" class="logo-sena-header">
                         </div>
                     <?php endif; ?>
                     <div class="d-flex justify-content-between align-items-center mt-5">
@@ -278,11 +302,6 @@ include("conexion.php");
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
-
-    <script>
-    document.getElementById('btn-siguiente-header').onclick = function() {
-        window.location.href = "categorias.php";
-    };
-    </script>
+    
 </body>
 </html>

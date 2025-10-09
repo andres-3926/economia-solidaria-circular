@@ -9,7 +9,7 @@
     <meta content="" name="description">
 
     <!-- Favicon -->
-    <link href="/economia-solidaria-circular/img/favicon.ico" rel="icon">
+    <link href="img/favicon.ico" rel="icon">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,14 +21,14 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
 
     <!-- Libraries Stylesheet -->
-    <link href="/economia-solidaria-circular/lib/animate/animate.min.css" rel="stylesheet">
-    <link href="/economia-solidaria-circular/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
 
     <!-- Customized Bootstrap Stylesheet -->
-    <link href="/economia-solidaria-circular/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Template Stylesheet -->
-    <link href="/economia-solidaria-circular/css/style.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
 </head>
 
 <body>
@@ -42,19 +42,19 @@
 
     <!-- Navbar Start -->
     <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
-        <a href="inicio.php" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
-        <h2 class="m-0 text-shadow" style="color: #43be16;"><i class="fa-solid fa-recycle fa-beat fa-xl me-4"></i>Economía Solidaria y Circular</h2>
+        <a href="inicio.php" class="navbar-brand d-flex align-items-center px-2 px-lg-5">
+        <h2 class="m-0 text-shadow titulo-navbar text-break" style="color: #43be16;"><i class="fa-solid fa-recycle fa-beat fa-xl me-2"></i>Economía Solidaria y Circular</h2>
         </a>
     </nav>
     <!-- Navbar End -->
 
 
    <!-- Carousel Start -->
-<div class="container-fluid p-0 mb-5">
+<div class="container-fluid p-0 mb-5" style="min-height: 100vh;">
     <div class="owl-carousel header-carousel position-relative">
         <div class="owl-carousel-item position-relative">
             <img class="img-fluid" src="img/portada.jpg" alt="">
-            <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style="background: rgba(24, 29, 56, .7);">
+            <div class="overlay-carrusel" style="background: rgba(24, 29, 56, .7);">
                 <div class="container">
                     <div class="row justify-content-center"> <!-- Cambiado a center para mejor alineación -->
                         <div class="col-sm-12 col-lg-7">
@@ -151,8 +151,8 @@
                                                 </select>
                                             </div>
                                             <div class="col-md-4">
-                                                <label for="barrio" class="form-label">Barrio *</label>
-                                                <input type="text" class="form-control" id="barrio" name="barrio" required placeholder="Nombre de su barrio">
+                                                <label for="barrio" class="form-label">Barrio o Sector *</label>
+                                                <input type="text" class="form-control" id="barrio" name="barrio" required placeholder="Nombre de barrio o sector">
                                             </div>
                                         </div>
 

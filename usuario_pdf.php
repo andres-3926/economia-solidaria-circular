@@ -42,8 +42,8 @@ $pdf->Cell(0,10,'Datos del Usuario',0,1,'C');
 $pdf->SetFont('Arial','',12);
 
 foreach ($usuario as $campo => $valor) {
-    $pdf->Cell(50,10,utf8_decode(ucwords(str_replace('_',' ',$campo))).":",0,0);
-    $pdf->Cell(0,10,utf8_decode($valor),0,1);
+    $pdf->Cell(50,10,ucwords(str_replace('_',' ',$campo)).":",0,0);
+    $pdf->Cell(0,10,$valor,0,1);
 }
 
 $pdf->Output('I', 'usuario_'.$usuario['numero_documento'].'.pdf');

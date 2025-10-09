@@ -440,17 +440,13 @@
     background-size: cover !important;
 }
 
-.header-aprende {
-    background: linear-gradient(rgba(24, 29, 56, .7), rgba(24, 29, 56, .7)), url(../img/portada.JPG) !important;
-    background-position: center center !important;
-    background-repeat: no-repeat !important;
-    background-size: cover !important;
-}
-
-.header-aprende {
-    min-height: 700px;
+.header-aprende{
+    min-height: 600px;
     display: flex;
-    align-items: center;
+    align-items: flex-start; /* <-- Cambiado */
+    position: relative;
+    overflow: hidden;
+    z-index: 2;
 }
 
 .logo-sena-header {
@@ -459,8 +455,9 @@
 
 .header-aprende-h3 {
     color: #ff9800 !important; /* Cambia este color por el que prefieras */
-    text-align: right;
+    text-align: left;
     max-width: 60%;
+    margin-bottom: 0;
 }
 
 .header-aprende-botton {
@@ -468,9 +465,13 @@
     position: absolute;
     right: 0px;
     left: 0px;
-    padding-right: 40px;
-    padding-left: 40px;
+    padding-right: 0px;
+    padding-left: 0px;
     bottom: 20px;
+    z-index: 2;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
     z-index: 2;
 }
 
@@ -482,7 +483,147 @@
     text-decoration: none;
     transition: background 0.2s;
 }
+
 .breadcrumb .breadcrumb-item a:hover {
     background-color: #369d12 !important;
     color: #fff !important;
+}
+
+.header-aprende::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(24,29,56,0.6);
+    z-index: 1; 
+} 
+ 
+.header-aprende > .container-fluid {
+    position: relative;
+    z-index: 2;
+    background: transparent !important;
+}
+
+@media (max-width: 991.98px) {
+  .navbar-nav {
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.cerrar-sesion-btn {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    min-width: 150px;
+    padding: 0.5rem 1.5rem;
+    height: 48px;
+    line-height: 1.2;
+    font-size: 1rem;
+}
+
+body {
+  overflow-x: hidden;
+  overflow-y: auto !important;
+}
+
+.header-aprende,
+.header-aprende .container-fluid,
+.header-aprende .row,
+.header-aprende .col-12 {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+html, body {
+    max-width: 100vw;
+    overflow-x: hidden;
+}
+
+@media (max-width: 575.98px) {
+    .header-aprende .text-end {
+        padding-right: 1rem;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .container {
+        overflow-y: auto;
+        max-height: 100vh;
+    }
+}
+
+.header-aprende .contenido-header {
+    position: relative;
+    z-index: 10;
+    background: transparent !important;
+}
+
+.contenido-header {
+    padding-bottom: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+.titulo-navbar {
+    font-size: 1.1rem;
+}
+@media (min-width: 576px) {
+    .titulo-navbar {
+        font-size: 1.4rem;
+    }
+}
+@media (min-width: 992px) {
+    .titulo-navbar {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 991.98px) {
+    .owl-carousel-item > .position-absolute {
+        position: static !important;
+        min-height: unset !important;
+        height: auto !important;
+        display: block !important;
+        align-items: stretch !important;
+    }
+}
+
+@media (max-width: 991.98px) {
+    .owl-carousel-item > .position-absolute,
+    .owl-carousel-item > .position-static {
+        display: block !important;
+        align-items: stretch !important;
+    }
+    .owl-carousel-item > .position-absolute,
+    .owl-carousel-item > .position-static {
+        /* Elimina flex en móvil */
+        display: block !important;
+    }
+}
+
+/* Por defecto (escritorio): overlay absoluto y centrado */
+.overlay-carrusel {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+/* En móvil: overlay estático y sin centrado vertical */
+@media (max-width: 991.98px) {
+    .overlay-carrusel {
+        position: static !important;
+        min-height: unset !important;
+        height: auto !important;
+        display: block !important;
+        align-items: stretch !important;
+    }
 }

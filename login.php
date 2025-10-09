@@ -7,7 +7,7 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
     <!-- Favicon -->
-    <link href="/economia-solidaria-circular/img/favicon.ico" rel="icon">
+    <link href="img/favicon.ico" rel="icon">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,8 +18,8 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
 
     <!-- Bootstrap y estilos -->
-    <link href="/economia-solidaria-circular/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/economia-solidaria-circular/css/style.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
 
     <style>
         .card-login { max-width: 400px; margin: 80px auto; }
@@ -30,9 +30,9 @@
 <body>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
-        <a href="inicio.php" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
-            <h2 class="m-0 text-shadow" style="color: #43be16;">
-                <i class="fa-solid fa-recycle fa-beat fa-xl me-4"></i>Economía Solidaria y Circular
+        <a href="inicio.php" class="navbar-brand d-flex align-items-center px-2 px-lg-5">
+            <h2 class="m-0 text-shadow titulo-navbar text-break" style="color: #43be16;">
+                <i class="fa-solid fa-recycle fa-beat fa-xl me-2"></i>Economía Solidaria y Circular
             </h2>
         </a>
     </nav>

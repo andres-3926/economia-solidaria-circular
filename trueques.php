@@ -2,6 +2,12 @@
 $pagina_activa = 'trueques';
 session_start();
 include("conexion.php");
+
+if (!isset($_SESSION['numero_documento'])) {
+    header("Location: login.php");
+    exit;
+}
+
 $usuario_actual_id = null;
 $dueno_trueque_id = null;
 
@@ -315,7 +321,7 @@ $trueques_publicados = $result->fetch_all(MYSQLI_ASSOC);
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
 
     <!-- Favicon -->
-    <link href="/economia-solidaria-circular/img/favicon.ico" rel="icon">
+    <link href="img/favicon.ico" rel="icon">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -327,14 +333,14 @@ $trueques_publicados = $result->fetch_all(MYSQLI_ASSOC);
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
 
     <!-- Libraries Stylesheet -->
-    <link href="/economia-solidaria-circular/lib/animate/animate.min.css" rel="stylesheet">
-    <link href="/economia-solidaria-circular/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
 
     <!-- Customized Bootstrap Stylesheet -->
-    <link href="/economia-solidaria-circular/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Template Stylesheet -->
-    <link href="/economia-solidaria-circular/css/style.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
 </head>
 
 <body>
@@ -355,8 +361,8 @@ $trueques_publicados = $result->fetch_all(MYSQLI_ASSOC);
 
         <!-- Navbar Start -->
         <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
-            <a href="index.php" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
-            <h2 class="m-0 text-shadow" style="color: #43be16;"><i class="fa-solid fa-recycle fa-beat fa-xl me-4"></i>Economía Solidaria y Circular</h2>
+            <a href="index.php" class="navbar-brand d-flex align-items-center px-2 px-lg-5">
+            <h2 class="m-0 text-shadow titulo-navbar text-break" style="color: #43be16;"><i class="fa-solid fa-recycle fa-beat fa-xl me-2"></i>Economía Solidaria y Circular</h2>
             </a>
             <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                 <span class="navbar-toggler-icon"></span>
@@ -415,7 +421,7 @@ $trueques_publicados = $result->fetch_all(MYSQLI_ASSOC);
                                 <li class="breadcrumb-item"><a class="text-white" href="perfil.php">Perfil</a></li>
                             </ol>
                         </nav>
-                        <a class="btn btn-success py-3 px-5 mt-2" href="#trueques-publicados">Ver Trueques Publicados</a>
+                        <a class="btn btn-success py-2 px-5 mt-5" href="#trueques-publicados" style="background-color: #43be16; margin-top: 5rem;">Ver Trueques Publicados</a>
                     </div>
                 </div>
             </div>
