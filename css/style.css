@@ -441,10 +441,8 @@
 }
 
 .header-aprende{
-    min-height: 600px;
-    display: flex;
-    align-items: flex-start; /* <-- Cambiado */
-    position: relative;
+    min-height: 800px;
+    position: relative !important;
     overflow: hidden;
     z-index: 2;
 }
@@ -454,7 +452,7 @@
 }
 
 .header-aprende-h3 {
-    color: #ff9800 !important; /* Cambia este color por el que prefieras */
+    color: #fff !important; /* Cambia este color por el que prefieras */
     text-align: left;
     max-width: 60%;
     margin-bottom: 0;
@@ -626,4 +624,38 @@ html, body {
         display: block !important;
         align-items: stretch !important;
     }
+}
+
+.boton-siguiente-margen {
+    margin-top: 100px;
+}
+
+.subtitulo-inferior {
+    position: absolute;
+    left: 0;
+    bottom: 0px; /* Ajusta según lo que necesites */
+    width: 100%;
+    text-align: center;
+    z-index: 2;
+    margin-bottom: 0 !important;
+    font-size: 2rem; /* Ajusta el tamaño si lo deseas */
+}
+
+/* CLAVE: Espaciador extra para forzar el texto largo hacia abajo */
+.text-spacer-extra {
+    margin-top: 10rem !important; 
+}
+
+/* CLAVE: Fuerza al row a ocupar toda la altura disponible (para flexbox) */
+.h-100-container {
+    height: 100vh;
+}
+
+/* CLAVE: Sombra de texto MEJORADA para legibilidad transparente */
+.text-shadow-custom {
+    text-shadow: 0px 0px 8px rgba(0, 0, 0, 1), 0px 0px 4px rgba(0, 0, 0, 0.7); 
+}
+
+.contenido-header {
+    padding-bottom: 80px !important;
 }

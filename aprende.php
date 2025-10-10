@@ -16,32 +16,81 @@ if (!isset($_SESSION['numero_documento'])) {
             "subtitulo" => 'Economía Solidaria y Circular para Unidades Productivas de Cali.',
             "frase" => 'El SENA te acompaña en la construcción de un futuro más próspero y sostenible.',
             "logo" => "img/Logo-sena-blanco-sin-fondo.webp",
-            "fondo" => "img/afro.webp" 
+            "fondo" => "img/reciclando.png" 
         ],
         [
             "tipo" => "contenido",
             "titulo" => "¡Hola, Emprendedora!",
             "texto" => "Sabemos que tu esfuerzo diario construye futuro. Esta guía está diseñada para acompañarte en un viaje donde cada residuo se convierte en una nueva oportunidad para tu negocio y tu comunidad. ¡Juntas vamos a transformar Cali!",
-            "imagen" => "img/bienvenida.jpg"
+            "fondo" => "img/artesana-1.jpg",
         ],
         [
             "tipo" => "contenido",
-            "titulo" => "Por Qué Esta Guía Es Para Ti",
+            "titulo" => "¿Por Qué Esta Guía Es Para Ti?",
             "texto" => "<ul>
-                <li><b>Reduce Costos:</b> Menos gastos en materiales nuevos, menos dinero en basura.</li>
-                <li><b>Genera Ingresos Extra:</b> Transforma residuos en productos o vendiendo reciclables.</li>
-                <li><b>Mejora tu Entorno:</b> Contribuye a una comunidad más limpia y sana.</li>
-                <li><b>Fortalece Tu Comunidad:</b> Trabaja en equipo y conecta con otras emprendedoras.</li>
+                <li><b><span style=\"color: #007bff;\">Reduce Costos:</span></b> Menos gastos en materiales nuevos, menos dinero en basura.</li>
+                <li><b><span style=\"color: #007bff;\">Genera Ingresos Extra:</span></b> Transforma residuos en productos o vendiendo reciclables.</li>
+                <li><b><span style=\"color: #007bff;\">Mejora tu Entorno:</span></b> Contribuye a una comunidad más limpia y sana.</li>
+                <li><b><span style=\"color: #007bff;\">Fortalece Tu Comunidad:</span></b> Trabaja en equipo y conecta con otras emprendedoras.</li>
             </ul>",
+            "fondo" => "img/guia_economia_circular.webp",
             "logo" => "img/Logo-sena-blanco-sin-fondo.webp"
-        ]
+        ],
         // ...agrega el resto de páginas aquí...
+        [
+            "tipo" => "contenido",
+            "titulo" => "¡Hola, Emprendedora!",
+            "texto" => "Sabemos que tu esfuerzo diario construye futuro. Esta guía está diseñada para acompañarte en un viaje donde cada residuo se convierte en una nueva oportunidad para tu negocio y tu comunidad. ¡Juntas vamos a transformar Cali!",
+            "fondo" => "img/artesana-1.jpg",
+        ],
+        [
+            "tipo" => "contenido",
+            "titulo" => "¡Hola, Emprendedora!",
+            "texto" => "Sabemos que tu esfuerzo diario construye futuro. Esta guía está diseñada para acompañarte en un viaje donde cada residuo se convierte en una nueva oportunidad para tu negocio y tu comunidad. ¡Juntas vamos a transformar Cali!",
+            "fondo" => "img/artesana-1.jpg",
+        ],
     ];
 
     // Página actual (por defecto 0 = portada)
     $pagina = isset($_GET['pagina']) ? intval($_GET['pagina']) : 0;
     $total_paginas = count($cartilla);
-    ?>
+
+    $iconos = [
+        '💰', // Icono para Reduce Costos / Ahorro
+        '📈', // Icono para Genera Ingresos Extra / Crecimiento
+        '🌍', // Icono para Mejora tu Entorno / Planeta/Comunidad
+        '🤝'  // Icono para Fortalece Tu Comunidad / Trabajo en equipo
+    ];
+
+    // 1. Convertir el texto de la lista a un array de puntos
+    // Esto nos permite iterar sobre los puntos e inyectar el ícono.
+    // Solo procesamos si el campo 'texto' existe para evitar errores en páginas sin texto (como algunas portadas)
+    if (isset($cartilla[$pagina]['texto']) && strpos($cartilla[$pagina]['texto'], '<li>') !== false) {
+        preg_match_all('/<li>(.*?)<\/li>/s', $cartilla[$pagina]['texto'], $matches);
+        $puntos_de_beneficio = $matches[1];
+
+        $texto_con_iconos = '<ul class="list-unstyled mx-auto" style="max-width: 700px; padding: 0 1rem;">';
+
+        // 2. Iterar e inyectar el ícono correspondiente a cada punto
+        foreach ($puntos_de_beneficio as $index => $punto) {
+            // Usamos d-flex para alinear el ícono y el texto, y mb-4 para dar buen espacio vertical
+            // Verificamos si hay un ícono disponible para evitar un error de índice
+            $icono = $iconos[$index] ?? ''; 
+            $texto_con_iconos .= '
+                <li class="d-flex align-items-start mb-1">
+                    <span class="me-1 flex-shrink-0" style= "font-size: 2rem;">' . $icono . '</span>
+                    <div>' . $punto . '</div>
+                </li>
+            ';
+        }
+
+        $texto_con_iconos .= '</ul>';
+    } else {
+        // Si no es una lista, usamos el texto plano directamente, si existe.
+        $texto_con_iconos = $cartilla[$pagina]['texto'] ?? '';
+    }
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -156,7 +205,7 @@ if (!isset($_SESSION['numero_documento'])) {
                     <h2 class="text-white mb-5 mt-4 text-center">
                         <?php echo $cartilla[$pagina]['subtitulo']; ?>
                     </h2>                    
-                    <div class="text-end mt-4" style="padding-right: 1rem;">
+                    <div class="text-end boton-siguiente-margen" style="padding-right: 1rem;">
                         <a href="aprende.php?pagina=1" class="btn btn-lg text-white" style="background-color: #43be16;">
                             Siguiente <i class="fa fa-arrow-right ms-2"></i>
                         </a>
@@ -170,36 +219,48 @@ if (!isset($_SESSION['numero_documento'])) {
         </div>
     </div>
     <?php else: ?>
-    <div class="container-fluid bg-primary py-5 mb-5 page-header header-aprende" style="position: relative;">
-        <div class="container pt-0 py-5">
-            <div class="row justify-content-center">
-                <div class="col-lg-10 text-center">
-                    <h1 class="display-5 text-white animated slideInDown mb-2"><?php echo $cartilla[$pagina]['titulo']; ?></h1>
-                    <?php if (!empty($cartilla[$pagina]['subtitulo'])): ?>
-                        <h2 class="text-white mb-4" style="margin-top: 40px;"><?php echo $cartilla[$pagina]['subtitulo']; ?></h2>
-                    <?php endif; ?>
-                    <?php if (isset($cartilla[$pagina]['imagen'])): ?>
-                        <img src="<?php echo $cartilla[$pagina]['imagen']; ?>" class="img-fluid mb-4 rounded" alt="Imagen de la sección" style="max-height: 300px;">
-                    <?php endif; ?>
+    <div class="container-fluid header-aprende"
+        style="position: relative;
+            background-image: url('<?php echo $cartilla[$pagina]['fondo']; ?>');
+            background-size: cover;
+            background-position: center;
+            min-height: 100vh;">
+        <div class="container-fluid h-100 p-0">
+            <div class="row g-0 justify-content-center" style="height: 100vh;">
+                <!-- Título arriba, columna independiente -->
+                <div class="col-12 col-lg-10 mx-auto px-4 pt-4">
+                    <h1 class="display-3 text-white animated slideInDown mb-3 text-center text-shadow-custom">
+                        <?php echo $cartilla[$pagina]['titulo']; ?>
+                    </h1>
+                </div>
+                <!-- Texto largo y botones abajo, columna independiente -->
+                <div class="col-12 col-lg-8 mx-auto px-4 d-flex flex-column justify-content-end" style="height: 75vh;"> 
                     <?php if (isset($cartilla[$pagina]['texto'])): ?>
-                        <div class="mb-3 text-white fs-5 text-start d-inline-block" style="max-width: 700px;"><?php echo $cartilla[$pagina]['texto']; ?></div>
-                    <?php endif; ?>
-                    <?php if (isset($cartilla[$pagina]['logo'])): ?>
-                        <div class="mt-3">
-                            <img src="<?php echo $cartilla[$pagina]['logo']; ?>" style="height: 100px;" alt="Logo SENA" class="logo-sena-header">
+                        <div class="text-white fs-5 mx-auto text-shadow-custom mb-2" style="max-width: 700px;">
+                            <?php echo $texto_con_iconos; ?>
                         </div>
                     <?php endif; ?>
-                    <div class="d-flex justify-content-between align-items-center mt-5">
-                        <a href="aprende.php?pagina=<?php echo $pagina-1; ?>" class="btn btn-lg text-white" style="background-color: #43be16;">
+                    <div class="d-flex justify-content-between align-items-end mt-3">
+                        <a href="aprende.php?pagina=<?php echo $pagina-1; ?>" class="btn btn-lg text-white" style="background-color: #43be16; z-index: 10;">
                             <i class="fa fa-arrow-left me-2"></i> Anterior
                         </a>
-                        <?php if ($pagina < $total_paginas-1): ?>
-                            <a href="aprende.php?pagina=<?php echo $pagina+1; ?>" class="btn btn-lg text-white" style="background-color: #43be16;">
-                                Siguiente <i class="fa fa-arrow-right ms-2"></i>
-                            </a>
-                        <?php endif; ?>
+                        <div class="text-white-50 text-center text-shadow-custom fs-6" style="flex-grow: 1;">
+                            Página <?php echo $pagina+1; ?> de <?php echo $total_paginas; ?>
+                        </div>
+                        <div class="d-flex align-items-end">
+                            <?php if (isset($cartilla[$pagina]['logo'])): ?>
+                                <img src="<?php echo $cartilla[$pagina]['logo']; ?>"
+                                    style="height: 80px; margin-right: 15px; z-index: 10;"
+                                    alt="Logo SENA"
+                                    class="logo-sena-header d-none d-md-block">
+                            <?php endif; ?>
+                            <?php if ($pagina < $total_paginas-1): ?>
+                                <a href="aprende.php?pagina=<?php echo $pagina+1; ?>" class="btn btn-lg text-white" style="background-color: #43be16; z-index: 10;">
+                                    Siguiente <i class="fa fa-arrow-right ms-2"></i>
+                                </a>
+                            <?php endif; ?>
+                        </div>
                     </div>
-                    <div class="mt-2 text-white-50">Página <?php echo $pagina+1; ?> de <?php echo $total_paginas; ?></div>
                 </div>
             </div>
         </div>
@@ -230,30 +291,7 @@ if (!isset($_SESSION['numero_documento'])) {
                         <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-youtube"></i></a>
                         <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-linkedin-in"></i></a>
                     </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <h4 class="text-white mb-3">Gallery</h4>
-                    <div class="row g-2 pt-2">
-                        <div class="col-4">
-                            <img class="img-fluid bg-light p-1" src="img/course-1.jpg" alt="">
-                        </div>
-                        <div class="col-4">
-                            <img class="img-fluid bg-light p-1" src="img/course-2.jpg" alt="">
-                        </div>
-                        <div class="col-4">
-                            <img class="img-fluid bg-light p-1" src="img/course-3.jpg" alt="">
-                        </div>
-                        <div class="col-4">
-                            <img class="img-fluid bg-light p-1" src="img/course-2.jpg" alt="">
-                        </div>
-                        <div class="col-4">
-                            <img class="img-fluid bg-light p-1" src="img/course-3.jpg" alt="">
-                        </div>
-                        <div class="col-4">
-                            <img class="img-fluid bg-light p-1" src="img/course-1.jpg" alt="">
-                        </div>
-                    </div>
-                </div>
+                </div>                
                 <div class="col-lg-3 col-md-6">
                     <h4 class="text-white mb-3">Newsletter</h4>
                     <p>Dolor amet sit justo amet elitr clita ipsum elitr est.</p>
