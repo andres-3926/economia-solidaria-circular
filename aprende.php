@@ -1,4 +1,8 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 $pagina_activa = 'aprende';
 session_start();
 include("conexion.php");
@@ -36,18 +40,18 @@ if (!isset($_SESSION['numero_documento'])) {
             "fondo" => "img/guia_economia_circular.webp",
             "logo" => "img/Logo-sena-blanco-sin-fondo.webp"
         ],
-        // ...agrega el resto de páginas aquí...
         [
             "tipo" => "contenido",
-            "titulo" => "¡Hola, Emprendedora!",
-            "texto" => "Sabemos que tu esfuerzo diario construye futuro. Esta guía está diseñada para acompañarte en un viaje donde cada residuo se convierte en una nueva oportunidad para tu negocio y tu comunidad. ¡Juntas vamos a transformar Cali!",
-            "fondo" => "img/artesana-1.jpg",
+            "titulo" => "¡Nuestro Entorno y Nuestras Riquezas",            
+            "texto" => "El dinamismo económico de Cali se sostiene en microeconomías barriales, con la mujer como pilar fundamental en la <b>gastronomía popular</b> y <b>artesanías</b>, preservando la cultura y el sustento familiar. Para asegurar la sostenibilidad, es vital adoptar la <b>economía circular</b>; el <b>reciclaje</b> es el motor de este cambio, pues genera empleo formal y reduce la extracción de recursos, ofreciendo grandes <b>beneficios socioeconómicos y ambientales</b> a toda la comunidad.",
+            "fondo" => "img/pagina-4.jpg",
         ],
         [
             "tipo" => "contenido",
-            "titulo" => "¡Hola, Emprendedora!",
-            "texto" => "Sabemos que tu esfuerzo diario construye futuro. Esta guía está diseñada para acompañarte en un viaje donde cada residuo se convierte en una nueva oportunidad para tu negocio y tu comunidad. ¡Juntas vamos a transformar Cali!",
-            "fondo" => "img/artesana-1.jpg",
+            "titulo" => "¿Qué Son los Residuos y Por Qué Nos Importan?",
+            "texto" => "El <b>residuo</b> es material desechado que aún puede ser <b>reciclado o reutilizado</b>. Su gestión es vital porque <b>evita la contaminación</b>, conserva los <b>recursos naturales</b> y es la base de la <b>Economía Circular</b>, asegurando un futuro más sostenible.",
+            "texto2" => "La mala gestión de <b>residuos</b> genera rápidamente <b>malos olores</b> y <b>plagas</b>, comprometiendo la <b>salud pública</b>. Además, contamina gravemente el <b>agua</b>, el <b>suelo</b> y el <b>aire</b>, empeorando el impacto ambiental.",
+            "fondo" => "img/residuos.jpg",
         ],
     ];
 
@@ -88,6 +92,23 @@ if (!isset($_SESSION['numero_documento'])) {
     } else {
         // Si no es una lista, usamos el texto plano directamente, si existe.
         $texto_con_iconos = $cartilla[$pagina]['texto'] ?? '';
+    }
+
+    // Valor por defecto
+    $height_bloque = '75vh';
+
+    // Personaliza por página (ejemplo: página 4 más arriba, página 2 más abajo)
+    if ($pagina == 2) { // Página 2 (contenido 1)
+        $height_bloque = '75vh';
+    }
+    if ($pagina == 3) { // Página 3 (contenido 2)
+        $height_bloque = '60vh';
+    }
+    if ($pagina == 4) { // Página 4 (contenido 3)
+        $height_bloque = '60vh';
+    }
+    if ($pagina == 5) { // Página 5 (contenido 4)
+        $height_bloque = '40vh';
     }
 
 ?>
@@ -225,6 +246,7 @@ if (!isset($_SESSION['numero_documento'])) {
             background-size: cover;
             background-position: center;
             min-height: 100vh;">
+            
         <div class="container-fluid h-100 p-0">
             <div class="row g-0 justify-content-center" style="height: 100vh;">
                 <!-- Título arriba, columna independiente -->
@@ -234,10 +256,15 @@ if (!isset($_SESSION['numero_documento'])) {
                     </h1>
                 </div>
                 <!-- Texto largo y botones abajo, columna independiente -->
-                <div class="col-12 col-lg-8 mx-auto px-4 d-flex flex-column justify-content-end" style="height: 75vh;"> 
+                <div class="col-12 col-lg-8 mx-auto px-4 d-flex flex-column justify-content-end" style="height: <?php echo $height_bloque; ?>;"> 
                     <?php if (isset($cartilla[$pagina]['texto'])): ?>
-                        <div class="text-white fs-5 mx-auto text-shadow-custom mb-2" style="max-width: 700px;">
+                        <div class="text-white fs-5 text-start text-shadow-custom mb-2" style="max-width: 700px;">
                             <?php echo $texto_con_iconos; ?>
+                        </div>
+                    <?php endif; ?>
+                    <?php if (isset($cartilla[$pagina]['texto2'])): ?>
+                        <div class="text-white fs-5 text-start text-shadow-custom mb-2" style="max-width: 700px;">
+                            <?php echo $cartilla[$pagina]['texto2']; ?>
                         </div>
                     <?php endif; ?>
                     <div class="d-flex justify-content-between align-items-end mt-3">
