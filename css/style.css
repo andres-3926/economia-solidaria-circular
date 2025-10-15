@@ -1,3 +1,23 @@
+.back-to-top {
+    /* ...estilos existentes... */
+    position: fixed;
+    display: none;
+    right: 45px;
+    bottom: 45px;
+    z-index: 99;
+    width: 44px;
+    height: 44px;
+    background: rgba(24,29,56,0.10);
+    border: 2px solid #fff;
+    color: #fff !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-shadow: 0 0 8px #000, 0 0 2px #fff;
+    border-radius: 0;
+    font-size: 32px;
+    transition: background 0.3s, border 0.3s;
+}
 /********** Template CSS **********/
 :root {
     --primary: #06BBCC;
@@ -19,6 +39,23 @@
     right: 45px;
     bottom: 45px;
     z-index: 99;
+    width: 44px;
+    height: 44px;
+    background: rgba(24,29,56,0.10);
+    border: 2px solid #fff;
+    color: #fff !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-shadow: 0 0 8px #000, 0 0 2px #fff;
+    border-radius: 0;
+    font-size: 32px;
+    transition: background 0.3s, border 0.3s;
+}
+.back-to-top:hover {
+    background: var(--primary);
+    border-color: var(--primary);
+    color: #fff;
 }
 
 
@@ -183,11 +220,12 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #FFFFFF;
-    background: transparent;
+    color: #fff !important;
+    background: rgba(24,29,56,0.25);
     border: 1px solid #FFFFFF;
     font-size: 22px;
     transition: .5s;
+    text-shadow: 0 0 8px #000, 0 0 2px #fff;
 }
 
 .header-carousel .owl-nav .owl-prev:hover,
@@ -659,4 +697,49 @@ html, body {
 
 .contenido-header {
     padding-bottom: 80px !important;
+}
+
+/* Forzar flechas grandes y blancas en Owl Carousel */
+.header-carousel .owl-nav .owl-prev,
+.header-carousel .owl-nav .owl-next {
+    color: #fff !important;
+    background: rgba(24,29,56,0.10);
+    border: 2px solid #fff;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-shadow: 0 0 8px #000, 0 0 2px #fff;
+    position: relative;
+    z-index: 10;
+}
+
+.header-carousel .owl-nav .owl-prev:before {
+    content: '\\2039'; /* Unicode para ‹ */
+    font-size: 32px;
+    font-weight: bold;
+    line-height: 1;
+}
+
+.header-carousel .owl-nav .owl-prev:before,
+.header-carousel .owl-nav .owl-next:before {
+    font-weight: bold;
+    line-height: 1;
+}
+.header-carousel .owl-nav .owl-prev:before {
+    content: '\2039'; /* Unicode para ‹ */
+    font-size: 80px !important;
+}
+.header-carousel .owl-nav .owl-prev:before,
+.header-carousel .owl-nav .owl-next:before {
+    font-weight: bold;
+    line-height: 1;
+    font-size: 42px !important;
+}
+.header-carousel .owl-nav .owl-prev:before {
+    content: '\2039'; /* Unicode para ‹ */
+}
+.header-carousel .owl-nav .owl-next:before {
+    content: '\203A'; /* Unicode para › */
 }

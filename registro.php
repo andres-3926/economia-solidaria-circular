@@ -70,6 +70,44 @@ error_reporting(E_ALL);
                                     <h3 class="m-0 text-white"><i class="fa-solid fa-user me-2"></i>Registro de Usuario</h3>
                                 </div>
                                 <div class="card-body p-4">
+                                    <?php if (isset($_GET['mensaje']) && trim($_GET['mensaje']) !== "" && isset($_GET['from']) && $_GET['from'] === 'registro'): ?>
+                                        <div id="mensaje-alert" class="alert alert-info text-center" role="alert" style="opacity:1; transition: opacity 0.5s ease;">
+                                            <?php echo htmlspecialchars($_GET['mensaje']); ?>
+                                        </div>
+                                        <script>
+                                        (function() {
+                                            function ocultarAlerta() {
+                                                // Si hay jQuery, usar fadeOut
+                                                if (window.jQuery) {
+                                                    $('#mensaje-alert').fadeOut(600, function() { $(this).remove(); });
+                                                } else {
+                                                    var alert = document.getElementById('mensaje-alert');
+                                                    if(alert) {
+                                                        alert.style.transition = 'opacity 0.6s';
+                                                        alert.style.opacity = '0';
+                                                        setTimeout(function() {
+                                                            if(alert.parentNode) alert.parentNode.removeChild(alert);
+                                                        }, 600);
+                                                    }
+                                                }
+                                                // Limpiar mensaje de la URL para que no reaparezca
+                                                if (window.history.replaceState) {
+                                                    const url = new URL(window.location);
+                                                    url.searchParams.delete('mensaje');
+                                                    url.searchParams.delete('from');
+                                                    window.history.replaceState({}, document.title, url.pathname + url.search);
+                                                }
+                                            }
+                                            if (document.readyState === 'loading') {
+                                                document.addEventListener('DOMContentLoaded', function() {
+                                                    setTimeout(ocultarAlerta, 3000);
+                                                });
+                                            } else {
+                                                setTimeout(ocultarAlerta, 3000);
+                                            }
+                                        })();
+                                        </script>
+                                    <?php endif; ?>
                                     <form action="procesar_registro.php" method="POST">
                                         <!-- Fila 1: Tipo Documento y Número Documento -->
                                         <div class="row mb-3">
@@ -260,7 +298,7 @@ error_reporting(E_ALL);
 
 
     <!-- Back to Top -->
-    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="fa fa-arrow-up"></i></a>
 
 
     <!-- JavaScript Libraries -->

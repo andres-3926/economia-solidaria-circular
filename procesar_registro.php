@@ -22,6 +22,28 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         exit();
     }
 
+
+    // Validar que no exista el usuario por número de documento o correo
+    $query_check = "SELECT id FROM usuarios WHERE numero_documento = ? OR correo = ? LIMIT 1";
+    if ($stmt_check = $conn->prepare($query_check)) {
+        $stmt_check->bind_param("ss", $numero_documento, $correo);
+        $stmt_check->execute();
+        $stmt_check->store_result();
+        if ($stmt_check->num_rows > 0) {
+            $mensaje = urlencode("❌ Ya existe un usuario con ese número de documento o correo.");
+            header("Location: registro.php?mensaje=$mensaje&from=registro");
+            $stmt_check->close();
+            $conn->close();
+            exit();
+        }
+        $stmt_check->close();
+    } else {
+    $mensaje = urlencode("Error al validar usuario existente: " . $conn->error);
+    header("Location: registro.php?mensaje=$mensaje&from=registro");
+    $conn->close();
+    exit();
+    }
+
     // Encriptar la contraseña
     $contrasena_hash = password_hash($contraseña, PASSWORD_DEFAULT);
 
@@ -41,12 +63,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             exit();
         } else {
             // Error al insertar
-            echo "Error al registrar el usuario: " . $stmt->error;
+            $mensaje = urlencode("Error al registrar el usuario: " . $stmt->error);
+            header("Location: registro.php?mensaje=$mensaje&from=registro");
         }
 
         $stmt->close();
     } else {
-        echo "Error en la preparación de la consulta: " . $conn->error;
+    $mensaje = urlencode("Error en la preparación de la consulta: " . $conn->error);
+    header("Location: registro.php?mensaje=$mensaje&from=registro");
     }
 
     $conn->close();
