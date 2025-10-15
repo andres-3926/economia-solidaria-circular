@@ -157,58 +157,32 @@ if (!isset($_SESSION['numero_documento'])) {
     <!-- Navbar Start -->
     <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
         <a href="index.php" class="navbar-brand d-flex align-items-center px-2 px-lg-5">
-        <h2 class="m-0 text-shadow titulo-navbar text-break" style="color: #43be16;"><i class="fa-solid fa-recycle fa-beat fa-xl me-2"></i>Economía Solidaria y Circular</h2>
+            <h2 class="m-0 text-shadow titulo-navbar text-break" style="color: #43be16;"><i class="fa-solid fa-recycle fa-beat fa-xl me-2"></i>Economía Solidaria y Circular</h2>
         </a>
         <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav ms-auto p-4 p-lg-0">
-                <li class="nav-item">
-                    <a href="index.php" class="nav-link<?php echo $pagina_activa === 'inicio' ? ' active text-primary' : ' text-dark'; ?>">Inicio</a>
-                </li>
-                <li class="nav-item">
-                    <a href="trueques.php#trueques" class="nav-link<?php echo $pagina_activa === 'trueques' ? ' active text-primary' : ' text-dark'; ?>">Trueques</a>
-                </li>  
-                <li class="nav-item">
-                    <a href="aprende.php" class="nav-link<?php echo $pagina_activa === 'aprende' ? ' active text-primary' : ' text-dark'; ?>">Aprende</a>
-                </li>            
-                <?php
-                if(isset($_SESSION['numero_documento'])) {
-                    $clase_perfil = $pagina_activa === 'perfil' ? ' active text-primary' : ' text-dark';
-                    echo '<li class="nav-item"><a href="perfil.php" class="nav-link' . $clase_perfil . '">Perfil</a></li>';
-                }
-                ?>
+            <div class="navbar-nav ms-auto p-4 p-lg-0">
+                <a href="index.php" class="nav-item nav-link fw-bold<?php echo $pagina_activa === 'inicio' ? ' active text-primary' : ' text-dark'; ?>">Inicio</a>
+                <a href="trueques.php#trueques" class="nav-item nav-link fw-bold<?php echo $pagina_activa === 'trueques' ? ' active text-primary' : ' text-dark'; ?>">Trueques</a>
+                <a href="aprende.php" class="nav-item nav-link fw-bold<?php echo $pagina_activa === 'aprende' ? ' active text-primary' : ' text-dark'; ?>">Aprende</a>
                 <?php
                 if (isset($_SESSION['numero_documento'])) {
-                    // Escritorio
-                    echo '<li class="nav-item d-none d-lg-block">
-                        <a href="logout.php" class="btn btn-success cerrar-sesion-btn mx-auto px-4 py-2" style="background-color: #43be16; min-width: 150px;">
-                            Cerrar sesión <i class="fa fa-arrow-right ms-2"></i>
-                        </a>
-                    </li>';
-                    // Móvil
-                    echo '<li class="nav-item d-block d-lg-none">
-                        <a href="logout.php" class="btn btn-success cerrar-sesion-btn mx-auto my-4 px-4 py-2" style="background-color: #43be16; min-width: 150px;">
-                            Cerrar sesión <i class="fa fa-arrow-right ms-2"></i>
-                        </a>
-                    </li>';
+                    echo '<a href="perfil.php" class="nav-item nav-link fw-bold'.($pagina_activa === 'perfil' ? ' active text-primary' : ' text-dark').'">Perfil</a>';
+                    // Botón de cerrar sesión escritorio
+                    echo '<a href="logout.php" class="btn py-4 px-lg-5 d-none d-lg-block text-white" style="background-color: #43be16;">Cerrar sesión<i class="fa fa-arrow-right ms-3"></i></a>';
+                    // Botón de cerrar sesión móvil (hamburguesa)
+                    echo '<a href="logout.php" class="btn btn-success d-block d-lg-none my-3 w-100 text-white text-center justify-content-center align-items-center d-flex" style="background-color: #43be16;">'
+                        .'<span class="mx-auto">Cerrar sesión</span>'
+                        .'<i class="fa fa-arrow-right ms-2"></i>'
+                    .'</a>';
                 } else {
-                    // Escritorio
-                    echo '<li class="nav-item d-none d-lg-block">
-                        <a href="registro.php" class="btn btn-success cerrar-sesion-btn mx-auto px-4 py-2" style="background-color: #43be16; min-width: 150px;">
-                            Registrate Ahora <i class="fa fa-arrow-right ms-2"></i>
-                        </a>
-                    </li>';
-                    // Móvil
-                    echo '<li class="nav-item d-block d-lg-none">
-                        <a href="registro.php" class="btn btn-success cerrar-sesion-btn mx-auto my-4 px-4 py-2" style="background-color: #43be16; min-width: 150px;">
-                            Registrate Ahora <i class="fa fa-arrow-right ms-2"></i>
-                        </a>
-                    </li>';
+                    // Botón registrate ahora solo si NO está logueado
+                    echo '<a href="registro.php" class="btn py-4 px-lg-5 d-none d-lg-block text-white" style="background-color: #43be16;">Registrate Ahora<i class="fa fa-arrow-right ms-3"></i></a>';
                 }
                 ?>
-            </ul>
+            </div>
         </div>
     </nav>
     <!-- Navbar End -->

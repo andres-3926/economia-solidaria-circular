@@ -153,9 +153,16 @@ if ($usuario['rol'] === 'administrador') {
         }
         .page-header {
             background: linear-gradient(rgba(24, 29, 56, .7), rgba(24, 29, 56, .7)), url('<?php echo htmlspecialchars($foto); ?>');
-            background-position: center 40%;
+            background-position: center 20%;
             background-repeat: no-repeat;
-            background-size: cover;
+            background-size: 100% 120%;
+            min-height: 420px;
+            max-width: 1200px;
+            margin-left: auto !important;
+            margin-right: auto !important;
+            margin-top: 32px !important;
+            border-radius: 2.5vw;
+            overflow: hidden;
         }
         .badge-activo {
             background: #43be16 !important;
@@ -198,7 +205,7 @@ if ($usuario['rol'] === 'administrador') {
 
     <!-- Navbar Start -->
     <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
-        <a href="index.php" class="navbar-brand d-flex align-items-center px-2 px-lg-5">
+        <a href="index.php" class="navbar-brand d-flex align-items-center px-2 px-lg-4">
             <h2 class="m-0 text-shadow titulo-navbar text-break" style="color: #43be16;"><i class="fa-solid fa-recycle fa-beat fa-xl me-2"></i>Economía Solidaria y Circular</h2>
         </a>
         <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
@@ -206,23 +213,38 @@ if ($usuario['rol'] === 'administrador') {
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto p-4 p-lg-0">
-                <a href="index.php" class="nav-item nav-link <?php echo $pagina_activa === 'inicio' ? 'active text-primary' : 'text-dark'; ?> fw-bold">Inicio</a>
-                <a href="trueques.php" class="nav-item nav-link <?php echo $pagina_activa === 'trueques' ? 'active text-primary' : 'text-dark'; ?> fw-bold">Trueques</a>
-                <a href="aprende.php" class="nav-item nav-link <?php echo $pagina_activa === 'aprende' ? 'active text-primary' : 'text-dark'; ?> fw-bold">Aprende</a>
-                <a href="perfil.php" class="nav-item nav-link <?php echo $pagina_activa === 'perfil' ? 'active text-primary' : 'text-dark'; ?> fw-bold">Perfil</a>
-                <?php if (isset($usuario['rol']) && $usuario['rol'] === 'administrador'): ?>
-                    <a href="admin_panel.php" 
-                        class="nav-item nav-link fw-bold <?php echo ($noti_pendientes > 0 ? 'animate__animated animate__flash animate__infinite' : ''); ?>">
-                        Panel Administrador
-                        <?php if (!empty($noti_pendientes) && $noti_pendientes > 0): ?>
-                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger animate__animated animate__flash animate__infinite" style="font-size:0.8em;">
-                                <?php echo $noti_pendientes; ?>
-                                <span class="visually-hidden">usuarios esperando habilitación</span>
-                            </span>
-                        <?php endif; ?>
-                    </a>
-                <?php endif; ?>
-                <a href="logout.php" class="btn py-4 px-lg-5 d-none d-lg-block text-white fw-bold" style="background-color: #43be16;">Cerrar sesión<i class="fa fa-arrow-right ms-3"></i></a>
+                <a href="index.php" class="nav-item nav-link fw-bold<?php echo $pagina_activa === 'inicio' ? ' active text-primary' : ' text-dark'; ?>">Inicio</a>
+                <a href="trueques.php" class="nav-item nav-link fw-bold<?php echo $pagina_activa === 'trueques' ? ' active text-primary' : ' text-dark'; ?>">Trueques</a>
+                <a href="aprende.php" class="nav-item nav-link fw-bold<?php echo $pagina_activa === 'aprende' ? ' active text-primary' : ' text-dark'; ?>">Aprende</a>
+                <?php
+                // Panel admin solo si es admin
+                if (isset($usuario['rol']) && strtolower(trim($usuario['rol'])) === 'administrador') {
+                    echo '<a href="admin_panel.php" class="nav-item nav-link fw-bold admin-panel-center'.($noti_pendientes > 0 ? ' animate__animated animate__flash animate__infinite' : '').'">Panel Administrador';
+                    if (!empty($noti_pendientes) && $noti_pendientes > 0) {
+                        echo '<span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger animate__animated animate__flash animate__infinite" style="font-size:0.8em;">'.$noti_pendientes.'<span class="visually-hidden">usuarios esperando habilitación</span></span>';
+                    }
+                    echo '</a>';
+                }
+                // Botón perfil
+                if (isset($_SESSION['numero_documento'])) {
+                    $clave_perfil = ($pagina_activa === 'perfil') ? 'nav-item nav-link fw-bold active text-primary' : 'nav-item nav-link fw-bold text-dark';
+                    echo '<a href="perfil.php" class="' . $clave_perfil . '">Perfil</a>';
+                }
+                ?>
+                <?php
+                if (isset($_SESSION['numero_documento'])) {
+                    // Botón de cerrar sesión escritorio
+                    echo '<a href="logout.php" class="btn py-4 px-lg-5 d-none d-lg-block text-white" style="background-color: #43be16;">Cerrar sesión<i class="fa fa-arrow-right ms-3"></i></a>';
+                    // Botón de cerrar sesión móvil (hamburguesa)
+                    echo '<a href="logout.php" class="btn btn-success d-block d-lg-none my-3 w-100 text-white text-center justify-content-center align-items-center d-flex" style="background-color: #43be16;">'
+                        .'<span class="mx-auto">Cerrar sesión</span>'
+                        .'<i class="fa fa-arrow-right ms-2"></i>'
+                    .'</a>';
+                } else {
+                    // Botón registrate ahora solo si NO está logueado
+                    echo '<a href="registro.php" class="btn py-4 px-lg-5 d-none d-lg-block text-white" style="background-color: #43be16;">Registrate Ahora<i class="fa fa-arrow-right ms-3"></i></a>';
+                }
+                ?>
             </div>
         </div>
     </nav>
@@ -285,18 +307,7 @@ if ($usuario['rol'] === 'administrador') {
                     <?php endforeach; ?>
                 </div>
             <?php endif; ?>
-
-            <div class="row">
-                <div class="col-lg-8 mx-auto">
-                    <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb justify-content-center mb-0" style="background: transparent;">
-                            <li class="breadcrumb-item"><a class="text-white" href="index.php">Inicio</a></li>
-                            <li class="breadcrumb-item"><a class="text-white" href="trueques.php">Trueques</a></li>
-                            <li class="breadcrumb-item"><a class="text-white" href="aprende.php">Aprende</a></li>
-                        </ol>
-                    </nav>
-                </div>      
-            </div>
+            
         </div>
     </div>
     <!-- Header End -->

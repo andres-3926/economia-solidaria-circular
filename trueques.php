@@ -369,9 +369,9 @@ $trueques_publicados = $result->fetch_all(MYSQLI_ASSOC);
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav ms-auto p-4 p-lg-0">
-                    <a href="index.php" class="nav-item nav-link<?php echo $pagina_activa === 'inicio' ? ' active text-primary' : ' text-dark'; ?>">Inicio</a>
-                    <a href="trueques.php#trueques" class="nav-item nav-link<?php echo $pagina_activa === 'trueques' ? ' active text-primary' : ' text-dark'; ?>">Trueques</a>
-                    <a href="aprende.php" class="nav-item nav-link<?php echo $pagina_activa === 'aprende' ? ' active text-primary' : ' text-dark'; ?>">Aprende</a>                
+                    <a href="index.php" class="nav-item nav-link fw-bold<?php echo $pagina_activa === 'inicio' ? ' active text-primary' : ' text-dark'; ?>">Inicio</a>
+                    <a href="trueques.php#trueques" class="nav-item nav-link fw-bold<?php echo $pagina_activa === 'trueques' ? ' active text-primary' : ' text-dark'; ?>">Trueques</a>
+                    <a href="aprende.php" class="nav-item nav-link fw-bold<?php echo $pagina_activa === 'aprende' ? ' active text-primary' : ' text-dark'; ?>">Aprende</a>                
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle<?php echo $pagina_activa === 'comunidades' ? ' active text-primary' : ' text-dark'; ?>" data-bs-toggle="dropdown">Comunidades</a>
                         <div class="dropdown-menu fade-down m-0">
@@ -391,11 +391,16 @@ $trueques_publicados = $result->fetch_all(MYSQLI_ASSOC);
                     ?>
                     <?php
                     if (isset($_SESSION['numero_documento'])) {
-                        //Boton de cerrar sesión
+                        // Botón de cerrar sesión escritorio
                         echo '<a href="logout.php" class="btn py-4 px-lg-5 d-none d-lg-block text-white" style="background-color: #43be16;">Cerrar sesión<i class="fa fa-arrow-right ms-3"></i></a>';
-                    }else {
-                        //Boton registrate ahora solo si NO está logueado
-                        echo '<a href="registro.php" class="btn py-4 px-lg-5 d-none d-lg-block text-white" style="background-color: #43be16;">Registrate Ahora<i class="fa fa-arrow-right ms-3"></i></a>';  
+                        // Botón de cerrar sesión móvil (hamburguesa)
+                        echo '<a href="logout.php" class="btn btn-success d-block d-lg-none my-3 w-100 text-white text-center justify-content-center align-items-center d-flex" style="background-color: #43be16;">'
+                            .'<span class="mx-auto">Cerrar sesión</span>'
+                            .'<i class="fa fa-arrow-right ms-2"></i>'
+                        .'</a>';
+                    } else {
+                        // Botón registrate ahora solo si NO está logueado
+                        echo '<a href="registro.php" class="btn py-4 px-lg-5 d-none d-lg-block text-white" style="background-color: #43be16;">Registrate Ahora<i class="fa fa-arrow-right ms-3"></i></a>';
                     }
                     ?>    
                 </div>
@@ -404,23 +409,53 @@ $trueques_publicados = $result->fetch_all(MYSQLI_ASSOC);
         <!-- Navbar End -->
 
 
+
         <!-- Header Start -->
+        <style>
+        .header-trueques {
+            background: url('img/portada.jpg') center center/cover no-repeat;
+        }
+        @media (max-width: 991.98px) {
+            .header-trueques {
+                min-height: 60vh !important;
+                padding-top: 2rem !important;
+                padding-bottom: 2rem !important;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding-left: 1rem !important;
+                padding-right: 1rem !important;
+            }
+            .header-trueques .container {
+                padding: 0 !important;
+            }
+            .header-trueques-inner {
+                background: rgba(60,60,60,0.18); /* gris aún más oscuro translúcido */
+                border-radius: 20px;
+                box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+                padding: 2rem 1rem;
+                width: 100%;
+                max-width: 100%;
+            }
+            .header-trueques h1 {
+                font-size: 2rem !important;
+            }
+            .header-trueques p.lead {
+                font-size: 1rem !important;
+                margin-left: 0.5rem;
+                margin-right: 0.5rem;
+            }
+        }
+        </style>
         <div class="container-fluid bg-primary py-5 mb-5 page-header header-trueques">
             <div class="container py-5">
                 <div class="row justify-content-center">
-                    <div class="col-lg-10 text-center">
+                    <div class="col-lg-10 text-center header-trueques-inner">
                         <h1 class="display-3 text-white animated slideInDown">Trueques Comunitarios</h1>
                         <p class="lead text-white mt-3 mb-4">
                             Bienvenido a la red de intercambio solidario donde puedes ofrecer y recibir productos, servicios o saberes sin necesidad de dinero.<br>
                             ¡Participa, fortalece tu comunidad y promueve la economía circular!
                         </p>
-                        <nav aria-label="breadcrumb">
-                            <ol class="breadcrumb justify-content-center">
-                                <li class="breadcrumb-item"><a class="text-white" href="index.php">Inicio</a></li>
-                                <li class="breadcrumb-item"><a class="text-white" href="aprende.php">Aprende</a></li>
-                                <li class="breadcrumb-item"><a class="text-white" href="perfil.php">Perfil</a></li>
-                            </ol>
-                        </nav>
                         <a class="btn btn-success py-2 px-5 mt-5" href="#trueques-publicados" style="background-color: #43be16; margin-top: 5rem;">Ver Trueques Publicados</a>
                     </div>
                 </div>
@@ -664,29 +699,6 @@ $trueques_publicados = $result->fetch_all(MYSQLI_ASSOC);
                         <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>
                         <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-youtube"></i></a>
                         <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <h4 class="text-white mb-3">Gallery</h4>
-                    <div class="row g-2 pt-2">
-                        <div class="col-4">
-                            <img class="img-fluid bg-light p-1" src="img/course-1.jpg" alt="">
-                        </div>
-                        <div class="col-4">
-                            <img class="img-fluid bg-light p-1" src="img/course-2.jpg" alt="">
-                        </div>
-                        <div class="col-4">
-                            <img class="img-fluid bg-light p-1" src="img/course-3.jpg" alt="">
-                        </div>
-                        <div class="col-4">
-                            <img class="img-fluid bg-light p-1" src="img/course-2.jpg" alt="">
-                        </div>
-                        <div class="col-4">
-                            <img class="img-fluid bg-light p-1" src="img/course-3.jpg" alt="">
-                        </div>
-                        <div class="col-4">
-                            <img class="img-fluid bg-light p-1" src="img/course-1.jpg" alt="">
-                        </div>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6">

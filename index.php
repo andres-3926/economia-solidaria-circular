@@ -91,17 +91,9 @@ if (isset($_SESSION['numero_documento'])) {
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto p-4 p-lg-0">
-                <a href="javascript:location.reload();" class="nav-item nav-link<?php echo $pagina_activa === 'inicio' ? ' active text-primary' : ' text-dark'; ?>">Inicio</a>
-                <a href="trueques.php" class="nav-item nav-link<?php echo $pagina_activa === 'trueque-comunitario' ? ' active text-primary' : ' text-dark'; ?>">Trueques</a>
-                <a href="aprende.php" class="nav-item nav-link<?php echo $pagina_activa === 'aprende' ? ' active text-primary' : ' text-dark'; ?>">Aprende</a>                
-                <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle<?php echo $pagina_activa === 'comunidades' ? ' active text-primary' : ' text-dark'; ?>" data-bs-toggle="dropdown">Comunidades</a>
-                    <div class="dropdown-menu fade-down m-0">
-                        <a href="team.html" class="dropdown-item">Our Team</a>
-                        <a href="testimonial.html" class="dropdown-item">Testimonial</a>
-                        <a href="404.html" class="dropdown-item">404 Page</a>
-                    </div>
-                </div>
+                <a href="javascript:location.reload();" class="nav-item nav-link fw-bold<?php echo $pagina_activa === 'inicio' ? ' active text-primary' : ' text-dark'; ?>">Inicio</a>
+                <a href="trueques.php" class="nav-item nav-link fw-bold<?php echo $pagina_activa === 'trueque-comunitario' ? ' active text-primary' : ' text-dark'; ?>">Trueques</a>
+                <a href="aprende.php" class="nav-item nav-link fw-bold<?php echo $pagina_activa === 'aprende' ? ' active text-primary' : ' text-dark'; ?>">Aprende</a>
                 <?php
                 if (session_status() === PHP_SESSION_NONE ) {
                     session_start();
@@ -118,11 +110,16 @@ if (isset($_SESSION['numero_documento'])) {
                 ?>
                 <?php
                 if (isset($_SESSION['numero_documento'])) {
-                    //Boton de cerrar sesión
+                    // Botón de cerrar sesión escritorio
                     echo '<a href="logout.php" class="btn py-4 px-lg-5 d-none d-lg-block text-white" style="background-color: #43be16;">Cerrar sesión<i class="fa fa-arrow-right ms-3"></i></a>';
-                }else {
-                    //Boton registrate ahora solo si NO está logueado
-                    echo '<a href="registro.php" class="btn py-4 px-lg-5 d-none d-lg-block text-white" style="background-color: #43be16;">Registrate Ahora<i class="fa fa-arrow-right ms-3"></i></a>';  
+                    // Botón de cerrar sesión móvil (hamburguesa)
+                    echo '<a href="logout.php" class="btn btn-success d-block d-lg-none my-3 w-100 text-white text-center justify-content-center align-items-center d-flex" style="background-color: #43be16;">'
+                        .'<span class="mx-auto">Cerrar sesión</span>'
+                        .'<i class="fa fa-arrow-right ms-2"></i>'
+                    .'</a>';
+                } else {
+                    // Botón registrate ahora solo si NO está logueado
+                    echo '<a href="registro.php" class="btn py-4 px-lg-5 d-none d-lg-block text-white" style="background-color: #43be16;">Registrate Ahora<i class="fa fa-arrow-right ms-3"></i></a>';
                 }
                 ?>    
             </div>
