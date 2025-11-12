@@ -45,6 +45,91 @@ error_reporting(E_ALL);
                 align-items: center;
                 justify-content: center;
             }
+            .container-fluid.mb-5 {
+                margin-bottom: 0 !important;
+            }
+            .footer {
+                padding: 0 !important;
+                margin: 0 !important;
+                min-height: auto !important;
+                height: 35px !important;
+                overflow: hidden !important;
+            }
+            .footer .container {
+                padding: 0 !important;
+                height: 100% !important;
+                display: flex !important;
+                align-items: center !important;
+            }
+            .footer .copyright {
+                padding: 0 15px !important;
+                margin: 0 !important;
+                border: none !important;
+                height: 35px !important;
+                display: flex !important;
+                align-items: center !important;
+                width: 100% !important;
+            }
+            .footer .copyright .row {
+                margin: 0 !important;
+                width: 100% !important;
+            }
+            .footer .copyright .col-md-6{
+                margin: 0 !important;
+                padding: 0 !important;
+                font-size: 11px !important;
+                line-height: 1.2 !important;
+                text-align: center !important;
+                font-weight: 400 !important;
+            }
+        }
+        /* Para dispositivos moviles muy pequeños */
+        @media (max-width: 576px) {            
+            .footer {
+                height: 180px !important;
+                overflow: hidden !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+            }
+            .footer .container {
+                height: 100% !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                padding: 0 !important;
+            }
+            .footer .copyright {
+                height: auto !important;
+                padding: 20px 10px !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                width: 100% !important;
+                margin: 0 !important;
+                border: none !important;
+            }
+            .footer .copyright .row {
+                margin: 0 !important;
+                width: 100% !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                height: auto !important;
+            }
+            .footer .copyright .col-md-6{
+                font-size: 16px !important;
+                font-weight: 600 !important;
+                color: #ffffff !important;
+                text-shadow: 2px 2px 4px rgba(0,0,0,0.8) !important;
+                text-align: center !important;
+                margin: 0 !important;
+                padding: 20px !important;
+                line-height: 1.4 !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+            }
         }
     </style>
 </head>
@@ -135,14 +220,26 @@ error_reporting(E_ALL);
 
                                     <!-- Formulario de recuperación -->
                                     <div id="forgot-form">
+                                        <div class="alert alert-info mt-3" style="font-size: 12px;">
+                                            <i class="fa-solid fa-shield-halved me-1"></i>
+                                            <strong>Verificación de identidad:</strong> Ingresa tus datos exactamente como están registrados.
+                                        </div>
                                         <form method="POST" action="recuperar_contrasena.php">
-                                            <div class="mb-3 mt-2">
+                                            <div class="mb-3">
+                                                <label for="nombre_recuperar" class="form-label">Nombre Completo</label>
+                                                <input type="text" class="form-control" id="nombre_recuperar" name="nombre_recuperar" placeholder="Ingrese su nombre completo" required>
+                                            </div>
+                                            <div class="mb-3">
                                                 <label for="documento_recuperar" class="form-label">Número de Documento</label>
                                                 <input type="text" class="form-control" id="documento_recuperar" name="documento_recuperar" placeholder="Ingrese su numero de documento" required>
                                             </div>
-                                                <button type="submit" class="btn w-100 text-white py-2" style="background-color: #43be16;">
-                                                    Recuperar contraseña
-                                                </button>
+                                            <div class="mb-3">
+                                                <label for="celular_recuperar" class="form-label">Número de Celular</label>
+                                                <input type="text" class="form-control" id="celular_recuperar" name="celular_recuperar" placeholder="Ingrese su numero de celular" maxlength="10" required>
+                                            </div>
+                                            <button type="submit" class="btn w-100 text-white py-2" style="background-color: #43be16;">
+                                                <i class="fa-solid fa-shield-halved me-1"></i>Verificar Identidad
+                                            </button>
                                         </form>
                                     </div>
                                 </div>
@@ -159,57 +256,12 @@ error_reporting(E_ALL);
 
     
     <!-- Footer Start -->
-    <div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
-        <div class="container py-5">
-            <div class="row g-5">
-                <div class="col-lg-3 col-md-6">
-                    <h4 class="text-white mb-3">Quick Link</h4>
-                    <a class="btn btn-link" href="">About Us</a>
-                    <a class="btn btn-link" href="">Contact Us</a>
-                    <a class="btn btn-link" href="">Privacy Policy</a>
-                    <a class="btn btn-link" href="">Terms & Condition</a>
-                    <a class="btn btn-link" href="">FAQs & Help</a>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <h4 class="text-white mb-3">Contact</h4>
-                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>123 Street, New York, USA</p>
-                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+012 345 67890</p>
-                    <p class="mb-2"><i class="fa fa-envelope me-3"></i>info@example.com</p>
-                    <div class="d-flex pt-2">
-                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
-                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>
-                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-youtube"></i></a>
-                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                </div>
-                
-                <div class="col-lg-3 col-md-6">
-                    <h4 class="text-white mb-3">Newsletter</h4>
-                    <p>Dolor amet sit justo amet elitr clita ipsum elitr est.</p>
-                    <div class="position-relative mx-auto" style="max-width: 400px;">
-                        <input class="form-control border-0 w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email">
-                        <button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">SignUp</button>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">        
         <div class="container">
             <div class="copyright">
                 <div class="row">
                     <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                        &copy; <a class="border-bottom" href="#">Your Site Name</a>, All Right Reserved.
-
-                        <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
-                        Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a><br><br>
-                        Distributed By <a class="border-bottom" href="https://themewagon.com">ThemeWagon</a>
-                    </div>
-                    <div class="col-md-6 text-center text-md-end">
-                        <div class="footer-menu">
-                            <a href="">Home</a>
-                            <a href="">Cookies</a>
-                            <a href="">Help</a>
-                            <a href="">FQAs</a>
-                        </div>
+                        &copy; 2025 Economía Solidaria y Circular - Todos los derechos reservados.
                     </div>
                 </div>
             </div>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1:3306
--- Tiempo de generación: 08-10-2025 a las 22:15:54
+-- Tiempo de generación: 12-11-2025 a las 20:16:37
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -200,8 +200,17 @@ INSERT INTO `notificaciones` (`id`, `usuario_id`, `mensaje`, `leida`, `fecha`) V
 (14, 48, 'El usuario Diana Giraldo Arias está esperando habilitación como emprendedor.', 1, '2025-09-28 11:44:57'),
 (15, 48, 'El usuario Diana Giraldo Arias está esperando habilitación como emprendedor.', 1, '2025-09-29 14:10:16'),
 (16, 49, 'El usuario Claudia Marcela Lince Salazar está esperando habilitación como emprendedor.', 1, '2025-09-30 19:17:44'),
-(17, 48, 'El usuario Diana Giraldo Arias está esperando habilitación como emprendedor.', 0, '2025-09-30 21:13:23'),
-(18, 50, 'El usuario Carlos Arturo Sanchez Ortegón está esperando habilitación como emprendedor.', 0, '2025-09-30 21:20:27');
+(17, 48, 'El usuario Diana Giraldo Arias está esperando habilitación como emprendedor.', 1, '2025-09-30 21:13:23'),
+(18, 50, 'El usuario Carlos Arturo Sanchez Ortegón está esperando habilitación como emprendedor.', 1, '2025-09-30 21:20:27'),
+(19, 48, 'El usuario Diana Giraldo Arias está esperando habilitación como emprendedor.', 1, '2025-10-09 14:13:19'),
+(20, 48, 'El usuario Diana Giraldo Arias está esperando habilitación como emprendedor.', 0, '2025-10-09 16:53:47'),
+(21, 51, 'El usuario Diana Giraldo Arias está esperando habilitación como emprendedor.', 1, '2025-10-10 15:39:57'),
+(22, 51, 'El usuario Diana Giraldo Arias está esperando habilitación como emprendedor.', 1, '2025-10-10 16:05:22'),
+(23, 51, 'El usuario Diana Giraldo Arias está esperando habilitación como emprendedor.', 1, '2025-10-13 19:00:55'),
+(24, 51, 'El usuario Diana Giraldo Arias está esperando habilitación como emprendedor.', 1, '2025-10-15 14:03:00'),
+(25, 51, 'El usuario Diana Giraldo Arias está esperando habilitación como emprendedor.', 1, '2025-10-16 20:10:57'),
+(26, 51, 'El usuario Diana Giraldo Arias está esperando habilitación como emprendedor.', 1, '2025-11-04 21:33:13'),
+(27, 51, 'El usuario Diana Giraldo Arias está esperando habilitación como emprendedor.', 0, '2025-11-10 15:56:22');
 
 -- --------------------------------------------------------
 
@@ -297,8 +306,8 @@ CREATE TABLE `trueques` (
 --
 
 INSERT INTO `trueques` (`id`, `numero_documento`, `que_ofreces`, `que_necesitas`, `descripcion`, `barrio`, `etiquetas`, `estado`, `fecha_publicacion`, `categoria`, `subcategoria`, `fecha_expiracion`) VALUES
-(19, '30291824', 'Una bicicleta para regalar', 'Abono', 'Tengo una bicicleta en buen estado para regalar.', 'la maria', NULL, 'activo', '2025-09-24 06:01:21', 'Varios', 'Donaciones', '2025-09-29'),
-(21, '1053787426', 'Tengo retazos de tela para regalar', 'Ropa usada', 'Tengo 2 bultos de retazos de tela para regalar', 'Siloe', NULL, 'activo', '2025-09-24 14:54:46', 'Mis Residuos', 'Reciclables (papel, cartón, plásticos, metales, vidrio, etc)', '2025-09-30');
+(19, '30291824', 'Una bicicleta para regalar', 'Abono', 'Tengo una bicicleta en buen estado para regalar.', 'la maria', NULL, 'cancelado', '2025-09-24 06:01:21', 'Varios', 'Donaciones', '2025-10-18'),
+(21, '1053787426', 'Tengo retazos de tela para regalar', 'Ropa usada', 'Tengo 2 bultos de retazos de tela para regalar', 'Siloe', NULL, 'activo', '2025-09-24 14:54:46', 'Mis Residuos', 'Reciclables (papel, cartón, plásticos, metales, vidrio, etc)', '2025-10-15');
 
 -- --------------------------------------------------------
 
@@ -333,9 +342,8 @@ CREATE TABLE `usuarios` (
 
 INSERT INTO `usuarios` (`id`, `numero_documento`, `tipo_documento`, `nombre_completo`, `celular`, `correo`, `contrasena`, `comuna`, `barrio`, `direccion`, `emprendimiento`, `habilitado`, `foto`, `rol`, `fecha_registro`, `instagram`, `facebook`, `resena`) VALUES
 (40, '16071402', 'CC', 'Andres Echeverri Giraldo', '3113079637', 'aecheverrig20@hotmail.com', '$2y$10$S8F8xy4PKj9bg.Cld0eCfut/fTohcl8Qmj.1KEz5lHm7fMGoKTQsm', '20', 'Siloe', 'Carrera 8 # 57E 2-03', 'Instructor', 1, '16071402_1757978022.jpg', 'administrador', '2025-09-15 16:40:33', NULL, NULL, NULL),
-(48, '30291824', 'CC', 'Diana Giraldo Arias', '3147748010', 'monafeliz57@hotmail.com', '$2y$10$hF2iPw1Pd.LlDOlbfjKjquYrVDfQSL3KnLrMgWkCqeBV9iP0LJxD6', '20', 'Siloe', 'carrera8 # 57E 2-03', 'Restaurante Diana', 0, '30291824_1758661089.jpg', 'emprendedor', '2025-09-23 14:44:28', NULL, NULL, 'Mi emprendimiento se llama Restaurante Diana, llevamos mas de 10 años llenando de placer a comensales con la típica comida vallecaucana.\r\n\r\nAcercate para tener el gusto de atenderte.'),
-(49, '1053787426', 'CC', 'Claudia Marcela Lince Salazar', '3217108776', 'lince627@hotmail.com', '$2y$10$YVtA22PSrVKnH44GjCHoZOUjrz1UgxlgVmCSS0A5MvS9PDA3UBYBO', '20', 'Siloe', 'carrera 29 # 15-45', 'Ropero Claudia', 0, '1053787426_1758665825.jpg', 'emprendedor', '2025-09-23 17:15:10', NULL, NULL, 'Mi emprendimiento se llama Ropero Claudia, el cual esta ubicado en el barrio Siloé, compramos todo tipo de ropa usada'),
-(50, '10266013', 'CC', 'Carlos Arturo Sanchez Ortegón', '3113903460', 'jara64@gmail.com', '$2y$10$OfdNwSsv.jXESXQh08eZOeuNMi5TzYeWg8fzZMI.JpCaIJJXerXse', '9', 'El redondo', 'Calle 20 # 15-47', 'Chatarrería Caldas', 0, NULL, 'usuario', '2025-09-30 21:20:16', NULL, NULL, NULL);
+(51, '30291824', 'CC', 'Diana Giraldo Arias', '3147748010', 'monafeliz57@hotmail.com', '$2y$10$vC3zbiIfqqph8zUcs2o0E.cCe3JkvCr/YiKnCA95GGiQxlR.h5tpm', '22', 'Siloe', 'Carrera 8 #57E2-03', 'Artesanias Diana', 0, '30291824_1760554992.jpg', 'emprendedor', '2025-10-10 15:39:46', NULL, NULL, 'hola yo soy diana'),
+(52, '1053787426', 'CC', 'Claudia Marcela Lince Salazar', '3217108776', 'lince627@hotmail.com', '$2y$10$3.jHvbdlhyEKhzM4GkL5eOINE4g7EV8a/4zJCpSIOR07PRmTL75rC', '20', 'Siloe', 'carrera 29 # 15-45', 'Ropero Claudia', 0, NULL, 'emprendedor', '2025-10-15 16:59:16', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -526,13 +534,13 @@ ALTER TABLE `comunidades`
 -- AUTO_INCREMENT de la tabla `imagenes_emprendimiento`
 --
 ALTER TABLE `imagenes_emprendimiento`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT de la tabla `imagenes_trueque`
 --
 ALTER TABLE `imagenes_trueque`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT de la tabla `interacciones_trueque`
@@ -556,7 +564,7 @@ ALTER TABLE `mensajes_trueque`
 -- AUTO_INCREMENT de la tabla `notificaciones`
 --
 ALTER TABLE `notificaciones`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT de la tabla `participacion_comunidad`
@@ -586,13 +594,13 @@ ALTER TABLE `saberes_usuario`
 -- AUTO_INCREMENT de la tabla `trueques`
 --
 ALTER TABLE `trueques`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
 
 --
 -- AUTO_INCREMENT de la tabla `valoraciones_trueque`
