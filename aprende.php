@@ -54,7 +54,7 @@ if (!isset($_SESSION['numero_documento'])) {
             "fondo" => "img/residuos.jpg",
         ],
         [
-            "tipo" => "contenido_con_actividad", // NUEVO TIPO para mostrar contenido + botón de actividad
+            "tipo" => "contenido_con_actividad",
             "titulo" => "¡Los Residuos son Oportunidades!",
             "texto" => "¡De la <span style='color: #FFD700;'>cáscara de plátano</span> al <span style='color: #32CD32;'>abono para tus plantas</span>, del <span style='color: #FF6B6B;'>retazo</span> a una <span style='color: #4ECDC4;'>nueva creación</span>!",
             "actividad_titulo" => "Actividad del Tema 2: ¿Qué Residuo Ves Tú?",
@@ -62,7 +62,7 @@ if (!isset($_SESSION['numero_documento'])) {
             "fondo" => "img/transformacion-residuos.jpg",
         ],
         [
-            "tipo" => "actividad", // Página de actividad interactiva            
+            "tipo" => "actividad",           
             "texto" => "Introduce la idea de que lo que antes se botaba, ahora es un <b>recurso valioso</b>. ¡De la <span style='color: #FFD700;'>cáscara de plátano</span> al <span style='color: #32CD32;'>abono para tus plantas</span>, del <span style='color: #FF6B6B;'>retazo</span> a una <span style='color: #4ECDC4;'>nueva creación</span>!",
             "actividad_titulo" => "Reto del Tema 2: ¿Qué Residuo Ves Tú?",
             "actividad_instruccion" => "Observa tu espacio de trabajo (o tu casa). Nombra <b>3 tipos de residuos</b> que generas con frecuencia y piensa en una forma diferente de verlos (¿podría ser un recurso?).",
@@ -70,17 +70,103 @@ if (!isset($_SESSION['numero_documento'])) {
         ],
         [
             "tipo" => "contenido",
-            "titulo" => "¿Qué Son los Residuos y Por Qué Nos Importan?",
-            "texto" => "El <b>residuo</b> es material desechado que aún puede ser <b>reciclado o reutilizado</b>. Su gestión es vital porque <b>evita la contaminación</b>, conserva los <b>recursos naturales</b> y es la base de la <b>Economía Circular</b>, asegurando un futuro más sostenible.",
-            "texto2" => "La mala gestión de <b>residuos</b> genera rápidamente <b>malos olores</b> y <b>plagas</b>, comprometiendo la <b>salud pública</b>. Además, contamina gravemente el <b>agua</b>, el <b>suelo</b> y el <b>aire</b>, empeorando el impacto ambiental.",
-            "fondo" => "img/residuos.jpg",
+            "titulo" => "La Economía Circular: Un Círculo de Oportunidades",
+            "texto" => "
+                <div class='row g-1'>
+                    <div class='col-md-6'>
+                        <div class='text-center mb-1'>
+                            <h6 class='mb-1' style='color: #000033; font-weight: 900; font-size: 0.9rem; text-shadow: 2px 2px 4px rgba(255,255,255,1);'>
+                                <i class='fas fa-arrow-down me-1'></i>Economía Lineal
+                            </h6>
+                            <div class='d-flex flex-column align-items-center'>
+                                <div class='economia-step-micro mb-1' style='background: linear-gradient(135deg, #ff6b6b, #ee5a52); color: #000033; padding: 0.3rem 0.6rem; border-radius: 8px; font-weight: 900; box-shadow: 0 1px 3px rgba(238,90,82,0.3); font-size: 0.7rem; border: 1px solid rgba(0,0,0,0.2);'>
+                                    <i class='fas fa-mountain me-1'></i>Extraer
+                                </div>
+                                <i class='fas fa-arrow-down mb-1' style='font-size: 0.8rem; color: #000033; text-shadow: 1px 1px 2px rgba(255,255,255,1);'></i>
+                                <div class='economia-step-micro mb-1' style='background: linear-gradient(135deg, #4ecdc4, #44a08d); color: #000033; padding: 0.3rem 0.6rem; border-radius: 8px; font-weight: 900; box-shadow: 0 1px 3px rgba(68,160,141,0.3); font-size: 0.7rem; border: 1px solid rgba(0,0,0,0.2);'>
+                                    <i class='fas fa-cogs me-1'></i>Producir
+                                </div>
+                                <i class='fas fa-arrow-down mb-1' style='font-size: 0.8rem; color: #000033; text-shadow: 1px 1px 2px rgba(255,255,255,1);'></i>
+                                <div class='economia-step-micro mb-1' style='background: linear-gradient(135deg, #45b7d1, #96c93d); color: #000033; padding: 0.3rem 0.6rem; border-radius: 8px; font-weight: 900; box-shadow: 0 1px 3px rgba(69,183,209,0.3); font-size: 0.7rem; border: 1px solid rgba(0,0,0,0.2);'>
+                                    <i class='fas fa-shopping-cart me-1'></i>Usar
+                                </div>
+                                <i class='fas fa-arrow-down mb-1' style='font-size: 0.8rem; color: #000033; text-shadow: 1px 1px 2px rgba(255,255,255,1);'></i>
+                                <div class='economia-step-micro' style='background: linear-gradient(135deg, #6c5ce7, #a29bfe); color: #000033; padding: 0.3rem 0.6rem; border-radius: 8px; font-weight: 900; box-shadow: 0 1px 3px rgba(108,92,231,0.3); font-size: 0.7rem; border: 1px solid rgba(0,0,0,0.2);'>
+                                    <i class='fas fa-trash me-1'></i>Botar
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class='col-md-6'>
+                        <div class='text-center mb-1'>
+                            <h6 class='mb-1' style='color: #000033; font-weight: 900; font-size: 0.9rem; text-shadow: 2px 2px 4px rgba(255,255,255,1);'>
+                                <i class='fas fa-recycle me-1'></i>Economía Circular
+                            </h6>
+                            <div class='position-relative mx-auto' style='width: 140px; height: 140px;'>
+                                <div class='position-absolute top-50 start-50 translate-middle text-center' style='z-index: 10;'>
+                                    <div style='background: linear-gradient(135deg, #43be16, #38a01c); color: #000033; border-radius: 50%; width: 35px; height: 35px; display: flex; align-items: center; justify-content: center; font-weight: 900; box-shadow: 0 2px 8px rgba(67,190,22,0.4); border: 1px solid rgba(0,0,0,0.2);'>
+                                        <i class='fas fa-leaf' style='font-size: 0.8rem;'></i>
+                                    </div>
+                                </div>
+                                
+                                <div class='position-absolute' style='top: 0px; left: 50%; transform: translateX(-50%);'>
+                                    <div class='text-center' style='background: linear-gradient(135deg, #e74c3c, #c0392b); color: #000033; padding: 0.15rem 0.3rem; border-radius: 4px; font-size: 0.55rem; font-weight: 900; box-shadow: 0 1px 3px rgba(231,76,60,0.3); border: 1px solid rgba(0,0,0,0.2);'>
+                                        <i class='fas fa-minus-circle me-1'></i>Reducir
+                                    </div>
+                                </div>
+                                
+                                <div class='position-absolute' style='top: 15px; right: 0px;'>
+                                    <div class='text-center' style='background: linear-gradient(135deg, #f39c12, #e67e22); color: #000033; padding: 0.15rem 0.3rem; border-radius: 4px; font-size: 0.55rem; font-weight: 900; box-shadow: 0 1px 3px rgba(243,156,18,0.3); border: 1px solid rgba(0,0,0,0.2);'>
+                                        <i class='fas fa-redo me-1'></i>Reutilizar
+                                    </div>
+                                </div>
+                                
+                                <div class='position-absolute' style='bottom: 40px; right: 0px;'>
+                                    <div class='text-center' style='background: linear-gradient(135deg, #27ae60, #2ecc71); color: #000033; padding: 0.15rem 0.3rem; border-radius: 4px; font-size: 0.55rem; font-weight: 900; box-shadow: 0 1px 3px rgba(39,174,96,0.3); border: 1px solid rgba(0,0,0,0.2);'>
+                                        <i class='fas fa-recycle me-1'></i>Reciclar
+                                    </div>
+                                </div>
+                                
+                                <div class='position-absolute' style='bottom: 15px; left: 50%; transform: translateX(-50%);'>
+                                    <div class='text-center' style='background: linear-gradient(135deg, #8e44ad, #9b59b6); color: #000033; padding: 0.15rem 0.3rem; border-radius: 4px; font-size: 0.55rem; font-weight: 900; box-shadow: 0 1px 3px rgba(142,68,173,0.3); border: 1px solid rgba(0,0,0,0.2);'>
+                                        <i class='fas fa-tools me-1'></i>Reparar
+                                    </div>
+                                </div>
+                                
+                                <div class='position-absolute' style='bottom: 40px; left: 0px;'>
+                                    <div class='text-center' style='background: linear-gradient(135deg, #3498db, #2980b9); color: #000033; padding: 0.15rem 0.3rem; border-radius: 4px; font-size: 0.55rem; font-weight: 900; box-shadow: 0 1px 3px rgba(52,152,219,0.3); border: 1px solid rgba(0,0,0,0.2);'>
+                                        <i class='fas fa-heart me-1'></i>Recuperar
+                                    </div>
+                                </div>
+                                
+                                <div class='position-absolute' style='top: 15px; left: 0px;'>
+                                    <div class='text-center' style='background: linear-gradient(135deg, #e91e63, #ad1457); color: #000033; padding: 0.15rem 0.3rem; border-radius: 4px; font-size: 0.55rem; font-weight: 900; box-shadow: 0 1px 3px rgba(233,30,99,0.3); border: 1px solid rgba(0,0,0,0.2);'>
+                                        <i class='fas fa-lightbulb me-1'></i>Rediseñar
+                                    </div>
+                                </div>
+                                
+                                <div class='position-absolute top-50 start-50 translate-middle' style='width: 110px; height: 110px; border: 2px dashed #000033; border-radius: 50%; opacity: 0.8;'></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class='text-center mt-1'>
+                    <p class='fw-bold' style='font-size: 0.8rem; color: #000033; line-height: 1.2; margin-bottom: 0.3rem; text-shadow: 2px 2px 4px rgba(255,255,255,1);'>
+                        <i class='fas fa-arrow-right me-1'></i>
+                        En la <b>Economía Circular</b>, los recursos nunca se desperdician, siempre encuentran una nueva vida útil.
+                    </p>
+                </div>
+            ",
+            "fondo" => "img/imagen_economia_circular.webp",
+            "logo" => "img/Logo-sena-blanco-sin-fondo.webp"
         ],
         [
             "tipo" => "contenido",
-            "titulo" => "¿Qué Son los Residuos y Por Qué Nos Importan?",
-            "texto" => "El <b>residuo</b> es material desechado que aún puede ser <b>reciclado o reutilizado</b>. Su gestión es vital porque <b>evita la contaminación</b>, conserva los <b>recursos naturales</b> y es la base de la <b>Economía Circular</b>, asegurando un futuro más sostenible.",
-            "texto2" => "La mala gestión de <b>residuos</b> genera rápidamente <b>malos olores</b> y <b>plagas</b>, comprometiendo la <b>salud pública</b>. Además, contamina gravemente el <b>agua</b>, el <b>suelo</b> y el <b>aire</b>, empeorando el impacto ambiental.",
-            "fondo" => "img/residuos.jpg",
+            "titulo" => "Construyendo Juntas el Futuro",
+            "texto" => "Esta página está lista para agregar el siguiente contenido de la cartilla. Aquí puedes continuar desarrollando los temas de economía solidaria y circular para emprendedoras.",
+            "fondo" => "img/construccion-futuro.jpg",
+            "logo" => "img/Logo-sena-blanco-sin-fondo.webp"
         ]
     ];
 
@@ -96,18 +182,13 @@ if (!isset($_SESSION['numero_documento'])) {
     ];
 
     // 1. Convertir el texto de la lista a un array de puntos
-    // Esto nos permite iterar sobre los puntos e inyectar el ícono.
-    // Solo procesamos si el campo 'texto' existe para evitar errores en páginas sin texto (como algunas portadas)
     if (isset($cartilla[$pagina]['texto']) && strpos($cartilla[$pagina]['texto'], '<li>') !== false) {
         preg_match_all('/<li>(.*?)<\/li>/s', $cartilla[$pagina]['texto'], $matches);
         $puntos_de_beneficio = $matches[1];
 
         $texto_con_iconos = '<ul class="list-unstyled mx-auto" style="max-width: 700px; padding: 0 1rem;">';
 
-        // 2. Iterar e inyectar el ícono correspondiente a cada punto
         foreach ($puntos_de_beneficio as $index => $punto) {
-            // Usamos d-flex para alinear el ícono y el texto, y mb-4 para dar buen espacio vertical
-            // Verificamos si hay un ícono disponible para evitar un error de índice
             $icono = $iconos[$index] ?? ''; 
             $texto_con_iconos .= '
                 <li class="d-flex align-items-start mb-1">
@@ -119,29 +200,19 @@ if (!isset($_SESSION['numero_documento'])) {
 
         $texto_con_iconos .= '</ul>';
     } else {
-        // Si no es una lista, usamos el texto plano directamente, si existe.
         $texto_con_iconos = $cartilla[$pagina]['texto'] ?? '';
     }
 
-    // Valor por defecto
+    // Configuración de altura por página
     $height_bloque = '75vh';
 
-    // Personaliza por página (ejemplo: página 4 más arriba, página 2 más abajo)
-    if ($pagina == 2) { // Página 2 (contenido 1)
-        $height_bloque = '78vh';
-    }
-    if ($pagina == 3) { // Página 3 (contenido 2) 
-        $height_bloque = '66vh'; 
-    }
-    if ($pagina == 4) { // Página 4 (contenido 3) 
-        $height_bloque = '66vh'; 
-    }
-    if ($pagina == 5) { // Página 5 (contenido 4) 
-        $height_bloque = '78vh'; 
-    }
-    if ($pagina == 6) { // Página 5 (contenido 5)
-        $height_bloque = '40vh';
-    }
+    if ($pagina == 2) { $height_bloque = '78vh'; }
+    if ($pagina == 3) { $height_bloque = '66vh'; } 
+    if ($pagina == 4) { $height_bloque = '66vh'; } 
+    if ($pagina == 5) { $height_bloque = '78vh'; } 
+    if ($pagina == 6) { $height_bloque = '40vh'; }
+    if ($pagina == 7) { $height_bloque = '63vh'; } 
+    if ($pagina == 8) { $height_bloque = '75vh'; }
 
 ?>
 
@@ -177,53 +248,52 @@ if (!isset($_SESSION['numero_documento'])) {
     <link href="css/style.css" rel="stylesheet">
 
     <style>
-        /* Estilos para el cuadro semitransparente con fondo azul claro - MÁS TRANSPARENTE */
+        /* Estilos para el cuadro semitransparente con fondo azul claro */
         .cuadro-texto {
-            background: rgba(173, 216, 230, 0.35) !important; /* MUCHO más transparente: 35% */
-            backdrop-filter: blur(3px); /* Menos blur para ver más la imagen */
+            background: rgba(173, 216, 230, 0.35) !important;
+            backdrop-filter: blur(3px);
             -webkit-backdrop-filter: blur(3px);
             border-radius: 20px;
-            padding: 2rem;
-            margin: 1rem 0;
+            padding: 1.2rem 2rem;
+            margin: 0.3rem 0;
             box-shadow: 
                 0 10px 25px rgba(0, 0, 0, 0.15),
                 0 3px 10px rgba(173, 216, 230, 0.2);
             border: 1px solid rgba(255, 255, 255, 0.4);
             max-width: 800px;
-            color: #000033; /* Color mucho más oscuro - azul marino profundo */
+            color: #000033;
             position: relative;
         }
 
-        /* Eliminar el pseudo-elemento que podría estar causando opacidad */
         .cuadro-texto::before {
             display: none;
         }
 
         .cuadro-texto h3 {
-            color: #001122; /* Azul muy oscuro, casi negro */
+            color: #001122;
             margin-bottom: 1rem;
-            font-weight: 900; /* MÁS GRUESO - peso máximo */
+            font-weight: 900;
             text-shadow: 
-                3px 3px 6px rgba(255,255,255,1), /* Sombra blanca fuerte */
+                3px 3px 6px rgba(255,255,255,1),
                 1px 1px 3px rgba(255,255,255,0.9),
-                -1px -1px 2px rgba(255,255,255,0.8); /* Sombra en múltiples direcciones */
+                -1px -1px 2px rgba(255,255,255,0.8);
         }
 
         .cuadro-texto .texto-contenido {
             font-size: 1.1rem;
-            line-height: 1.7;
-            color: #000022; /* Azul oscuro casi negro para máximo contraste */
-            font-weight: 700; /* MÁS GRUESO - de 500 a 700 */
+            line-height: 1.5;
+            color: #000022;
+            font-weight: 700;
             text-shadow: 
-                2px 2px 4px rgba(255,255,255,1), /* Sombra blanca sólida */
+                2px 2px 4px rgba(255,255,255,1),
                 1px 1px 3px rgba(255,255,255,0.95),
                 -1px -1px 2px rgba(255,255,255,0.9),
-                0px 0px 5px rgba(255,255,255,0.7); /* Resplandor blanco */
+                0px 0px 5px rgba(255,255,255,0.7);
         }
 
         .cuadro-texto .texto-contenido b {
-            color: #000011; /* Negro azulado para texto en negrita */
-            font-weight: 900; /* MÁS GRUESO - peso máximo */
+            color: #000011;
+            font-weight: 900;
             text-shadow: 
                 3px 3px 6px rgba(255,255,255,1),
                 1px 1px 3px rgba(255,255,255,0.95),
@@ -232,7 +302,7 @@ if (!isset($_SESSION['numero_documento'])) {
         }
 
         .cuadro-texto .texto-contenido span[style*="color"] {
-            font-weight: 900; /* MÁS GRUESO - peso máximo */
+            font-weight: 900;
             text-shadow: 
                 3px 3px 7px rgba(255,255,255,1),
                 1px 1px 4px rgba(255,255,255,0.95),
@@ -240,19 +310,18 @@ if (!isset($_SESSION['numero_documento'])) {
                 0px 0px 8px rgba(255,255,255,0.8);
         }
 
-        /* Ajustes para los iconos en listas */
         .cuadro-texto .list-unstyled li {
-            margin-bottom: 1.2rem;
+            margin-bottom: 0.8rem;
             transition: all 0.3s ease;
             padding: 0.3rem;
             border-radius: 8px;
-            color: #000022; /* Color oscuro para lista */
-            font-weight: 700; /* MÁS GRUESO - de 500 a 700 */
+            color: #000022;
+            font-weight: 700;
         }
 
         .cuadro-texto .list-unstyled li div {
-            color: #000022 !important; /* Forzar color oscuro en el contenido de la lista */
-            font-weight: 700 !important; /* MÁS GRUESO - forzar peso */
+            color: #000022 !important;
+            font-weight: 700 !important;
             text-shadow: 
                 2px 2px 4px rgba(255,255,255,1),
                 1px 1px 3px rgba(255,255,255,0.95),
@@ -272,102 +341,50 @@ if (!isset($_SESSION['numero_documento'])) {
             filter: drop-shadow(3px 3px 6px rgba(255,255,255,0.9));
         }
 
-        /* Efecto hover para todo el cuadro */
         .cuadro-texto:hover {
             transform: translateY(-5px);
             transition: all 0.3s ease;
-            background: rgba(173, 216, 230, 0.45) !important; /* Solo un poco más opaco en hover */
+            background: rgba(173, 216, 230, 0.45) !important;
             box-shadow: 
                 0 15px 30px rgba(0, 0, 0, 0.2),
                 0 5px 15px rgba(173, 216, 230, 0.3);
         }
 
-        /* Cuadro especial para actividades - azul más intenso pero MUY transparente */
+        /* Cuadro especial para actividades */
         .cuadro-actividad {
-            background: rgba(135, 206, 250, 0.4) !important; /* Más transparente: 40% */
+            background: rgba(135, 206, 250, 0.4) !important;
             border: 2px solid rgba(70, 130, 180, 0.6);
         }
 
         .cuadro-actividad:hover {
-            background: rgba(135, 206, 250, 0.5) !important; /* Solo 50% en hover */
+            background: rgba(135, 206, 250, 0.5) !important;
             border-color: rgba(70, 130, 180, 0.8);
         }
 
         .cuadro-actividad h3 {
-            color: #001122; /* Color muy oscuro para actividades */
-            font-weight: 900; /* MÁS GRUESO */
+            color: #001122;
+            font-weight: 900;
         }
 
         .cuadro-actividad .texto-contenido {
-            color: #000022; /* Color muy oscuro para texto de actividades */
-            font-weight: 700; /* MÁS GRUESO */
+            color: #000022;
+            font-weight: 700;
         }
 
-        /* Mejorar contraste en formularios */
         .cuadro-actividad label {
             color: #001122 !important;
-            font-weight: 800; /* MÁS GRUESO - de 700 a 800 */
+            font-weight: 800;
             text-shadow: 
                 2px 2px 4px rgba(255,255,255,1),
                 1px 1px 3px rgba(255,255,255,0.9);
         }
 
         .cuadro-actividad .text-muted {
-            color: #000044 !important; /* Menos "muted", más oscuro */
-            font-weight: 600; /* MÁS GRUESO - de 500 a 600 */
+            color: #000044 !important;
+            font-weight: 600;
             text-shadow: 1px 1px 3px rgba(255,255,255,0.9);
         }
 
-        /* Responsivo - manteniendo ALTA transparencia pero mejor contraste y MÁS GRUESO */
-        @media (max-width: 768px) {
-            .cuadro-texto {
-                padding: 1.5rem;
-                margin: 0.5rem;
-                border-radius: 15px;
-                background: rgba(173, 216, 230, 0.45) !important; /* Un poco más opaco en móvil */
-            }
-            
-            .cuadro-texto .texto-contenido {
-                font-size: 1rem;
-                line-height: 1.6;
-                font-weight: 800; /* MÁS GRUESO - de 600 a 800 en móvil */
-                text-shadow: 
-                    3px 3px 6px rgba(255,255,255,1),
-                    1px 1px 4px rgba(255,255,255,0.95),
-                    0px 0px 6px rgba(255,255,255,0.8);
-            }
-            
-            .cuadro-texto h3 {
-                font-weight: 900; /* Mantener peso máximo */
-                text-shadow: 
-                    4px 4px 8px rgba(255,255,255,1),
-                    2px 2px 5px rgba(255,255,255,0.9);
-            }
-        }
-
-        @media (max-width: 480px) {
-            .cuadro-texto {
-                padding: 1.2rem;
-                margin: 0.3rem;
-                background: rgba(173, 216, 230, 0.55) !important;
-            }
-            
-            .cuadro-actividad {
-                background: rgba(135, 206, 250, 0.55) !important;
-            }
-            
-            .cuadro-texto .texto-contenido {
-                font-weight: 900;
-                text-shadow: 
-                    4px 4px 8px rgba(255,255,255,1),
-                    2px 2px 6px rgba(255,255,255,0.95),
-                    0px 0px 8px rgba(255,255,255,0.8);
-            }
-        }
-
-        /* AGREGAR AQUÍ LOS NUEVOS ESTILOS PARA ACTIVIDADES */
-        
-        /* OPTIMIZACIONES ESPECÍFICAS PARA ACTIVIDADES */
         .cuadro-actividad .form-control {
             border: 2px solid rgba(70, 130, 180, 0.3);
             background: rgba(255, 255, 255, 0.95);
@@ -385,7 +402,192 @@ if (!isset($_SESSION['numero_documento'])) {
             min-height: 65px;
         }
 
-        /* Responsivo mejorado para actividades */
+        /* ESTILOS PARA INFOGRAFÍA DE ECONOMÍA CIRCULAR */
+        .economia-step-micro {
+            transition: all 0.3s ease;
+            min-width: 60px;
+        }
+
+        .economia-step-micro:hover {
+            transform: scale(1.03);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.3) !important;
+        }
+
+        @keyframes pulseArrow {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        .fa-arrow-down {
+            animation: pulseArrow 2s infinite;
+        }
+
+        /* ESTILOS ESPECÍFICOS PARA PÁGINA 7 - TEXTO GRANDE E INFOGRAFÍA AMPLIADA */
+        .pagina-7-compacta .cuadro-texto {
+            max-width: 800px !important; 
+            padding: 1.5rem !important; 
+            margin: 0.5rem auto !important; 
+            width: 90% !important; 
+        }
+
+        .pagina-7-compacta .cuadro-texto .texto-contenido {
+            text-align: center;
+            margin: 0 auto;
+            font-size: 2rem !important; /* TEXTO GRANDE - OBJETIVO ALCANZADO */
+            line-height: 2.2 !important;
+            font-weight: 800 !important;
+        }
+
+        .pagina-7-compacta .position-relative {
+            width: 180px !important; /* INFOGRAFÍA GRANDE - OBJETIVO ALCANZADO */
+            height: 180px !important;
+        }
+
+        .pagina-7-compacta .translate-middle div {
+            width: 45px !important; /* CÍRCULO CENTRAL AMPLIADO */
+            height: 45px !important;
+        }
+
+        .pagina-7-compacta .fa-leaf {
+            font-size: 1.1rem !important;
+        }
+
+        .pagina-7-compacta .economia-step-micro {
+            padding: 0.5rem 0.8rem !important;
+            font-size: 0.85rem !important;
+            min-width: 75px !important;
+        }
+
+        .pagina-7-compacta .position-absolute div {
+            padding: 0.25rem 0.5rem !important;
+            font-size: 0.7rem !important;
+        }
+
+        /* RESPONSIVE DESIGN OPTIMIZADO */
+        @media (max-width: 768px) {
+            .cuadro-texto {
+                padding: 1.5rem;
+                margin: 0.5rem;
+                border-radius: 15px;
+                background: rgba(173, 216, 230, 0.45) !important;
+            }
+            
+            .cuadro-texto .texto-contenido {
+                font-size: 1rem;
+                line-height: 1.6;
+                font-weight: 800;
+                text-shadow: 
+                    3px 3px 6px rgba(255,255,255,1),
+                    1px 1px 4px rgba(255,255,255,0.95),
+                    0px 0px 6px rgba(255,255,255,0.8);
+            }
+            
+            .cuadro-texto h3 {
+                font-weight: 900;
+                text-shadow: 
+                    4px 4px 8px rgba(255,255,255,1),
+                    2px 2px 5px rgba(255,255,255,0.9);
+            }
+            
+            /* PÁGINA 7 EN TABLET */
+            .pagina-7-compacta .cuadro-texto {
+                max-width: 95% !important; 
+                width: 95% !important;
+                padding: 1rem !important;
+                margin: 0.3rem auto !important;
+                background: rgba(173, 216, 230, 0.45) !important; 
+            }
+            
+            .pagina-7-compacta .cuadro-texto .texto-contenido {
+                font-size: 1.8rem !important;
+            }
+            
+            .pagina-7-compacta .position-relative {
+                width: 140px !important;
+                height: 140px !important;
+            }
+            
+            .pagina-7-compacta .translate-middle div {
+                width: 35px !important;
+                height: 35px !important;
+            }
+
+            .cuadro-actividad {
+                padding: 1.2rem !important;
+                margin: 0.2rem 0 !important;
+            }
+            
+            .cuadro-actividad .row.g-3 {
+                gap: 1rem;
+            }
+            
+            .cuadro-actividad h3 {
+                font-size: 1.1rem !important;
+                margin-bottom: 0.8rem !important;
+            }
+            
+            .cuadro-actividad .btn-lg {
+                font-size: 1rem !important;
+                padding: 0.6rem 1.5rem !important;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .cuadro-texto {
+                padding: 1.2rem;
+                margin: 0.3rem;
+                background: rgba(173, 216, 230, 0.55) !important;
+            }
+            
+            .cuadro-actividad {
+                background: rgba(135, 206, 250, 0.55) !important;
+                padding: 1rem !important;
+                margin: 0.1rem 0 !important;
+            }
+            
+            .cuadro-texto .texto-contenido {
+                font-weight: 900;
+                text-shadow: 
+                    4px 4px 8px rgba(255,255,255,1),
+                    2px 2px 6px rgba(255,255,255,0.95),
+                    0px 0px 8px rgba(255,255,255,0.8);
+            }
+
+            /* PÁGINA 7 EN MÓVIL */
+            .pagina-7-compacta .cuadro-texto {
+                max-width: 98% !important; 
+                width: 98% !important;
+                padding: 0.8rem !important;
+                margin: 0.2rem auto !important;
+                background: rgba(173, 216, 230, 0.55) !important; 
+            }
+            
+            .pagina-7-compacta .cuadro-texto .texto-contenido {
+                font-size: 1.6rem !important;
+            }
+            
+            .pagina-7-compacta .position-relative {
+                width: 120px !important;
+                height: 120px !important;
+            }
+            
+            .pagina-7-compacta .translate-middle div {
+                width: 30px !important;
+                height: 30px !important;
+            }
+            
+            .cuadro-actividad textarea {
+                min-height: 55px !important;
+            }
+            
+            .btn-lg {
+                font-size: 0.9rem !important;
+                padding: 0.5rem 1rem !important;
+                min-width: 100px !important;
+            }
+        }
+
         @media (max-width: 992px) {
             .cuadro-actividad {
                 padding: 1.5rem !important;
@@ -413,42 +615,9 @@ if (!isset($_SESSION['numero_documento'])) {
             }
         }
 
-        @media (max-width: 768px) {
-            .cuadro-actividad {
-                padding: 1.2rem !important;
-                margin: 0.2rem 0 !important;
-            }
-            
-            .cuadro-actividad .row.g-3 {
-                gap: 1rem;
-            }
-            
-            .cuadro-actividad h3 {
-                font-size: 1.1rem !important;
-                margin-bottom: 0.8rem !important;
-            }
-            
-            .cuadro-actividad .btn-lg {
-                font-size: 1rem !important;
-                padding: 0.6rem 1.5rem !important;
-            }
-        }
-
-        @media (max-width: 576px) {
-            .cuadro-actividad {
-                padding: 1rem !important;
-                margin: 0.1rem 0 !important;
-            }
-            
-            .cuadro-actividad textarea {
-                min-height: 55px !important;
-            }
-            
-            /* Navegación más compacta en móvil */
-            .btn-lg {
-                font-size: 0.9rem !important;
-                padding: 0.5rem 1rem !important;
-                min-width: 100px !important;
+        @media (max-width: 480px) {
+            .pagina-7-compacta .cuadro-texto {
+                background: rgba(173, 216, 230, 0.6) !important;
             }
         }
     </style>
@@ -461,7 +630,6 @@ if (!isset($_SESSION['numero_documento'])) {
             <span class="sr-only">Cargando...</span>
         </div>
     </div>
-    <!-- Spinner End -->
 
     <!-- Navbar Start -->
     <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
@@ -479,24 +647,20 @@ if (!isset($_SESSION['numero_documento'])) {
                 <?php
                 if (isset($_SESSION['numero_documento'])) {
                     echo '<a href="perfil.php" class="nav-item nav-link fw-bold'.($pagina_activa === 'perfil' ? ' active text-primary' : ' text-dark').'">Perfil</a>';
-                    // Botón de cerrar sesión escritorio
                     echo '<a href="logout.php" class="btn py-4 px-lg-5 d-none d-lg-block text-white" style="background-color: #43be16;">Cerrar sesión<i class="fa fa-arrow-right ms-3"></i></a>';
-                    // Botón de cerrar sesión móvil (hamburguesa)
                     echo '<a href="logout.php" class="btn btn-success d-block d-lg-none my-3 w-100 text-white text-center justify-content-center align-items-center d-flex" style="background-color: #43be16;">'
                         .'<span class="mx-auto">Cerrar sesión</span>'
                         .'<i class="fa fa-arrow-right ms-2"></i>'
                     .'</a>';
                 } else {
-                    // Botón registrate ahora solo si NO está logueado
                     echo '<a href="registro.php" class="btn py-4 px-lg-5 d-none d-lg-block text-white" style="background-color: #43be16;">Regístrate Ahora<i class="fa fa-arrow-right ms-3"></i></a>';
                 }
                 ?>
             </div>
         </div>
     </nav>
-    <!-- Navbar End -->
 
-    <!-- Cartilla Virtual: Portada y páginas siguientes con mismo estilo -->
+    <!-- Cartilla Virtual: Portada y páginas siguientes -->
     <?php if ($cartilla[$pagina]['tipo'] === 'portada'): ?>
     <div class="container-fluid header-aprende"
         style="position: relative; background-image: url('<?php echo $cartilla[$pagina]['fondo']; ?>'); background-size: cover; background-position: center;">
@@ -524,7 +688,7 @@ if (!isset($_SESSION['numero_documento'])) {
     </div>
 
     <?php elseif ($cartilla[$pagina]['tipo'] === 'actividad'): ?>
-    <!-- Template OPTIMIZADO para Páginas de Actividad -->
+    <!-- Template para Páginas de Actividad -->
     <div class="container-fluid header-aprende"
         style="position: relative;
             background-image: url('<?php echo $cartilla[$pagina]['fondo']; ?>');
@@ -534,9 +698,7 @@ if (!isset($_SESSION['numero_documento'])) {
             
         <div class="container-fluid h-100 p-0">
             <div class="row g-0 justify-content-center" style="min-height: 100vh;">
-                <!-- Contenido de actividad OPTIMIZADO para mejor distribución -->
                 <div class="col-12 col-lg-10 mx-auto px-3 py-4 d-flex flex-column"> 
-                    <!-- Cuadro de texto principal - MÁS COMPACTO -->
                     <?php if (isset($cartilla[$pagina]['texto'])): ?>
                         <div class="cuadro-texto mx-auto mb-3" style="max-width: 900px; padding: 1.5rem; margin: 0.5rem 0;">
                             <div class="texto-contenido text-center" style="font-size: 1rem; line-height: 1.5;">
@@ -545,7 +707,6 @@ if (!isset($_SESSION['numero_documento'])) {
                         </div>
                     <?php endif; ?>
                     
-                    <!-- Sección de Actividad PRINCIPAL - OPTIMIZADA -->
                     <div class="cuadro-texto cuadro-actividad mx-auto flex-grow-1" style="max-width: 950px; padding: 1.8rem;">
                         <h3 class="text-center mb-3" style="font-size: 1.4rem;">
                             <i class="fas fa-tasks me-2"></i>
@@ -555,7 +716,6 @@ if (!isset($_SESSION['numero_documento'])) {
                             <?php echo $cartilla[$pagina]['actividad_instruccion']; ?>
                         </p>
                         
-                        <!-- Formulario de Actividad OPTIMIZADO -->
                         <form id="actividadForm" class="mt-3">
                             <div class="row g-3">
                                 <div class="col-lg-4 col-md-6 mb-3">
@@ -585,14 +745,12 @@ if (!isset($_SESSION['numero_documento'])) {
                             </div>
                         </form>
                         
-                        <!-- Mensaje de éxito COMPACTO -->
                         <div id="mensajeExito" class="alert alert-info text-center mt-3 mb-2" style="display: none; background-color: rgba(135, 206, 250, 0.8); border-color: #003d82; color: #001a4d; padding: 0.8rem; font-size: 0.95rem;">
                             <i class="fas fa-trophy me-2"></i>
                             ¡Excelente! Has completado la actividad. Cada residuo es una nueva oportunidad.
                         </div>
                     </div>
                     
-                    <!-- Navegación SIMPLIFICADA - Solo botón Anterior -->
                     <div class="d-flex justify-content-start mt-3 px-2" style="flex-shrink: 0;">
                         <a href="aprende.php?pagina=<?php echo $pagina-1; ?>" class="btn btn-lg text-white shadow-sm" style="background-color: #43be16; z-index: 10; min-width: 120px;">
                             <i class="fa fa-arrow-left me-2"></i> Anterior
@@ -614,15 +772,12 @@ if (!isset($_SESSION['numero_documento'])) {
             
         <div class="container-fluid h-100 p-0">
             <div class="row g-0 justify-content-center" style="height: 100vh;">
-                <!-- Título arriba -->
                 <div class="col-12 col-lg-10 mx-auto px-4 pt-4">
                     <h1 class="display-3 text-white animated slideInDown mb-3 text-center text-shadow-custom">
                         <?php echo $cartilla[$pagina]['titulo']; ?>
                     </h1>
                 </div>
-                <!-- Contenido y botón de actividad -->
                 <div class="col-12 col-lg-8 mx-auto px-4 d-flex flex-column justify-content-end" style="height: <?php echo $height_bloque; ?>;"> 
-                    <!-- Cuadro de texto principal -->
                     <?php if (isset($cartilla[$pagina]['texto'])): ?>
                         <div class="cuadro-texto mx-auto">
                             <div class="texto-contenido text-center">
@@ -631,7 +786,6 @@ if (!isset($_SESSION['numero_documento'])) {
                         </div>
                     <?php endif; ?>
                     
-                    <!-- Cuadro con información de la actividad -->
                     <div class="cuadro-texto cuadro-actividad mx-auto">
                         <h3 class="text-center mb-3">
                             <i class="fas fa-lightbulb me-2"></i>
@@ -641,7 +795,6 @@ if (!isset($_SESSION['numero_documento'])) {
                             <?php echo $cartilla[$pagina]['actividad_descripcion']; ?>
                         </p>
                         
-                        <!-- Botón para ir a la actividad interactiva -->
                         <div class="text-center">
                             <a href="aprende.php?pagina=<?php echo $pagina+1; ?>" class="btn btn-primary btn-lg px-5 py-3" style="background-color: #43be16; border-color: #43be16; font-weight: 700; font-size: 1.2rem;">
                                 <i class="fas fa-play-circle me-2"></i>
@@ -652,12 +805,11 @@ if (!isset($_SESSION['numero_documento'])) {
                         <div class="text-center mt-3">
                             <small class="text-white" style="background: rgba(0,0,0,0.3); padding: 0.5rem 1rem; border-radius: 15px; font-weight: 600;">
                                 <i class="fas fa-clock me-1"></i>
-                                Tiempo estimado: 5-10 minutos
+                                Tiempo estimado: 5 minutos
                             </small>
                         </div>
                     </div>
                     
-                    <!-- Navegación -->
                     <div class="d-flex justify-content-between align-items-end mt-3">
                         <a href="aprende.php?pagina=<?php echo $pagina-1; ?>" class="btn btn-lg text-white" style="background-color: #43be16; z-index: 10;">
                             <i class="fa fa-arrow-left me-2"></i> Anterior
@@ -687,24 +839,21 @@ if (!isset($_SESSION['numero_documento'])) {
             
         <div class="container-fluid h-100 p-0">
             <div class="row g-0 justify-content-center" style="height: 100vh;">
-                <!-- Título arriba, columna independiente -->
                 <div class="col-12 col-lg-10 mx-auto px-4 pt-4">
                     <h1 class="display-3 text-white animated slideInDown mb-3 text-center text-shadow-custom">
                         <?php echo $cartilla[$pagina]['titulo']; ?>
                     </h1>
                 </div>
-                <!-- Texto largo y botones abajo, columna independiente -->
                 <div class="col-12 col-lg-8 mx-auto px-4 d-flex flex-column justify-content-end" style="height: <?php echo $height_bloque; ?>;"> 
-                    <!-- Cuadro de texto principal -->
+                    <!-- APLICAR CLASE ESPECIAL PARA PÁGINA 7 -->
                     <?php if (isset($cartilla[$pagina]['texto'])): ?>
-                        <div class="cuadro-texto mx-auto">
+                        <div class="<?php echo ($pagina == 7) ? 'pagina-7-compacta ' : ''; ?>cuadro-texto mx-auto">
                             <div class="texto-contenido">
                                 <?php echo $texto_con_iconos; ?>
                             </div>
                         </div>
                     <?php endif; ?>
                     
-                    <!-- Cuadro de texto secundario -->
                     <?php if (isset($cartilla[$pagina]['texto2'])): ?>
                         <div class="cuadro-texto mx-auto">
                             <div class="texto-contenido">
@@ -739,7 +888,6 @@ if (!isset($_SESSION['numero_documento'])) {
         </div>
     </div>
     <?php endif; ?>
-    <!-- Fin Cartilla Virtual -->
      
     <!-- Footer Start -->
     <div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
@@ -753,7 +901,6 @@ if (!isset($_SESSION['numero_documento'])) {
             </div>
         </div>
     </div>
-    <!-- Footer End -->
 
     <!-- Back to Top -->
     <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="fa fa-arrow-up"></i></a>
@@ -779,32 +926,25 @@ if (!isset($_SESSION['numero_documento'])) {
         const uso3 = document.querySelector('textarea[name="uso3"]').value;
         
         if (residuo1 && uso1 && residuo2 && uso2 && residuo3 && uso3) {
-            // Guardar en localStorage (opcional)
             localStorage.setItem('actividad_residuos', JSON.stringify({
                 residuo1, uso1, residuo2, uso2, residuo3, uso3, 
                 fecha: new Date().toISOString()
             }));
             
-            // Mostrar mensaje de éxito
             document.getElementById('mensajeExito').style.display = 'block';
             
-            // Scroll hacia el mensaje
             document.getElementById('mensajeExito').scrollIntoView({ 
                 behavior: 'smooth', 
                 block: 'center' 
             });
             
-            // Redirigir a la página siguiente (página 7) después de 3 segundos
             setTimeout(() => {
-                // Verificar si existe la página siguiente antes de redirigir
                 const paginaActual = <?php echo $pagina; ?>;
                 const totalPaginas = <?php echo $total_paginas; ?>;
                 
                 if (paginaActual < totalPaginas - 1) {
-                    // Ir a la página siguiente
                     window.location.href = 'aprende.php?pagina=' + (paginaActual + 1);
                 } else {
-                    // Si es la última página, ir a la portada
                     window.location.href = 'aprende.php?pagina=0';
                 }
             }, 3000);
