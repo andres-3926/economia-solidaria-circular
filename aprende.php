@@ -282,6 +282,115 @@ $cartilla = [
         ]
     ],
     [
+        "tipo" => "separacion_reciclables",
+        "titulo" => "Separación: Plásticos, Papel/Cartón, Vidrio, Aceites y Textiles",
+        "subtitulo" => "Guía completa para reciclar y reutilizar",
+        "texto" => "Aprende a <b>separar correctamente</b> los materiales reciclables. Cada categoría tiene un proceso específico que facilita su aprovechamiento y contribuye a la <b>economía circular</b>.",
+        "fondo" => "img/residuos-cocina-1.jpg",
+        "categorias" => [
+            // 1. PLÁSTICOS
+            [
+                "titulo" => "♻️ Plásticos",
+                "color" => "#2196F3",
+                "columna_izq" => [
+                    "titulo" => "Qué SÍ va al reciclaje:",
+                    "items" => [
+                        ["texto" => "Botellas plásticas", "emoji" => "🍾"],
+                        ["texto" => "Envases de limpieza", "emoji" => "🧴"],
+                        ["texto" => "Bolsas limpias", "emoji" => "🛍️"],
+                        ["texto" => "Empaques flexibles limpios", "emoji" => "📦"]
+                    ]
+                ],
+                "columna_der" => [
+                    "titulo" => "Preparación:",
+                    "color_borde" => "#4CAF50",
+                    "items" => [
+                        ["texto" => "Lavar y secar", "emoji" => "💧"],
+                        ["texto" => "Aplastar botellas para ahorrar espacio", "emoji" => "👊"]
+                    ]
+                ]
+            ],
+            
+            // 2. PAPEL Y CARTÓN
+            [
+                "titulo" => "📄 Papel y Cartón",
+                "color" => "#0D47A1",
+                "columna_izq" => [
+                    "titulo" => "Qué SÍ va al reciclaje:",
+                    "items" => [
+                        ["texto" => "Periódicos", "emoji" => "📰"],
+                        ["texto" => "Revistas", "emoji" => "📖"],
+                        ["texto" => "Cajas de cartón", "emoji" => "📦"],
+                        ["texto" => "Empaques de papel limpios", "emoji" => "🎁"]
+                    ]
+                ],
+                "columna_der" => [
+                    "titulo" => "No incluir:",
+                    "color_borde" => "#e74c3c",
+                    "items" => [
+                        ["texto" => "Papel mojado", "emoji" => "💦"],
+                        ["texto" => "Papel con grasa", "emoji" => "🍕"]
+                    ]
+                ]
+            ],
+            
+            // 3. VIDRIO
+            [
+                "titulo" => "🍾 Vidrio",
+                "color" => "#1eca26ff",
+                "columna_izq" => [
+                    "titulo" => "Qué SÍ va al reciclaje:",
+                    "items" => [
+                        ["texto" => "Botellas de vidrio", "emoji" => "🍷"],
+                        ["texto" => "Frascos limpios sin tapa", "emoji" => "🫙"]
+                    ]
+                ],
+                "columna_der" => [
+                    "titulo" => "Precaución:",
+                    "color_borde" => "#FF5722",
+                    "items" => [
+                        ["texto" => "Manipular con cuidado", "emoji" => "⚠️"]
+                    ]
+                ]
+            ],
+            
+            // 4. ACEITES DE COCINA
+            [
+                "titulo" => "🛢️ Aceites de Cocina Usados",
+                "color" => "#2c2308ff",
+                "columna_izq" => [
+                    "titulo" => "Qué SÍ hacer:",
+                    "items" => [
+                        ["texto" => "Recolectar en un recipiente con tapa", "emoji" => "🫙"]
+                    ]
+                ],
+                "columna_der" => [
+                    "titulo" => "Qué NO hacer jamás:",
+                    "color_borde" => "#e74c3c",
+                    "items" => [
+                        ["texto" => "Verter por el desagüe", "emoji" => "🚫"],
+                        ["texto" => "(Obstruye tuberías y afecta fuentes de agua)", "emoji" => "💧"]
+                    ]
+                ]
+            ],
+            
+            // 5. TEXTILES
+            [
+                "titulo" => "👗 Textiles y Retazos",
+                "color" => "#9C27B0",
+                "columna_unica" => [
+                    "titulo" => "Ideas para reutilizar:",
+                    "items" => [
+                        ["texto" => "Elaboración de accesorios", "emoji" => "👜"],
+                        ["texto" => "Rellenos para cojines", "emoji" => "🛋️"],
+                        ["texto" => "Aplicaciones decorativas", "emoji" => "🎨"],
+                        ["texto" => "Nuevos productos artesanales", "emoji" => "✨"]
+                    ]
+                ]
+            ]
+        ]
+    ],
+    [
         "tipo" => "contenido",
         "titulo" => "Construyendo Juntas el Futuro",
         "texto" => "Esta página está lista para agregar el siguiente contenido de la cartilla. Aquí puedes continuar desarrollando los temas de economía solidaria y circular para emprendedoras.",
@@ -341,7 +450,9 @@ if ($pagina == 7) { $height_bloque = '66vh'; }
 if ($pagina == 8) { $height_bloque = '78vh'; }
 if ($pagina == 9) { $height_bloque = '78vh'; }
 if ($pagina == 10) { $height_bloque = '83vh'; } 
-if ($pagina == 11) { $height_bloque = '70vh'; }
+if ($pagina == 11) { $height_bloque = '75vh'; }
+if ($pagina == 12) { $height_bloque = '70vh'; }
+if ($pagina == 13) { $height_bloque = '70vh'; }
 
 ?>
 
@@ -1228,11 +1339,17 @@ if ($pagina == 11) { $height_bloque = '70vh'; }
             
         <div class="container-fluid h-100 p-0">
             <div class="row g-0 justify-content-center" style="height: 100vh;">
-                <div class="col-12 col-lg-10 mx-auto px-4 pt-4">
-                    <h1 class="display-3 text-white animated slideInDown mb-3 text-center text-shadow-custom">
-                        <?php echo $cartilla[$pagina]['titulo']; ?>
-                    </h1>
+                <div class="col-12 col-lg-11 mx-auto px-3 pt-2">
+                    <div class="cuadro-texto text-center mb-1" style="padding: 0.5rem 1rem; max-width: 1100px; margin: 0 auto;">
+                        <h1 class="mb-1" style="font-size: clamp(1.2rem, 3.3vw, 1.6rem); line-height: 1.2; color: #001122; font-weight: 900;">
+                            <?php echo $cartilla[$pagina]['titulo']; ?>
+                        </h1>
+                        <h3 class="mb-0" style="font-size: clamp(0.9rem, 2vw, 1.1rem); font-weight: 700; color: #003366;">
+                            <?php echo $cartilla[$pagina]['subtitulo']; ?>
+                        </h3>
+                    </div>
                 </div>
+                
                 <div class="col-12 col-lg-8 mx-auto px-4 d-flex flex-column justify-content-end" style="height: <?php echo $height_bloque; ?>;"> 
                     <?php if (isset($cartilla[$pagina]['texto'])): ?>
                         <div class="cuadro-texto mx-auto">
@@ -1301,7 +1418,7 @@ if ($pagina == 11) { $height_bloque = '70vh'; }
                         <h1 class="mb-1" style="font-size: clamp(1.2rem, 3.3vw, 1.6rem); line-height: 1.2; color: #001122; font-weight: 900;">
                             <?php echo $cartilla[$pagina]['titulo']; ?>
                         </h1>
-                        <h3 class="mb-0" style="font-size: clamp(0.9rem, 2vw, 1.1rem); font-weight: 700; color: #003366;">
+                        <h3 class="mb-0" style="font-size: clamp(0.9rem, 2vw,  1.1rem); font-weight: 700; color: #003366;">
                             <?php echo $cartilla[$pagina]['subtitulo']; ?>
                         </h3>
                     </div>
@@ -1388,6 +1505,144 @@ if ($pagina == 11) { $height_bloque = '70vh'; }
                                     Siguiente <i class="fa fa-arrow-right ms-1"></i>
                                 </a>
                             <?php endif; ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <?php elseif ($cartilla[$pagina]['tipo'] === 'separacion_reciclables'): ?>
+    <!-- PÁGINA 11: SEPARACIÓN DE RECICLABLES - 5 CUADROS INDEPENDIENTES -->
+    <div class="container-fluid header-aprende"
+        style="position: relative;
+            background-image: url('<?php echo $cartilla[$pagina]['fondo']; ?>');
+            background-size: cover;
+            background-position: center;
+            min-height: 100vh;
+            padding-bottom: 6rem;">
+            
+        <div class="container-fluid h-100 p-0">
+            <div class="row g-0 justify-content-center">
+                <!-- Títulos principales -->
+                <div class="col-12 col-lg-11 mx-auto px-3 pt-3 pb-2">
+                    <div class="cuadro-texto text-center mb-2" style="padding: 0.8rem 1.5rem; max-width: 1100px; margin: 0 auto;">
+                        <h1 class="mb-2" style="font-size: clamp(1.3rem, 3.5vw, 1.8rem); line-height: 1.3; color: #001122; font-weight: 900;">
+                            <?php echo $cartilla[$pagina]['titulo']; ?>
+                        </h1>
+                        <h3 class="mb-0" style="font-size: clamp(1rem, 2.2vw, 1.3rem); font-weight: 700; color: #003366;">
+                            <?php echo $cartilla[$pagina]['subtitulo']; ?>
+                        </h3>
+                    </div>
+                </div>
+                
+                <!-- Contenido con scroll automático -->
+                <div class="col-12 col-lg-11 mx-auto px-3" style="max-height: none; overflow-y: visible;"> 
+                    <!-- Texto introductorio -->
+                    <?php if (isset($cartilla[$pagina]['texto'])): ?>
+                        <div class="cuadro-texto mx-auto mb-3" style="max-width: 1150px; padding: 0.8rem 1.2rem; width: 95%;">
+                            <div class="texto-contenido text-center" style="font-size: clamp(0.85rem, 1.8vw, 1rem); line-height: 1.4;">
+                                <?php echo $cartilla[$pagina]['texto']; ?>
+                            </div>
+                        </div>
+                    <?php endif; ?>
+                    
+                    <!-- 5 CUADROS INDEPENDIENTES DE CATEGORÍAS -->
+                    <?php if (isset($cartilla[$pagina]['categorias'])): 
+                        foreach ($cartilla[$pagina]['categorias'] as $index => $categoria): 
+                    ?>
+                        <!-- CUADRO INDIVIDUAL POR CATEGORÍA -->
+                        <div class="cuadro-texto mx-auto mb-3" style="max-width: 1250px; padding: 1.2rem; width: 98%; background: rgba(255, 255, 255, 0.35) !important; border: 3px solid <?php echo $categoria['color']; ?>; box-shadow: 0 8px 20px rgba(0,0,0,0.2);">
+                            
+                            <!-- TÍTULO DE LA CATEGORÍA CON EMOJI -->
+                            <h3 class="text-center mb-3" style="font-size: clamp(1.1rem, 3vw, 1.6rem); color: <?php echo $categoria['color']; ?>; line-height: 1.3; font-weight: 900; text-shadow: 3px 3px 8px rgba(255,255,255,1);">
+                                <?php echo $categoria['titulo']; ?>
+                            </h3>
+                            
+                            <?php if (isset($categoria['columna_unica'])): ?>
+                                <!-- TEXTILES - UNA SOLA COLUMNA -->
+                                <div style="background: rgba(255, 255, 255, 0.95); padding: 1rem; border-radius: 12px; border: 2px solid <?php echo $categoria['color']; ?>;">
+                                    <h4 class="mb-3 text-center" style="color: <?php echo $categoria['color']; ?>; font-weight: 800; font-size: clamp(0.95rem, 2.1vw, 1.2rem);">
+                                        <i class="fas fa-lightbulb me-2"></i><?php echo $categoria['columna_unica']['titulo']; ?>
+                                    </h4>
+                                    <ul class="list-unstyled mb-0">
+                                        <?php foreach ($categoria['columna_unica']['items'] as $item): ?>
+                                        <li class="mb-2 d-flex align-items-start" style="padding: 0.5rem; border-radius: 8px; background: rgba(255,255,255,0.5);">
+                                            <span style="font-size: clamp(1.3rem, 2.8vw, 1.7rem); margin-right: 0.7rem; flex-shrink: 0;"><?php echo $item['emoji']; ?></span>
+                                            <span style="color: #001122; font-weight: 700; font-size: clamp(0.85rem, 1.9vw, 1.05rem); line-height: 1.4;"><?php echo $item['texto']; ?></span>
+                                        </li>
+                                        <?php endforeach; ?>
+                                    </ul>
+                                </div>
+                            
+                            <?php else: ?>
+                                <!-- PLÁSTICOS, PAPEL, VIDRIO, ACEITES - DOS COLUMNAS -->
+                                <div class="row g-3">
+                                    <!-- COLUMNA IZQUIERDA -->
+                                    <div class="col-md-6">
+                                        <div style="background: rgba(255, 255, 255, 0.95); padding: 1rem; border-radius: 12px; border: 2px solid <?php echo $categoria['color']; ?>; height: 100%; min-height: 200px;">
+                                            <h4 class="mb-3 text-center" style="color: <?php echo $categoria['color']; ?>; font-weight: 800; font-size: clamp(0.95rem, 2.1vw, 1.2rem);">
+                                                <i class="fas fa-check-circle me-2"></i><?php echo $categoria['columna_izq']['titulo']; ?>
+                                            </h4>
+                                            <ul class="list-unstyled mb-0">
+                                                <?php foreach ($categoria['columna_izq']['items'] as $item): ?>
+                                                <li class="mb-2 d-flex align-items-start" style="padding: 0.5rem; border-radius: 8px; background: rgba(255,255,255,0.5);">
+                                                    <span style="font-size: clamp(1.3rem, 2.8vw, 1.7rem); margin-right: 0.7rem; flex-shrink: 0;"><?php echo $item['emoji']; ?></span>
+                                                    <span style="color: #001122; font-weight: 700; font-size: clamp(0.85rem, 1.9vw, 1.05rem); line-height: 1.4;"><?php echo $item['texto']; ?></span>
+                                                </li>
+                                                <?php endforeach; ?>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- COLUMNA DERECHA -->
+                                    <div class="col-md-6">
+                                        <?php 
+                                        $color_borde_der = $categoria['columna_der']['color_borde'];
+                                        $icono_der = ($color_borde_der == '#e74c3c') ? 'times' : (($color_borde_der == '#FF5722') ? 'exclamation-triangle' : 'info');
+                                        ?>
+                                        <div style="background: rgba(255, 255, 255, 0.95); padding: 1rem; border-radius: 12px; border: 2px solid <?php echo $color_borde_der; ?>; height: 100%; min-height: 200px;">
+                                            <h4 class="mb-3 text-center" style="color: <?php echo $color_borde_der; ?>; font-weight: 800; font-size: clamp(0.95rem, 2.1vw, 1.2rem);">
+                                                <i class="fas fa-<?php echo $icono_der; ?>-circle me-2"></i><?php echo $categoria['columna_der']['titulo']; ?>
+                                            </h4>
+                                            <ul class="list-unstyled mb-0">
+                                                <?php foreach ($categoria['columna_der']['items'] as $item): ?>
+                                                <li class="mb-2 d-flex align-items-start" style="padding: 0.5rem; border-radius: 8px; background: rgba(255,255,255,0.5);">
+                                                    <span style="font-size: clamp(1.3rem, 2.8vw, 1.7rem); margin-right: 0.7rem; flex-shrink: 0;"><?php echo $item['emoji']; ?></span>
+                                                    <span style="color: #001122; font-weight: 700; font-size: clamp(0.85rem, 1.9vw, 1.05rem); line-height: 1.4;"><?php echo $item['texto']; ?></span>
+                                                </li>
+                                                <?php endforeach; ?>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            <?php endif; ?>
+                            
+                        </div>
+                        <!-- FIN CUADRO INDIVIDUAL -->
+                    <?php 
+                        endforeach;
+                    endif; 
+                    ?>
+                    
+                    <!-- Navegación SIN FONDO OSCURO Y PEGADA A LOS BORDES -->
+                    <div class="container-fluid px-0 mt-4 mb-3">
+                        <div class="row g-0 w-100">
+                            <div class="col-12 d-flex justify-content-between align-items-center px-2" style="background: transparent;">
+                                <a href="aprende.php?pagina=<?php echo $pagina-1; ?>" class="btn btn-lg text-white" style="background-color: #43be16; padding: 0.6rem 1.2rem; font-size: clamp(0.9rem, 2vw, 1.05rem);">
+                                    <i class="fa fa-arrow-left me-2"></i> Anterior
+                                </a>
+                                <div class="text-white text-center d-none d-md-block" style="font-size: clamp(0.8rem, 1.5vw, 0.95rem); text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">
+                                    Página <?php echo $pagina+1; ?> de <?php echo $total_paginas; ?>
+                                </div>
+                                <?php if ($pagina < $total_paginas-1): ?>
+                                    <a href="aprende.php?pagina=<?php echo $pagina+1; ?>" class="btn btn-lg text-white" style="background-color: #43be16; padding: 0.6rem 1.2rem; font-size: clamp(0.9rem, 2vw, 1.05rem);">
+                                        Siguiente <i class="fa fa-arrow-right ms-2"></i>
+                                    </a>
+                                <?php else: ?>
+                                    <div style="width: 120px;"></div>
+                                <?php endif; ?>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1484,6 +1739,58 @@ if ($pagina == 11) { $height_bloque = '70vh'; }
     <script src="js/main.js"></script>
     
     <script>
+    // HABILITAR SCROLL EN DISPOSITIVOS MÓVILES
+    $(document).ready(function() {
+        function ajustarScrollMobile() {
+            const isMobile = window.innerWidth <= 992;
+            
+            if (isMobile) {
+                // Remover restricciones de altura
+                $('.container-fluid.header-aprende').css({
+                    'height': 'auto',
+                    'min-height': '100vh',
+                    'overflow-y': 'visible'
+                });
+                
+                $('.container-fluid.header-aprende .row').css({
+                    'height': 'auto',
+                    'min-height': '100vh'
+                });
+                
+                $('.d-flex.flex-column.justify-content-end').css({
+                    'height': 'auto',
+                    'min-height': 'auto',
+                    'justify-content': 'flex-start',
+                    'padding-top': '1rem',
+                    'padding-bottom': '5rem'
+                });
+                
+                // Habilitar scroll en body
+                $('body').css({
+                    'overflow-y': 'auto',
+                    'height': 'auto'
+                });
+                
+                console.log('✅ Scroll habilitado para móviles');
+            } else {
+                // Restaurar comportamiento desktop
+                $('.d-flex.flex-column.justify-content-end').css({
+                    'justify-content': 'flex-end'
+                });
+            }
+        }
+        
+        // Ejecutar al cargar
+        ajustarScrollMobile();
+        
+        // Ejecutar al cambiar tamaño
+        let resizeTimer;
+        $(window).resize(function() {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(ajustarScrollMobile, 250);
+        });
+    });
+
     // RESPUESTAS CORRECTAS DEL QUIZ
     const respuestasCorrectas = <?php 
         if (isset($cartilla[$pagina]['preguntas'])) {
