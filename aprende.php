@@ -705,35 +705,279 @@ if ($pagina == 11) { $height_bloque = '70vh'; }
         }
 
         @media (max-width: 992px) {
-            .cuadro-actividad {
-                padding: 1.5rem !important;
-                margin: 0.3rem 0 !important;
+            /* HABILITAR SCROLL EN MÓVILES Y TABLETS */
+            .container-fluid.header-aprende {
+                min-height: 100vh !important;
+                height: auto !important;
+                overflow-y: auto !important;
             }
             
-            .cuadro-actividad h3 {
-                font-size: 1.2rem !important;
+            /* Altura flexible para el contenido */
+            .container-fluid.header-aprende .row {
+                min-height: 100vh !important;
+                height: auto !important;
             }
             
-            .cuadro-actividad .texto-contenido {
-                font-size: 0.95rem !important;
+            /* Permitir que el contenido fluya naturalmente */
+            .d-flex.flex-column.justify-content-end {
+                height: auto !important;
+                min-height: auto !important;
+                padding-bottom: 2rem !important;
             }
             
-            .cuadro-actividad .form-control {
+            /* Ajustar padding superior para más espacio */
+            .col-12.col-lg-10.mx-auto.px-4.pt-4,
+            .col-12.col-lg-11.mx-auto.px-3.pt-2 {
+                padding-top: 1.5rem !important;
+            }
+            
+            /* PÁGINA 8 - ECONOMÍA CIRCULAR */
+            .pagina-7-compacta .cuadro-texto {
+                max-width: 98% !important;
+                padding: 0.8rem 1rem !important;
+                margin: 0.5rem auto !important;
+            }
+            
+            .pagina-7-compacta .cuadro-texto .texto-contenido {
+                font-size: 1.4rem !important;
+                line-height: 1.6 !important;
+            }
+            
+            .pagina-7-compacta .position-relative {
+                width: 130px !important;
+                height: 130px !important;
+                margin: 1rem auto !important;
+            }
+            
+            .pagina-7-compacta .economia-step-micro {
+                font-size: 0.65rem !important;
+                padding: 0.3rem 0.5rem !important;
+                min-width: 55px !important;
+            }
+            
+            .pagina-7-compacta .position-absolute div {
+                font-size: 0.55rem !important;
+                padding: 0.2rem 0.35rem !important;
+            }
+            
+            /* PÁGINA 10 - SEPARACIÓN EN LA FUENTE */
+            .cuadro-texto h1 {
+                font-size: 1.3rem !important;
+                line-height: 1.2 !important;
+                margin-bottom: 0.5rem !important;
+            }
+            
+            .cuadro-texto h3 {
+                font-size: 1rem !important;
+                margin-bottom: 0.5rem !important;
+            }
+            
+            .cuadro-texto h4 {
                 font-size: 0.85rem !important;
             }
             
-            .cuadro-actividad label {
+            /* Ajustar padding de cuadros */
+            .cuadro-texto[style*="max-width: 1150px"],
+            .cuadro-texto[style*="max-width: 1250px"] {
+                max-width: 98% !important;
+                width: 98% !important;
+                padding: 0.6rem !important;
+                margin: 0.5rem auto !important;
+            }
+            
+            /* Reducir tamaño de emojis */
+            .cuadro-texto ul.list-unstyled li span:first-child {
+                font-size: 1.1rem !important;
+            }
+            
+            /* Texto más pequeño */
+            .cuadro-texto ul.list-unstyled li span:last-child {
+                font-size: 0.75rem !important;
+            }
+            
+            /* Ajustar row gaps */
+            .row.g-2 {
+                gap: 0.5rem !important;
+            }
+            
+            /* Navegación fija en la parte inferior */
+            .d-flex.justify-content-between.align-items-end {
+                position: sticky !important;
+                bottom: 0 !important;
+                background: rgba(0, 0, 0, 0.7) !important;
+                padding: 0.5rem 1rem !important;
+                margin: 0 -1rem !important;
+                z-index: 100 !important;
+            }
+        }
+
+        @media (max-width: 768px) {
+            /* SCROLL HABILITADO COMPLETAMENTE */
+            body {
+                overflow-y: auto !important;
+            }
+            
+            .container-fluid.header-aprende {
+                height: auto !important;
+                min-height: 100vh !important;
+                overflow: visible !important;
+            }
+            
+            /* PÁGINA 8 */
+            .pagina-7-compacta .cuadro-texto {
+                padding: 0.6rem 0.8rem !important;
+                margin: 0.3rem auto !important;
+            }
+            
+            .pagina-7-compacta .cuadro-texto .texto-contenido {
+                font-size: 1.2rem !important;
+            }
+            
+            .pagina-7-compacta .position-relative {
+                width: 110px !important;
+                height: 110px !important;
+            }
+            
+            .pagina-7-compacta .translate-middle div {
+                width: 28px !important;
+                height: 28px !important;
+            }
+            
+            .pagina-7-compacta .fa-leaf {
+                font-size: 0.7rem !important;
+            }
+            
+            /* PÁGINA 10 Y SIGUIENTES */
+            .cuadro-texto h1 {
+                font-size: 1.1rem !important;
+            }
+            
+            .cuadro-texto h3 {
                 font-size: 0.9rem !important;
             }
             
-            .cuadro-actividad small {
+            .cuadro-texto[style*="padding: 0.5rem 1rem"] {
+                padding: 0.4rem 0.6rem !important;
+            }
+            
+            .cuadro-texto[style*="padding: 0.4rem 0.8rem"] {
+                padding: 0.3rem 0.5rem !important;
+            }
+            
+            .cuadro-texto .texto-contenido {
+                font-size: 0.8rem !important;
+                line-height: 1.3 !important;
+            }
+            
+            /* Reducir márgenes entre elementos */
+            .mb-1 {
+                margin-bottom: 0.3rem !important;
+            }
+            
+            .mb-2 {
+                margin-bottom: 0.5rem !important;
+            }
+            
+            .mt-2 {
+                margin-top: 0.5rem !important;
+            }
+            
+            /* Botones más pequeños */
+            .btn-lg {
+                font-size: 0.85rem !important;
+                padding: 0.4rem 0.7rem !important;
+            }
+            
+            /* Ajustar íconos */
+            .fa-check-circle,
+            .fa-times-circle {
                 font-size: 0.8rem !important;
             }
         }
 
+        @media (max-width: 576px) {
+            /* EXTRA PEQUEÑO - SCROLL COMPLETO */
+            .container-fluid.header-aprende {
+                padding-bottom: 4rem !important;
+            }
+            
+            .cuadro-texto {
+                padding: 0.5rem !important;
+                margin: 0.3rem auto !important;
+            }
+            
+            .cuadro-texto h1 {
+                font-size: 1rem !important;
+            }
+            
+            .cuadro-texto h3 {
+                font-size: 0.85rem !important;
+            }
+            
+            .cuadro-texto h4 {
+                font-size: 0.75rem !important;
+            }
+            
+            .cuadro-texto .texto-contenido {
+                font-size: 0.75rem !important;
+            }
+            
+            .cuadro-texto ul.list-unstyled li span:first-child {
+                font-size: 1rem !important;
+                margin-right: 0.3rem !important;
+            }
+            
+            .cuadro-texto ul.list-unstyled li span:last-child {
+                font-size: 0.7rem !important;
+            }
+            
+            /* Reducir padding de recuadros internos */
+            div[style*="padding: clamp"] {
+                padding: 0.4rem !important;
+            }
+            
+            /* Botones extra pequeños */
+            .btn-lg {
+                font-size: 0.8rem !important;
+                padding: 0.35rem 0.6rem !important;
+            }
+            
+            /* Ajustar padding lateral */
+            .col-12.col-lg-11.mx-auto.px-3 {
+                padding-left: 0.5rem !important;
+                padding-right: 0.5rem !important;
+            }
+        }
+
         @media (max-width: 480px) {
-            .pagina-7-compacta .cuadro-texto {
-                background: rgba(173, 216, 230, 0.6) !important;
+            /* PANTALLAS MUY PEQUEÑAS */
+            .cuadro-texto {
+                padding: 0.4rem !important;
+                margin: 0.2rem auto !important;
+            }
+            
+            .cuadro-texto h1 {
+                font-size: 0.95rem !important;
+            }
+            
+            .cuadro-texto h3 {
+                font-size: 0.8rem !important;
+            }
+            
+            .cuadro-texto h4 {
+                font-size: 0.7rem !important;
+            }
+            
+            .cuadro-texto .texto-contenido {
+                font-size: 0.7rem !important;
+            }
+            
+            .cuadro-texto ul.list-unstyled li span:first-child {
+                font-size: 0.9rem !important;
+            }
+            
+            .cuadro-texto ul.list-unstyled li span:last-child {
+                font-size: 0.65rem !important;
             }
         }
     </style>
