@@ -223,7 +223,7 @@ if (!isset($_SESSION['numero_documento'])) {
     if ($pagina == 4) { $height_bloque = '66vh'; } 
     if ($pagina == 5) { $height_bloque = '78vh'; } 
     if ($pagina == 6) { $height_bloque = '40vh'; }
-    if ($pagina == 7) { $height_bloque = '63vh'; } 
+    if ($pagina == 7) { $height_bloque = '66vh'; } 
     if ($pagina == 8) { $height_bloque = '78vh'; }
     if ($pagina == 9) { $height_bloque = '75vh'; }
 
@@ -438,10 +438,10 @@ if (!isset($_SESSION['numero_documento'])) {
 
         /* ESTILOS ESPECÍFICOS PARA PÁGINA 7 - TEXTO GRANDE E INFOGRAFÍA AMPLIADA */
         .pagina-7-compacta .cuadro-texto {
-            max-width: 1200px !important; 
-            padding: 1rem 4rem !important; 
+            max-width: 800px !important; 
+            padding: 1.5rem 3rem !important; 
             margin: 0.5rem auto !important; 
-            width: 98% !important; 
+            width: 90% !important; 
         }
 
         .pagina-7-compacta .cuadro-texto .texto-contenido {
@@ -450,8 +450,7 @@ if (!isset($_SESSION['numero_documento'])) {
             font-size: 2rem !important; /* TEXTO GRANDE - OBJETIVO ALCANZADO */
             line-height: 2.2 !important;
             font-weight: 800 !important;
-            max-width: 100% !important;
-            padding: 0 2rem !important;
+            max-width: 90% !important;
         }
 
         .pagina-7-compacta .position-relative {
