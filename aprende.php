@@ -2357,7 +2357,7 @@ if ($pagina == 15) { $height_bloque = '70vh'; }
                             <h4 class="mb-2"><b>¡FELICITACIONES! 🎉</b></h4>
                             <p class="mb-2">Has completado toda la cartilla sobre compostaje.</p>
                             <p class="mb-0">¡Ahora estás lista para transformar tus residuos en abono natural!</p>
-                            <small class="d-block mt-2">Redirigiendo al inicio en 5 segundos...</small>
+                            <small class="d-block mt-2">Redirigiendo en 5 segundos...</small>
                         </div>
                     </div>
                     
@@ -2370,10 +2370,7 @@ if ($pagina == 15) { $height_bloque = '70vh'; }
                                 </a>
                                 <div class="text-white text-center d-none d-md-block" style="font-size: clamp(0.8rem, 1.5vw, 0.95rem); text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">
                                     Página <?php echo $pagina+1; ?> de <?php echo $total_paginas; ?>
-                                </div>
-                                <a href="aprende.php?pagina=0" class="btn btn-lg text-white" style="background-color: #003d82; padding: 0.6rem 1.2rem; font-size: clamp(0.9rem, 2vw, 1.05rem);">
-                                    <i class="fa fa-home me-2"></i> Volver al Inicio
-                                </a>
+                                </div>                                
                             </div>
                         </div>
                     </div>
@@ -2845,15 +2842,18 @@ function guardarRetoCompost() {
         block: 'center' 
     });
     
-    // Deshabilitar todos los ítems
-    document.querySelectorAll('.item-compostable').forEach(item => {
-        item.style.pointerEvents = 'none';
-        item.style.opacity = '0.7';
-    });
+    // ✅ Redirigir a la página siguiente
+    const paginaActual = <?php echo $pagina; ?>;
+    const totalPaginas = <?php echo $total_paginas; ?>;
     
-    // Redirigir después de 5 segundos
     setTimeout(() => {
-        window.location.href = 'aprende.php?pagina=0';
+        if (paginaActual < totalPaginas - 1) {
+            // Si hay más páginas, ir a la siguiente
+            window.location.href = 'aprende.php?pagina=' + (paginaActual + 1);
+        } else {
+            // Si es la última página, ir al inicio
+            window.location.href = 'aprende.php?pagina=0';
+        }
     }, 5000);
 }
 
