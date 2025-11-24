@@ -19,7 +19,6 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 try {
     // Capturar datos
     $numero_documento = $_SESSION['numero_documento'];
-    $pagina = isset($_POST['pagina']) ? intval($_POST['pagina']) : 0;
     $respuesta_1 = isset($_POST['respuesta_1']) ? trim($_POST['respuesta_1']) : '';
     $respuesta_2 = isset($_POST['respuesta_2']) ? trim($_POST['respuesta_2']) : '';
     $respuesta_3 = isset($_POST['respuesta_3']) ? trim($_POST['respuesta_3']) : '';
@@ -27,15 +26,29 @@ try {
     $respuesta_5 = isset($_POST['respuesta_5']) ? trim($_POST['respuesta_5']) : '';
     $respuesta_6 = isset($_POST['respuesta_6']) ? trim($_POST['respuesta_6']) : '';
     $respuestas_correctas = isset($_POST['respuestas_correctas']) ? intval($_POST['respuestas_correctas']) : 0;
-    $total_preguntas = isset($_POST['total_preguntas']) ? intval($_POST['total_preguntas']) : 6;
+    $total_preguntas = isset($_POST['total_preguntas']) ? intval($_POST['total_preguntas']) : 0;
     $porcentaje_acierto = isset($_POST['porcentaje_acierto']) ? floatval($_POST['porcentaje_acierto']) : 0;
     $tiempo_segundos = isset($_POST['tiempo_segundos']) ? intval($_POST['tiempo_segundos']) : 0;
-    $aprobado = ($respuestas_correctas >= 4) ? 1 : 0;
     
-    // Preparar consulta
+    // ✅ NUEVO: Capturar metadatos del quiz
+    $titulo_quiz = isset($_POST['titulo_quiz']) ? trim($_POST['titulo_quiz']) : '';
+    $tipo_quiz = isset($_POST['tipo_quiz']) ? trim($_POST['tipo_quiz']) : '';
+    $instrucciones = isset($_POST['instrucciones']) ? trim($_POST['instrucciones']) : '';
+    
+    // ✅ CALCULAR APROBACIÓN DINÁMICA SEGÚN TOTAL DE PREGUNTAS
+    if ($total_preguntas === 3) {
+        // Página 12: 3 preguntas → necesita 3 correctas
+        $minimo_requerido = 3;
+        $aprobado = ($respuestas_correctas >= 3) ? 1 : 0;
+    } else {
+        // Página 6: 6 preguntas → necesita 4 correctas
+        $minimo_requerido = 4;
+        $aprobado = ($respuestas_correctas >= 4) ? 1 : 0;
+    }
+    
+    // ✅ PREPARAR CONSULTA CON METADATOS
     $sql = "INSERT INTO retos_usuarios (
                 numero_documento, 
-                pagina, 
                 respuesta_1, 
                 respuesta_2, 
                 respuesta_3, 
@@ -46,8 +59,11 @@ try {
                 total_preguntas, 
                 porcentaje_acierto, 
                 tiempo_segundos, 
+                titulo_quiz,
+                tipo_quiz,
+                instrucciones,
                 aprobado
-            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
     
     $stmt = $conn->prepare($sql);
     
@@ -56,9 +72,8 @@ try {
     }
     
     $stmt->bind_param(
-        "sisssssiiidii",
+        "ssssssiiidisssi",
         $numero_documento,
-        $pagina,
         $respuesta_1,
         $respuesta_2,
         $respuesta_3,
@@ -69,6 +84,9 @@ try {
         $total_preguntas,
         $porcentaje_acierto,
         $tiempo_segundos,
+        $titulo_quiz,
+        $tipo_quiz,
+        $instrucciones,
         $aprobado
     );
     
@@ -81,7 +99,9 @@ try {
                 'aprobado' => $aprobado,
                 'correctas' => $respuestas_correctas,
                 'total' => $total_preguntas,
-                'porcentaje' => $porcentaje_acierto
+                'minimo_requerido' => $minimo_requerido,
+                'porcentaje' => $porcentaje_acierto,
+                'titulo_quiz' => $titulo_quiz
             ]
         ]);
     } else {

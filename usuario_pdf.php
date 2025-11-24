@@ -42,11 +42,20 @@ if (!$usuario) {
 
 // Consultar resultados de retos
 $sql_retos = "SELECT 
-                r.*,
-                DATE_FORMAT(r.fecha_realizacion, '%d/%m/%Y %H:%i:%s') as fecha_formateada
-              FROM retos_usuarios r
-              WHERE r.numero_documento = ?
-              ORDER BY r.fecha_realizacion DESC";
+    respuesta_1, respuesta_2, respuesta_3, respuesta_4, respuesta_5, respuesta_6,
+    respuestas_correctas, 
+    total_preguntas,
+    porcentaje_acierto, 
+    tiempo_segundos, 
+    titulo_quiz,
+    tipo_quiz,
+    instrucciones,
+    aprobado,
+    DATE_FORMAT(fecha_realizacion, '%d/%m/%Y %H:%i:%s') as fecha_formateada
+FROM retos_usuarios
+WHERE numero_documento = ?
+ORDER BY fecha_realizacion DESC";
+
 $stmt_retos = $conn->prepare($sql_retos);
 $stmt_retos->bind_param("s", $numero_documento);
 $stmt_retos->execute();
@@ -188,52 +197,48 @@ if (count($retos) > 0) {
     $total_aprobados = array_sum(array_column($retos, 'aprobado'));
     $promedio_acierto = array_sum(array_column($retos, 'porcentaje_acierto')) / $total_intentos;
     
-    $pdf->SetFont('Arial', 'B', 11);
-    $pdf->SetFillColor(220, 240, 255);
-    $pdf->SetTextColor(0, 61, 130);
-    $pdf->Cell(0, 8, 'Resumen General de Intentos', 1, 1, 'C', true);
+    // Resumen estadístico
+    $pdf->SetFont('Arial', 'B', 10);
+    $pdf->SetFillColor(230, 247, 255);
+    $pdf->Cell(0, 7, 'Resumen General', 0, 1, 'L', true);
+    $pdf->Ln(2);
     
     $pdf->SetFont('Arial', '', 9);
-    $pdf->SetTextColor(0);
-    $pdf->Cell(47.5, 7, 'Total Intentos: ' . $total_intentos, 1, 0, 'C');
-    $pdf->Cell(47.5, 7, 'Aprobados: ' . $total_aprobados, 1, 0, 'C');
-    $pdf->Cell(47.5, 7, 'Reprobados: ' . ($total_intentos - $total_aprobados), 1, 0, 'C');
-    $pdf->Cell(47.5, 7, 'Promedio: ' . number_format($promedio_acierto, 1) . '%', 1, 1, 'C');
-    $pdf->Ln(6);
-    
-    // Preguntas y respuestas correctas del quiz
-    $preguntas = [
-        1 => "Cascaras de platano",
-        2 => "Borra de cafe",
-        3 => "Aceite de cocina usado",
-        4 => "Retazos de tela",
-        5 => "Carton o papel kraft",
-        6 => "Hilos sobrantes"
-    ];
-    
-    $respuestas_correctas = [
-        1 => "Organico para compost",
-        2 => "Organico para compost",
-        3 => "Reutilizable para artesanias",
-        4 => "Reutilizable para artesanias",
-        5 => "Reciclable (plastico, vidrio, papel)",
-        6 => "Reutilizable para artesanias"
-    ];
+    $pdf->SetFillColor(250, 250, 250);
+    $pdf->Cell(63, 7, 'Total de Intentos: ' . $total_intentos, 1, 0, 'L', true);
+    $pdf->Cell(63, 7, 'Aprobados: ' . $total_aprobados, 1, 0, 'L', true);
+    $pdf->Cell(64, 7, 'Promedio: ' . number_format($promedio_acierto, 1) . '%', 1, 1, 'L', true);
+    $pdf->Ln(4);
     
     // Detalle de cada intento
     $intento_num = 1;
     foreach ($retos as $reto) {
-        // Verificar si necesita nueva página
         if ($pdf->GetY() > 245) {
             $pdf->AddPage();
         }
         
-        // Título del intento
+        // ✅ NUEVO: Encabezado con número de intento y fecha
         $pdf->SetFont('Arial', 'B', 11);
         $pdf->SetFillColor(67, 190, 22);
         $pdf->SetTextColor(255, 255, 255);
         $pdf->Cell(0, 8, 'Intento #' . $intento_num . ' - ' . $reto['fecha_formateada'], 0, 1, 'L', true);
         $pdf->SetTextColor(0);
+        
+        // ✅ NUEVO: Mostrar título del quiz si existe
+        if (!empty($reto['titulo_quiz'])) {
+            $pdf->SetFont('Arial', 'B', 10);
+            $pdf->SetFillColor(240, 248, 255);
+            $pdf->Cell(0, 6, utf8_decode('📖 Quiz: ' . $reto['titulo_quiz']), 1, 1, 'L', true);
+        }
+        
+        // ✅ NUEVO: Mostrar tipo de quiz
+        if (!empty($reto['tipo_quiz'])) {
+            $pdf->SetFont('Arial', 'I', 8);
+            $pdf->SetFillColor(255, 255, 230);
+            $tipo_display = $reto['total_preguntas'] == 3 ? 'Página 12 (3 preguntas)' : 'Página 6 (6 preguntas)';
+            $pdf->Cell(0, 5, utf8_decode('Tipo: ' . $tipo_display), 1, 1, 'L', true);
+        }
+        
         $pdf->Ln(2);
         
         // Información del intento
@@ -242,75 +247,53 @@ if (count($retos) > 0) {
         $pdf->Cell(95, 7, 'Fecha y Hora: ' . $reto['fecha_formateada'], 1, 0, 'L', true);
         $pdf->Cell(95, 7, 'Tiempo Empleado: ' . $reto['tiempo_segundos'] . ' segundos', 1, 1, 'L', true);
         
-        $pdf->Cell(63.33, 7, 'Correctas: ' . $reto['respuestas_correctas'] . '/' . $reto['total_preguntas'], 1, 0, 'C');
-        $pdf->Cell(63.33, 7, 'Porcentaje: ' . number_format($reto['porcentaje_acierto'], 1) . '%', 1, 0, 'C');
+        // Resultados
+        $pdf->Cell(63, 7, 'Correctas: ' . $reto['respuestas_correctas'] . '/' . $reto['total_preguntas'], 1, 0, 'C', true);
+        $pdf->Cell(63, 7, 'Porcentaje: ' . number_format($reto['porcentaje_acierto'], 1) . '%', 1, 0, 'C', true);
         
-        // Estado (Aprobado/No Aprobado)
-        if ($reto['aprobado']) {
-            $pdf->SetFillColor(212, 237, 218);
-            $pdf->SetTextColor(21, 87, 36);
-            $pdf->SetFont('Arial', 'B', 9);
-            $pdf->Cell(63.34, 7, 'APROBADO', 1, 1, 'C', true);
+        // Estado del intento
+        $pdf->SetFont('Arial', 'B', 9);
+        if ($reto['aprobado'] == 1) {
+            $pdf->SetFillColor(67, 190, 22);
+            $pdf->SetTextColor(255);
+            $pdf->Cell(64, 7, 'APROBADO', 1, 1, 'C', true);
         } else {
-            $pdf->SetFillColor(248, 215, 218);
-            $pdf->SetTextColor(114, 28, 36);
-            $pdf->SetFont('Arial', 'B', 9);
-            $pdf->Cell(63.34, 7, 'NO APROBADO', 1, 1, 'C', true);
+            $pdf->SetFillColor(231, 76, 60);
+            $pdf->SetTextColor(255);
+            $pdf->Cell(64, 7, 'NO APROBADO', 1, 1, 'C', true);
         }
         $pdf->SetTextColor(0);
+        
         $pdf->Ln(3);
         
-        // Respuestas detalladas pregunta por pregunta
-        $pdf->SetFont('Arial', 'B', 9);
-        $pdf->Cell(0, 6, 'Respuestas Detalladas:', 0, 1, 'L');
+        // Detalle de respuestas (solo las que corresponden al total de preguntas)
+        $pdf->SetFont('Arial', 'B', 10);
+        $pdf->SetFillColor(230, 247, 255);
+        $pdf->Cell(0, 7, 'Respuestas Detalladas:', 0, 1, 'L', true);
         $pdf->Ln(1);
         
-        for ($i = 1; $i <= 6; $i++) {
-            $respuesta_usuario = isset($reto["respuesta_$i"]) ? $reto["respuesta_$i"] : 'Sin respuesta';
-            $es_correcta = ($respuesta_usuario === $respuestas_correctas[$i]);
+        $pdf->SetFont('Arial', '', 8);
+        
+        // ✅ MOSTRAR SOLO LAS RESPUESTAS SEGÚN EL TOTAL DE PREGUNTAS
+        for ($i = 1; $i <= $reto['total_preguntas']; $i++) {
+            $respuesta = $reto['respuesta_' . $i];
             
-            // Número y pregunta
-            $pdf->SetFont('Arial', 'B', 9);
-            $pdf->SetFillColor(240, 240, 240);
-            $pdf->Cell(12, 6, "P$i:", 1, 0, 'C', true);
-            $pdf->SetFont('Arial', '', 8);
-            $pdf->Cell(0, 6, $preguntas[$i], 1, 1, 'L');
-            
-            // Estado de la respuesta (Correcta/Incorrecta)
-            if ($es_correcta) {
-                $pdf->SetTextColor(21, 87, 36);
-                $pdf->SetFont('Arial', 'B', 8);
-                $pdf->Cell(20, 5, 'CORRECTA', 0, 0, 'L');
-            } else {
-                $pdf->SetTextColor(114, 28, 36);
-                $pdf->SetFont('Arial', 'B', 8);
-                $pdf->Cell(20, 5, 'INCORRECTA', 0, 0, 'L');
+            if (!empty($respuesta)) {
+                $pdf->SetFillColor(245, 245, 245);
+                $pdf->Cell(10, 6, 'P' . $i . ':', 1, 0, 'C', true);
+                $pdf->Cell(180, 6, utf8_decode($respuesta), 1, 1, 'L', true);
             }
-            $pdf->SetTextColor(0);
-            $pdf->SetFont('Arial', '', 8);
-            $pdf->MultiCell(0, 5, 'Respuesta del usuario: ' . $respuesta_usuario, 0, 'L');
-            
-            // Mostrar respuesta correcta si falló
-            if (!$es_correcta) {
-                $pdf->SetTextColor(0, 100, 0);
-                $pdf->Cell(20, 5, '', 0, 0, 'L');
-                $pdf->SetFont('Arial', 'B', 8);
-                $pdf->MultiCell(0, 5, 'Respuesta correcta: ' . $respuestas_correctas[$i], 0, 'L');
-                $pdf->SetTextColor(0);
-            }
-            $pdf->Ln(2);
         }
         
-        $pdf->Ln(6);
+        $pdf->Ln(5);
         $intento_num++;
     }
-    
 } else {
-    // Si no hay retos realizados
+    // No hay retos realizados
     $pdf->SetFont('Arial', 'I', 11);
     $pdf->SetTextColor(128);
     $pdf->SetFillColor(255, 243, 205);
-    $pdf->Cell(0, 10, 'Este usuario aun no ha realizado el quiz de residuos.', 1, 1, 'C', true);
+    $pdf->Cell(0, 10, utf8_decode('Este usuario aún no ha realizado ningún quiz de residuos.'), 1, 1, 'C', true);
     $pdf->SetTextColor(0);
 }
 

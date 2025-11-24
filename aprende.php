@@ -391,6 +391,48 @@ $cartilla = [
         ]
     ],
     [
+        "tipo" => "actividad_quiz",
+        "texto" => "Ahora que ya aprendiste a <b>separar correctamente</b>, selecciona la opción adecuada para cada residuo.",
+        "actividad_titulo" => "Reto del Tema: ¿Dónde lo pongo?",
+        "actividad_instruccion" => "Ahora que conoces cómo separar tus residuos, te invitamos a practicar. <b>Selecciona la opción correcta para cada residuo. Necesitas las 3 respuestas correctas para aprobar.</b>",
+        "fondo" => "img/separando_residuos.jpg",
+        "preguntas" => [
+            [
+                "id" => 1,
+                "categoria" => "Separación",
+                "pregunta" => "🍌 ¿A dónde van las cáscaras de plátano?",
+                "opciones" => [
+                    "Orgánicos",
+                    "Reciclaje",
+                    "Reuso / Artesanías"
+                ],
+                "respuesta_correcta" => "Orgánicos"
+            ],
+            [
+                "id" => 2,
+                "categoria" => "Separación",
+                "pregunta" => "🍾 ¿A dónde va una botella plástica limpia?",
+                "opciones" => [
+                    "Orgánicos",
+                    "Reciclaje",
+                    "Reuso / Artesanías"
+                ],
+                "respuesta_correcta" => "Reciclaje"
+            ],
+            [
+                "id" => 3,
+                "categoria" => "Separación",
+                "pregunta" => "🧵 ¿A dónde van los retazos de tela?",
+                "opciones" => [
+                    "Orgánicos",
+                    "Reciclaje",
+                    "Reuso / Artesanías"
+                ],
+                "respuesta_correcta" => "Reuso / Artesanías"
+            ]
+        ]
+    ],
+    [
         "tipo" => "contenido",
         "titulo" => "Construyendo Juntas el Futuro",
         "texto" => "Esta página está lista para agregar el siguiente contenido de la cartilla. Aquí puedes continuar desarrollando los temas de economía solidaria y circular para emprendedoras.",
@@ -1091,6 +1133,117 @@ if ($pagina == 13) { $height_bloque = '70vh'; }
                 font-size: 0.65rem !important;
             }
         }
+
+        /* ESTILOS ESPECÍFICOS PARA CUADROS DE CATEGORÍAS EN MÓVILES */
+        @media (max-width: 768px) {
+            .cuadro-categoria {
+                padding: 0.5rem !important;
+                margin: 0.5rem auto !important;
+                width: 98% !important;
+                max-width: 100% !important;
+            }
+            
+            .cuadro-categoria h3 {
+                font-size: 0.95rem !important;
+                margin-bottom: 0.5rem !important;
+                line-height: 1.2 !important;
+            }
+            
+            .cuadro-categoria h4 {
+                font-size: 0.8rem !important;
+                margin-bottom: 0.4rem !important;
+            }
+            
+            .cuadro-categoria .row > div {
+                padding: 0.3rem !important;
+            }
+            
+            .cuadro-categoria ul.list-unstyled li {
+                margin-bottom: 0.3rem !important;
+                padding: 0.2rem !important;
+            }
+            
+            .cuadro-categoria ul.list-unstyled li span:first-child {
+                font-size: 1.1rem !important;
+                margin-right: 0.4rem !important;
+            }
+            
+            .cuadro-categoria ul.list-unstyled li span:last-child {
+                font-size: 0.7rem !important;
+                line-height: 1.2 !important;
+            }
+            
+            .cuadro-categoria > div[style*="border-radius"] {
+                padding: 0.4rem !important;
+                min-height: 100px !important;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .cuadro-categoria {
+                padding: 0.4rem !important;
+                margin: 0.4rem auto !important;
+                border-width: 2px !important;
+            }
+            
+            .cuadro-categoria h3 {
+                font-size: 0.85rem !important;
+                margin-bottom: 0.4rem !important;
+            }
+            
+            .cuadro-categoria h4 {
+                font-size: 0.75rem !important;
+                margin-bottom: 0.3rem !important;
+            }
+            
+            .cuadro-categoria ul.list-unstyled li {
+                margin-bottom: 0.2rem !important;
+                padding: 0.15rem !important;
+            }
+            
+            .cuadro-categoria ul.list-unstyled li span:first-child {
+                font-size: 1rem !important;
+                margin-right: 0.3rem !important;
+            }
+            
+            .cuadro-categoria ul.list-unstyled li span:last-child {
+                font-size: 0.65rem !important;
+                line-height: 1.15 !important;
+            }
+            
+            .cuadro-categoria > div[style*="border-radius"] {
+                padding: 0.3rem !important;
+                border-radius: 8px !important;
+                min-height: 80px !important;
+            }
+            
+            .cuadro-categoria .fas {
+                font-size: 0.7rem !important;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .cuadro-categoria {
+                padding: 0.3rem !important;
+                margin: 0.3rem auto !important;
+            }
+            
+            .cuadro-categoria h3 {
+                font-size: 0.8rem !important;
+            }
+            
+            .cuadro-categoria h4 {
+                font-size: 0.7rem !important;
+            }
+            
+            .cuadro-categoria ul.list-unstyled li span:first-child {
+                font-size: 0.9rem !important;
+            }
+            
+            .cuadro-categoria ul.list-unstyled li span:last-child {
+                font-size: 0.6rem !important;
+            }
+        }
     </style>
 </head>
 
@@ -1418,7 +1571,7 @@ if ($pagina == 13) { $height_bloque = '70vh'; }
                         <h1 class="mb-1" style="font-size: clamp(1.2rem, 3.3vw, 1.6rem); line-height: 1.2; color: #001122; font-weight: 900;">
                             <?php echo $cartilla[$pagina]['titulo']; ?>
                         </h1>
-                        <h3 class="mb-0" style="font-size: clamp(0.9rem, 2vw,  1.1rem); font-weight: 700; color: #003366;">
+                        <h3 class="mb-0" style="font-size: clamp(0.9rem,  2vw, 1.1rem); font-weight: 700; color: #003366;">
                             <?php echo $cartilla[$pagina]['subtitulo']; ?>
                         </h3>
                     </div>
@@ -1739,266 +1892,294 @@ if ($pagina == 13) { $height_bloque = '70vh'; }
     <script src="js/main.js"></script>
     
     <script>
-    // HABILITAR SCROLL EN DISPOSITIVOS MÓVILES
-    $(document).ready(function() {
-        function ajustarScrollMobile() {
-            const isMobile = window.innerWidth <= 992;
+// HABILITAR SCROLL EN DISPOSITIVOS MÓVILES
+$(document).ready(function() {
+    function ajustarScrollMobile() {
+        const isMobile = window.innerWidth <= 992;
+        
+        if (isMobile) {
+            // Remover restricciones de altura
+            $('.container-fluid.header-aprende').css({
+                'height': 'auto',
+                'min-height': '100vh',
+                'overflow-y': 'visible'
+            });
             
-            if (isMobile) {
-                // Remover restricciones de altura
-                $('.container-fluid.header-aprende').css({
-                    'height': 'auto',
-                    'min-height': '100vh',
-                    'overflow-y': 'visible'
-                });
-                
-                $('.container-fluid.header-aprende .row').css({
-                    'height': 'auto',
-                    'min-height': '100vh'
-                });
-                
-                $('.d-flex.flex-column.justify-content-end').css({
-                    'height': 'auto',
-                    'min-height': 'auto',
-                    'justify-content': 'flex-start',
-                    'padding-top': '1rem',
-                    'padding-bottom': '5rem'
-                });
-                
-                // Habilitar scroll en body
-                $('body').css({
-                    'overflow-y': 'auto',
-                    'height': 'auto'
-                });
-                
-                console.log('✅ Scroll habilitado para móviles');
-            } else {
-                // Restaurar comportamiento desktop
-                $('.d-flex.flex-column.justify-content-end').css({
-                    'justify-content': 'flex-end'
-                });
-            }
-        }
-        
-        // Ejecutar al cargar
-        ajustarScrollMobile();
-        
-        // Ejecutar al cambiar tamaño
-        let resizeTimer;
-        $(window).resize(function() {
-            clearTimeout(resizeTimer);
-            resizeTimer = setTimeout(ajustarScrollMobile, 250);
-        });
-    });
-
-    // RESPUESTAS CORRECTAS DEL QUIZ
-    const respuestasCorrectas = <?php 
-        if (isset($cartilla[$pagina]['preguntas'])) {
-            $respuestas = [];
-            foreach ($cartilla[$pagina]['preguntas'] as $index => $p) {
-                $respuestas[$index + 1] = $p['respuesta_correcta'];
-            }
-            echo json_encode($respuestas);
+            $('.container-fluid.header-aprende .row').css({
+                'height': 'auto',
+                'min-height': '100vh'
+            });
+            
+            $('.d-flex.flex-column.justify-content-end').css({
+                'height': 'auto',
+                'min-height': 'auto',
+                'padding-top': '1rem',
+                'padding-bottom': '5rem'
+            });
+            
+            // Habilitar scroll en body
+            $('body').css({
+                'overflow-y': 'auto',
+                'height': 'auto'
+            });
+            
+            console.log('✅ Scroll habilitado para móviles');
         } else {
-            echo '{}';
+            // Restaurar comportamiento desktop
+            $('.d-flex.flex-column.justify-content-end').css({
+                'justify-content': 'flex-end'
+            });
         }
-    ?>;
-    
-    let tiempoInicio = Date.now();
-    
-    function enviarReto() {
-        const totalPreguntas = Object.keys(respuestasCorrectas).length;
-        let respuestasUsuario = {};
-        let faltanRespuestas = false;
-        
-        for (let i = 1; i <= totalPreguntas; i++) {
-            const respuesta = document.querySelector(`input[name="pregunta_${i}"]:checked`);
-            if (!respuesta) {
-                faltanRespuestas = true;
-                document.getElementById(`collapse${i}`).classList.add('show');
-            } else {
-                respuestasUsuario[i] = respuesta.value;
-            }
-        }
-        
-        if (faltanRespuestas) {
-            alert('⚠️ Por favor responde todas las preguntas antes de enviar el reto.');
-            return;
-        }
-        
-        let correctas = 0;
-        for (let i = 1; i <= totalPreguntas; i++) {
-            if (respuestasUsuario[i] === respuestasCorrectas[i]) {
-                correctas++;
-            }
-        }
-        
-        const porcentaje = (correctas / totalPreguntas) * 100;
-        const aprobado = correctas >= 4; // MÍNIMO 4 DE 6 CORRECTAS
-        const tiempoSegundos = Math.round((Date.now() - tiempoInicio) / 1000);
-        
-        const btnEnviar = document.getElementById('btnEnviarReto');
-        const textoOriginal = btnEnviar.innerHTML;
-        btnEnviar.disabled = true;
-        btnEnviar.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Enviando...';
-        
-        $.ajax({
-            url: 'guardar_reto.php',
-            method: 'POST',
-            dataType: 'json',
-            data: {
-                pagina: <?php echo $pagina; ?>,
-                respuesta_1: respuestasUsuario[1],
-                respuesta_2: respuestasUsuario[2],
-                respuesta_3: respuestasUsuario[3],
-                respuesta_4: respuestasUsuario[4],
-                respuesta_5: respuestasUsuario[5],
-                respuesta_6: respuestasUsuario[6],
-                respuestas_correctas: correctas,
-                total_preguntas: totalPreguntas,
-                porcentaje_acierto: porcentaje.toFixed(2),
-                tiempo_segundos: tiempoSegundos
-            },
-            success: function(response) {
-                console.log('✅ Respuesta:', response);
-                mostrarResultado(correctas, totalPreguntas, porcentaje, aprobado, tiempoSegundos);
-            },
-            error: function(xhr, status, error) {
-                console.error('❌ Error:', error);
-                alert('❌ Error al guardar el reto.');
-                btnEnviar.disabled = false;
-                btnEnviar.innerHTML = textoOriginal;
-            }
-        });
     }
     
-    function mostrarResultado(correctas, total, porcentaje, aprobado, tiempo) {
-        const mensajeDiv = document.getElementById('mensajeResultado');
-        const minutos = Math.floor(tiempo / 60);
-        const segundos = tiempo % 60;
-        const tiempoTexto = minutos > 0 ? `${minutos}m ${segundos}s` : `${segundos}s`;
-        
-        if (aprobado) {
-            let mensaje = correctas === total ? '¡PERFECTO! 🎉 Acertaste todas' : '¡FELICITACIONES! 🎊';
-            mensajeDiv.innerHTML = `
-                <div style="background: linear-gradient(135deg, #43be16, #38a01c); color: white; padding: 2rem; border-radius: 15px;">
-                    <i class="fas fa-trophy fa-3x mb-3" style="color: #FFD700;"></i>
-                    <h3 class="mb-3"><b>${mensaje}</b></h3>
-                    <h4 class="mb-3">Has aprobado el reto</h4>
-                    <div class="row g-3 mb-3">
-                        <div class="col-md-4">
-                            <div style="background: rgba(255,255,255,0.2); padding: 1rem; border-radius: 10px;">
-                                <h5>${correctas}/${total}</h5>
-                                <small>Respuestas correctas</small>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div style="background: rgba(255,255,255,0.2); padding: 1rem; border-radius: 10px;">
-                                <h5>${porcentaje.toFixed(1)}%</h5>
-                                <small>Acierto</small>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div style="background: rgba(255,255,255,0.2); padding: 1rem; border-radius: 10px;">
-                                <h5>${tiempoTexto}</h5>
-                                <small>Tiempo</small>
-                            </div>
-                        </div>
-                    </div>
-                    <small>Redirigiendo en 5 segundos...</small>
-                </div>
-            `;
+    // Ejecutar al cargar
+    ajustarScrollMobile();
+    
+    // Ejecutar al cambiar tamaño
+    let resizeTimer;
+    $(window).resize(function() {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(ajustarScrollMobile, 250);
+    });
+});
+
+// RESPUESTAS CORRECTAS DEL QUIZ - CORREGIDO
+const respuestasCorrectas = <?php 
+    if (isset($cartilla[$pagina]['preguntas'])) {
+        $respuestas = [];
+        foreach ($cartilla[$pagina]['preguntas'] as $index => $p) {
+            $respuestas[$index + 1] = $p['respuesta_correcta'];
+        }
+        echo json_encode($respuestas);
+    } else {
+        echo '{}';
+    }
+?>;
+
+console.log('🔍 Respuestas correctas cargadas:', respuestasCorrectas);
+console.log('📊 Total de preguntas:', Object.keys(respuestasCorrectas).length);
+
+let tiempoInicio = Date.now();
+
+function enviarReto() {
+    const totalPreguntas = document.querySelectorAll('.accordion-item').length;
+    console.log('✅ Total de preguntas detectadas:', totalPreguntas);
+    
+    let respuestasUsuario = {};
+    let faltanRespuestas = false;
+    
+    for (let i = 1; i <= totalPreguntas; i++) {
+        const respuesta = document.querySelector(`input[name="pregunta_${i}"]:checked`);
+        if (!respuesta) {
+            faltanRespuestas = true;
+            document.getElementById(`collapse${i}`).classList.add('show');
         } else {
-            mensajeDiv.innerHTML = `
-                <div style="background: linear-gradient(135deg, #e74c3c, #c0392b); color: white; padding: 2rem; border-radius: 15px;">
-                    <i class="fas fa-times-circle fa-3x mb-3"></i>
-                    <h3 class="mb-3"><b>Reto No Aprobado</b></h3>
-                    <div class="row g-3 mb-3">
-                        <div class="col-md-6">
+            respuestasUsuario[i] = respuesta.value;
+        }
+    }
+    
+    if (faltanRespuestas) {
+        alert('⚠️ Por favor responde todas las preguntas antes de enviar el reto.');
+        return;
+    }
+    
+    let correctas = 0;
+    for (let i = 1; i <= totalPreguntas; i++) {
+        if (respuestasUsuario[i] === respuestasCorrectas[i]) {
+            correctas++;
+            console.log(`✅ Pregunta ${i}: CORRECTA`);
+        } else {
+            console.log(`❌ Pregunta ${i}: INCORRECTA (Usuario: "${respuestasUsuario[i]}", Correcta: "${respuestasCorrectas[i]}")`);
+        }
+    }
+    
+    const porcentaje = (correctas / totalPreguntas) * 100;
+    const minimoCorrectas = totalPreguntas === 3 ? 3 : 4;
+    const aprobado = correctas >= minimoCorrectas;
+    const tiempoSegundos = Math.round((Date.now() - tiempoInicio) / 1000);
+    
+    const btnEnviar = document.getElementById('btnEnviarReto');
+    const textoOriginal = btnEnviar.innerHTML;
+    btnEnviar.disabled = true;
+    btnEnviar.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Enviando...';
+    
+    // ✅ NUEVO: Obtener información del quiz desde PHP
+    const tituloQuiz = <?php echo json_encode($cartilla[$pagina]['actividad_titulo'] ?? 'Quiz de Residuos'); ?>;
+    const tipoQuiz = <?php echo json_encode($cartilla[$pagina]['tipo'] ?? 'actividad_quiz'); ?>;
+    const instrucciones = <?php echo json_encode($cartilla[$pagina]['actividad_instruccion'] ?? ''); ?>;
+    
+    console.log('📋 Metadatos del quiz:');
+    console.log('   Título:', tituloQuiz);
+    console.log('   Tipo:', tipoQuiz);
+    console.log('   Instrucciones:', instrucciones.substring(0, 50) + '...');
+    
+    // Construir datos dinámicamente
+    let datosEnviar = {
+        respuestas_correctas: correctas,
+        total_preguntas: totalPreguntas,
+        porcentaje_acierto: porcentaje.toFixed(2),
+        tiempo_segundos: tiempoSegundos,
+        titulo_quiz: tituloQuiz,
+        tipo_quiz: tipoQuiz,
+        instrucciones: instrucciones
+    };
+    
+    // Agregar respuestas según el total
+    for (let i = 1; i <= totalPreguntas; i++) {
+        datosEnviar[`respuesta_${i}`] = respuestasUsuario[i] || '';
+    }
+    
+    console.log('📤 Datos a enviar:', datosEnviar);
+    
+    $.ajax({
+        url: 'guardar_reto.php',
+        method: 'POST',
+        dataType: 'json',
+        data: datosEnviar,
+        success: function(response) {
+            console.log('✅ Respuesta del servidor:', response);
+            if (response.data) {
+                console.log('🔍 Debug:', response.data);
+            }
+            mostrarResultado(correctas, totalPreguntas, porcentaje, aprobado, tiempoSegundos, minimoCorrectas);
+        },
+        error: function(xhr, status, error) {
+            console.error('❌ Error al guardar:', error);
+            console.error('📄 Respuesta completa:', xhr.responseText);
+            alert('❌ Error al guardar el reto. Revisa la consola (F12).');
+            btnEnviar.disabled = false;
+            btnEnviar.innerHTML = textoOriginal;
+        }
+    });
+}
+
+function mostrarResultado(correctas, total, porcentaje, aprobado, tiempo, minimo) {
+    const mensajeDiv = document.getElementById('mensajeResultado');
+    const minutos = Math.floor(tiempo / 60);
+    const segundos = tiempo % 60;
+    const tiempoTexto = minutos > 0 ? `${minutos}m ${segundos}s` : `${segundos}s`;
+    
+    if (aprobado) {
+        let mensaje = correctas === total ? '¡PERFECTO! 🎉 Acertaste todas' : '¡FELICITACIONES! 🎊';
+        mensajeDiv.innerHTML = `
+            <div style="background: linear-gradient(135deg, #43be16, #38a01c); color: white; padding: 2rem; border-radius: 15px;">
+                <i class="fas fa-trophy fa-3x mb-3" style="color: #FFD700;"></i>
+                <h3 class="mb-3"><b>${mensaje}</b></h3>
+                <h4 class="mb-3">Has aprobado el reto</h4>
+                <div class="row g-3 mb-3">
+                    <div class="col-md-4">
+                        <div style="background: rgba(255,255,255,0.2); padding: 1rem; border-radius: 10px;">
                             <h5>${correctas}/${total}</h5>
                             <small>Respuestas correctas</small>
                         </div>
-                        <div class="col-md-6">
+                    </div>
+                    <div class="col-md-4">
+                        <div style="background: rgba(255,255,255,0.2); padding: 1rem; border-radius: 10px;">
                             <h5>${porcentaje.toFixed(1)}%</h5>
                             <small>Acierto</small>
                         </div>
                     </div>
-                    <p>Necesitas al menos 4 respuestas correctas de 6</p>
-                    <button class="btn btn-light btn-lg mt-2" onclick="location.reload()">
-                        <i class="fas fa-redo me-2"></i>Intentar de Nuevo
-                    </button>
+                    <div class="col-md-4">
+                        <div style="background: rgba(255,255,255,0.2); padding: 1rem; border-radius: 10px;">
+                            <h5>${tiempoTexto}</h5>
+                            <small>Tiempo</small>
+                        </div>
+                    </div>
                 </div>
-            `;
-        }
-        
-        mensajeDiv.style.display = 'block';
-        mensajeDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        
-        if (aprobado) {
-            setTimeout(() => {
-                if (<?php echo $pagina; ?> < <?php echo $total_paginas; ?> - 1) {
-                    window.location.href = 'aprende.php?pagina=' + (<?php echo $pagina; ?> + 1);
-                } else {
-                    window.location.href = 'aprende.php?pagina=0';
-                }
-            }, 5000);
-        }
+                <small>Redirigiendo en 5 segundos...</small>
+            </div>
+        `;
+    } else {
+        mensajeDiv.innerHTML = `
+            <div style="background: linear-gradient(135deg, #e74c3c, #c0392b); color: white; padding: 2rem; border-radius: 15px;">
+                <i class="fas fa-times-circle fa-3x mb-3"></i>
+                <h3 class="mb-3"><b>Reto No Aprobado</b></h3>
+                <div class="row g-3 mb-3">
+                    <div class="col-md-6">
+                        <h5>${correctas}/${total}</h5>
+                        <small>Respuestas correctas</small>
+                    </div>
+                    <div class="col-md-6">
+                        <h5>${porcentaje.toFixed(1)}%</h5>
+                        <small>Acierto</small>
+                    </div>
+                </div>
+                <p>Necesitas ${minimo} respuestas correctas de ${total}</p>
+                <button class="btn btn-light btn-lg mt-2" onclick="location.reload()">
+                    <i class="fas fa-redo me-2"></i>Intentar de Nuevo
+                </button>
+            </div>
+        `;
     }
     
-    $(document).ready(function() {
-        $('.opcion-item').hover(
-            function() { $(this).css('background', 'rgba(135, 206, 250, 0.2)'); },
-            function() { $(this).css('background', 'transparent'); }
-        );
-        
-        $('input[type="radio"]').change(function() {
-            const pregunta = $(this).attr('name');
-            $(`input[name="${pregunta}"]`).parent('.opcion-item').css({
-                'background': 'transparent',
-                'border-left': '0px'
-            });
-            $(this).parent('.opcion-item').css({
-                'background': 'rgba(67, 190, 22, 0.15)',
-                'border-left': '4px solid #43be16'
-            });
+    mensajeDiv.style.display = 'block';
+    mensajeDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    
+    if (aprobado) {
+        setTimeout(() => {
+            if (<?php echo $pagina; ?> < <?php echo $total_paginas; ?> - 1) {
+                window.location.href = 'aprende.php?pagina=' + (<?php echo $pagina; ?> + 1);
+            } else {
+                window.location.href = 'aprende.php?pagina=0';
+            }
+        }, 5000);
+    }
+}
+
+$(document).ready(function() {
+    $('.opcion-item').hover(
+        function() { $(this).css('background', 'rgba(135, 206, 250, 0.2)'); },
+        function() { $(this).css('background', 'transparent'); }
+    );
+    
+    $('input[type="radio"]').change(function() {
+        const pregunta = $(this).attr('name');
+        $(`input[name="${pregunta}"]`).parent('.opcion-item').css({
+            'background': 'transparent',
+            'border-left': '0px'
+        });
+        $(this).parent('.opcion-item').css({
+            'background': 'rgba(67, 190, 22, 0.15)',
+            'border-left': '4px solid #43be16'
         });
     });
+});
+
+function guardarActividad() {
+    const residuo1 = document.querySelector('input[name="residuo1"]').value;
+    const uso1 = document.querySelector('textarea[name="uso1"]').value;
+    const residuo2 = document.querySelector('input[name="residuo2"]').value;
+    const uso2 = document.querySelector('textarea[name="uso2"]').value;
+    const residuo3 = document.querySelector('input[name="residuo3"]').value;
+    const uso3 = document.querySelector('textarea[name="uso3"]').value;
     
-    function guardarActividad() {
-        const residuo1 = document.querySelector('input[name="residuo1"]').value;
-        const uso1 = document.querySelector('textarea[name="uso1"]').value;
-        const residuo2 = document.querySelector('input[name="residuo2"]').value;
-        const uso2 = document.querySelector('textarea[name="uso2"]').value;
-        const residuo3 = document.querySelector('input[name="residuo3"]').value;
-        const uso3 = document.querySelector('textarea[name="uso3"]').value;
+    if (residuo1 && uso1 && residuo2 && uso2 && residuo3 && uso3) {
+        localStorage.setItem('actividad_residuos', JSON.stringify({
+            residuo1, uso1, residuo2, uso2, residuo3, uso3, 
+            fecha: new Date().toISOString()
+        }));
         
-        if (residuo1 && uso1 && residuo2 && uso2 && residuo3 && uso3) {
-            localStorage.setItem('actividad_residuos', JSON.stringify({
-                residuo1, uso1, residuo2, uso2, residuo3, uso3, 
-                fecha: new Date().toISOString()
-            }));
+        document.getElementById('mensajeExito').style.display = 'block';
+        
+        document.getElementById('mensajeExito').scrollIntoView({ 
+            behavior: 'smooth', 
+            block: 'center' 
+        });
+        
+        setTimeout(() => {
+            const paginaActual = <?php echo $pagina; ?>;
+            const totalPaginas = <?php echo $total_paginas; ?>;
             
-            document.getElementById('mensajeExito').style.display = 'block';
-            
-            document.getElementById('mensajeExito').scrollIntoView({ 
-                behavior: 'smooth', 
-                block: 'center' 
-            });
-            
-            setTimeout(() => {
-                const paginaActual = <?php echo $pagina; ?>;
-                const totalPaginas = <?php echo $total_paginas; ?>;
-                
-                if (paginaActual < totalPaginas - 1) {
-                    window.location.href = 'aprende.php?pagina=' + (paginaActual + 1);
-                } else {
-                    window.location.href = 'aprende.php?pagina=0';
-                }
-            }, 3000);
-        } else {
-            alert('Por favor, completa todos los campos para finalizar la actividad.');
-        }
+            if (paginaActual < totalPaginas - 1) {
+                window.location.href = 'aprende.php?pagina=' + (paginaActual + 1);
+            } else {
+                window.location.href = 'aprende.php?pagina=0';
+            }
+        }, 3000);
+    } else {
+        alert('Por favor, completa todos los campos para finalizar la actividad.');
     }
+}
     </script>
     
 </body>
