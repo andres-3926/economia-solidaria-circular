@@ -535,6 +535,50 @@ $cartilla = [
         ]
     ],
     [
+        "tipo" => "soluciones_compostaje",
+        "titulo" => "¿Un Reto con tu Compost? ¡Aquí la Solución!",
+        "subtitulo" => "Guía de solución de problemas comunes",
+        "fondo" => "img/preparacion_abono.jpg",
+        "problemas" => [
+            [
+                "titulo" => "Mal olor",
+                "emoji" => "🤢",
+                "color" => "#e74c3c",
+                "causa" => "Exceso de húmedo/nitrógeno, falta de aire.",
+                "solucion" => "\"Los Increíbles de la Montaña\" y \"Seca Rápido\" están diseñados para esto. Si aún así huele, revisa si pusiste algo que no va o si necesitas más Seca Rápido."
+            ],
+            [
+                "titulo" => "Mosquitos",
+                "emoji" => "🦟",
+                "color" => "#9C27B0",
+                "causa" => "Residuos inadecuados, compost no cubierto.",
+                "solucion" => "El acelerador y la capa seca los evitan. Cubre siempre bien tu compostera."
+            ],
+            [
+                "titulo" => "Exceso de líquidos",
+                "emoji" => "💧",
+                "color" => "#2196F3",
+                "causa" => "Demasiados materiales húmedos, falta de absorción.",
+                "solucion" => "\"Seca Rápido\" absorbe la humedad. Asegúrate de usarlo bien."
+            ]
+        ],
+        "actividad_reto" => [
+            "titulo" => "Reto del Tema 4: ¡Mi Primer Paso con el Compost!",
+            "descripcion" => "¡Es hora de empezar! Selecciona <b>al menos 3 residuos orgánicos</b> que planeas compostar primero con tu kit.",
+            "items_compostables" => [
+                ["id" => 1, "texto" => "Cáscaras de frutas y/o hortalizas", "emoji" => "🍌"],
+                ["id" => 2, "texto" => "Borra de café", "emoji" => "☕"],
+                ["id" => 3, "texto" => "Cereales y pan", "emoji" => "🍞"],
+                ["id" => 4, "texto" => "Cáscaras de huevo", "emoji" => "🥚"],
+                ["id" => 5, "texto" => "Filtros de papel de té y café", "emoji" => "📄"],
+                ["id" => 6, "texto" => "Bolsitas de té", "emoji" => "🍵"],
+                ["id" => 7, "texto" => "Residuos de jardín", "emoji" => "🍂"],
+                ["id" => 8, "texto" => "Cartón y papel limpio", "emoji" => "📦"]
+            ],
+            "minimo_requerido" => 3
+        ]
+    ],
+    [
         "tipo" => "contenido",
         "titulo" => "Construyendo Juntas el Futuro",
         "texto" => "Esta página está lista para agregar el siguiente contenido de la cartilla. Aquí puedes continuar desarrollando los temas de economía solidaria y circular para emprendedoras.",
@@ -1753,7 +1797,7 @@ if ($pagina == 15) { $height_bloque = '70vh'; }
                         <a href="aprende.php?pagina=<?php echo $pagina-1; ?>" class="btn btn-lg text-white" style="background-color: #43be16; z-index: 10; padding: 0.4rem 0.85rem; font-size: clamp(0.8rem, 1.8vw, 0.95rem);">
                             <i class="fa fa-arrow-left me-1"></i> Anterior
                         </a>
-                        <div class="text-white text-center text-shadow-custom d-none d-md-block" style="font-size: clamp(0.7rem, 1.3vw, 0.85rem);">
+                        <div class="text-white text-center d-none d-md-block" style="font-size: clamp(0.7rem, 1.3vw, 0.85rem);">
                             Página <?php echo $pagina+1; ?> de <?php echo $total_paginas; ?>
                         </div>
                         <div class="d-flex align-items-end">
@@ -1825,7 +1869,7 @@ if ($pagina == 15) { $height_bloque = '70vh'; }
                                     <ul class="list-unstyled mb-0">
                                         <?php foreach ($categoria['columna_unica']['items'] as $item): ?>
                                         <li class="mb-2 d-flex align-items-start" style="padding: 0.5rem; border-radius: 8px; background: rgba(255,255,255,0.5);">
-                                            <span style="font-size: clamp(1.3rem, 2.8vw, 1.7rem); margin-right: 0.7rem; flex-shrink: 0;"><?php echo $item['emoji']; ?></span>
+                                            <span style="font-size: clamp(1rem, 2.1vw, 1.25rem); margin-right: 0.4rem; flex-shrink: 0;"><?php echo $item['emoji']; ?></span>
                                             <span style="color: #001122; font-weight: 700; font-size: clamp(0.85rem, 1.9vw, 1.05rem); line-height: 1.4;"><?php echo $item['texto']; ?></span>
                                         </li>
                                         <?php endforeach; ?>
@@ -1844,7 +1888,7 @@ if ($pagina == 15) { $height_bloque = '70vh'; }
                                             <ul class="list-unstyled mb-0">
                                                 <?php foreach ($categoria['columna_izq']['items'] as $item): ?>
                                                 <li class="mb-2 d-flex align-items-start" style="padding: 0.5rem; border-radius: 8px; background: rgba(255,255,255,0.5);">
-                                                    <span style="font-size: clamp(1.3rem, 2.8vw, 1.7rem); margin-right: 0.7rem; flex-shrink: 0;"><?php echo $item['emoji']; ?></span>
+                                                    <span style="font-size: clamp(1rem, 2.1vw, 1.25rem); margin-right: 0.4rem; flex-shrink: 0;"><?php echo $item['emoji']; ?></span>
                                                     <span style="color: #001122; font-weight: 700; font-size: clamp(0.85rem, 1.9vw, 1.05rem); line-height: 1.4;"><?php echo $item['texto']; ?></span>
                                                 </li>
                                                 <?php endforeach; ?>
@@ -1865,7 +1909,7 @@ if ($pagina == 15) { $height_bloque = '70vh'; }
                                             <ul class="list-unstyled mb-0">
                                                 <?php foreach ($categoria['columna_der']['items'] as $item): ?>
                                                 <li class="mb-2 d-flex align-items-start" style="padding: 0.5rem; border-radius: 8px; background: rgba(255,255,255,0.5);">
-                                                    <span style="font-size: clamp(1.3rem, 2.8vw, 1.7rem); margin-right: 0.7rem; flex-shrink: 0;"><?php echo $item['emoji']; ?></span>
+                                                    <span style="font-size: clamp(1rem, 2.1vw, 1.25rem); margin-right: 0.4rem; flex-shrink: 0;"><?php echo $item['emoji']; ?></span>
                                                     <span style="color: #001122; font-weight: 700; font-size: clamp(0.85rem, 1.9vw, 1.05rem); line-height: 1.4;"><?php echo $item['texto']; ?></span>
                                                 </li>
                                                 <?php endforeach; ?>
@@ -1896,8 +1940,6 @@ if ($pagina == 15) { $height_bloque = '70vh'; }
                                     <a href="aprende.php?pagina=<?php echo $pagina+1; ?>" class="btn btn-lg text-white" style="background-color: #43be16; padding: 0.6rem 1.2rem; font-size: clamp(0.9rem, 2vw, 1.05rem);">
                                         Siguiente <i class="fa fa-arrow-right ms-2"></i>
                                     </a>
-                                <?php else: ?>
-                                    <div style="width: 120px;"></div>
                                 <?php endif; ?>
                             </div>
                         </div>
@@ -2165,6 +2207,181 @@ if ($pagina == 15) { $height_bloque = '70vh'; }
         </div>
     </div>
 
+    <?php elseif ($cartilla[$pagina]['tipo'] === 'soluciones_compostaje'): ?>
+    <!-- PÁGINA 15: SOLUCIONES COMPOSTAJE + ACTIVIDAD FINAL INTERACTIVA -->
+    <div class="container-fluid header-aprende"
+        style="position: relative;
+            background-image: url('<?php echo $cartilla[$pagina]['fondo']; ?>');
+            background-size: cover;
+            background-position: center;
+            min-height: 100vh;
+            padding-bottom: 6rem;">
+            
+        <div class="container-fluid h-100 p-0">
+            <div class="row g-0 justify-content-center">
+                <!-- Títulos principales -->
+                <div class="col-12 col-lg-11 mx-auto px-3 pt-3 pb-2">
+                    <div class="cuadro-texto text-center mb-2" style="padding: 0.8rem 1.5rem; max-width: 1100px; margin: 0 auto;">
+                        <h1 class="mb-2" style="font-size: clamp(1.3rem, 3.5vw, 1.8rem); line-height: 1.3; color: #001122; font-weight: 900;">
+                            <span style="font-size: clamp(1.8rem, 4vw, 2.3rem); margin-right: 0.5rem;">🛠️</span>
+                            <?php echo $cartilla[$pagina]['titulo']; ?>
+                        </h1>
+                        <h3 class="mb-0" style="font-size: clamp(1rem, 2.2vw, 1.3rem); font-weight: 700; color: #003366;">
+                            <?php echo $cartilla[$pagina]['subtitulo']; ?>
+                        </h3>
+                    </div>
+                </div>
+                
+                <!-- Contenido principal -->
+                <div class="col-12 col-lg-11 mx-auto px-3">
+                    
+                    <!-- SECCIÓN 1: PROBLEMAS COMUNES (3 TARJETAS) -->
+                    <div class="row g-3 px-2 mb-4">
+                        <?php foreach ($cartilla[$pagina]['problemas'] as $problema): ?>
+                        <div class="col-md-4">
+                            <div class="cuadro-texto h-100" style="padding: 1.2rem; background: rgba(255, 255, 255, 0.45) !important; border: 3px solid <?php echo $problema['color']; ?>; border-radius: 15px; box-shadow: 0 8px 20px rgba(0,0,0,0.3);">
+                                <!-- Emoji del problema -->
+                                <div class="text-center mb-2">
+                                    <span style="font-size: clamp(2.5rem, 5vw, 3rem); filter: drop-shadow(3px 3px 6px rgba(0,0,0,0.3));">
+                                        <?php echo $problema['emoji']; ?>
+                                    </span>
+                                </div>
+                                
+                                <!-- Título del problema -->
+                                <h3 class="text-center mb-3" style="font-size: clamp(1.1rem, 2.5vw, 1.4rem); color: <?php echo $problema['color']; ?>; font-weight: 900; line-height: 1.2; text-shadow: 2px 2px 4px rgba(255,255,255,1);">
+                                    Problema: <?php echo $problema['titulo']; ?>
+                                </h3>
+                                
+                                <!-- Causa -->
+                                <div class="mb-3" style="background: rgba(255, 193, 7, 0.8); padding: 0.8rem; border-radius: 10px; border: 2px solid #ffc107;">
+                                    <h5 style="font-size: clamp(0.9rem, 2vw, 1.1rem); color: #001122; font-weight: 900; margin-bottom: 0.5rem;">
+                                        <i class="fas fa-exclamation-triangle me-2"></i>Causa:
+                                    </h5>
+                                    <p class="mb-0" style="font-size: clamp(0.8rem, 1.7vw, 0.95rem); color: #001122; font-weight: 700; line-height: 1.3;">
+                                        <?php echo $problema['causa']; ?>
+                                    </p>
+                                </div>
+                                
+                                <!-- Solución -->
+                                <div style="background: rgba(67, 190, 22, 0.8); padding: 0.8rem; border-radius: 10px; border: 2px solid #43be16;">
+                                    <h5 style="font-size: clamp(0.9rem, 2vw, 1.1rem); color: #001122; font-weight: 900; margin-bottom: 0.5rem;">
+                                        <i class="fas fa-lightbulb me-2"></i>Solución:
+                                    </h5>
+                                    <p class="mb-0" style="font-size: clamp(0.8rem, 1.7vw, 0.95rem); color: #001122; font-weight: 700; line-height: 1.3;">
+                                        <?php echo $problema['solucion']; ?>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <?php endforeach; ?>
+                    </div>
+                    
+                    <!-- SECCIÓN 2: ACTIVIDAD FINAL INTERACTIVA -->
+                    <div class="cuadro-texto cuadro-actividad mx-auto mb-4" style="max-width: 1150px; padding: 1.5rem; background: rgba(135, 206, 250, 0.4) !important; border: 3px solid #2196F3;">
+                        <h3 class="text-center mb-3" style="font-size: clamp(1.2rem, 3vw, 1.6rem); color: #001122; font-weight: 900;">
+                            <i class="fas fa-seedling me-2"></i>
+                            <?php echo $cartilla[$pagina]['actividad_reto']['titulo']; ?>
+                        </h3>
+                        
+                        <p class="texto-contenido text-center mb-4" style="font-size: clamp(0.9rem, 2vw, 1.1rem); line-height: 1.5; color: #001122; font-weight: 700;">
+                            <?php echo $cartilla[$pagina]['actividad_reto']['descripcion']; ?>
+                        </p>
+                        
+                        <!-- GRID DE ÍTEMS SELECCIONABLES -->
+                        <div class="row g-3 mb-4" id="itemsCompostables">
+                            <?php foreach ($cartilla[$pagina]['actividad_reto']['items_compostables'] as $item): ?>
+                            <div class="col-md-6 col-lg-3">
+                                <div class="item-compostable" 
+                                    data-id="<?php echo $item['id']; ?>"
+                                    onclick="toggleItem(this)"
+                                    style="background: rgba(255, 255, 255, 0.9); 
+                                            padding: 1rem; 
+                                            border-radius: 12px; 
+                                            border: 3px solid #ddd; 
+                                            cursor: pointer; 
+                                            transition: all 0.3s ease;
+                                            text-align: center;
+                                            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+                                            position: relative;">
+                                    <div style="font-size: clamp(2rem, 4vw, 2.5rem); margin-bottom: 0.5rem;">
+                                        <?php echo $item['emoji']; ?>
+                                    </div>
+                                    <div style="font-size: clamp(0.85rem, 1.8vw, 1rem); 
+                                                color: #001122; 
+                                                font-weight: 700; 
+                                                line-height: 1.3;">
+                                        <?php echo $item['texto']; ?>
+                                    </div>
+                                    <!-- ✅ CHECKMARK OCULTO POR DEFECTO -->
+                                    <div class="checkmark" style="display: none; position: absolute; top: 10px; right: 10px; background: #43be16; color: white; width: 30px; height: 30px; border-radius: 50%; align-items: center; justify-content: center; font-size: 1.2rem;">
+                                        <i class="fas fa-check"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <?php endforeach; ?>
+                        </div>
+                        
+                        <!-- Contador de seleccionados -->
+                        <div class="text-center mb-3">
+                            <div style="background: rgba(255, 193, 7, 0.9); 
+                                        padding: 0.8rem 1.5rem; 
+                                        border-radius: 10px; 
+                                        display: inline-block;
+                                        border: 2px solid #ffc107;">
+                                <span style="color: #001122; font-weight: 900; font-size: clamp(0.9rem, 2vw, 1.1rem);">
+                                    <i class="fas fa-list-check me-2"></i>
+                                    Seleccionados: <span id="contadorSeleccionados">0</span> / <?php echo $cartilla[$pagina]['actividad_reto']['minimo_requerido']; ?> mínimo
+                                </span>
+                            </div>
+                        </div>
+                        
+                        <!-- Botón de envío -->
+                        <div class="text-center mt-4">
+                            <button 
+                                type="button" 
+                                id="btnCompletarReto"
+                                class="btn btn-primary btn-lg px-5 py-3" 
+                                onclick="guardarRetoCompost()" 
+                                style="background-color: #43be16; 
+                                    border-color: #43be16; 
+                                    font-size: clamp(1rem, 2.2vw, 1.2rem); 
+                                    font-weight: 700;">
+                                <i class="fas fa-check-circle me-2"></i>
+                                ¡Completar Reto Final!
+                            </button>
+                        </div>
+                        
+                        <!-- Mensaje de éxito -->
+                        <div id="mensajeExitoCompost" class="alert text-center mt-4" style="display: none; background-color: rgba(67, 190, 22, 0.9); border-color: #43be16; color: #001122; padding: 1.5rem; border-radius: 15px; font-size: clamp(0.9rem, 2vw, 1.1rem); font-weight: 700;">
+                            <i class="fas fa-trophy me-2" style="font-size: 2rem; color: #FFD700;"></i>
+                            <h4 class="mb-2"><b>¡FELICITACIONES! 🎉</b></h4>
+                            <p class="mb-2">Has completado toda la cartilla sobre compostaje.</p>
+                            <p class="mb-0">¡Ahora estás lista para transformar tus residuos en abono natural!</p>
+                            <small class="d-block mt-2">Redirigiendo al inicio en 5 segundos...</small>
+                        </div>
+                    </div>
+                    
+                    <!-- Navegación -->
+                    <div class="container-fluid px-0 mt-3 mb-3">
+                        <div class="row g-0 w-100">
+                            <div class="col-12 d-flex justify-content-between align-items-center px-2">
+                                <a href="aprende.php?pagina=<?php echo $pagina-1; ?>" class="btn btn-lg text-white" style="background-color: #43be16; padding: 0.6rem 1.2rem; font-size: clamp(0.9rem, 2vw, 1.05rem);">
+                                    <i class="fa fa-arrow-left me-2"></i> Anterior
+                                </a>
+                                <div class="text-white text-center d-none d-md-block" style="font-size: clamp(0.8rem, 1.5vw, 0.95rem); text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">
+                                    Página <?php echo $pagina+1; ?> de <?php echo $total_paginas; ?>
+                                </div>
+                                <a href="aprende.php?pagina=0" class="btn btn-lg text-white" style="background-color: #003d82; padding: 0.6rem 1.2rem; font-size: clamp(0.9rem, 2vw, 1.05rem);">
+                                    <i class="fa fa-home me-2"></i> Volver al Inicio
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <?php elseif ($cartilla[$pagina]['tipo'] === 'contenido'): ?>
     <!-- TEMPLATE PARA PÁGINAS DE CONTENIDO GENERAL -->
     <div class="container-fluid header-aprende"
@@ -2415,6 +2632,7 @@ function enviarReto() {
         method: 'POST',
         dataType: 'json',
         data: datosEnviar,
+       
         success: function(response) {
             console.log('✅ Respuesta del servidor:', response);
             if (response.data) {
@@ -2559,6 +2777,109 @@ function guardarActividad() {
         alert('Por favor, completa todos los campos para finalizar la actividad.');
     }
 }
+
+// NUEVA FUNCIONALIDAD: Selección interactiva de ítems para el reto de compost
+let itemsSeleccionados = [];
+const minimoRequerido = <?php echo isset($cartilla[$pagina]['actividad_reto']['minimo_requerido']) ? $cartilla[$pagina]['actividad_reto']['minimo_requerido'] : 3; ?>;
+
+function toggleItem(elemento) {
+    const itemId = elemento.getAttribute('data-id');
+    const checkmark = elemento.querySelector('.checkmark');
+    
+    if (itemsSeleccionados.includes(itemId)) {
+        // ✅ DESELECCIONAR
+        itemsSeleccionados = itemsSeleccionados.filter(id => id !== itemId);
+        elemento.style.borderColor = '#ddd';
+        elemento.style.background = 'rgba(255, 255, 255, 0.9)';
+        elemento.style.transform = 'scale(1)';
+        checkmark.style.display = 'none'; // ✅ OCULTAR CHECKMARK
+    } else {
+        // ✅ SELECCIONAR
+        itemsSeleccionados.push(itemId);
+        elemento.style.borderColor = '#43be16';
+        elemento.style.background = 'rgba(67, 190, 22, 0.15)';
+        elemento.style.transform = 'scale(1.05)';
+        checkmark.style.display = 'flex'; // ✅ MOSTRAR CHECKMARK
+    }
+    
+    // Actualizar contador
+    document.getElementById('contadorSeleccionados').textContent = itemsSeleccionados.length;
+    
+    console.log('✅ Ítems seleccionados:', itemsSeleccionados);
+}
+
+function guardarRetoCompost() {
+    if (itemsSeleccionados.length < minimoRequerido) {
+        alert(`⚠️ Debes seleccionar al menos ${minimoRequerido} residuos orgánicos para completar el reto.`);
+        return;
+    }
+    
+    const btnCompletar = document.getElementById('btnCompletarReto');
+    const textoOriginal = btnCompletar.innerHTML;
+    btnCompletar.disabled = true;
+    btnCompletar.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Guardando...';
+    
+    // Obtener textos de los ítems seleccionados
+    const itemsTexto = itemsSeleccionados.map(id => {
+        const elemento = document.querySelector(`[data-id="${id}"]`);
+        return elemento.textContent.trim();
+    });
+    
+    // Guardar en localStorage
+    localStorage.setItem('reto_compost_final', JSON.stringify({
+        items_seleccionados: itemsSeleccionados,
+        items_texto: itemsTexto,
+        total_seleccionados: itemsSeleccionados.length,
+        fecha: new Date().toISOString()
+    }));
+    
+    console.log('✅ Reto de compost guardado:', {
+        items: itemsTexto,
+        total: itemsSeleccionados.length
+    });
+    
+    // Mostrar mensaje de éxito
+    document.getElementById('mensajeExitoCompost').style.display = 'block';
+    document.getElementById('mensajeExitoCompost').scrollIntoView({ 
+        behavior: 'smooth', 
+        block: 'center' 
+    });
+    
+    // Deshabilitar todos los ítems
+    document.querySelectorAll('.item-compostable').forEach(item => {
+        item.style.pointerEvents = 'none';
+        item.style.opacity = '0.7';
+    });
+    
+    // Redirigir después de 5 segundos
+    setTimeout(() => {
+        window.location.href = 'aprende.php?pagina=0';
+    }, 5000);
+}
+
+// ✅ EFECTO HOVER PARA ÍTEMS NO SELECCIONADOS
+$(document).ready(function() {
+    $('.item-compostable').hover(
+        function() {
+            const itemId = $(this).attr('data-id');
+            if (!itemsSeleccionados.includes(itemId)) {
+                $(this).css({
+                    'transform': 'scale(1.05)',
+                    'box-shadow': '0 8px 20px rgba(0,0,0,0.2)'
+                });
+            }
+        },
+        function() {
+            const itemId = $(this).attr('data-id');
+            if (!itemsSeleccionados.includes(itemId)) {
+                $(this).css({
+                    'transform': 'scale(1)',
+                    'box-shadow': '0 4px 10px rgba(0,0,0,0.1)'
+                });
+            }
+        }
+    );
+});
     </script>
     
 </body>
