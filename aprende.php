@@ -437,8 +437,8 @@ $cartilla = [
         "titulo" => "Tu Kit de Compostaje Casero",
         "subtitulo" => "Transforma tus residuos orgánicos en abono natural",
         "texto" => "Este kit te permitirá transformar tus residuos orgánicos en <b>abono natural</b> para tus plantas o huerta. Aquí puedes ver todo lo que incluye.",
-        "fondo" => "img/kit_compostera[2].webp",
-        "imagen_kit" => "img/kit-compostaje-completo.jpg", // Foto grande del kit
+        "fondo" => "img/fondo_cafe_claro.jpg",
+        "imagen_kit" => "img/kit_compostera[2].webp", // Foto grande del kit
         "componentes" => [
             [
                 "numero" => "1",
@@ -582,7 +582,7 @@ $cartilla = [
         "tipo" => "reuso_reciclaje_timeline",
         "titulo" => "Reuso y Reciclaje: ¡Dale una Segunda Vida a Todo!",
         "subtitulo" => "El compostaje es solo el inicio. ¡Muchos otros residuos tienen una segunda oportunidad!",
-        "fondo" => "img/3_R.jpg",
+        "fondo" => "img/imagen_fondo_verde.jpg",
         "categorias" => [
             [
                 "titulo" => "Ideas Creativas para Gastronomía",
@@ -595,7 +595,8 @@ $cartilla = [
                         "titulo" => "Envases de Plástico",
                         "descripcion" => "Reutiliza envases limpios para guardar tus insumos, especias, harinas y otros ingredientes de manera organizada.",
                         "beneficio" => "Organización + Ahorro",
-                        "color" => "#3498db"
+                        "color" => "#3498db",
+                        "imagen" => "img/materos_plasticos.jpg" // ✅ FOTO AÑADIDA
                     ],
                     [
                         "numero" => "2",
@@ -603,7 +604,8 @@ $cartilla = [
                         "titulo" => "Frascos de Vidrio",
                         "descripcion" => "Perfectos para almacenar salsas caseras, conservas, aderezos o presentar productos gourmet para la venta.",
                         "beneficio" => "Presentación Premium",
-                        "color" => "#e74c3c"
+                        "color" => "#e74c3c",
+                        "imagen" => "img/ideas_frascos_vidrio.jpg" // ✅ FOTO AÑADIDA
                     ],
                     [
                         "numero" => "3",
@@ -611,7 +613,8 @@ $cartilla = [
                         "titulo" => "Bolsas de Tela",
                         "descripcion" => "Crea bolsas reutilizables con telas recicladas para compras de insumos o entregar productos a clientes.",
                         "beneficio" => "Eco-friendly",
-                        "color" => "#43be16"
+                        "color" => "#43be16",
+                        "imagen" => "img/idea_bolsa_tela.jpg" // ✅ FOTO AÑADIDA
                     ]
                 ]
             ],
@@ -626,7 +629,8 @@ $cartilla = [
                         "titulo" => "Retazos de Tela",
                         "descripcion" => "Transforma sobrantes en nuevos diseños: accesorios, patchwork, bordados o productos textiles únicos.",
                         "beneficio" => "Creatividad infinita",
-                        "color" => "#9C27B0"
+                        "color" => "#9C27B0",
+                        "imagen" => "img/imagen_retazos_tela.jpg" // ✅ FOTO AÑADIDA
                     ],
                     [
                         "numero" => "5",
@@ -634,7 +638,8 @@ $cartilla = [
                         "titulo" => "Plásticos Reciclados",
                         "descripcion" => "Dale nueva vida creando bisutería, decoraciones, macetas o elementos creativos para el hogar.",
                         "beneficio" => "Productos únicos",
-                        "color" => "#FF5722"
+                        "color" => "#FF5722",
+                        "imagen" => "img/reutilizar_bolsas_plastico.webp" // ✅ FOTO AÑADIDA
                     ],
                     [
                         "numero" => "6",
@@ -642,7 +647,8 @@ $cartilla = [
                         "titulo" => "Cartón Reciclado",
                         "descripcion" => "Crea maquetas, moldes, empaques personalizados o estructuras para tus productos artesanales.",
                         "beneficio" => "Versátil y económico",
-                        "color" => "#8B4513"
+                        "color" => "#8B4513",
+                        "imagen" => "img/maqueta_empaque_carton.webp" // ✅ FOTO AÑADIDA
                     ]
                 ]
             ]
@@ -658,11 +664,125 @@ $cartilla = [
         ]
     ],
     [
-        "tipo" => "contenido",
-        "titulo" => "Construyendo Juntas el Futuro",
-        "texto" => "Esta página está lista para agregar el siguiente contenido de la cartilla. Aquí puedes continuar desarrollando los temas de economía solidaria y circular para emprendedoras.",
-        "fondo" => "img/construccion-futuro.jpg",
-        "logo" => "img/Logo-sena-blanco-sin-fondo.webp"
+        "tipo" => "quiz_preguntas_respuestas",
+        "titulo" => "Preguntas y Respuestas Comunes",
+        "subtitulo" => "Pon a prueba tus conocimientos sobre economía circular",
+        "fondo" => "img/imagen_preguntas_respuestas.jpg",
+        "preguntas" => [
+            // PREGUNTA 1
+            [
+                "id" => 1,
+                "categoria" => "Compostaje",
+                "emoji" => "⏱️",
+                "pregunta" => "¿Cuánto tiempo tarda el compost con el acelerador biológico?",
+                "opciones" => [
+                    "10 días aproximadamente",
+                    "2 a 4 meses",
+                    "6 meses o más"
+                ],
+                "respuesta_correcta" => "10 días aproximadamente",
+                "explicacion" => "Con el kit y el acelerador biológico, el compost está listo en <b>aproximadamente 10 días</b>. Sin acelerador puede tardar entre 2 y 4 meses."
+            ],
+            // PREGUNTA 2
+            [
+                "id" => 2,
+                "categoria" => "Compostaje",
+                "emoji" => "🍌",
+                "pregunta" => "¿Puedo compostar cualquier resto de comida?",
+                "opciones" => [
+                    "Sí, todos los restos de comida",
+                    "Solo frutas, verduras y restos vegetales",
+                    "Solo carnes y lácteos"
+                ],
+                "respuesta_correcta" => "Solo frutas, verduras y restos vegetales",
+                "explicacion" => "<b>NO todos los restos son aptos.</b> Puedes compostar: frutas, verduras, cáscaras, café, té, pan. <b>NO compostar:</b> carnes, lácteos, huesos, grasas, aceites."
+            ],
+            // PREGUNTA 3
+            [
+                "id" => 3,
+                "categoria" => "Compostaje",
+                "emoji" => "🐜",
+                "pregunta" => "¿Qué hago si mi compost atrae hormigas?",
+                "opciones" => [
+                    "Agregar más agua",
+                    "Cubrir con material secante y acelerador",
+                    "Dejar al aire libre"
+                ],
+                "respuesta_correcta" => "Cubrir con material secante y acelerador",
+                "explicacion" => "Las hormigas aparecen con exceso de azúcares o sequedad. <b>Solución:</b> Cubre bien con material secante, agrega más acelerador y tapa la compostera."
+            ],
+            // PREGUNTA 4
+            [
+                "id" => 4,
+                "categoria" => "Reciclaje",
+                "emoji" => "🧴",
+                "pregunta" => "¿Debo lavar los envases antes de reciclarlos?",
+                "opciones" => [
+                    "No, se lavan en la planta de reciclaje",
+                    "Sí, es fundamental lavarlos",
+                    "Solo los de vidrio"
+                ],
+                "respuesta_correcta" => "Sí, es fundamental lavarlos",
+                "explicacion" => "<b>Sí, es fundamental.</b> Los envases sucios contaminan todo el lote de reciclaje. Lávalos con agua y déjalos secar antes de reciclar."
+            ],
+            // PREGUNTA 5
+            [
+                "id" => 5,
+                "categoria" => "Reciclaje",
+                "emoji" => "🛢️",
+                "pregunta" => "¿Qué hago con el aceite de cocina usado?",
+                "opciones" => [
+                    "Verterlo por el desagüe",
+                    "Recolectarlo en botella y llevarlo a puntos de acopio",
+                    "Tirarlo a la basura común"
+                ],
+                "respuesta_correcta" => "Recolectarlo en botella y llevarlo a puntos de acopio",
+                "explicacion" => "<b>NUNCA lo viertas por el desagüe.</b> Un litro de aceite contamina hasta 1.000 litros de agua. Recolecta en botella y llévalo a puntos de acopio."
+            ],
+            // PREGUNTA 6
+            [
+                "id" => 6,
+                "categoria" => "Reciclaje",
+                "emoji" => "📄",
+                "pregunta" => "¿El papel mojado o con grasa se puede reciclar?",
+                "opciones" => [
+                    "Sí, todo el papel es reciclable",
+                    "No, la humedad y grasa lo contaminan",
+                    "Solo el papel de oficina"
+                ],
+                "respuesta_correcta" => "No, la humedad y grasa lo contaminan",
+                "explicacion" => "<b>NO.</b> El papel húmedo o con grasa (servilletas usadas, cajas de pizza sucias) no es reciclable. La humedad contamina las fibras."
+            ],
+            // PREGUNTA 7
+            [
+                "id" => 7,
+                "categoria" => "Reuso",
+                "emoji" => "🫙",
+                "pregunta" => "¿Qué puedo hacer con frascos de vidrio?",
+                "opciones" => [
+                    "Solo tirarlos a la basura",
+                    "Almacenar alimentos, crear velas, macetas",
+                    "Nada, no son reutilizables"
+                ],
+                "respuesta_correcta" => "Almacenar alimentos, crear velas, macetas",
+                "explicacion" => "Los frascos son <b>súper versátiles</b>: almacena especias, granos, salsas caseras, crea velas decorativas, macetas o envases premium."
+            ],
+            // PREGUNTA 8
+            [
+                "id" => 8,
+                "categoria" => "Reuso",
+                "emoji" => "🧵",
+                "pregunta" => "¿Los retazos de tela pequeños sirven para algo?",
+                "opciones" => [
+                    "No, son demasiado pequeños",
+                    "Sí, para parches, rellenos, bisutería",
+                    "Solo para telas grandes"
+                ],
+                "respuesta_correcta" => "Sí, para parches, rellenos, bisutería",
+                "explicacion" => "¡Absolutamente! Usa retazos para: parches decorativos, rellenos de cojines, bisutería textil, posavasos, bolsitas aromáticas o patchwork."
+            ]
+        ],
+        "minimo_aprobacion" => 6 // De 8 preguntas, mínimo 6 correctas para aprobar
     ],
 ];
 
@@ -1465,6 +1585,37 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
             .cuadro-categoria ul.list-unstyled li span:last-child {
                 font-size: 0.6rem !important;
             }
+        }
+        /* Efectos hover para las opciones */
+        .opcion-pregunta:hover {
+            background-color: rgba(67, 190, 22, 0.1) !important;
+            border-color: #43be16 !important;
+            transform: translateX(5px);
+        }
+
+        .opcion-pregunta input:checked ~ label {
+            color: #43be16 !important;
+            font-weight: 900 !important;
+        }
+
+        .opcion-pregunta:has(input:checked) {
+            background-color: rgba(67, 190, 22, 0.15) !important;
+            border-color: #43be16 !important;
+            border-width: 3px !important;
+        }
+
+        /* Retroalimentación correcta */
+        .retroalimentacion-correcta {
+            background: rgba(67, 190, 22, 0.9) !important;
+            border: 3px solid #43be16;
+            color: #001122;
+        }
+
+        /* Retroalimentación incorrecta */
+        .retroalimentacion-incorrecta {
+            background: rgba(231, 76, 60, 0.9) !important;
+            border: 3px solid #e74c3c;
+            color: white;
         }
     </style>
 </head>
@@ -2454,7 +2605,7 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
     </div>
 
     <?php elseif ($cartilla[$pagina]['tipo'] === 'reuso_reciclaje_timeline'): ?>
-    <!-- PÁGINA 16: REUSO Y RECICLAJE CON LÍNEA DE TIEMPO (ESTILO PÁGINA 14) -->
+    <!-- PÁGINA 16: REUSO Y RECICLAJE CON FOTOS ALTERNAS -->
     <div class="container-fluid header-aprende"
         style="position: relative;
             background-image: url('<?php echo $cartilla[$pagina]['fondo']; ?>');
@@ -2492,7 +2643,7 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
                             </h2>
                         </div>
                         
-                        <!-- LÍNEA DE TIEMPO DE IDEAS -->
+                        <!-- LÍNEA DE TIEMPO CON FOTOS ALTERNAS -->
                         <div class="row g-3 px-2 position-relative mb-4">
                             <!-- Línea vertical conectora (solo desktop) -->
                             <div class="d-none d-md-block position-absolute" style="left: 50%; top: 50px; bottom: 50px; width: 4px; background: linear-gradient(180deg, <?php 
@@ -2506,27 +2657,74 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
                             <?php foreach ($categoria['ideas'] as $index => $idea): 
                                 $isLeft = ($index % 2 == 0);
                             ?>
-                            <!-- IDEA <?php echo $idea['numero']; ?> -->
+                            <!-- IDEA <?php echo $idea['numero']; ?> CON FOTO ALTERNA -->
                             <div class="col-12">
-                                <div class="row g-0 align-items-center position-relative" style="z-index: 1;">
-                                    <!-- Contenido de la idea (alterna izquierda/derecha) -->
+                                <div class="row g-2 align-items-center position-relative" style="z-index: 1;">
+                                    
+                                    <!-- ✅ FOTO (alterna izquierda/derecha) -->
                                     <div class="col-md-5 <?php echo $isLeft ? 'order-md-1' : 'order-md-2 offset-md-1'; ?>">
-                                        <div class="cuadro-texto h-100" style="padding: 1.2rem; background: rgba(255, 255, 255, 0.45) !important; border: 3px solid <?php echo $idea['color']; ?>; border-radius: 15px; box-shadow: 0 8px 20px rgba(0,0,0,0.3); position: relative;">
-                                            <!-- Flecha apuntando al círculo (solo desktop) -->
-                                            <div class="d-none d-md-block position-absolute" style="<?php echo $isLeft ? 'right: -20px;' : 'left: -20px;'; ?> top: 50%; transform: translateY(-50%); width: 0; height: 0; border-top: 15px solid transparent; border-bottom: 15px solid transparent; <?php echo $isLeft ? 'border-left: 20px solid ' . $idea['color'] : 'border-right: 20px solid ' . $idea['color']; ?>;"></div>
+                                        <div class="text-center">
+                                            <img src="<?php echo $idea['imagen']; ?>" 
+                                                alt="<?php echo $idea['titulo']; ?>" 
+                                                class="img-fluid" 
+                                                style="max-height: 250px; 
+                                                        border-radius: 15px; 
+                                                        box-shadow: 0 8px 20px rgba(0,0,0,0.4); 
+                                                        border: 4px solid <?php echo $idea['color']; ?>; 
+                                                        object-fit: cover; 
+                                                        width: 100%;">
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Círculo numerado en el centro (solo desktop) -->
+                                    <div class="d-none d-md-flex col-md-2 justify-content-center align-items-center order-md-1" style="z-index: 10;">
+                                        <div style="background: <?php echo $idea['color']; ?>; 
+                                                    color: white; 
+                                                    width: 70px; 
+                                                    height: 70px; 
+                                                    border-radius: 50%; 
+                                                    display: flex; 
+                                                    align-items: center; 
+                                                    justify-content: center; 
+                                                    font-weight: 900; 
+                                                    font-size: 2rem; 
+                                                    box-shadow: 0 6px 15px rgba(0,0,0,0.4); 
+                                                    border: 5px solid white;">
+                                            <?php echo $idea['numero']; ?>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- ✅ TEXTO (lado opuesto a la foto) -->
+                                    <div class="col-md-5 <?php echo $isLeft ? 'order-md-2' : 'order-md-1'; ?>">
+                                        <div class="cuadro-texto h-100" style="padding: 1.2rem; 
+                                                                            background: rgba(255, 255, 255, 0.45) !important; 
+                                                                            border: 3px solid <?php echo $idea['color']; ?>; 
+                                                                            border-radius: 15px; 
+                                                                            box-shadow: 0 8px 20px rgba(0,0,0,0.3); 
+                                                                            position: relative;">
                                             
                                             <!-- Emoji y título -->
                                             <div class="d-flex align-items-center mb-2">
-                                                <span style="font-size: clamp(2rem, 4vw, 2.5rem); margin-right: 0.8rem; filter: drop-shadow(3px 3px 6px rgba(0,0,0,0.3));">
+                                                <span style="font-size: clamp(2rem, 4vw, 2.5rem); 
+                                                            margin-right: 0.8rem; 
+                                                            filter: drop-shadow(3px 3px 6px rgba(0,0,0,0.3));">
                                                     <?php echo $idea['emoji']; ?>
                                                 </span>
-                                                <h3 class="mb-0" style="font-size: clamp(1rem, 2.3vw, 1.3rem); color: #001122; font-weight: 900; line-height: 1.2; text-shadow: 2px 2px 4px rgba(255,255,255,1);">
+                                                <h3 class="mb-0" style="font-size: clamp(1rem, 2.3vw, 1.3rem); 
+                                                                    color: #001122; 
+                                                                    font-weight: 900; 
+                                                                    line-height: 1.2; 
+                                                                    text-shadow: 2px 2px 4px rgba(255,255,255,1);">
                                                     <?php echo $idea['titulo']; ?>
                                                 </h3>
                                             </div>
                                             
                                             <!-- Descripción -->
-                                            <p class="mb-2" style="font-size: clamp(0.85rem, 1.8vw, 1rem); color: #001122; font-weight: 700; line-height: 1.4; text-shadow: 1px 1px 3px rgba(255,255,255,0.9);">
+                                            <p class="mb-2" style="font-size: clamp(0.85rem, 1.8vw, 1rem); 
+                                                                color: #001122; 
+                                                                font-weight: 700; 
+                                                                line-height: 1.4; 
+                                                                text-shadow: 1px 1px 3px rgba(255,255,255,0.9);">
                                                 <?php echo $idea['descripcion']; ?>
                                             </p>
                                             
@@ -2534,23 +2732,21 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
                                             <div style="background: rgba(<?php 
                                                 list($r, $g, $b) = sscanf($idea['color'], "#%02x%02x%02x");
                                                 echo "$r, $g, $b";
-                                            ?>, 0.15); padding: 0.6rem; border-radius: 8px; border: 2px solid <?php echo $idea['color']; ?>;">
-                                                <small style="color: #001122; font-weight: 700; display: block; text-align: center; font-size: clamp(0.75rem, 1.6vw, 0.9rem);">
+                                            ?>, 0.15); 
+                                                        padding: 0.6rem; 
+                                                        border-radius: 8px; 
+                                                        border: 2px solid <?php echo $idea['color']; ?>;">
+                                                <small style="color: #001122; 
+                                                            font-weight: 700; 
+                                                            display: block; 
+                                                            text-align: center; 
+                                                            font-size: clamp(0.75rem, 1.6vw, 0.9rem);">
                                                     <i class="fas fa-check-circle me-1"></i><?php echo $idea['beneficio']; ?>
                                                 </small>
                                             </div>
                                         </div>
                                     </div>
                                     
-                                    <!-- Círculo numerado en el centro (solo desktop) -->
-                                    <div class="d-none d-md-flex col-md-2 justify-content-center align-items-center order-md-1" style="z-index: 10;">
-                                        <div style="background: <?php echo $idea['color']; ?>; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 1.8rem; box-shadow: 0 6px 15px rgba(0,0,0,0.4); border: 4px solid white;">
-                                            <?php echo $idea['numero']; ?>
-                                        </div>
-                                    </div>
-                                    
-                                    <!-- Espacio vacío en el otro lado (solo desktop) -->
-                                    <div class="d-none d-md-block col-md-5 <?php echo $isLeft ? 'order-md-2' : 'order-md-1'; ?>"></div>
                                 </div>
                             </div>
                             <?php endforeach; ?>
@@ -2605,6 +2801,186 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
                                 <?php endif; ?>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <?php elseif ($cartilla[$pagina]['tipo'] === 'quiz_preguntas_respuestas'): ?>
+    <!-- PÁGINA 17: QUIZ DE PREGUNTAS Y RESPUESTAS CON 3 OPCIONES -->
+    <div class="container-fluid header-aprende"
+        style="position: relative;
+            background-image: url('<?php echo $cartilla[$pagina]['fondo']; ?>');
+            background-size: cover;
+            background-position: center;
+            min-height: 100vh;
+            padding-bottom: 6rem;">
+            
+        <div class="container-fluid h-100 p-0">
+            <div class="row g-0 justify-content-center">
+                <!-- Títulos principales -->
+                <div class="col-12 col-lg-11 mx-auto px-3 pt-3 pb-2">
+                    <div class="cuadro-texto text-center mb-2" style="padding: 0.8rem 1.5rem; max-width: 1100px; margin: 0 auto;">
+                        <h1 class="mb-2" style="font-size: clamp(1.3rem, 3.5vw, 1.8rem); line-height: 1.3; color: #001122; font-weight: 900;">
+                            <span style="font-size: clamp(1.8rem, 4vw, 2.3rem); margin-right: 0.5rem;">❓</span>
+                            <?php echo $cartilla[$pagina]['titulo']; ?>
+                        </h1>
+                        <h3 class="mb-0" style="font-size: clamp(1rem, 2.2vw, 1.3rem); font-weight: 700; color: #003366;">
+                            <?php echo $cartilla[$pagina]['subtitulo']; ?>
+                        </h3>
+                    </div>
+                </div>
+                
+                <!-- Contenido principal -->
+                <div class="col-12 col-lg-10 mx-auto px-3 py-4 d-flex flex-column">
+                    
+                    <!-- CUADRO INFORMATIVO -->
+                    <div class="cuadro-texto mx-auto mb-3" style="max-width: 1000px; padding: 1rem; background: rgba(67, 190, 22, 0.25) !important; border: 2px solid #43be16;">
+                        <p class="texto-contenido text-center mb-0" style="font-size: clamp(0.9rem, 2vw, 1.1rem);">
+                            <i class="fas fa-info-circle me-2"></i>
+                            Responde las <b><?php echo count($cartilla[$pagina]['preguntas']); ?> preguntas</b>. Necesitas <b><?php echo $cartilla[$pagina]['minimo_aprobacion']; ?> respuestas correctas</b> para aprobar.
+                        </p>
+                    </div>
+                    
+                    <!-- QUIZ FORM -->
+                    <form id="quizPreguntasForm" class="cuadro-texto cuadro-actividad mx-auto flex-grow-1" style="max-width: 1050px; padding: 1.5rem;">
+                        <div class="accordion" id="accordionQuizPreguntas">
+                            <?php 
+                            $preguntas = $cartilla[$pagina]['preguntas'];
+                            foreach ($preguntas as $index => $pregunta): 
+                                $numero = $index + 1;
+                                $isFirst = ($index === 0);
+                                
+                                // Determinar color según categoría
+                                $colorCategoria = match($pregunta['categoria']) {
+                                    'Compostaje' => '#43be16',
+                                    'Reciclaje' => '#2196F3',
+                                    'Reuso' => '#9C27B0',
+                                    default => '#003d82'
+                                };
+                            ?>
+                            <div class="accordion-item mb-3" style="border: 3px solid <?php echo $colorCategoria; ?>; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.15);">
+                                <h2 class="accordion-header" id="headingPregunta<?php echo $numero; ?>">
+                                    <button class="accordion-button <?php echo $isFirst ? '' : 'collapsed'; ?>" 
+                                            type="button" 
+                                            data-bs-toggle="collapse" 
+                                            data-bs-target="#collapsePregunta<?php echo $numero; ?>" 
+                                            aria-expanded="<?php echo $isFirst ? 'true' : 'false'; ?>" 
+                                            style="background: rgba(255, 255, 255, 0.95); 
+                                                color: #001122; 
+                                                font-weight: 800; 
+                                                font-size: clamp(0.9rem, 2vw, 1.1rem);
+                                                padding: 1rem 1.5rem;
+                                                border: none;">
+                                        <!-- Emoji grande -->
+                                        <span style="font-size: clamp(1.5rem, 3vw, 2rem); margin-right: 0.8rem;">
+                                            <?php echo $pregunta['emoji']; ?>
+                                        </span>
+                                        
+                                        <!-- Badges -->
+                                        <div class="d-flex flex-column flex-sm-row align-items-start align-items-sm-center gap-2 w-100">
+                                            <span class="badge me-2" style="background-color: <?php echo $colorCategoria; ?>; font-size: 0.85rem; padding: 0.4rem 0.8rem;">
+                                                Pregunta <?php echo $numero; ?>
+                                            </span>
+                                            <span class="badge me-2" style="background-color: rgba(0,0,0,0.6); font-size: 0.8rem; padding: 0.3rem 0.7rem;">
+                                                <?php echo $pregunta['categoria']; ?>
+                                            </span>
+                                            <span class="flex-grow-1" style="font-size: clamp(0.85rem, 1.9vw, 1.05rem);">
+                                                <?php echo $pregunta['pregunta']; ?>
+                                            </span>
+                                        </div>
+                                    </button>
+                                </h2>
+                                
+                                <div id="collapsePregunta<?php echo $numero; ?>" 
+                                    class="accordion-collapse collapse <?php echo $isFirst ? 'show' : ''; ?>">
+                                    <div class="accordion-body" style="background: rgba(255, 255, 255, 0.9); padding: 1.5rem;">
+                                        
+                                        <!-- OPCIONES DE RESPUESTA -->
+                                        <?php foreach ($pregunta['opciones'] as $opcionIndex => $opcion): ?>
+                                        <div class="form-check mb-3 opcion-pregunta" 
+                                            style="padding: 1rem; 
+                                                    border-radius: 10px; 
+                                                    cursor: pointer; 
+                                                    border: 2px solid #e0e0e0; 
+                                                    transition: all 0.3s ease;">
+                                            <input class="form-check-input" 
+                                                type="radio" 
+                                                name="pregunta_<?php echo $numero; ?>" 
+                                                id="p<?php echo $numero; ?>_op<?php echo $opcionIndex; ?>" 
+                                                value="<?php echo htmlspecialchars($opcion); ?>"
+                                                required
+                                                style="cursor: pointer; 
+                                                        width: 22px; 
+                                                        height: 22px; 
+                                                        margin-top: 0.2rem;">
+                                            <label class="form-check-label w-100" 
+                                                for="p<?php echo $numero; ?>_op<?php echo $opcionIndex; ?>" 
+                                                style="cursor: pointer; 
+                                                        font-weight: 700; 
+                                                        color: #001122; 
+                                                        margin-left: 0.7rem; 
+                                                        font-size: clamp(0.85rem, 1.9vw, 1.05rem);
+                                                        line-height: 1.4;">
+                                                <span class="badge bg-secondary me-2" style="font-size: 0.8rem;">
+                                                    <?php echo chr(65 + $opcionIndex); // A, B, C ?>
+                                                </span>
+                                                <?php echo $opcion; ?>
+                                            </label>
+                                        </div>
+                                        <?php endforeach; ?>
+                                        
+                                        <!-- ÁREA DE RETROALIMENTACIÓN (oculta inicialmente) -->
+                                        <div class="retroalimentacion-pregunta" 
+                                            id="retro_<?php echo $numero; ?>" 
+                                            style="display: none; 
+                                                    margin-top: 1rem; 
+                                                    padding: 1rem; 
+                                                    border-radius: 10px;">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <?php endforeach; ?>
+                        </div>
+                        
+                        <!-- BOTÓN DE ENVÍO -->
+                        <div class="text-center mt-4 mb-3">
+                            <button type="button" 
+                                    id="btnEnviarQuizPreguntas"
+                                    class="btn btn-primary btn-lg px-5 py-3" 
+                                    onclick="enviarQuizPreguntas()" 
+                                    style="background-color: #43be16; 
+                                        border-color: #43be16; 
+                                        font-size: clamp(1rem, 2.2vw, 1.2rem); 
+                                        font-weight: 700;">
+                                <i class="fas fa-paper-plane me-2"></i>
+                                ¡Enviar Respuestas!
+                            </button>
+                        </div>
+                    </form>
+                    
+                    <!-- MENSAJE DE RESULTADO -->
+                    <div id="mensajeResultadoQuiz" 
+                        class="alert text-center mt-3 mb-2" 
+                        style="display: none; 
+                                max-width: 1050px; 
+                                margin: 0 auto; 
+                                padding: 2rem; 
+                                font-size: clamp(0.9rem, 2vw, 1.1rem); 
+                                border-radius: 15px;">
+                    </div>
+                    
+                    <!-- NAVEGACIÓN -->
+                    <div class="d-flex justify-content-start mt-3 px-2">
+                        <a href="aprende.php?pagina=<?php echo $pagina-1; ?>" 
+                        class="btn btn-lg text-white" 
+                        style="background-color: #43be16; 
+                                padding: 0.6rem 1.2rem; 
+                                font-size: clamp(0.9rem, 2vw, 1.05rem);">
+                            <i class="fa fa-arrow-left me-2"></i> Anterior
+                        </a>
                     </div>
                 </div>
             </div>
@@ -3119,6 +3495,195 @@ function guardarRetoCompost() {
             btnCompletar.innerHTML = textoOriginal;
         }
     });
+}
+
+// Respuestas correctas del quiz de preguntas
+const respuestasCorrectasPreguntas = <?php 
+    if (isset($cartilla[$pagina]['preguntas']) && $cartilla[$pagina]['tipo'] === 'quiz_preguntas_respuestas') {
+        $respuestas = [];
+        foreach ($cartilla[$pagina]['preguntas'] as $p) {
+            $respuestas[$p['id']] = $p['respuesta_correcta'];
+        }
+        echo json_encode($respuestas);
+    } else {
+        echo '{}';
+    }
+?>;
+
+// Explicaciones de cada pregunta
+const explicacionesPreguntas = <?php 
+    if (isset($cartilla[$pagina]['preguntas']) && $cartilla[$pagina]['tipo'] === 'quiz_preguntas_respuestas') {
+        $explicaciones = [];
+        foreach ($cartilla[$pagina]['preguntas'] as $p) {
+            $explicaciones[$p['id']] = $p['explicacion'];
+        }
+        echo json_encode($explicaciones);
+    } else {
+        echo '{}';
+    }
+?>;
+
+const totalPreguntasQuiz = <?php echo isset($cartilla[$pagina]['preguntas']) && $cartilla[$pagina]['tipo'] === 'quiz_preguntas_respuestas' ? count($cartilla[$pagina]['preguntas']) : 0; ?>;
+const minimoAprobacion = <?php echo isset($cartilla[$pagina]['minimo_aprobacion']) ? $cartilla[$pagina]['minimo_aprobacion'] : 6; ?>;
+
+let tiempoInicioQuiz = Date.now();
+
+function enviarQuizPreguntas() {
+    let respuestasUsuario = {};
+    let faltanRespuestas = false;
+    
+    // Validar que todas las preguntas estén respondidas
+    for (let i = 1; i <= totalPreguntasQuiz; i++) {
+        const respuesta = document.querySelector(`input[name="pregunta_${i}"]:checked`);
+        if (!respuesta) {
+            faltanRespuestas = true;
+            document.getElementById(`collapsePregunta${i}`).classList.add('show');
+        } else {
+            respuestasUsuario[i] = respuesta.value;
+        }
+    }
+    
+    if (faltanRespuestas) {
+        alert('⚠️ Por favor responde todas las preguntas antes de enviar.');
+        return;
+    }
+    
+    // Calcular resultados
+    let correctas = 0;
+    for (let i = 1; i <= totalPreguntasQuiz; i++) {
+        const esCorrecta = respuestasUsuario[i] === respuestasCorrectasPreguntas[i];
+        if (esCorrecta) {
+            correctas++;
+        }
+        
+        // Mostrar retroalimentación inmediata
+        const retroDiv = document.getElementById(`retro_${i}`);
+        retroDiv.style.display = 'block';
+        
+        if (esCorrecta) {
+            retroDiv.className = 'retroalimentacion-pregunta retroalimentacion-correcta';
+            retroDiv.innerHTML = `
+                <div class="d-flex align-items-center mb-2">
+                    <i class="fas fa-check-circle fa-2x me-3" style="color: #43be16;"></i>
+                    <h5 class="mb-0" style="color: #001122; font-weight: 900;">¡Correcto! ✅</h5>
+                </div>
+                <p class="mb-0" style="color: #001122; font-weight: 700; font-size: 0.95rem; line-height: 1.4;">
+                    ${explicacionesPreguntas[i]}
+                </p>
+            `;
+        } else {
+            retroDiv.className = 'retroalimentacion-pregunta retroalimentacion-incorrecta';
+            retroDiv.innerHTML = `
+                <div class="d-flex align-items-center mb-2">
+                    <i class="fas fa-times-circle fa-2x me-3" style="color: white;"></i>
+                    <h5 class="mb-0" style="color: white; font-weight: 900;">Incorrecto ❌</h5>
+                </div>
+                <p class="mb-2" style="color: white; font-weight: 700; font-size: 0.95rem;">
+                    <b>Respuesta correcta:</b> ${respuestasCorrectasPreguntas[i]}
+                </p>
+                <p class="mb-0" style="color: white; font-weight: 700; font-size: 0.9rem; line-height: 1.4;">
+                    ${explicacionesPreguntas[i]}
+                </p>
+            `;
+        }
+    }
+    
+    const porcentaje = (correctas / totalPreguntasQuiz) * 100;
+    const aprobado = correctas >= minimoAprobacion;
+    const tiempoSegundos = Math.round((Date.now() - tiempoInicioQuiz) / 1000);
+    
+    // Deshabilitar botón y formulario
+    const btnEnviar = document.getElementById('btnEnviarQuizPreguntas');
+    btnEnviar.disabled = true;
+    btnEnviar.innerHTML = '<i class="fas fa-check-circle me-2"></i>Quiz Completado';
+    
+    document.querySelectorAll('input[type="radio"]').forEach(input => {
+        input.disabled = true;
+    });
+    
+    // Guardar en base de datos
+    $.ajax({
+        url: 'guardar_reto.php',
+        method: 'POST',
+        dataType: 'json',
+        data: {
+            titulo_quiz: 'Preguntas y Respuestas Comunes',
+            tipo_quiz: 'quiz_preguntas_respuestas',
+            respuestas_correctas: correctas,
+            total_preguntas: totalPreguntasQuiz,
+            porcentaje_acierto: porcentaje.toFixed(2),
+            tiempo_segundos: tiempoSegundos,
+            aprobado: aprobado ? 'SI' : 'NO'
+        },
+        success: function(response) {
+            console.log('✅ Quiz guardado:', response);
+            mostrarResultadoQuiz(correctas, totalPreguntasQuiz, porcentaje, aprobado, tiempoSegundos);
+        },
+        error: function(xhr, status, error) {
+            console.error('❌ Error al guardar:', error);
+            mostrarResultadoQuiz(correctas, totalPreguntasQuiz, porcentaje, aprobado, tiempoSegundos);
+        }
+    });
+}
+
+function mostrarResultadoQuiz(correctas, total, porcentaje, aprobado, tiempo) {
+    const mensajeDiv = document.getElementById('mensajeResultadoQuiz');
+    const minutos = Math.floor(tiempo / 60);
+    const segundos = tiempo % 60;
+    const tiempoTexto = minutos > 0 ? `${minutos}m ${segundos}s` : `${segundos}s`;
+    
+    if (aprobado) {
+        let mensaje = correctas === total ? '¡PERFECTO! 🏆 100% de acierto' : '¡FELICITACIONES! 🎊';
+        mensajeDiv.innerHTML = `
+            <div style="background: linear-gradient(135deg, #43be16, #38a01c); color: white; padding: 2rem; border-radius: 15px;">
+                <i class="fas fa-trophy fa-3x mb-3" style="color: #FFD700;"></i>
+                <h3 class="mb-3"><b>${mensaje}</b></h3>
+                <h4 class="mb-3">Has aprobado el quiz</h4>
+                <div class="row g-3 mb-3">
+                    <div class="col-md-4">
+                        <div style="background: rgba(255,255,255,0.2); padding: 1rem; border-radius: 10px;">
+                            <h5>${correctas}/${total}</h5>
+                            <small>Respuestas correctas</small>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div style="background: rgba(255,255,255,0.2); padding: 1rem; border-radius: 10px;">
+                            <h5>${porcentaje.toFixed(1)}%</h5>
+                            <small>Acierto</small>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div style="background: rgba(255,255,255,0.2); padding: 1rem; border-radius: 10px;">
+                            <h5>${tiempoTexto}</h5>
+                            <small>Tiempo</small>
+                        </div>
+                    </div>
+                </div>
+                <p class="mb-3">Has completado exitosamente la cartilla de Economía Circular</p>
+                <small>Redirigiendo al inicio en 5 segundos...</small>
+            </div>
+        `;
+        
+        setTimeout(() => {
+            window.location.href = 'aprende.php?pagina=0';
+        }, 5000);
+    } else {
+        mensajeDiv.innerHTML = `
+            <div style="background: linear-gradient(135deg, #e74c3c, #c0392b); color: white; padding: 2rem; border-radius: 15px;">
+                <i class="fas fa-times-circle fa-3x mb-3"></i>
+                <h3 class="mb-3"><b>Quiz No Aprobado</b></h3>
+                <p>Obtuviste <b>${correctas}/${total}</b> respuestas correctas (${porcentaje.toFixed(1)}%)</p>
+                <p>Necesitas al menos <b>${minimoAprobacion}/${total}</b> para aprobar</p>
+                <p class="mb-3">Revisa las explicaciones arriba y vuelve a intentarlo</p>
+                <button class="btn btn-light btn-lg mt-2" onclick="location.reload()">
+                    <i class="fas fa-redo me-2"></i>Intentar de Nuevo
+                </button>
+            </div>
+        `;
+    }
+    
+    mensajeDiv.style.display = 'block';
+    mensajeDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
 }
     </script>
     
