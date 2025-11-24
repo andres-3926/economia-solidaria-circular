@@ -3067,11 +3067,83 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
     <?php endif; ?>     
     <!-- Footer Start -->
     <div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
-        <div class="container">
+        <div class="container py-4">
+            <!-- Información del SENA -->
+            <div class="row g-4 mb-4">
+                <div class="col-lg-4 col-md-6">
+                    <h5 class="text-white mb-3">
+                        <i class="fas fa-graduation-cap me-2"></i>Servicio Nacional de Aprendizaje
+                    </h5>
+                    <p class="mb-2">
+                        <i class="fas fa-building me-2" style="color: #43be16;"></i>
+                        <strong>SENA - REGIONAL VALLE</strong>
+                    </p>
+                    <p class="mb-0">
+                        <i class="fas fa-users me-2" style="color: #43be16;"></i>
+                        <strong>Centro de Gestión Tecnológico de Servicios (CGTS) - Valle</strong>
+                    </p>
+                </div>
+                
+                <div class="col-lg-4 col-md-6">
+                    <h5 class="text-white mb-3">
+                        <i class="fas fa-recycle me-2"></i>Proyecto
+                    </h5>
+                    <p class="mb-2">
+                        <strong>Economía Solidaria y Circular</strong>
+                    </p>
+                    <p class="mb-0">
+                        Promoviendo prácticas sostenibles en unidades productivas de Cali
+                    </p>
+                </div>
+                
+                <div class="col-lg-4 col-md-12">
+                    <h5 class="text-white mb-3">
+                        <i class="fas fa-info-circle me-2"></i>Contacto
+                    </h5>
+                    <p class="mb-2">
+                        <i class="fas fa-envelope me-2" style="color: #43be16;"></i>
+                        info@sena.edu.co
+                    </p>
+                    <p class="mb-2">
+                        <i class="fas fa-phone me-2" style="color: #43be16;"></i>
+                        +57 (2) 620 00 00
+                    </p>
+                    <div class="d-flex pt-2">
+                        <a class="btn btn-outline-light btn-social me-2" href="https://www.facebook.com/SENA" target="_blank">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a class="btn btn-outline-light btn-social me-2" href="https://twitter.com/SENAComunica" target="_blank">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a class="btn btn-outline-light btn-social" href="https://www.youtube.com/user/SENATV" target="_blank">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Línea divisoria -->
+            <hr style="border-color: rgba(255,255,255,0.2);">
+            
+            <!-- Copyright -->
             <div class="copyright">
                 <div class="row">
                     <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                        &copy; 2025 Economía Solidaria y Circular - Todos los derechos reservados.
+                        <p class="mb-0">
+                            &copy; 2025 
+                            <a class="border-bottom" href="https://www.sena.edu.co" target="_blank" style="color: #43be16; text-decoration: none;">
+                                SENA - Regional Valle
+                            </a>
+                            - Todos los derechos reservados.
+                        </p>
+                    </div>
+                    <div class="col-md-6 text-center text-md-end">
+                        <p class="mb-0">
+                            Desarrollado por 
+                            <a class="border-bottom" href="#" style="color: #43be16; text-decoration: none;">
+                                CGTS Valle
+                            </a>
+                        </p>
                     </div>
                 </div>
             </div>
