@@ -382,12 +382,6 @@ if ($usuario['rol'] === 'administrador') {
                                         <div class="mb-2"><i class="fa fa-exchange-alt fa-2x text-info"></i></div>
                                         <div class="fw-bold">Trueques</div>
                                     </div>
-                                </div>                               
-                                <div class="col-6 col-md-2">
-                                    <div class="card card-tab text-center py-3 px-2" data-bs-target="#enlaces">
-                                        <div class="mb-2"><i class="fa fa-link fa-2x text-secondary"></i></div>
-                                        <div class="fw-bold">Enlaces</div>
-                                    </div>
                                 </div>
                             </div>
 
@@ -580,40 +574,7 @@ if ($usuario['rol'] === 'administrador') {
                                         Tu cuenta aún no ha sido habilitada como emprendedora. Espera a que el administrador te habilite para acceder a los trueques.
                                     </div>
                                 <?php endif; ?>
-                            </div>
-
-                            <!-- Enlaces -->
-                            <div class="tab-pane fade" id="enlaces" role="tabpanel">
-                                <?php if ($usuario['rol'] === 'emprendedor' || $usuario['rol'] === 'administrador'): ?>
-                                    <form action="guardar_enlaces.php" method="POST" class="mb-4">
-                                        <div class="mb-2">
-                                            <label class="form-label fw-bold"><i class="fa fa-instagram text-danger"></i> Instagram:</label>
-                                            <input type="text" name="instagram" class="form-control" value="<?php echo htmlspecialchars($usuario['instagram'] ?? ''); ?>">
-                                        </div>
-                                        <div class="mb-2">
-                                            <label class="form-label fw-bold"><i class="fa fa-facebook text-primary"></i> Facebook:</label>
-                                            <input type="text" name="facebook" class="form-control" value="<?php echo htmlspecialchars($usuario['facebook'] ?? ''); ?>">
-                                        </div>
-                                        <div class="mb-2">
-                                            <label class="form-label fw-bold"><i class="fa fa-map-marker-alt text-success"></i> Dirección:</label>
-                                            <input type="text" name="direccion" class="form-control" value="<?php echo htmlspecialchars($usuario['direccion'] ?? ''); ?>">
-                                        </div>
-                                        <div class="mb-2">
-                                            <label class="form-label fw-bold"><i class="fa fa-envelope text-info"></i> Correo:</label>
-                                            <input type="email" name="correo" class="form-control" value="<?php echo htmlspecialchars($usuario['correo'] ?? ''); ?>">
-                                        </div>
-                                        <div class="mb-2">
-                                            <label class="form-label fw-bold"><i class="fa fa-briefcase text-warning"></i> Nombre del Emprendimiento:</label>
-                                            <input type="text" name="emprendimiento" class="form-control" value="<?php echo htmlspecialchars($usuario['emprendimiento'] ?? ''); ?>">
-                                        </div>
-                                        <button type="submit" class="btn btn-success btn-sm mt-2"><i class="fa fa-save"></i> Guardar enlaces</button>
-                                    </form>
-                                <?php else: ?>
-                                    <div class="alert alert-info">
-                                        Tu cuenta aún no ha sido habilitada como emprendedora. Espera a que el administrador te habilite para acceder a los enlaces.
-                                    </div>
-                                <?php endif; ?>
-                            </div><!-- Enlaces End -->
+                            </div>                            
                         </div>
                     </div>
                 </div>
