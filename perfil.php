@@ -19,13 +19,20 @@ $stmt->close();
 
 $foto = !empty($usuario['foto']) ? 'uploads/' . $usuario['foto'] : 'img/avatardefault.png';
 
-// Consulta los trueques del usuario
+// ✅ Consulta los trueques del usuario (FILTRO DE 45 DÍAS PARA TODOS)
 if ($usuario['rol'] === 'administrador') {
-    $sql_trueques = "SELECT * FROM trueques ORDER BY fecha_publicacion DESC";
+    // El administrador ve TODOS los trueques de TODOS los usuarios (últimos 45 días)
+    $sql_trueques = "SELECT * FROM trueques 
+                     WHERE fecha_publicacion >= DATE_SUB(CURDATE(), INTERVAL 45 DAY)
+                     ORDER BY fecha_publicacion DESC";
     $result_trueques = $conn->query($sql_trueques);
     $lista_trueques = $result_trueques->fetch_all(MYSQLI_ASSOC);
 } else {
-    $sql_trueques = "SELECT * FROM trueques WHERE numero_documento = ? ORDER BY fecha_publicacion DESC";
+    // Los emprendedores ven solo sus trueques (últimos 45 días)
+    $sql_trueques = "SELECT * FROM trueques 
+                     WHERE numero_documento = ? 
+                     AND fecha_publicacion >= DATE_SUB(CURDATE(), INTERVAL 45 DAY)
+                     ORDER BY fecha_publicacion DESC";
     $stmt_trueques = $conn->prepare($sql_trueques);
     $stmt_trueques->bind_param("s", $numero_documento);
     $stmt_trueques->execute();
