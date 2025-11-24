@@ -579,11 +579,83 @@ $cartilla = [
         ]
     ],
     [
-        "tipo" => "contenido",
-        "titulo" => "Construyendo Juntas el Futuro",
-        "texto" => "Esta página está lista para agregar el siguiente contenido de la cartilla. Aquí puedes continuar desarrollando los temas de economía solidaria y circular para emprendedoras.",
-        "fondo" => "img/construccion-futuro.jpg",
-        "logo" => "img/Logo-sena-blanco-sin-fondo.webp"
+        "tipo" => "reuso_reciclaje_timeline",
+        "titulo" => "Reuso y Reciclaje: ¡Dale una Segunda Vida a Todo!",
+        "subtitulo" => "El compostaje es solo el inicio. ¡Muchos otros residuos tienen una segunda oportunidad!",
+        "fondo" => "img/3_R.jpg",
+        "categorias" => [
+            [
+                "titulo" => "Ideas Creativas para Gastronomía",
+                "icono" => "🍽️",
+                "color" => "#3498db",
+                "ideas" => [
+                    [
+                        "numero" => "1",
+                        "emoji" => "📦",
+                        "titulo" => "Envases de Plástico",
+                        "descripcion" => "Reutiliza envases limpios para guardar tus insumos, especias, harinas y otros ingredientes de manera organizada.",
+                        "beneficio" => "Organización + Ahorro",
+                        "color" => "#3498db"
+                    ],
+                    [
+                        "numero" => "2",
+                        "emoji" => "🍯",
+                        "titulo" => "Frascos de Vidrio",
+                        "descripcion" => "Perfectos para almacenar salsas caseras, conservas, aderezos o presentar productos gourmet para la venta.",
+                        "beneficio" => "Presentación Premium",
+                        "color" => "#e74c3c"
+                    ],
+                    [
+                        "numero" => "3",
+                        "emoji" => "🛍️",
+                        "titulo" => "Bolsas de Tela",
+                        "descripcion" => "Crea bolsas reutilizables con telas recicladas para compras de insumos o entregar productos a clientes.",
+                        "beneficio" => "Eco-friendly",
+                        "color" => "#43be16"
+                    ]
+                ]
+            ],
+            [
+                "titulo" => "Ideas Creativas para Artesanías",
+                "icono" => "🎨",
+                "color" => "#9C27B0",
+                "ideas" => [
+                    [
+                        "numero" => "4",
+                        "emoji" => "🧵",
+                        "titulo" => "Retazos de Tela",
+                        "descripcion" => "Transforma sobrantes en nuevos diseños: accesorios, patchwork, bordados o productos textiles únicos.",
+                        "beneficio" => "Creatividad infinita",
+                        "color" => "#9C27B0"
+                    ],
+                    [
+                        "numero" => "5",
+                        "emoji" => "💎",
+                        "titulo" => "Plásticos Reciclados",
+                        "descripcion" => "Dale nueva vida creando bisutería, decoraciones, macetas o elementos creativos para el hogar.",
+                        "beneficio" => "Productos únicos",
+                        "color" => "#FF5722"
+                    ],
+                    [
+                        "numero" => "6",
+                        "emoji" => "📐",
+                        "titulo" => "Cartón Reciclado",
+                        "descripcion" => "Crea maquetas, moldes, empaques personalizados o estructuras para tus productos artesanales.",
+                        "beneficio" => "Versátil y económico",
+                        "color" => "#8B4513"
+                    ]
+                ]
+            ]
+        ],
+        "mensaje_final" => [
+            "titulo" => "¡La Creatividad No Tiene Límites!",
+            "texto" => "Cada residuo que reutilizas es un paso hacia un emprendimiento más sostenible y rentable. ¡Sigue explorando nuevas formas de dar vida a los materiales!",
+            "iconos_3r" => [
+                ["emoji" => "♻️", "texto" => "Reduce", "color" => "#43be16"],
+                ["emoji" => "🔄", "texto" => "Reutiliza", "color" => "#ffc107"],
+                ["emoji" => "🌱", "texto" => "Recicla", "color" => "#2ecc71"]
+            ]
+        ]
     ],
     [
         "tipo" => "contenido",
@@ -643,6 +715,8 @@ if ($pagina == 12) { $height_bloque = '70vh'; }
 if ($pagina == 13) { $height_bloque = '80vh'; }
 if ($pagina == 14) { $height_bloque = '70vh'; }
 if ($pagina == 15) { $height_bloque = '70vh'; }
+if ($pagina == 16) { $height_bloque = '70vh'; }
+if ($pagina == 17) { $height_bloque = '70vh'; }
 
 ?>
 
@@ -2371,6 +2445,164 @@ if ($pagina == 15) { $height_bloque = '70vh'; }
                                 <div class="text-white text-center d-none d-md-block" style="font-size: clamp(0.8rem, 1.5vw, 0.95rem); text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">
                                     Página <?php echo $pagina+1; ?> de <?php echo $total_paginas; ?>
                                 </div>                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <?php elseif ($cartilla[$pagina]['tipo'] === 'reuso_reciclaje_timeline'): ?>
+    <!-- PÁGINA 16: REUSO Y RECICLAJE CON LÍNEA DE TIEMPO (ESTILO PÁGINA 14) -->
+    <div class="container-fluid header-aprende"
+        style="position: relative;
+            background-image: url('<?php echo $cartilla[$pagina]['fondo']; ?>');
+            background-size: cover;
+            background-position: center;
+            min-height: 100vh;
+            padding-bottom: 6rem;">
+            
+        <div class="container-fluid h-100 p-0">
+            <div class="row g-0 justify-content-center">
+                <!-- Títulos principales -->
+                <div class="col-12 col-lg-11 mx-auto px-3 pt-3 pb-2">
+                    <div class="cuadro-texto text-center mb-2" style="padding: 0.8rem 1.5rem; max-width: 1100px; margin: 0 auto;">
+                        <h1 class="mb-2" style="font-size: clamp(1.3rem, 3.5vw, 1.8rem); line-height: 1.3; color: #001122; font-weight: 900;">
+                            <span style="font-size: clamp(1.8rem, 4vw, 2.3rem); margin-right: 0.5rem;">♻️</span>
+                            <?php echo $cartilla[$pagina]['titulo']; ?>
+                        </h1>
+                        <h3 class="mb-0" style="font-size: clamp(1rem, 2.2vw, 1.3rem); font-weight: 700; color: #003366;">
+                            <?php echo $cartilla[$pagina]['subtitulo']; ?>
+                        </h3>
+                    </div>
+                </div>
+                
+                <!-- Contenido principal -->
+                <div class="col-12 col-lg-11 mx-auto px-3">
+                    <?php foreach ($cartilla[$pagina]['categorias'] as $categoria): ?>
+                        <!-- TÍTULO DE CATEGORÍA -->
+                        <div class="cuadro-texto mx-auto mb-3" style="max-width: 1150px; padding: 0.6rem 1rem; width: 95%; background: rgba(<?php 
+                            $rgb = ($categoria['color'] == '#3498db') ? '52, 152, 219' : '156, 39, 176'; 
+                            echo $rgb; 
+                        ?>, 0.35) !important; border: 2px solid <?php echo $categoria['color']; ?>;">
+                            <h2 class="text-center mb-0" style="font-size: clamp(1.1rem, 2.8vw, 1.5rem); color: #001122; font-weight: 900;">
+                                <span style="font-size: clamp(1.5rem, 3.5vw, 2rem); margin-right: 0.5rem;"><?php echo $categoria['icono']; ?></span>
+                                <?php echo $categoria['titulo']; ?>
+                            </h2>
+                        </div>
+                        
+                        <!-- LÍNEA DE TIEMPO DE IDEAS -->
+                        <div class="row g-3 px-2 position-relative mb-4">
+                            <!-- Línea vertical conectora (solo desktop) -->
+                            <div class="d-none d-md-block position-absolute" style="left: 50%; top: 50px; bottom: 50px; width: 4px; background: linear-gradient(180deg, <?php 
+                                $colores = array_column($categoria['ideas'], 'color');
+                                echo implode(', ', array_map(function($c, $i) use ($colores) {
+                                    $percent = ($i / (count($colores) - 1)) * 100;
+                                    return $c . ' ' . $percent . '%';
+                                }, $colores, array_keys($colores)));
+                            ?>); transform: translateX(-50%); z-index: 0; border-radius: 10px;"></div>
+                            
+                            <?php foreach ($categoria['ideas'] as $index => $idea): 
+                                $isLeft = ($index % 2 == 0);
+                            ?>
+                            <!-- IDEA <?php echo $idea['numero']; ?> -->
+                            <div class="col-12">
+                                <div class="row g-0 align-items-center position-relative" style="z-index: 1;">
+                                    <!-- Contenido de la idea (alterna izquierda/derecha) -->
+                                    <div class="col-md-5 <?php echo $isLeft ? 'order-md-1' : 'order-md-2 offset-md-1'; ?>">
+                                        <div class="cuadro-texto h-100" style="padding: 1.2rem; background: rgba(255, 255, 255, 0.45) !important; border: 3px solid <?php echo $idea['color']; ?>; border-radius: 15px; box-shadow: 0 8px 20px rgba(0,0,0,0.3); position: relative;">
+                                            <!-- Flecha apuntando al círculo (solo desktop) -->
+                                            <div class="d-none d-md-block position-absolute" style="<?php echo $isLeft ? 'right: -20px;' : 'left: -20px;'; ?> top: 50%; transform: translateY(-50%); width: 0; height: 0; border-top: 15px solid transparent; border-bottom: 15px solid transparent; <?php echo $isLeft ? 'border-left: 20px solid ' . $idea['color'] : 'border-right: 20px solid ' . $idea['color']; ?>;"></div>
+                                            
+                                            <!-- Emoji y título -->
+                                            <div class="d-flex align-items-center mb-2">
+                                                <span style="font-size: clamp(2rem, 4vw, 2.5rem); margin-right: 0.8rem; filter: drop-shadow(3px 3px 6px rgba(0,0,0,0.3));">
+                                                    <?php echo $idea['emoji']; ?>
+                                                </span>
+                                                <h3 class="mb-0" style="font-size: clamp(1rem, 2.3vw, 1.3rem); color: #001122; font-weight: 900; line-height: 1.2; text-shadow: 2px 2px 4px rgba(255,255,255,1);">
+                                                    <?php echo $idea['titulo']; ?>
+                                                </h3>
+                                            </div>
+                                            
+                                            <!-- Descripción -->
+                                            <p class="mb-2" style="font-size: clamp(0.85rem, 1.8vw, 1rem); color: #001122; font-weight: 700; line-height: 1.4; text-shadow: 1px 1px 3px rgba(255,255,255,0.9);">
+                                                <?php echo $idea['descripcion']; ?>
+                                            </p>
+                                            
+                                            <!-- Badge de beneficio -->
+                                            <div style="background: rgba(<?php 
+                                                list($r, $g, $b) = sscanf($idea['color'], "#%02x%02x%02x");
+                                                echo "$r, $g, $b";
+                                            ?>, 0.15); padding: 0.6rem; border-radius: 8px; border: 2px solid <?php echo $idea['color']; ?>;">
+                                                <small style="color: #001122; font-weight: 700; display: block; text-align: center; font-size: clamp(0.75rem, 1.6vw, 0.9rem);">
+                                                    <i class="fas fa-check-circle me-1"></i><?php echo $idea['beneficio']; ?>
+                                                </small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Círculo numerado en el centro (solo desktop) -->
+                                    <div class="d-none d-md-flex col-md-2 justify-content-center align-items-center order-md-1" style="z-index: 10;">
+                                        <div style="background: <?php echo $idea['color']; ?>; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 1.8rem; box-shadow: 0 6px 15px rgba(0,0,0,0.4); border: 4px solid white;">
+                                            <?php echo $idea['numero']; ?>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Espacio vacío en el otro lado (solo desktop) -->
+                                    <div class="d-none d-md-block col-md-5 <?php echo $isLeft ? 'order-md-2' : 'order-md-1'; ?>"></div>
+                                </div>
+                            </div>
+                            <?php endforeach; ?>
+                        </div>
+                    <?php endforeach; ?>
+                    
+                    <!-- MENSAJE FINAL MOTIVACIONAL CON LAS 3R -->
+                    <div class="cuadro-texto mx-auto mt-4 mb-3" style="max-width: 1150px; padding: 1.5rem 2rem; width: 95%; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important; border: 3px solid rgba(255,255,255,0.3); box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);">
+                        <div class="text-center">
+                            <h4 class="mb-3" style="font-size: clamp(1.1rem, 2.5vw, 1.4rem); color: white; font-weight: 900;">
+                                <i class="fas fa-star me-2" style="color: #FFD700;"></i>
+                                <?php echo $cartilla[$pagina]['mensaje_final']['titulo']; ?>
+                            </h4>
+                            <p class="mb-4" style="font-size: clamp(0.9rem, 2vw, 1.1rem); color: white; font-weight: 700; line-height: 1.5;">
+                                <?php echo $cartilla[$pagina]['mensaje_final']['texto']; ?>
+                            </p>
+                            
+                            <!-- ICONOS DE LAS 3R -->
+                            <div class="row g-3 justify-content-center">
+                                <?php foreach ($cartilla[$pagina]['mensaje_final']['iconos_3r'] as $icono_3r): ?>
+                                <div class="col-4 col-md-2">
+                                    <div style="background: rgba(255,255,255,0.2); padding: 1rem; border-radius: 10px; text-align: center;">
+                                        <div style="font-size: 2.5rem; filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.3));">
+                                            <?php echo $icono_3r['emoji']; ?>
+                                        </div>
+                                        <p class="mb-0 mt-2" style="color: white; font-weight: 700; font-size: 0.85rem;"><?php echo $icono_3r['texto']; ?></p>
+                                    </div>
+                                </div>
+                                <?php endforeach; ?>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Navegación -->
+                    <div class="container-fluid px-0 mt-3 mb-3">
+                        <div class="row g-0 w-100">
+                            <div class="col-12 d-flex justify-content-between align-items-center px-2">
+                                <a href="aprende.php?pagina=<?php echo $pagina-1; ?>" class="btn btn-lg text-white" style="background-color: #43be16; padding: 0.6rem 1.2rem; font-size: clamp(0.9rem, 2vw, 1.05rem);">
+                                    <i class="fa fa-arrow-left me-2"></i> Anterior
+                                </a>
+                                <div class="text-white text-center d-none d-md-block" style="font-size: clamp(0.8rem, 1.5vw, 0.95rem); text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">
+                                    Página <?php echo $pagina+1; ?> de <?php echo $total_paginas; ?>
+                                </div>
+                                <?php if ($pagina < $total_paginas-1): ?>
+                                    <a href="aprende.php?pagina=<?php echo $pagina+1; ?>" class="btn btn-lg text-white" style="background-color: #43be16; padding: 0.6rem 1.2rem; font-size: clamp(0.9rem, 2vw, 1.05rem);">
+                                        Siguiente <i class="fa fa-arrow-right ms-2"></i>
+                                    </a>
+                                <?php else: ?>
+                                    <a href="aprende.php?pagina=0" class="btn btn-lg text-white" style="background-color: #003d82; padding: 0.6rem 1.2rem; font-size: clamp(0.9rem, 2vw, 1.05rem);">
+                                        <i class="fa fa-home me-2"></i> Inicio
+                                    </a>
+                                <?php endif; ?>
                             </div>
                         </div>
                     </div>
