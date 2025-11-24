@@ -38,14 +38,14 @@ if (isset($_SESSION['numero_documento'])) {
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="utf-8">
     <title>Reciclando Juntas, Produciendo Futuro</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="" name="keywords">
-    <meta content="" name="description">
+    <meta content="Economía Solidaria, Economía Circular, Reciclaje, Compostaje, SENA Valle" name="keywords">
+    <meta content="Plataforma educativa sobre economía solidaria y circular del SENA Regional Valle" name="description">
 
     <!-- Favicon -->
     <link href="img/favicon.ico" rel="icon">
@@ -56,8 +56,8 @@ if (isset($_SESSION['numero_documento'])) {
     <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
 
     <!-- Icon Font Stylesheet -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 
     <!-- Libraries Stylesheet -->
     <link href="lib/animate/animate.min.css" rel="stylesheet">
@@ -93,13 +93,9 @@ if (isset($_SESSION['numero_documento'])) {
             <div class="navbar-nav ms-auto p-4 p-lg-0">
                 <a href="javascript:location.reload();" class="nav-item nav-link fw-bold<?php echo $pagina_activa === 'inicio' ? ' active text-primary' : ' text-dark'; ?>">Inicio</a>
                 <a href="trueques.php" class="nav-item nav-link fw-bold<?php echo $pagina_activa === 'trueque-comunitario' ? ' active text-primary' : ' text-dark'; ?>">Trueques</a>
-                <a href="aprende.php" class="nav-item nav-link fw-bold<?php echo $pagina_activa === 'aprende' ? ' active text-primary' : ' text-dark'; ?>">Aprende</a>
+                <a href="<?php echo isset($_SESSION['numero_documento']) ? 'aprende.php' : '#seccion-aprende'; ?>" class="nav-item nav-link fw-bold<?php echo $pagina_activa === 'aprende' ? ' active text-primary' : ' text-dark'; ?>">Aprende</a>
                 <?php
-                if (session_status() === PHP_SESSION_NONE ) {
-                    session_start();
-                }
                 if(isset($_SESSION['numero_documento'])) {                   
-                    // Si es admin y hay notificaciones, el botón parpadea
                     if (isset($admin) && strtolower(trim($admin['rol'])) === 'administrador' && $noti_pendientes > 0) {
                         echo '<a href="perfil.php" class="nav-item nav-link animate__animated animate__flash animate__infinite">Perfil</a>';
                     } else {
@@ -110,15 +106,12 @@ if (isset($_SESSION['numero_documento'])) {
                 ?>
                 <?php
                 if (isset($_SESSION['numero_documento'])) {
-                    // Botón de cerrar sesión escritorio
                     echo '<a href="logout.php" class="btn py-4 px-lg-5 d-none d-lg-block text-white" style="background-color: #43be16;">Cerrar sesión<i class="fa fa-arrow-right ms-3"></i></a>';
-                    // Botón de cerrar sesión móvil (hamburguesa)
                     echo '<a href="logout.php" class="btn btn-success d-block d-lg-none my-3 w-100 text-white text-center justify-content-center align-items-center d-flex" style="background-color: #43be16;">'
                         .'<span class="mx-auto">Cerrar sesión</span>'
                         .'<i class="fa fa-arrow-right ms-2"></i>'
                     .'</a>';
                 } else {
-                    // Botón registrate ahora solo si NO está logueado
                     echo '<a href="registro.php" class="btn py-4 px-lg-5 d-none d-lg-block text-white" style="background-color: #43be16;">Registrate Ahora<i class="fa fa-arrow-right ms-3"></i></a>';
                 }
                 ?>    
@@ -268,7 +261,6 @@ if (isset($_SESSION['numero_documento'])) {
                     <div class="col-md-6 col-lg-4 mb-4">
                         <div class="card h-100 shadow-sm">
                             <?php
-                            // Mostrar imágenes del trueque (máximo 3)
                             $stmt_imgs = $conn->prepare("SELECT ruta_imagen FROM imagenes_trueque WHERE trueque_id = ?");
                             $stmt_imgs->bind_param("i", $t['id']);
                             $stmt_imgs->execute();
@@ -295,7 +287,7 @@ if (isset($_SESSION['numero_documento'])) {
                                     <?php endif; ?>
                                     <div class="carousel-indicators">
                                         <?php foreach ($imagenes_trueque as $idx => $img): ?>
-                                            <button type="button" data-bs-target="#carouselTrueque<?php echo $t['id']; ?>" data-bs-slide-to="<?php echo $idx; ?>" class="<?php echo $idx === 0 ? 'active' : ''; ?>" aria-current="<?php echo $idx === 0 ? 'true' : 'false'; ?>" aria-label="Slide <?php echo $idx + 1; ?>"></button>
+                                            <button type="button" data-bs-target="#carouselTrueque<?php echo $t['id']; ?>" data-bs-slide-to="<?php echo $idx; ?>" class="<?php echo $idx === 0 ? 'active' : ''; ?>"></button>
                                         <?php endforeach; ?>
                                     </div>
                                 </div>
@@ -313,21 +305,6 @@ if (isset($_SESSION['numero_documento'])) {
                                 <?php if (!empty($t['subcategoria'])): ?>
                                     <span class="badge bg-secondary"><?php echo htmlspecialchars($t['subcategoria']); ?></span>
                                 <?php endif; ?>
-                                <?php
-                                    $badgeClass = 'bg-secondary';
-                                    if ($t['estado'] === 'activo') $badgeClass = 'badge-activo';
-                                    elseif ($t['estado'] === 'borrador') $badgeClass = 'bg-warning text-dark';
-                                    elseif ($t['estado'] === 'cancelado') $badgeClass = 'bg-danger';
-                                ?>
-                                <span class="badge <?php echo $badgeClass; ?>">
-                                    <?php echo htmlspecialchars($t['estado']); ?>
-                                </span>
-                                <?php if (!empty($trueque['categoria'])): ?>
-                                    <span class="badge bg-primary"><?php echo htmlspecialchars($trueque['categoria']); ?></span>
-                                <?php endif; ?>
-                                <?php if (!empty($trueque['subcategoria'])): ?>
-                                    <span class="badge bg-secondary"><?php echo htmlspecialchars($trueque['subcategoria']); ?></span>
-                                <?php endif; ?>
                                 <p class="mb-1"><strong>Necesita:</strong> <?php echo htmlspecialchars($t['que_necesitas']); ?></p>
                                 <p class="card-text"><?php echo htmlspecialchars($t['descripcion']); ?></p>
                                 <small class="text-muted"><i class="fa fa-calendar"></i> <?php echo date('d/m/Y', strtotime($t['fecha_publicacion'])); ?></small>
@@ -344,18 +321,6 @@ if (isset($_SESSION['numero_documento'])) {
                                         <?php endforeach; ?>
                                     </div>
                                 <?php endif; ?>
-                                <?php if (!empty($t['instagram'])): ?>
-                                    <small><i class="fab fa-instagram"></i> <?php echo htmlspecialchars($t['instagram']); ?></small><br>
-                                <?php endif; ?>
-                                <?php if (!empty($t['facebook'])): ?>
-                                    <small><i class="fab fa-facebook"></i> <?php echo htmlspecialchars($t['facebook']); ?></small><br>
-                                <?php endif; ?>
-                                <?php if (!empty($t['direccion'])): ?>
-                                    <small><i class="fa fa-map-marker-alt"></i> <?php echo htmlspecialchars($t['direccion']); ?></small><br>
-                                <?php endif; ?>
-                                <?php if (!empty($t['correo'])): ?>
-                                    <small><i class="fa fa-envelope"></i> <?php echo htmlspecialchars($t['correo']); ?></small><br>
-                                <?php endif; ?>
                             </div>
                         </div>
                     </div>
@@ -365,12 +330,98 @@ if (isset($_SESSION['numero_documento'])) {
         </div>
     </div>
     <!-- Trueques Publicados End --> 
-     
+
+
+    <!-- ✅ NUEVA SECCIÓN: PORTADA DE APRENDE -->
+    <div id="seccion-aprende" class="container-fluid p-0 mb-5" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 80px 0 !important;">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="text-center text-white wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="mb-4">
+                            <img src="img/pagina-4.jpg" alt="Economía Circular" class="img-fluid rounded shadow-lg" style="max-height: 400px; object-fit: cover; border: 5px solid white;">
+                        </div>
+                        
+                        <h6 class="text-uppercase mb-3 animate__animated animate__fadeInDown" style="color: #FFD700; font-weight: 700; letter-spacing: 2px;">
+                            <i class="fas fa-graduation-cap me-2"></i>SENA - Regional Valle del Cauca
+                        </h6>
+                        
+                        <h1 class="display-3 mb-4 animate__animated animate__fadeInUp" style="font-weight: 900; text-shadow: 3px 3px 6px rgba(0,0,0,0.3);">
+                            <i class="fas fa-recycle me-3" style="color: #43be16;"></i>
+                            Economía Solidaria y Circular
+                        </h1>
+                        
+                        <p class="fs-4 mb-4 pb-2 animate__animated animate__fadeIn" style="line-height: 1.8; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">
+                            Aprende sobre <strong>prácticas sostenibles</strong>, <strong>compostaje</strong>, <strong>reciclaje</strong> y <strong>economía circular</strong>. 
+                            Transforma tu emprendimiento en Cali con herramientas educativas prácticas diseñadas por el SENA.
+                        </p>
+
+                        <!-- ✅ CONTENIDO DIFERENTE SEGÚN ESTÉ LOGUEADO O NO -->
+                        <?php if (isset($_SESSION['numero_documento'])): ?>
+                            <!-- 🟢 USUARIO AUTENTICADO: Puede acceder directamente -->
+                            <div class="alert alert-success d-inline-block mb-4 animate__animated animate__bounceIn" style="max-width: 700px; background: rgba(67, 190, 22, 0.9); border: 3px solid white; color: white; font-weight: 700;">
+                                <i class="fas fa-check-circle fa-2x me-3"></i>
+                                <strong>¡Bienvenido de vuelta!</strong> Continúa tu aprendizaje en la cartilla educativa.
+                            </div>
+                            <div class="mt-4">
+                                <a href="aprende.php" class="btn btn-lg px-5 py-3 me-3 animate__animated animate__pulse animate__infinite" style="background-color: #43be16; border-color: #43be16; color: white; font-weight: 700; font-size: 1.2rem; border-radius: 50px; box-shadow: 0 8px 20px rgba(0,0,0,0.3);">
+                                    <i class="fas fa-book-open me-2"></i>Acceder a la Cartilla
+                                </a>
+                                <a href="perfil.php" class="btn btn-light btn-lg px-5 py-3 animate__animated animate__fadeIn" style="font-weight: 700; font-size: 1.2rem; border-radius: 50px; box-shadow: 0 8px 20px rgba(0,0,0,0.3);">
+                                    <i class="fas fa-user me-2"></i>Mi Perfil
+                                </a>
+                            </div>
+                        <?php else: ?>
+                            <!-- 🔴 USUARIO NO AUTENTICADO: Debe registrarse -->
+                            <div class="alert alert-warning d-inline-block mb-4 animate__animated animate__bounceIn" style="max-width: 700px; background: rgba(255, 193, 7, 0.95); border: 3px solid white; color: #001122; font-weight: 700;">
+                                <i class="fas fa-info-circle fa-2x me-3"></i>
+                                <strong>¡Regístrate gratis</strong> para acceder a todo el contenido educativo de la cartilla
+                            </div>
+                            <div class="mt-4">
+                                <a href="registro.php?from=aprende" class="btn btn-lg px-5 py-3 me-3 animate__animated animate__pulse animate__infinite" style="background-color: #43be16; border-color: #43be16; color: white; font-weight: 700; font-size: 1.2rem; border-radius: 50px; box-shadow: 0 8px 20px rgba(0,0,0,0.3);">
+                                    <i class="fas fa-user-plus me-2"></i>Registrarse Ahora
+                                </a>
+                                <a href="login.php?from=aprende" class="btn btn-light btn-lg px-5 py-3 animate__animated animate__fadeIn" style="font-weight: 700; font-size: 1.2rem; border-radius: 50px; box-shadow: 0 8px 20px rgba(0,0,0,0.3);">
+                                    <i class="fas fa-sign-in-alt me-2"></i>Iniciar Sesión
+                                </a>
+                            </div>
+                        <?php endif; ?>
+
+                        <!-- ✅ INFORMACIÓN ADICIONAL -->
+                        <div class="row mt-5 g-4">
+                            <div class="col-md-4 animate__animated animate__fadeInLeft">
+                                <div class="p-4 rounded" style="background: rgba(255,255,255,0.15); backdrop-filter: blur(10px); border: 2px solid rgba(255,255,255,0.3);">
+                                    <i class="fas fa-book fa-3x mb-3" style="color: #FFD700;"></i>
+                                    <h5 class="mb-2">17 Páginas Interactivas</h5>
+                                    <p class="mb-0">Contenido educativo completo y práctico</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4 animate__animated animate__fadeInUp">
+                                <div class="p-4 rounded" style="background: rgba(255,255,255,0.15); backdrop-filter: blur(10px); border: 2px solid rgba(255,255,255,0.3);">
+                                    <i class="fas fa-certificate fa-3x mb-3" style="color: #FFD700;"></i>
+                                    <h5 class="mb-2">Certificación SENA</h5>
+                                    <p class="mb-0">Al completar todas las actividades</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4 animate__animated animate__fadeInRight">
+                                <div class="p-4 rounded" style="background: rgba(255,255,255,0.15); backdrop-filter: blur(10px); border: 2px solid rgba(255,255,255,0.3);">
+                                    <i class="fas fa-seedling fa-3x mb-3" style="color: #FFD700;"></i>
+                                    <h5 class="mb-2">100% Práctico</h5>
+                                    <p class="mb-0">Aplica lo aprendido en tu emprendimiento</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Portada de Aprende End -->
+
 
     <!-- Footer Start -->
     <div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
         <div class="container py-4">
-            <!-- Información del SENA -->
             <div class="row g-4 mb-4">
                 <div class="col-lg-4 col-md-6">
                     <h5 class="text-white mb-3">
@@ -424,10 +475,8 @@ if (isset($_SESSION['numero_documento'])) {
                 </div>
             </div>
             
-            <!-- Línea divisoria -->
             <hr style="border-color: rgba(255,255,255,0.2);">
             
-            <!-- Copyright -->
             <div class="copyright">
                 <div class="row">
                     <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
@@ -466,9 +515,20 @@ if (isset($_SESSION['numero_documento'])) {
     <script src="lib/waypoints/waypoints.min.js"></script>
     <script src="lib/owlcarousel/owl.carousel.min.js"></script>
 
-
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+
+    <!-- ✅ SCROLL SUAVE A LA SECCIÓN APRENDE -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Verificar si viene desde el navbar "Aprende"
+        if (window.location.hash === '#seccion-aprende') {
+            setTimeout(function() {
+                document.getElementById('seccion-aprende').scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }, 500);
+        }
+    });
+    </script>
 </body>
 
 </html>
