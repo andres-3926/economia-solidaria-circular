@@ -820,15 +820,15 @@ if (isset($cartilla[$pagina]['texto']) && strpos($cartilla[$pagina]['texto'], '<
 }
 
 // Altura dinámica
-$height_bloque = '75vh';
-if ($pagina == 2) { $height_bloque = '78vh'; }
-if ($pagina == 3) { $height_bloque = '66vh'; } 
-if ($pagina == 4) { $height_bloque = '66vh'; } 
+$height_bloque = '99vh';
+if ($pagina == 2) { $height_bloque = '99vh'; }
+if ($pagina == 3) { $height_bloque = '99vh'; } 
+if ($pagina == 4) { $height_bloque = '99vh'; } 
 if ($pagina == 5) { $height_bloque = '78vh'; } 
-if ($pagina == 6) { $height_bloque = '40vh'; }
-if ($pagina == 7) { $height_bloque = '66vh'; } 
-if ($pagina == 8) { $height_bloque = '78vh'; }
-if ($pagina == 9) { $height_bloque = '78vh'; }
+if ($pagina == 6) { $height_bloque = '99vh'; }
+if ($pagina == 7) { $height_bloque = '99vh'; } 
+if ($pagina == 8) { $height_bloque = '99vh'; }
+if ($pagina == 9) { $height_bloque = '99vh'; }
 if ($pagina == 10) { $height_bloque = '83vh'; } 
 if ($pagina == 11) { $height_bloque = '75vh'; }
 if ($pagina == 12) { $height_bloque = '70vh'; }

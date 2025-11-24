@@ -124,33 +124,64 @@ if (isset($_SESSION['numero_documento'])) {
     <!-- Carousel Start -->
     <div class="container-fluid p-0 mb-5">
         <div class="owl-carousel header-carousel position-relative">
+            <!-- SLIDE 1 -->
             <div class="owl-carousel-item position-relative">
                 <img class="img-fluid" src="img/gastronomia.jpg" alt="">
                 <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style="background: rgba(24, 29, 56, .5);">
                     <div class="container">
                         <div class="row justify-content-start">
                             <div class="col-sm-10 col-lg-8">
-                                <h5 class="text-primary text-uppercase mb-3 animated slideInDown">Reciclando Juntas, Produciendo Futuro.</h5>
-                                <h1 class="display-3 text-white animated slideInDown">Economía Solidaria y Circular para Unidades Productivas de Cali.</h1>
-                                <p class="fs-5 text-white mb-4 pb-2">El SENA te acompaña en la construcción de un futuro más próspero y sostenible.</p>
-                                <a href="login.php" class="btn py-3 px-md-5 me-3 text-white" style="background-color: #43be16;">Inicio de Sesión</a>
-                                <a href="registro.php" class="btn btn-light py-md-3 px-md-5 animated slideInRight">Registrate Ahora</a>
+                                <h5 class="text-uppercase mb-3 animated slideInDown" style="color: #FFD700; font-weight: 700; letter-spacing: 2px;">
+                                    <i class="fas fa-recycle me-2"></i>Reciclando Juntas, Produciendo Futuro
+                                </h5>
+                                <h1 class="display-3 text-white animated slideInDown mb-3" style="font-weight: 900; text-shadow: 3px 3px 6px rgba(0,0,0,0.5);">
+                                    Economía Solidaria y Circular para Unidades Productivas de Cali
+                                </h1>
+                                <p class="fs-5 text-white mb-4 pb-2" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.5); line-height: 1.7;">
+                                    El SENA te acompaña en la construcción de un futuro más próspero y sostenible.
+                                </p>
+                                
+                                <!-- ✅ BOTONES CON NUEVO ESTILO -->
+                                <div class="d-flex flex-column flex-sm-row gap-3">
+                                    <a href="login.php" class="btn btn-lg px-5 py-3 animate__animated animate__pulse animate__infinite" style="background-color: #43be16; border-color: #43be16; color: white; font-weight: 700; font-size: 1.2rem; border-radius: 50px; box-shadow: 0 8px 20px rgba(0,0,0,0.3); transition: all 0.3s ease;">
+                                        <i class="fas fa-sign-in-alt me-2"></i>Inicio de Sesión
+                                    </a>
+                                    <a href="registro.php" class="btn btn-light btn-lg px-5 py-3 animate__animated animate__fadeIn" style="font-weight: 700; font-size: 1.2rem; border-radius: 50px; box-shadow: 0 8px 20px rgba(0,0,0,0.3); transition: all 0.3s ease;">
+                                        <i class="fas fa-user-plus me-2"></i>Regístrate Ahora
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+            
+            <!-- SLIDE 2 -->
             <div class="owl-carousel-item position-relative">
                 <img class="img-fluid" src="img/portada.jpg" alt="">
                 <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style="background: rgba(24, 29, 56, .5);">
                     <div class="container">
                         <div class="row justify-content-start">
                             <div class="col-sm-10 col-lg-8">
-                                <h5 class="text-primary text-uppercase mb-3 animated slideInDown">Reciclando Juntas, Produciendo Futuro.</h5>
-                                <h1 class="display-3 text-white animated slideInDown">Economía Solidaria y Circular para Unidades Productivas de Cali.</h1>
-                                <p class="fs-5 text-white mb-4 pb-2">El SENA te acompaña en la construcción de un futuro más próspero y sostenible.</p>
-                                <a href="login.php" class="btn py-md-3 px-md-5 me-3 text-white" style="background-color: #43be16;">Inicio de Sesión</a>
-                                <a href="registro.php" class="btn btn-light py-md-3 px-md-5 animated slideInRight">Registrate Ahora</a>
+                                <h5 class="text-uppercase mb-3 animated slideInDown" style="color: #FFD700; font-weight: 700; letter-spacing: 2px;">
+                                    <i class="fas fa-recycle me-2"></i>Reciclando Juntas, Produciendo Futuro
+                                </h5>
+                                <h1 class="display-3 text-white animated slideInDown mb-3" style="font-weight: 900; text-shadow: 3px 3px 6px rgba(0,0,0,0.5);">
+                                    Economía Solidaria y Circular para Unidades Productivas de Cali
+                                </h1>
+                                <p class="fs-5 text-white mb-4 pb-2" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.5); line-height: 1.7;">
+                                    El SENA te acompaña en la construcción de un futuro más próspero y sostenible.
+                                </p>
+                                
+                                <!-- ✅ BOTONES CON NUEVO ESTILO -->
+                                <div class="d-flex flex-column flex-sm-row gap-3">
+                                    <a href="login.php" class="btn btn-lg px-5 py-3 animate__animated animate__pulse animate__infinite" style="background-color: #43be16; border-color: #43be16; color: white; font-weight: 700; font-size: 1.2rem; border-radius: 50px; box-shadow: 0 8px 20px rgba(0,0,0,0.3); transition: all 0.3s ease;">
+                                        <i class="fas fa-sign-in-alt me-2"></i>Inicio de Sesión
+                                    </a>
+                                    <a href="registro.php" class="btn btn-light btn-lg px-5 py-3 animate__animated animate__fadeIn" style="font-weight: 700; font-size: 1.2rem; border-radius: 50px; box-shadow: 0 8px 20px rgba(0,0,0,0.3); transition: all 0.3s ease;">
+                                        <i class="fas fa-user-plus me-2"></i>Regístrate Ahora
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -507,7 +538,7 @@ if (isset($_SESSION['numero_documento'])) {
     <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="fa fa-arrow-up"></i></a>
 
 
-    <!-- JavaScript Libraries -->
+        <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="lib/wow/wow.min.js"></script>
@@ -517,6 +548,27 @@ if (isset($_SESSION['numero_documento'])) {
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+
+    <!-- ✅ LIMPIAR FLECHAS DUPLICADAS DEL CARRUSEL -->
+    <script>
+    $(document).ready(function() {
+        // Esperar a que Owl Carousel se inicialice completamente
+        setTimeout(function() {
+            // Seleccionar los botones de navegación
+            var $prevBtn = $('.header-carousel .owl-prev');
+            var $nextBtn = $('.header-carousel .owl-next');
+            
+            // Limpiar todo el contenido interno (HTML, texto, íconos)
+            $prevBtn.html('');
+            $nextBtn.html('');
+            
+            // Verificar en consola
+            console.log('✅ Flechas del carrusel limpiadas');
+            console.log('Contenido botón anterior:', $prevBtn.html());
+            console.log('Contenido botón siguiente:', $nextBtn.html());
+        }, 1000); // Esperar 1 segundo a que todo cargue
+    });
+    </script>
 
     <!-- ✅ SCROLL SUAVE A LA SECCIÓN APRENDE -->
     <script>
@@ -530,5 +582,4 @@ if (isset($_SESSION['numero_documento'])) {
     });
     </script>
 </body>
-
 </html>
