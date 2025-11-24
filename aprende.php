@@ -2822,64 +2822,72 @@ function guardarRetoCompost() {
         return elemento.textContent.trim();
     });
     
-    // Guardar en localStorage
-    localStorage.setItem('reto_compost_final', JSON.stringify({
-        items_seleccionados: itemsSeleccionados,
-        items_texto: itemsTexto,
+    // ✅ NUEVO: Preparar datos para enviar al servidor
+    const datosEnviar = {
+        titulo_quiz: 'Reto del Tema 4: ¡Mi Primer Paso con el Compost!',
+        tipo_quiz: 'reto_compostaje',
+        items_seleccionados: itemsSeleccionados.join(','), // IDs separados por coma
+        items_texto: itemsTexto.join(' | '), // Textos separados por |
         total_seleccionados: itemsSeleccionados.length,
-        fecha: new Date().toISOString()
-    }));
+        minimo_requerido: minimoRequerido,
+        aprobado: itemsSeleccionados.length >= minimoRequerido ? 'SI' : 'NO'
+    };
     
-    console.log('✅ Reto de compost guardado:', {
-        items: itemsTexto,
-        total: itemsSeleccionados.length
-    });
+    console.log('📤 Datos a enviar al servidor:', datosEnviar);
     
-    // Mostrar mensaje de éxito
-    document.getElementById('mensajeExitoCompost').style.display = 'block';
-    document.getElementById('mensajeExitoCompost').scrollIntoView({ 
-        behavior: 'smooth', 
-        block: 'center' 
-    });
-    
-    // ✅ Redirigir a la página siguiente
-    const paginaActual = <?php echo $pagina; ?>;
-    const totalPaginas = <?php echo $total_paginas; ?>;
-    
-    setTimeout(() => {
-        if (paginaActual < totalPaginas - 1) {
-            // Si hay más páginas, ir a la siguiente
-            window.location.href = 'aprende.php?pagina=' + (paginaActual + 1);
-        } else {
-            // Si es la última página, ir al inicio
-            window.location.href = 'aprende.php?pagina=0';
-        }
-    }, 5000);
-}
-
-// ✅ EFECTO HOVER PARA ÍTEMS NO SELECCIONADOS
-$(document).ready(function() {
-    $('.item-compostable').hover(
-        function() {
-            const itemId = $(this).attr('data-id');
-            if (!itemsSeleccionados.includes(itemId)) {
-                $(this).css({
-                    'transform': 'scale(1.05)',
-                    'box-shadow': '0 8px 20px rgba(0,0,0,0.2)'
-                });
-            }
+    // ✅ GUARDAR EN BASE DE DATOS VÍA AJAX
+    $.ajax({
+        url: 'guardar_reto.php',
+        method: 'POST',
+        dataType: 'json',
+        data: datosEnviar,
+        success: function(response) {
+            console.log('✅ Reto de compost guardado en BD:', response);
+            
+            // También guardar en localStorage como respaldo
+            localStorage.setItem('reto_compost_final', JSON.stringify({
+                items_seleccionados: itemsSeleccionados,
+                items_texto: itemsTexto,
+                total_seleccionados: itemsSeleccionados.length,
+                fecha: new Date().toISOString()
+            }));
+            
+            // Mostrar mensaje de éxito
+            document.getElementById('mensajeExitoCompost').style.display = 'block';
+            document.getElementById('mensajeExitoCompost').scrollIntoView({ 
+                behavior: 'smooth', 
+                block: 'center' 
+            });
+            
+            // Deshabilitar todos los ítems
+            document.querySelectorAll('.item-compostable').forEach(item => {
+                item.style.pointerEvents = 'none';
+                item.style.opacity = '0.7';
+            });
+            
+            // Redirigir después de 5 segundos
+            const paginaActual = <?php echo $pagina; ?>;
+            const totalPaginas = <?php echo $total_paginas; ?>;
+            
+            setTimeout(() => {
+                if (paginaActual < totalPaginas - 1) {
+                    window.location.href = 'aprende.php?pagina=' + (paginaActual + 1);
+                } else {
+                    window.location.href = 'aprende.php?pagina=0';
+                }
+            }, 5000);
         },
-        function() {
-            const itemId = $(this).attr('data-id');
-            if (!itemsSeleccionados.includes(itemId)) {
-                $(this).css({
-                    'transform': 'scale(1)',
-                    'box-shadow': '0 4px 10px rgba(0,0,0,0.1)'
-                });
-            }
+        error: function(xhr, status, error) {
+            console.error('❌ Error al guardar reto de compost:', error);
+            console.error('📄 Respuesta del servidor:', xhr.responseText);
+            alert('❌ Error al guardar el reto. Por favor, intenta de nuevo.');
+            
+            // Restaurar botón
+            btnCompletar.disabled = false;
+            btnCompletar.innerHTML = textoOriginal;
         }
-    );
-});
+    });
+}
     </script>
     
 </body>
