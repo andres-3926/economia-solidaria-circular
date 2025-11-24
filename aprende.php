@@ -433,6 +433,58 @@ $cartilla = [
         ]
     ],
     [
+        "tipo" => "kit_compostaje",
+        "titulo" => "Tu Kit de Compostaje Casero",
+        "subtitulo" => "Transforma tus residuos orgánicos en abono natural",
+        "texto" => "Este kit te permitirá transformar tus residuos orgánicos en <b>abono natural</b> para tus plantas o huerta. Aquí puedes ver todo lo que incluye.",
+        "fondo" => "img/compostaje-fondo.jpg",
+        "imagen_kit" => "img/kit-compostaje-completo.jpg", // Foto grande del kit
+        "componentes" => [
+            [
+                "numero" => "1",
+                "titulo" => "Compostera plástica con tapa y aireación",
+                "descripcion" => "Tu \"mini-fábrica\" de abono. Es transparente para que puedas ver el proceso.",
+                "emoji" => "♻️",
+                "color" => "#43be16"
+            ],
+            [
+                "numero" => "2",
+                "titulo" => "Acelerador Biológico",
+                "descripcion" => "Polvo que acelera la descomposición y evita malos olores y mosquitos.",
+                "emoji" => "⚗️",
+                "color" => "#2196F3"
+            ],
+            [
+                "numero" => "3",
+                "titulo" => "Material Secante Vegetal",
+                "descripcion" => "Absorbente natural que equilibra la humedad.",
+                "emoji" => "🌾",
+                "color" => "#FF9800"
+            ],
+            [
+                "numero" => "4",
+                "titulo" => "Maceta pequeña en fibra de coco",
+                "descripcion" => "Para iniciar tu semillero.",
+                "emoji" => "🪴",
+                "color" => "#8B4513"
+            ],
+            [
+                "numero" => "5",
+                "titulo" => "Semillas agroecológicas (2 frascos)",
+                "descripcion" => "Para que siembres usando tu nuevo compost.",
+                "emoji" => "🌱",
+                "color" => "#4CAF50"
+            ],
+            [
+                "numero" => "6",
+                "titulo" => "Herramientas de jardinería",
+                "descripcion" => "Rastrillo, pala y trasplantador para mezclar y manejar tu compost.",
+                "emoji" => "🛠️",
+                "color" => "#607D8B"
+            ]
+        ]
+    ],
+    [
         "tipo" => "contenido",
         "titulo" => "Construyendo Juntas el Futuro",
         "texto" => "Esta página está lista para agregar el siguiente contenido de la cartilla. Aquí puedes continuar desarrollando los temas de economía solidaria y circular para emprendedoras.",
@@ -494,7 +546,9 @@ if ($pagina == 9) { $height_bloque = '78vh'; }
 if ($pagina == 10) { $height_bloque = '83vh'; } 
 if ($pagina == 11) { $height_bloque = '75vh'; }
 if ($pagina == 12) { $height_bloque = '70vh'; }
-if ($pagina == 13) { $height_bloque = '70vh'; }
+if ($pagina == 13) { $height_bloque = '80vh'; }
+if ($pagina == 14) { $height_bloque = '70vh'; }
+if ($pagina == 15) { $height_bloque = '70vh'; }
 
 ?>
 
@@ -1803,67 +1857,125 @@ if ($pagina == 13) { $height_bloque = '70vh'; }
         </div>
     </div>
 
-    <?php else: ?>
-    <!-- Template para Páginas de Contenido -->
+    <?php elseif ($cartilla[$pagina]['tipo'] === 'kit_compostaje'): ?>
+    <!-- PÁGINA 13: KIT DE COMPOSTAJE CASERO -->
     <div class="container-fluid header-aprende"
         style="position: relative;
             background-image: url('<?php echo $cartilla[$pagina]['fondo']; ?>');
             background-size: cover;
             background-position: center;
-            min-height: 100vh;">
+            min-height: 100vh;
+            padding-bottom: 6rem;">
             
         <div class="container-fluid h-100 p-0">
-            <div class="row g-0 justify-content-center" style="height: 100vh;">
-                <div class="col-12 col-lg-10 mx-auto px-4 pt-4">
-                    <h1 class="display-3 text-white animated slideInDown mb-3 text-center text-shadow-custom">
-                        <?php echo $cartilla[$pagina]['titulo']; ?>
-                    </h1>
+            <div class="row g-0 justify-content-center">
+                <!-- Títulos principales -->
+                <div class="col-12 col-lg-11 mx-auto px-3 pt-3 pb-2">
+                    <div class="cuadro-texto text-center mb-2" style="padding: 0.8rem 1.5rem; max-width: 1100px; margin: 0 auto;">
+                        <h1 class="mb-2" style="font-size: clamp(1.3rem, 3.5vw, 1.8rem); line-height: 1.3; color: #001122; font-weight: 900;">
+                            <span style="font-size: clamp(1.8rem, 4vw, 2.3rem); margin-right: 0.5rem;">♻️</span>
+                            <?php echo $cartilla[$pagina]['titulo']; ?>
+                        </h1>
+                        <h3 class="mb-0" style="font-size: clamp(1rem, 2.2vw, 1.3rem); font-weight: 700; color: #003366;">
+                            <?php echo $cartilla[$pagina]['subtitulo']; ?>
+                        </h3>
+                    </div>
                 </div>
-                <div class="col-12 col-lg-8 mx-auto px-4 d-flex flex-column justify-content-end" style="height: <?php echo $height_bloque; ?>;"> 
-                    <!-- APLICAR CLASE ESPECIAL PARA PÁGINA  7 -->
-                    <?php if (isset($cartilla[$pagina]['texto'])): ?>
-                        <div class="<?php echo ($pagina == 7) ? 'pagina-7-compacta ' : ''; ?>cuadro-texto mx-auto">
-                            <div class="texto-contenido">
-                                <?php echo $texto_con_iconos; ?>
-                            </div>
+                
+                <!-- Contenido principal -->
+                <div class="col-12 col-lg-11 mx-auto px-3">
+                    <!-- Texto introductorio -->
+                    <div class="cuadro-texto mx-auto mb-3" style="max-width: 1150px; padding: 0.8rem 1.2rem; width: 95%;">
+                        <div class="texto-contenido text-center" style="font-size: clamp(0.85rem, 1.8vw, 1rem); line-height: 1.4;">
+                            <?php echo $cartilla[$pagina]['texto']; ?>
                         </div>
+                    </div>
+                    
+                    <!-- IMAGEN GRANDE DEL KIT COMPLETO -->
+                    <?php if (isset($cartilla[$pagina]['imagen_kit'])): ?>
+                    <div class="cuadro-texto mx-auto mb-3" style="max-width: 900px; padding: 1rem; width: 95%; background: rgba(255, 255, 255, 0.45) !important;">
+                        <div class="text-center">
+                            <img src="<?php echo $cartilla[$pagina]['imagen_kit']; ?>" 
+                                alt="Kit de Compostaje Completo" 
+                                class="img-fluid" 
+                                style="max-height: 400px; border-radius: 15px; box-shadow: 0 8px 20px rgba(0,0,0,0.3); border: 3px solid #43be16;">
+                            <p class="mt-2 mb-0" style="font-size: clamp(0.75rem, 1.6vw, 0.9rem); color: #001122; font-weight: 700;">
+                                <i class="fas fa-box-open me-2"></i>Kit Completo de Compostaje Casero
+                            </p>
+                        </div>
+                    </div>
                     <?php endif; ?>
                     
-                    <?php if (isset($cartilla[$pagina]['texto2'])): ?>
-                        <div class="cuadro-texto mx-auto">
-                            <div class="texto-contenido">
-                                <?php echo $cartilla[$pagina]['texto2']; ?>
+                    <!-- TÍTULO DE COMPONENTES -->
+                    <div class="cuadro-texto mx-auto mb-2" style="max-width: 1150px; padding: 0.6rem 1rem; width: 95%; background: rgba(67, 190, 22, 0.35) !important; border: 2px solid #43be16;">
+                        <h2 class="text-center mb-0" style="font-size: clamp(1.1rem, 2.8vw, 1.5rem); color: #001122; font-weight: 900;">
+                            <i class="fas fa-list-ul me-2"></i>Componentes del Kit
+                        </h2>
+                    </div>
+                    
+                    <!-- LISTA DE COMPONENTES (6 CUADROS) -->
+                    <div class="row g-3 px-2">
+                        <?php foreach ($cartilla[$pagina]['componentes'] as $componente): ?>
+                        <div class="col-md-6 col-lg-4">
+                            <div class="cuadro-texto h-100" style="padding: 1rem; background: rgba(255, 255, 255, 0.4) !important; border: 3px solid <?php echo $componente['color']; ?>; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.2);">
+                                <!-- Número y emoji -->
+                                <div class="d-flex align-items-center mb-2">
+                                    <div style="background: <?php echo $componente['color']; ?>; color: white; width: 35px; height: 35px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 1.1rem; margin-right: 0.5rem; box-shadow: 0 3px 8px rgba(0,0,0,0.3);">
+                                        <?php echo $componente['numero']; ?>
+                                    </div>
+                                    <span style="font-size: clamp(1.8rem, 3.5vw, 2.3rem); filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.3));">
+                                        <?php echo $componente['emoji']; ?>
+                                    </span>
+                                </div>
+                                
+                                <!-- Título del componente -->
+                                <h4 class="mb-2" style="font-size: clamp(0.9rem, 2vw, 1.1rem); color: #001122; font-weight: 900; line-height: 1.2; text-shadow: 2px 2px 4px rgba(255,255,255,1);">
+                                    <?php echo $componente['titulo']; ?>
+                                </h4>
+                                
+                                <!-- Descripción -->
+                                <p class="mb-0" style="font-size: clamp(0.75rem, 1.6vw, 0.9rem); color: #001122; font-weight: 700; line-height: 1.3; text-shadow: 1px 1px 3px rgba(255,255,255,0.9);">
+                                    <?php echo $componente['descripcion']; ?>
+                                </p>
                             </div>
                         </div>
-                    <?php endif; ?>
+                        <?php endforeach; ?>
+                    </div>
                     
-                    <div class="d-flex justify-content-between align-items-end mt-3">
-                        <a href="aprende.php?pagina=<?php echo $pagina-1; ?>" class="btn btn-lg text-white" style="background-color: #43be16; z-index: 10;">
-                            <i class="fa fa-arrow-left me-2"></i> Anterior
-                        </a>
-                        <div class="text-white-50 text-center text-shadow-custom fs-6" style="flex-grow: 1;">
-                            Página <?php echo $pagina+1; ?> de <?php echo $total_paginas; ?>
-                        </div>
-                        <div class="d-flex align-items-end">
-                            <?php if (isset($cartilla[$pagina]['logo'])): ?>
-                                <img src="<?php echo $cartilla[$pagina]['logo']; ?>"
-                                    style="height: 80px; margin-right: 15px; z-index: 10;"
-                                    alt="Logo SENA"
-                                    class="logo-sena-header d-none d-md-block">
-                            <?php endif; ?>
-                            <?php if ($pagina < $total_paginas-1): ?>
-                                <a href="aprende.php?pagina=<?php echo $pagina+1; ?>" class="btn btn-lg text-white" style="background-color: #43be16; z-index: 10;">
-                                    Siguiente <i class="fa fa-arrow-right ms-2"></i>
+                    <!-- Nota final -->
+                    <div class="cuadro-texto mx-auto mt-3 mb-3" style="max-width: 1150px; padding: 0.8rem 1.2rem; width: 95%; background: rgba(255, 193, 7, 0.4) !important; border: 2px solid #ffc107;">
+                        <p class="mb-0 text-center" style="font-size: clamp(0.8rem, 1.7vw, 0.95rem); color: #001122; font-weight: 700; line-height: 1.4;">
+                            <i class="fas fa-lightbulb me-2" style="color: #ffc107;"></i>
+                            <b>Todo en un solo kit sencillo y visual.</b> ¡Comienza a compostar hoy mismo y dale una nueva vida a tus residuos orgánicos!
+                        </p>
+                    </div>
+                    
+                    <!-- Navegación -->
+                    <div class="container-fluid px-0 mt-3 mb-3">
+                        <div class="row g-0 w-100">
+                            <div class="col-12 d-flex justify-content-between align-items-center px-2">
+                                <a href="aprende.php?pagina=<?php echo $pagina-1; ?>" class="btn btn-lg text-white" style="background-color: #43be16; padding: 0.6rem 1.2rem; font-size: clamp(0.9rem, 2vw, 1.05rem);">
+                                    <i class="fa fa-arrow-left me-2"></i> Anterior
                                 </a>
-                            <?php endif; ?>
+                                <div class="text-white text-center d-none d-md-block" style="font-size: clamp(0.8rem, 1.5vw, 0.95rem); text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">
+                                    Página <?php echo $pagina+1; ?> de <?php echo $total_paginas; ?>
+                                </div>
+                                <?php if ($pagina < $total_paginas-1): ?>
+                                    <a href="aprende.php?pagina=<?php echo $pagina+1; ?>" class="btn btn-lg text-white" style="background-color: #43be16; padding: 0.6rem 1.2rem; font-size: clamp(0.9rem, 2vw, 1.05rem);">
+                                        Siguiente <i class="fa fa-arrow-right ms-2"></i>
+                                    </a>
+                                <?php else: ?>
+                                    <div style="width: 120px;"></div>
+                                <?php endif; ?>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <?php endif; ?>
-     
+
+    <?php endif; ?>     
     <!-- Footer Start -->
     <div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
         <div class="container">
