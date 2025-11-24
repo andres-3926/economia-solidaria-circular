@@ -437,7 +437,7 @@ $cartilla = [
         "titulo" => "Tu Kit de Compostaje Casero",
         "subtitulo" => "Transforma tus residuos orgánicos en abono natural",
         "texto" => "Este kit te permitirá transformar tus residuos orgánicos en <b>abono natural</b> para tus plantas o huerta. Aquí puedes ver todo lo que incluye.",
-        "fondo" => "img/compostaje-fondo.jpg",
+        "fondo" => "img/kit_compostera[2].webp",
         "imagen_kit" => "img/kit-compostaje-completo.jpg", // Foto grande del kit
         "componentes" => [
             [
@@ -481,6 +481,56 @@ $cartilla = [
                 "descripcion" => "Rastrillo, pala y trasplantador para mezclar y manejar tu compost.",
                 "emoji" => "🛠️",
                 "color" => "#607D8B"
+            ]
+        ]
+    ],
+    [
+        "tipo" => "proceso_compostaje",
+        "titulo" => "¡Compost Listo en 10 Días! Paso a Paso",
+        "subtitulo" => "Guía práctica para transformar tus residuos en abono natural",
+        "fondo" => "img/preparacion_abono.jpg",
+        "pasos" => [
+            [
+                "numero" => "1",
+                "titulo" => "Prepara tu compostera",
+                "descripcion" => "Límpiala y ubícala en un lugar fresco y ventilado.",
+                "emoji" => "🧹",
+                "color" => "#2196F3"
+            ],
+            [
+                "numero" => "2",
+                "titulo" => "Primera capa",
+                "descripcion" => "Pon una base de \"Material Secante Vegetal\".",
+                "emoji" => "🌾",
+                "color" => "#FF9800"
+            ],
+            [
+                "numero" => "3",
+                "titulo" => "Añade residuos orgánicos",
+                "descripcion" => "Cáscaras, restos de frutas/verduras, café, pan. Pícalos.",
+                "emoji" => "🍌",
+                "color" => "#43be16"
+            ],
+            [
+                "numero" => "4",
+                "titulo" => "Agrega acelerador y material seco",
+                "descripcion" => "Cubre cada capa de orgánicos con el acelerador y luego con \"Material Secante Vegetal\".",
+                "emoji" => "⚗️",
+                "color" => "#9C27B0"
+            ],
+            [
+                "numero" => "5",
+                "titulo" => "Mezcla suavemente",
+                "descripcion" => "Usa las herramientas de tu kit cada 1–2 días.",
+                "emoji" => "🛠️",
+                "color" => "#607D8B"
+            ],
+            [
+                "numero" => "6",
+                "titulo" => "¡Compost listo!",
+                "descripcion" => "Debe tener olor a tierra, color oscuro y no verse restos de comida.",
+                "emoji" => "✨",
+                "color" => "#4CAF50"
             ]
         ]
     ],
@@ -1858,7 +1908,7 @@ if ($pagina == 15) { $height_bloque = '70vh'; }
     </div>
 
     <?php elseif ($cartilla[$pagina]['tipo'] === 'kit_compostaje'): ?>
-    <!-- PÁGINA 13: KIT DE COMPOSTAJE CASERO -->
+    <!-- PÁGINA 13: KIT DE COMPOSTAJE CASERO CON LÍNEA DE TIEMPO -->
     <div class="container-fluid header-aprende"
         style="position: relative;
             background-image: url('<?php echo $cartilla[$pagina]['fondo']; ?>');
@@ -1893,12 +1943,12 @@ if ($pagina == 15) { $height_bloque = '70vh'; }
                     
                     <!-- IMAGEN GRANDE DEL KIT COMPLETO -->
                     <?php if (isset($cartilla[$pagina]['imagen_kit'])): ?>
-                    <div class="cuadro-texto mx-auto mb-3" style="max-width: 900px; padding: 1rem; width: 95%; background: rgba(255, 255, 255, 0.45) !important;">
+                    <div class="cuadro-texto mx-auto mb-4" style="max-width: 900px; padding: 1rem; width: 95%; background: rgba(255, 255, 255, 0.45) !important;">
                         <div class="text-center">
                             <img src="<?php echo $cartilla[$pagina]['imagen_kit']; ?>" 
                                 alt="Kit de Compostaje Completo" 
                                 class="img-fluid" 
-                                style="max-height: 400px; border-radius: 15px; box-shadow: 0 8px 20px rgba(0,0,0,0.3); border: 3px solid #43be16;">
+                                style="max-height: 350px; border-radius: 15px; box-shadow: 0 8px 20px rgba(0,0,0,0.3); border: 3px solid #43be16;">
                             <p class="mt-2 mb-0" style="font-size: clamp(0.75rem, 1.6vw, 0.9rem); color: #001122; font-weight: 700;">
                                 <i class="fas fa-box-open me-2"></i>Kit Completo de Compostaje Casero
                             </p>
@@ -1907,47 +1957,70 @@ if ($pagina == 15) { $height_bloque = '70vh'; }
                     <?php endif; ?>
                     
                     <!-- TÍTULO DE COMPONENTES -->
-                    <div class="cuadro-texto mx-auto mb-2" style="max-width: 1150px; padding: 0.6rem 1rem; width: 95%; background: rgba(67, 190, 22, 0.35) !important; border: 2px solid #43be16;">
+                    <div class="cuadro-texto mx-auto mb-3" style="max-width: 1150px; padding: 0.6rem 1rem; width: 95%; background: rgba(67, 190, 22, 0.35) !important; border: 2px solid #43be16;">
                         <h2 class="text-center mb-0" style="font-size: clamp(1.1rem, 2.8vw, 1.5rem); color: #001122; font-weight: 900;">
                             <i class="fas fa-list-ul me-2"></i>Componentes del Kit
                         </h2>
                     </div>
                     
-                    <!-- LISTA DE COMPONENTES (6 CUADROS) -->
-                    <div class="row g-3 px-2">
-                        <?php foreach ($cartilla[$pagina]['componentes'] as $componente): ?>
-                        <div class="col-md-6 col-lg-4">
-                            <div class="cuadro-texto h-100" style="padding: 1rem; background: rgba(255, 255, 255, 0.4) !important; border: 3px solid <?php echo $componente['color']; ?>; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.2);">
-                                <!-- Número y emoji -->
-                                <div class="d-flex align-items-center mb-2">
-                                    <div style="background: <?php echo $componente['color']; ?>; color: white; width: 35px; height: 35px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 1.1rem; margin-right: 0.5rem; box-shadow: 0 3px 8px rgba(0,0,0,0.3);">
-                                        <?php echo $componente['numero']; ?>
+                    <!-- LÍNEA DE TIEMPO VISUAL DE COMPONENTES -->
+                    <div class="row g-3 px-2 position-relative">
+                        <!-- Línea vertical conectora (solo desktop) -->
+                        <div class="d-none d-md-block position-absolute" style="left: 50%; top: 50px; bottom: 50px; width: 4px; background: linear-gradient(180deg, #43be16 0%, #2196F3 25%, #FF9800 50%, #8B4513 75%, #4CAF50 100%); transform: translateX(-50%); z-index: 0; border-radius: 10px;"></div>
+                        
+                        <?php foreach ($cartilla[$pagina]['componentes'] as $index => $componente): 
+                            $isLeft = ($index % 2 == 0);
+                        ?>
+                        <!-- COMPONENTE <?php echo $componente['numero']; ?> -->
+                        <div class="col-12">
+                            <div class="row g-0 align-items-center position-relative" style="z-index: 1;">
+                                <!-- Contenido del componente (alterna izquierda/derecha en desktop) -->
+                                <div class="col-md-5 <?php echo $isLeft ? 'order-md-1' : 'order-md-2 offset-md-1'; ?>">
+                                    <div class="cuadro-texto h-100" style="padding: 1.2rem; background: rgba(255, 255, 255, 0.45) !important; border: 3px solid <?php echo $componente['color']; ?>; border-radius: 15px; box-shadow: 0 8px 20px rgba(0,0,0,0.3); position: relative;">
+                                        <!-- Flecha apuntando al círculo (solo desktop) -->
+                                        <div class="d-none d-md-block position-absolute" style="<?php echo $isLeft ? 'right: -20px;' : 'left: -20px;'; ?> top: 50%; transform: translateY(-50%); width: 0; height: 0; border-top: 15px solid transparent; border-bottom: 15px solid transparent; <?php echo $isLeft ? 'border-left: 20px solid ' . $componente['color'] : 'border-right: 20px solid ' . $componente['color']; ?>;"></div>
+                                        
+                                        <!-- Emoji y título -->
+                                        <div class="d-flex align-items-center mb-2">
+                                            <span style="font-size: clamp(2rem, 4vw, 2.5rem); margin-right: 0.8rem; filter: drop-shadow(3px 3px 6px rgba(0,0,0,0.3));">
+                                                <?php echo $componente['emoji']; ?>
+                                            </span>
+                                            <h3 class="mb-0" style="font-size: clamp(1rem, 2.3vw, 1.3rem); color: #001122; font-weight: 900; line-height: 1.2; text-shadow: 2px 2px 4px rgba(255,255,255,1);">
+                                                <?php echo $componente['numero']; ?>. <?php echo $componente['titulo']; ?>
+                                            </h3>
+                                        </div>
+                                        
+                                        <!-- Descripción -->
+                                        <p class="mb-0" style="font-size: clamp(0.85rem, 1.8vw, 1rem); color: #001122; font-weight: 700; line-height: 1.4; text-shadow: 1px 1px 3px rgba(255,255,255,0.9);">
+                                            <?php echo $componente['descripcion']; ?>
+                                        </p>
                                     </div>
-                                    <span style="font-size: clamp(1.8rem, 3.5vw, 2.3rem); filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.3));">
-                                        <?php echo $componente['emoji']; ?>
-                                    </span>
                                 </div>
                                 
-                                <!-- Título del componente -->
-                                <h4 class="mb-2" style="font-size: clamp(0.9rem, 2vw, 1.1rem); color: #001122; font-weight: 900; line-height: 1.2; text-shadow: 2px 2px 4px rgba(255,255,255,1);">
-                                    <?php echo $componente['titulo']; ?>
-                                </h4>
+                                <!-- Círculo numerado en el centro (solo desktop) -->
+                                <div class="d-none d-md-flex col-md-2 justify-content-center align-items-center order-md-1" style="z-index: 10;">
+                                    <div style="background: <?php echo $componente['color']; ?>; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 1.8rem; box-shadow: 0 6px 15px rgba(0,0,0,0.4); border: 4px solid white;">
+                                        <?php echo $componente['numero']; ?>
+                                    </div>
+                                </div>
                                 
-                                <!-- Descripción -->
-                                <p class="mb-0" style="font-size: clamp(0.75rem, 1.6vw, 0.9rem); color: #001122; font-weight: 700; line-height: 1.3; text-shadow: 1px 1px 3px rgba(255,255,255,0.9);">
-                                    <?php echo $componente['descripcion']; ?>
-                                </p>
+                                <!-- Espacio vacío en el otro lado (solo desktop) -->
+                                <div class="d-none d-md-block col-md-5 <?php echo $isLeft ? 'order-md-2' : 'order-md-1'; ?>"></div>
                             </div>
                         </div>
                         <?php endforeach; ?>
                     </div>
                     
-                    <!-- Nota final -->
-                    <div class="cuadro-texto mx-auto mt-3 mb-3" style="max-width: 1150px; padding: 0.8rem 1.2rem; width: 95%; background: rgba(255, 193, 7, 0.4) !important; border: 2px solid #ffc107;">
-                        <p class="mb-0 text-center" style="font-size: clamp(0.8rem, 1.7vw, 0.95rem); color: #001122; font-weight: 700; line-height: 1.4;">
-                            <i class="fas fa-lightbulb me-2" style="color: #ffc107;"></i>
-                            <b>Todo en un solo kit sencillo y visual.</b> ¡Comienza a compostar hoy mismo y dale una nueva vida a tus residuos orgánicos!
-                        </p>
+                    <!-- Nota final motivacional -->
+                    <div class="cuadro-texto mx-auto mt-4 mb-3" style="max-width: 1150px; padding: 1rem 1.5rem; width: 95%; background: rgba(67, 190, 22, 0.4) !important; border: 3px solid #43be16;">
+                        <div class="text-center">
+                            <h4 class="mb-2" style="font-size: clamp(1rem, 2.3vw, 1.3rem); color: #001122; font-weight: 900;">
+                                <i class="fas fa-seedling me-2"></i>¡Todo listo para comenzar!
+                            </h4>
+                            <p class="mb-0" style="font-size: clamp(0.85rem, 1.8vw, 1rem); color: #001122; font-weight: 700; line-height: 1.4;">
+                                Con este kit completo podrás transformar tus residuos orgánicos en <b>abono natural</b> en solo 10 días. <b>¡Estás contribuyendo a la economía circular y cuidando el planeta!</b> 🌱♻️
+                            </p>
+                        </div>
                     </div>
                     
                     <!-- Navegación -->
@@ -1965,10 +2038,204 @@ if ($pagina == 15) { $height_bloque = '70vh'; }
                                         Siguiente <i class="fa fa-arrow-right ms-2"></i>
                                     </a>
                                 <?php else: ?>
-                                    <div style="width: 120px;"></div>
+                                    <a href="aprende.php?pagina=0" class="btn btn-lg text-white" style="background-color: #003d82; padding: 0.6rem 1.2rem; font-size: clamp(0.9rem, 2vw, 1.05rem);">
+                                        <i class="fa fa-home me-2"></i> Inicio
+                                    </a>
                                 <?php endif; ?>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <?php elseif ($cartilla[$pagina]['tipo'] === 'proceso_compostaje'): ?>
+    <!-- PÁGINA 14: PROCESO DE COMPOSTAJE PASO A PASO -->
+    <div class="container-fluid header-aprende"
+        style="position: relative;
+            background-image: url('<?php echo $cartilla[$pagina]['fondo']; ?>');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            min-height: 100vh;
+            padding-bottom: 6rem;">
+            
+        <div class="container-fluid h-100 p-0">
+            <div class="row g-0 justify-content-center">
+                <!-- Títulos principales -->
+                <div class="col-12 col-lg-11 mx-auto px-3 pt-3 pb-2">
+                    <div class="cuadro-texto text-center mb-2" style="padding: 0.8rem 1.5rem; max-width: 1100px; margin: 0 auto;">
+                        <h1 class="mb-2" style="font-size: clamp(1.3rem, 3.5vw, 1.8rem); line-height: 1.3; color: #001122; font-weight: 900;">
+                            <span style="font-size: clamp(1.8rem, 4vw, 2.3rem); margin-right: 0.5rem;">⏱️</span>
+                            <?php echo $cartilla[$pagina]['titulo']; ?>
+                        </h1>
+                        <h3 class="mb-0" style="font-size: clamp(1rem, 2.2vw, 1.3rem); font-weight: 700; color: #003366;">
+                            <?php echo $cartilla[$pagina]['subtitulo']; ?>
+                        </h3>
+                    </div>
+                </div>
+                
+                <!-- Contenido principal -->
+                <div class="col-12 col-lg-11 mx-auto px-3">
+                    <!-- LÍNEA DE TIEMPO VISUAL -->
+                    <div class="row g-3 px-2 position-relative">
+                        <!-- Línea vertical conectora (solo desktop) -->
+                        <div class="d-none d-md-block position-absolute" style="left: 50%; top: 50px; bottom: 50px; width: 4px; background: linear-gradient(180deg, #43be16 0%, #2196F3 50%, #4CAF50 100%); transform: translateX(-50%); z-index: 0; border-radius: 10px;"></div>
+                        
+                        <?php foreach ($cartilla[$pagina]['pasos'] as $index => $paso): 
+                            $isLeft = ($index % 2 == 0);
+                        ?>
+                        <!-- PASO <?php echo $paso['numero']; ?> -->
+                        <div class="col-12">
+                            <div class="row g-0 align-items-center position-relative" style="z-index: 1;">
+                                <!-- Contenido del paso (alterna izquierda/derecha en desktop) -->
+                                <div class="col-md-5 <?php echo $isLeft ? 'order-md-1' : 'order-md-2 offset-md-1'; ?>">
+                                    <div class="cuadro-texto h-100" style="padding: 1.2rem; background: rgba(255, 255, 255, 0.45) !important; border: 3px solid <?php echo $paso['color']; ?>; border-radius: 15px; box-shadow: 0 8px 20px rgba(0,0,0,0.3); position: relative;">
+                                        <!-- Flecha apuntando al círculo (solo desktop) -->
+                                        <div class="d-none d-md-block position-absolute" style="<?php echo $isLeft ? 'right: -20px;' : 'left: -20px;'; ?> top: 50%; transform: translateY(-50%); width: 0; height: 0; border-top: 15px solid transparent; border-bottom: 15px solid transparent; <?php echo $isLeft ? 'border-left: 20px solid ' . $paso['color'] : 'border-right: 20px solid ' . $paso['color']; ?>;"></div>
+                                        
+                                        <!-- Emoji y título -->
+                                        <div class="d-flex align-items-center mb-2">
+                                            <span style="font-size: clamp(2rem, 4vw, 2.5rem); margin-right: 0.8rem; filter: drop-shadow(3px 3px 6px rgba(0,0,0,0.3));">
+                                                <?php echo $paso['emoji']; ?>
+                                            </span>
+                                            <h3 class="mb-0" style="font-size: clamp(1rem, 2.3vw, 1.3rem); color: #001122; font-weight: 900; line-height: 1.2; text-shadow: 2px 2px 4px rgba(255,255,255,1);">
+                                                Paso <?php echo $paso['numero']; ?>: <?php echo $paso['titulo']; ?>
+                                            </h3>
+                                        </div>
+                                        
+                                        <!-- Descripción -->
+                                        <p class="mb-0" style="font-size: clamp(0.85rem, 1.8vw, 1rem); color: #001122; font-weight: 700; line-height: 1.4; text-shadow: 1px 1px 3px rgba(255,255,255,0.9);">
+                                            <?php echo $paso['descripcion']; ?>
+                                        </p>
+                                    </div>
+                                </div>
+                                
+                                <!-- Círculo numerado en el centro (solo desktop) -->
+                                <div class="d-none d-md-flex col-md-2 justify-content-center align-items-center order-md-1" style="z-index: 10;">
+                                    <div style="background: <?php echo $paso['color']; ?>; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 1.8rem; box-shadow: 0 6px 15px rgba(0,0,0,0.4); border: 4px solid white;">
+                                        <?php echo $paso['numero']; ?>
+                                    </div>
+                                </div>
+                                
+                                <!-- Espacio vacío en el otro lado (solo desktop) -->
+                                <div class="d-none d-md-block col-md-5 <?php echo $isLeft ? 'order-md-2' : 'order-md-1'; ?>"></div>
+                            </div>
+                        </div>
+                        <?php endforeach; ?>
+                    </div>
+                    
+                    <!-- Nota final motivacional -->
+                    <div class="cuadro-texto mx-auto mt-4 mb-3" style="max-width: 1150px; padding: 1rem 1.5rem; width: 95%; background: rgba(67, 190, 22, 0.4) !important; border: 3px solid #43be16;">
+                        <div class="text-center">
+                            <h4 class="mb-2" style="font-size: clamp(1rem, 2.3vw, 1.3rem); color: #001122; font-weight: 900;">
+                                <i class="fas fa-seedling me-2"></i>¡Tu primer compost está listo!
+                            </h4>
+                            <p class="mb-0" style="font-size: clamp(0.85rem, 1.8vw, 1rem); color: #001122; font-weight: 700; line-height: 1.4;">
+                                Ahora puedes usar este abono natural en tus plantas, macetas o huerta. <b>Estás contribuyendo a la economía circular</b> y reduciendo tu huella ambiental. 🌱💚
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Navegación -->
+                    <div class="container-fluid px-0 mt-3 mb-3">
+                        <div class="row g-0 w-100">
+                            <div class="col-12 d-flex justify-content-between align-items-center px-2">
+                                <a href="aprende.php?pagina=<?php echo $pagina-1; ?>" class="btn btn-lg text-white" style="background-color: #43be16; padding: 0.6rem 1.2rem; font-size: clamp(0.9rem, 2vw, 1.05rem);">
+                                    <i class="fa fa-arrow-left me-2"></i> Anterior
+                                </a>
+                                <div class="text-white text-center d-none d-md-block" style="font-size: clamp(0.8rem, 1.5vw, 0.95rem); text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">
+                                    Página <?php echo $pagina+1; ?> de <?php echo $total_paginas; ?>
+                                </div>
+                                <?php if ($pagina < $total_paginas-1): ?>
+                                    <a href="aprende.php?pagina=<?php echo $pagina+1; ?>" class="btn btn-lg text-white" style="background-color: #43be16; padding: 0.6rem 1.2rem; font-size: clamp(0.9rem, 2vw, 1.05rem);">
+                                        Siguiente <i class="fa fa-arrow-right ms-2"></i>
+                                    </a>
+                                <?php else: ?>
+                                    <a href="aprende.php?pagina=0" class="btn btn-lg text-white" style="background-color: #003d82; padding: 0.6rem 1.2rem; font-size: clamp(0.9rem, 2vw, 1.05rem);">
+                                        <i class="fa fa-home me-2"></i> Inicio
+                                    </a>
+                                <?php endif; ?>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <?php elseif ($cartilla[$pagina]['tipo'] === 'contenido'): ?>
+    <!-- TEMPLATE PARA PÁGINAS DE CONTENIDO GENERAL -->
+    <div class="container-fluid header-aprende"
+        style="position: relative;
+            background-image: url('<?php echo $cartilla[$pagina]['fondo']; ?>');
+            background-size: cover;
+            background-position: center;
+            min-height: 100vh;">
+            
+        <div class="container-fluid h-100 p-0">
+            <div class="row g-0 justify-content-center" style="height: 100vh;">
+                <!-- Contenido centrado -->
+                <div class="col-12 col-lg-8 mx-auto px-4 d-flex flex-column justify-content-end" style="height: <?php echo $height_bloque; ?>;"> 
+                    
+                    <!-- Título -->
+                    <div class="cuadro-texto text-center mx-auto mb-3">
+                        <h1 class="mb-2" style="font-size: clamp(1.5rem, 4vw, 2.2rem); color: #001122; font-weight: 900; line-height: 1.2;">
+                            <?php echo $cartilla[$pagina]['titulo']; ?>
+                        </h1>
+                    </div>
+                    
+                    <!-- Texto principal -->
+                    <?php if (isset($cartilla[$pagina]['texto'])): ?>
+                        <div class="cuadro-texto mx-auto mb-3">
+                            <div class="texto-contenido">
+                                <?php echo $texto_con_iconos; ?>
+                            </div>
+                        </div>
+                    <?php endif; ?>
+                    
+                    <!-- Texto secundario (si existe) -->
+                    <?php if (isset($cartilla[$pagina]['texto2'])): ?>
+                        <div class="cuadro-texto mx-auto mb-3">
+                            <div class="texto-contenido">
+                                <?php echo $cartilla[$pagina]['texto2']; ?>
+                            </div>
+                        </div>
+                    <?php endif; ?>
+                    
+                    <!-- Logo SENA (si existe) -->
+                    <?php if (isset($cartilla[$pagina]['logo'])): ?>
+                        <div class="text-center mb-3">
+                            <img src="<?php echo $cartilla[$pagina]['logo']; ?>" 
+                                 alt="Logo SENA" 
+                                 style="height: 80px; filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));">
+                        </div>
+                    <?php endif; ?>
+                    
+                    <!-- Navegación -->
+                    <div class="d-flex justify-content-between align-items-end mt-3">
+                        <?php if ($pagina > 0): ?>
+                            <a href="aprende.php?pagina=<?php echo $pagina-1; ?>" class="btn btn-lg text-white" style="background-color: #43be16;">
+                                <i class="fa fa-arrow-left me-2"></i> Anterior
+                            </a>
+                        <?php else: ?>
+                            <div style="width: 120px;"></div>
+                        <?php endif; ?>
+                        
+                        <div class="text-white text-center d-none d-md-block" style="font-size: clamp(0.8rem, 1.5vw, 0.95rem); text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">
+                            Página <?php echo $pagina+1; ?> de <?php echo $total_paginas; ?>
+                        </div>
+                        
+                        <?php if ($pagina < $total_paginas-1): ?>
+                            <a href="aprende.php?pagina=<?php echo $pagina+1; ?>" class="btn btn-lg text-white" style="background-color: #43be16;">
+                                Siguiente <i class="fa fa-arrow-right ms-2"></i>
+                            </a>
+                        <?php else: ?>
+                            <a href="aprende.php?pagina=0" class="btn btn-lg text-white" style="background-color: #003d82;">
+                                <i class="fa fa-home me-2"></i> Inicio
+                            </a>
+                        <?php endif; ?>
                     </div>
                 </div>
             </div>
