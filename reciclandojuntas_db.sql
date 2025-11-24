@@ -2,8 +2,8 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.0.1:3306
--- Tiempo de generación: 12-11-2025 a las 20:16:37
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 24-11-2025 a las 14:42:47
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -20,35 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `reciclandojuntas_db`
 --
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `acuerdos_trueque`
---
-
-CREATE TABLE `acuerdos_trueque` (
-  `id` int(11) NOT NULL,
-  `trueque_id` int(11) NOT NULL,
-  `usuario_a_id` int(11) NOT NULL,
-  `usuario_b_id` int(11) NOT NULL,
-  `fecha_acuerdo` datetime DEFAULT current_timestamp(),
-  `detalles` text DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `comunidades`
---
-
-CREATE TABLE `comunidades` (
-  `id` int(11) NOT NULL,
-  `nombre` varchar(100) NOT NULL,
-  `tipo` enum('barrio','oficio','interés') DEFAULT NULL,
-  `descripcion` text DEFAULT NULL,
-  `creador_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -156,18 +127,6 @@ INSERT INTO `mensajes_trueque` (`id`, `trueque_id`, `de_usuario_id`, `para_usuar
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `miembros_comunidad`
---
-
-CREATE TABLE `miembros_comunidad` (
-  `usuario_id` int(11) NOT NULL,
-  `comunidad_id` int(11) NOT NULL,
-  `rol_en_comunidad` enum('miembro','moderador') DEFAULT 'miembro'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
 -- Estructura de tabla para la tabla `notificaciones`
 --
 
@@ -185,7 +144,7 @@ CREATE TABLE `notificaciones` (
 
 INSERT INTO `notificaciones` (`id`, `usuario_id`, `mensaje`, `leida`, `fecha`) VALUES
 (1, 43, 'El usuario Diana Giraldo Arias está esperando habilitación como emprendedor.', 1, '2025-09-17 08:56:17'),
-(2, 40, 'El usuario Andres Echeverri Giraldo está esperando habilitación como emprendedor.', 0, '2025-09-17 08:56:56'),
+(2, 40, 'El usuario Andres Echeverri Giraldo está esperando habilitación como emprendedor.', 1, '2025-09-17 08:56:56'),
 (3, 44, 'El usuario Diana Giraldo Arias está esperando habilitación como emprendedor.', 1, '2025-09-17 09:43:35'),
 (4, 45, 'El usuario Diana Giraldo Arias está esperando habilitación como emprendedor.', 1, '2025-09-17 09:57:51'),
 (5, 45, 'El usuario Diana Giraldo Arias está esperando habilitación como emprendedor.', 1, '2025-09-17 10:15:50'),
@@ -210,21 +169,11 @@ INSERT INTO `notificaciones` (`id`, `usuario_id`, `mensaje`, `leida`, `fecha`) V
 (24, 51, 'El usuario Diana Giraldo Arias está esperando habilitación como emprendedor.', 1, '2025-10-15 14:03:00'),
 (25, 51, 'El usuario Diana Giraldo Arias está esperando habilitación como emprendedor.', 1, '2025-10-16 20:10:57'),
 (26, 51, 'El usuario Diana Giraldo Arias está esperando habilitación como emprendedor.', 1, '2025-11-04 21:33:13'),
-(27, 51, 'El usuario Diana Giraldo Arias está esperando habilitación como emprendedor.', 0, '2025-11-10 15:56:22');
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `participacion_comunidad`
---
-
-CREATE TABLE `participacion_comunidad` (
-  `id` int(11) NOT NULL,
-  `usuario_id` int(11) NOT NULL,
-  `comunidad_id` int(11) NOT NULL,
-  `rol` enum('participante','facilitador','coordinador') DEFAULT NULL,
-  `fecha_union` datetime DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+(27, 51, 'El usuario Diana Giraldo Arias está esperando habilitación como emprendedor.', 1, '2025-11-10 15:56:22'),
+(28, 51, 'El usuario Diana Giraldo Arias está esperando habilitación como emprendedor.', 1, '2025-11-23 07:33:44'),
+(29, 51, 'El usuario Diana Giraldo Arias está esperando habilitación como emprendedor.', 1, '2025-11-23 19:06:58'),
+(30, 51, 'El usuario Diana Giraldo Arias está esperando habilitación como emprendedor.', 1, '2025-11-24 06:07:58'),
+(31, 53, 'El usuario Jose Arnulfo Reyes está esperando habilitación como emprendedor.', 0, '2025-11-24 07:59:53');
 
 -- --------------------------------------------------------
 
@@ -253,17 +202,68 @@ INSERT INTO `preguntas_trueques` (`id`, `trueque_id`, `usuario_id`, `pregunta`, 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `reconocimientos_usuario`
+-- Estructura de tabla para la tabla `resultados_quiz`
 --
 
-CREATE TABLE `reconocimientos_usuario` (
+CREATE TABLE `resultados_quiz` (
   `id` int(11) NOT NULL,
-  `usuario_id` int(11) NOT NULL,
-  `titulo` varchar(100) DEFAULT NULL,
-  `descripcion` text DEFAULT NULL,
-  `otorgado_por` int(11) DEFAULT NULL,
-  `fecha` datetime DEFAULT current_timestamp()
+  `numero_documento` varchar(20) NOT NULL,
+  `titulo_quiz` varchar(255) NOT NULL,
+  `tipo_quiz` varchar(50) NOT NULL,
+  `datos_respuestas` text NOT NULL,
+  `fecha_completado` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `resultados_quiz`
+--
+
+INSERT INTO `resultados_quiz` (`id`, `numero_documento`, `titulo_quiz`, `tipo_quiz`, `datos_respuestas`, `fecha_completado`) VALUES
+(1, '30291824', 'Reto del Tema: ¿Dónde lo pongo?', 'actividad_quiz', '{\"respuestas\":{\"pregunta_1\":{\"respuesta_usuario\":\"Org\\u00e1nicos\",\"es_correcta\":false},\"pregunta_2\":{\"respuesta_usuario\":\"Reciclaje\",\"es_correcta\":false},\"pregunta_3\":{\"respuesta_usuario\":\"Reuso \\/ Artesan\\u00edas\",\"es_correcta\":false}},\"respuestas_correctas\":3,\"total_preguntas\":3,\"porcentaje_acierto\":100,\"tiempo_segundos\":12,\"minimo_requerido\":3,\"aprobado\":\"SI\",\"instrucciones\":\"Ahora que conoces c\\u00f3mo separar tus residuos, te invitamos a practicar. <b>Selecciona la opci\\u00f3n correcta para cada residuo. Necesitas las 3 respuestas correctas para aprobar.<\\/b>\"}', '2025-11-24 04:41:29'),
+(2, '30291824', 'Reto del Tema 4: ¡Mi Primer Paso con el Compost!', 'reto_compostaje', '{\"items_seleccionados\":\"1,2,3,4,5,6,7,8\",\"items_texto\":\"\\ud83c\\udf4c                                    \\n                                    \\n                                        C\\u00e1scaras de frutas y\\/o hortalizas | \\u2615                                    \\n                                    \\n                                        Borra de caf\\u00e9 | \\ud83c\\udf5e                                    \\n                                    \\n                                        Cereales y pan | \\ud83e\\udd5a                                    \\n                                    \\n                                        C\\u00e1scaras de huevo | \\ud83d\\udcc4                                    \\n                                    \\n                                        Filtros de papel de t\\u00e9 y caf\\u00e9 | \\ud83c\\udf75                                    \\n                                    \\n                                        Bolsitas de t\\u00e9 | \\ud83c\\udf42                                    \\n                                    \\n                                        Residuos de jard\\u00edn | \\ud83d\\udce6                                    \\n                                    \\n                                        Cart\\u00f3n y papel limpio\",\"total_seleccionados\":8,\"minimo_requerido\":3,\"aprobado\":\"SI\"}', '2025-11-24 04:41:58'),
+(3, '30291824', 'Preguntas y Respuestas Comunes', 'quiz_preguntas_respuestas', '{\"respuestas\":[],\"respuestas_correctas\":8,\"total_preguntas\":8,\"porcentaje_acierto\":100,\"tiempo_segundos\":120,\"minimo_requerido\":4,\"aprobado\":\"SI\",\"instrucciones\":\"\"}', '2025-11-24 05:09:40');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `retos_usuarios`
+--
+
+CREATE TABLE `retos_usuarios` (
+  `id` int(11) NOT NULL,
+  `numero_documento` varchar(20) NOT NULL,
+  `pagina` int(11) NOT NULL,
+  `respuesta_1` varchar(255) DEFAULT NULL,
+  `respuesta_2` varchar(255) DEFAULT NULL,
+  `respuesta_3` varchar(255) DEFAULT NULL,
+  `respuesta_4` varchar(255) DEFAULT NULL,
+  `respuesta_5` varchar(255) DEFAULT NULL,
+  `respuesta_6` varchar(255) DEFAULT NULL,
+  `respuestas_correctas` int(11) NOT NULL DEFAULT 0,
+  `total_preguntas` int(11) NOT NULL DEFAULT 6,
+  `porcentaje_acierto` decimal(5,2) NOT NULL DEFAULT 0.00,
+  `tiempo_segundos` int(11) NOT NULL DEFAULT 0,
+  `aprobado` tinyint(1) NOT NULL DEFAULT 0,
+  `titulo_quiz` varchar(255) DEFAULT NULL,
+  `tipo_quiz` varchar(100) DEFAULT NULL,
+  `instrucciones` text DEFAULT NULL,
+  `fecha_realizacion` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `retos_usuarios`
+--
+
+INSERT INTO `retos_usuarios` (`id`, `numero_documento`, `pagina`, `respuesta_1`, `respuesta_2`, `respuesta_3`, `respuesta_4`, `respuesta_5`, `respuesta_6`, `respuestas_correctas`, `total_preguntas`, `porcentaje_acierto`, `tiempo_segundos`, `aprobado`, `titulo_quiz`, `tipo_quiz`, `instrucciones`, `fecha_realizacion`) VALUES
+(1, '30291824', 6, 'Orgánico para compost', 'Orgánico para compost', 'Reutilizable para artesanías', 'Reutilizable para artesanías', 'Reciclable (plástico, vidrio, papel)', '0', 6, 6, 100.00, 47, 1, NULL, NULL, NULL, '2025-11-23 11:47:09'),
+(2, '30291824', 12, 'Orgánicos', 'Reciclaje', 'Reuso / Artesanías', '', '', '0', 3, 3, 100.00, 113, 0, NULL, NULL, NULL, '2025-11-23 23:36:32'),
+(3, '30291824', 12, 'Orgánicos', 'Reciclaje', 'Reuso / Artesanías', '', '', '0', 3, 3, 100.00, 153, 0, NULL, NULL, NULL, '2025-11-23 23:39:11'),
+(4, '30291824', 12, 'Orgánicos', 'Reciclaje', 'Reuso / Artesanías', '', '', '0', 3, 3, 100.00, 209, 0, NULL, NULL, NULL, '2025-11-23 23:43:46'),
+(5, '30291824', 12, 'Orgánicos', 'Reciclaje', 'Reuso / Artesanías', '', '', '0', 3, 3, 100.00, 21, 0, NULL, NULL, NULL, '2025-11-24 00:09:23'),
+(6, '30291824', 0, 'Orgánicos', 'Reciclaje', 'Reuso / Artesanías', '', '', '0', 3, 3, 100.00, 13, 1, 'Reto del Tema: ¿Dónde lo pongo?', 'actividad_quiz', 'Ahora que conoces cómo separar tus residuos, te invitamos a practicar. <b>Selecciona la opción correcta para cada residuo. Necesitas las 3 respuestas correctas para aprobar.</b>', '2025-11-24 00:26:05'),
+(7, '30291824', 0, 'Orgánicos', 'Reciclaje', 'Reuso / Artesanías', '', '', '0', 3, 3, 100.00, 200, 1, 'Reto del Tema: ¿Dónde lo pongo?', 'actividad_quiz', 'Ahora que conoces cómo separar tus residuos, te invitamos a practicar. <b>Selecciona la opción correcta para cada residuo. Necesitas las 3 respuestas correctas para aprobar.</b>', '2025-11-24 00:29:42'),
+(8, '30291824', 0, 'Orgánicos', 'Reciclaje', 'Reuso / Artesanías', '', '', '0', 3, 3, 100.00, 14, 1, 'Reto del Tema: ¿Dónde lo pongo?', 'actividad_quiz', 'Ahora que conoces cómo separar tus residuos, te invitamos a practicar. <b>Selecciona la opción correcta para cada residuo. Necesitas las 3 respuestas correctas para aprobar.</b>', '2025-11-24 00:47:07'),
+(9, '30291824', 0, 'Orgánicos', 'Reciclaje', 'Reuso / Artesanías', '', '', '0', 3, 3, 100.00, 9, 1, 'Reto del Tema: ¿Dónde lo pongo?', 'actividad_quiz', 'Ahora que conoces cómo separar tus residuos, te invitamos a practicar. <b>Selecciona la opción correcta para cada residuo. Necesitas las 3 respuestas correctas para aprobar.</b>', '2025-11-24 01:26:37');
 
 -- --------------------------------------------------------
 
@@ -341,25 +341,8 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `numero_documento`, `tipo_documento`, `nombre_completo`, `celular`, `correo`, `contrasena`, `comuna`, `barrio`, `direccion`, `emprendimiento`, `habilitado`, `foto`, `rol`, `fecha_registro`, `instagram`, `facebook`, `resena`) VALUES
-(40, '16071402', 'CC', 'Andres Echeverri Giraldo', '3113079637', 'aecheverrig20@hotmail.com', '$2y$10$S8F8xy4PKj9bg.Cld0eCfut/fTohcl8Qmj.1KEz5lHm7fMGoKTQsm', '20', 'Siloe', 'Carrera 8 # 57E 2-03', 'Instructor', 1, '16071402_1757978022.jpg', 'administrador', '2025-09-15 16:40:33', NULL, NULL, NULL),
 (51, '30291824', 'CC', 'Diana Giraldo Arias', '3147748010', 'monafeliz57@hotmail.com', '$2y$10$vC3zbiIfqqph8zUcs2o0E.cCe3JkvCr/YiKnCA95GGiQxlR.h5tpm', '22', 'Siloe', 'Carrera 8 #57E2-03', 'Artesanias Diana', 0, '30291824_1760554992.jpg', 'emprendedor', '2025-10-10 15:39:46', NULL, NULL, 'hola yo soy diana'),
-(52, '1053787426', 'CC', 'Claudia Marcela Lince Salazar', '3217108776', 'lince627@hotmail.com', '$2y$10$3.jHvbdlhyEKhzM4GkL5eOINE4g7EV8a/4zJCpSIOR07PRmTL75rC', '20', 'Siloe', 'carrera 29 # 15-45', 'Ropero Claudia', 0, NULL, 'emprendedor', '2025-10-15 16:59:16', NULL, NULL, NULL);
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `valoraciones_trueque`
---
-
-CREATE TABLE `valoraciones_trueque` (
-  `id` int(11) NOT NULL,
-  `acuerdo_id` int(11) NOT NULL,
-  `evaluador_id` int(11) NOT NULL,
-  `evaluado_id` int(11) NOT NULL,
-  `puntuacion` int(11) DEFAULT NULL CHECK (`puntuacion` between 1 and 5),
-  `comentario` text DEFAULT NULL,
-  `fecha_valoracion` datetime DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+(53, '14893162', 'CC', 'Jose Arnulfo Reyes', '3013779948', 'josearnulforeyes@gmail.com', '$2y$10$RBg5YUK0MgSaprNHtqblNe490XvPBNym7.JUmFV55ZH/rNFRU7zo.', '1', 'la maria', 'Cali', 'Instructor', 1, NULL, 'administrador', '2025-11-24 07:59:25', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -387,22 +370,6 @@ INSERT INTO `visitas_trueques` (`id`, `trueque_id`, `usuario_id`, `fecha_vista`)
 --
 -- Índices para tablas volcadas
 --
-
---
--- Indices de la tabla `acuerdos_trueque`
---
-ALTER TABLE `acuerdos_trueque`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `trueque_id` (`trueque_id`),
-  ADD KEY `usuario_a_id` (`usuario_a_id`),
-  ADD KEY `usuario_b_id` (`usuario_b_id`);
-
---
--- Indices de la tabla `comunidades`
---
-ALTER TABLE `comunidades`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `creador_id` (`creador_id`);
 
 --
 -- Indices de la tabla `imagenes_emprendimiento`
@@ -440,25 +407,10 @@ ALTER TABLE `mensajes_trueque`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `miembros_comunidad`
---
-ALTER TABLE `miembros_comunidad`
-  ADD PRIMARY KEY (`usuario_id`,`comunidad_id`),
-  ADD KEY `comunidad_id` (`comunidad_id`);
-
---
 -- Indices de la tabla `notificaciones`
 --
 ALTER TABLE `notificaciones`
   ADD PRIMARY KEY (`id`);
-
---
--- Indices de la tabla `participacion_comunidad`
---
-ALTER TABLE `participacion_comunidad`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `usuario_id` (`usuario_id`),
-  ADD KEY `comunidad_id` (`comunidad_id`);
 
 --
 -- Indices de la tabla `preguntas_trueques`
@@ -469,12 +421,21 @@ ALTER TABLE `preguntas_trueques`
   ADD KEY `usuario_id` (`usuario_id`);
 
 --
--- Indices de la tabla `reconocimientos_usuario`
+-- Indices de la tabla `resultados_quiz`
 --
-ALTER TABLE `reconocimientos_usuario`
+ALTER TABLE `resultados_quiz`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `usuario_id` (`usuario_id`),
-  ADD KEY `otorgado_por` (`otorgado_por`);
+  ADD KEY `numero_documento` (`numero_documento`);
+
+--
+-- Indices de la tabla `retos_usuarios`
+--
+ALTER TABLE `retos_usuarios`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idx_documento` (`numero_documento`),
+  ADD KEY `idx_pagina` (`pagina`),
+  ADD KEY `idx_aprobado` (`aprobado`),
+  ADD KEY `idx_fecha` (`fecha_realizacion`);
 
 --
 -- Indices de la tabla `saberes_usuario`
@@ -498,15 +459,6 @@ ALTER TABLE `usuarios`
   ADD UNIQUE KEY `correo` (`correo`);
 
 --
--- Indices de la tabla `valoraciones_trueque`
---
-ALTER TABLE `valoraciones_trueque`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `acuerdo_id` (`acuerdo_id`),
-  ADD KEY `evaluador_id` (`evaluador_id`),
-  ADD KEY `evaluado_id` (`evaluado_id`);
-
---
 -- Indices de la tabla `visitas_trueques`
 --
 ALTER TABLE `visitas_trueques`
@@ -517,18 +469,6 @@ ALTER TABLE `visitas_trueques`
 --
 -- AUTO_INCREMENT de las tablas volcadas
 --
-
---
--- AUTO_INCREMENT de la tabla `acuerdos_trueque`
---
-ALTER TABLE `acuerdos_trueque`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de la tabla `comunidades`
---
-ALTER TABLE `comunidades`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `imagenes_emprendimiento`
@@ -564,13 +504,7 @@ ALTER TABLE `mensajes_trueque`
 -- AUTO_INCREMENT de la tabla `notificaciones`
 --
 ALTER TABLE `notificaciones`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
-
---
--- AUTO_INCREMENT de la tabla `participacion_comunidad`
---
-ALTER TABLE `participacion_comunidad`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT de la tabla `preguntas_trueques`
@@ -579,10 +513,16 @@ ALTER TABLE `preguntas_trueques`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT de la tabla `reconocimientos_usuario`
+-- AUTO_INCREMENT de la tabla `resultados_quiz`
 --
-ALTER TABLE `reconocimientos_usuario`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `resultados_quiz`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT de la tabla `retos_usuarios`
+--
+ALTER TABLE `retos_usuarios`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `saberes_usuario`
@@ -600,13 +540,7 @@ ALTER TABLE `trueques`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
-
---
--- AUTO_INCREMENT de la tabla `valoraciones_trueque`
---
-ALTER TABLE `valoraciones_trueque`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 
 --
 -- AUTO_INCREMENT de la tabla `visitas_trueques`
@@ -619,92 +553,16 @@ ALTER TABLE `visitas_trueques`
 --
 
 --
--- Filtros para la tabla `acuerdos_trueque`
---
-ALTER TABLE `acuerdos_trueque`
-  ADD CONSTRAINT `acuerdos_trueque_ibfk_1` FOREIGN KEY (`trueque_id`) REFERENCES `trueques` (`id`),
-  ADD CONSTRAINT `acuerdos_trueque_ibfk_2` FOREIGN KEY (`usuario_a_id`) REFERENCES `usuarios` (`id`),
-  ADD CONSTRAINT `acuerdos_trueque_ibfk_3` FOREIGN KEY (`usuario_b_id`) REFERENCES `usuarios` (`id`);
-
---
--- Filtros para la tabla `comunidades`
---
-ALTER TABLE `comunidades`
-  ADD CONSTRAINT `comunidades_ibfk_1` FOREIGN KEY (`creador_id`) REFERENCES `usuarios` (`id`);
-
---
--- Filtros para la tabla `imagenes_emprendimiento`
---
-ALTER TABLE `imagenes_emprendimiento`
-  ADD CONSTRAINT `imagenes_emprendimiento_ibfk_1` FOREIGN KEY (`usuario_id`) REFERENCES `usuarios` (`id`);
-
---
 -- Filtros para la tabla `imagenes_trueque`
 --
 ALTER TABLE `imagenes_trueque`
   ADD CONSTRAINT `imagenes_trueque_ibfk_1` FOREIGN KEY (`trueque_id`) REFERENCES `trueques` (`id`) ON DELETE CASCADE;
 
 --
--- Filtros para la tabla `interacciones_trueque`
+-- Filtros para la tabla `resultados_quiz`
 --
-ALTER TABLE `interacciones_trueque`
-  ADD CONSTRAINT `interacciones_trueque_ibfk_1` FOREIGN KEY (`trueque_id`) REFERENCES `trueques` (`id`),
-  ADD CONSTRAINT `interacciones_trueque_ibfk_2` FOREIGN KEY (`interesado_id`) REFERENCES `usuarios` (`id`);
-
---
--- Filtros para la tabla `intercambios_usuario`
---
-ALTER TABLE `intercambios_usuario`
-  ADD CONSTRAINT `intercambios_usuario_ibfk_1` FOREIGN KEY (`usuario_id`) REFERENCES `usuarios` (`id`);
-
---
--- Filtros para la tabla `miembros_comunidad`
---
-ALTER TABLE `miembros_comunidad`
-  ADD CONSTRAINT `miembros_comunidad_ibfk_1` FOREIGN KEY (`usuario_id`) REFERENCES `usuarios` (`id`),
-  ADD CONSTRAINT `miembros_comunidad_ibfk_2` FOREIGN KEY (`comunidad_id`) REFERENCES `comunidades` (`id`);
-
---
--- Filtros para la tabla `participacion_comunidad`
---
-ALTER TABLE `participacion_comunidad`
-  ADD CONSTRAINT `participacion_comunidad_ibfk_1` FOREIGN KEY (`usuario_id`) REFERENCES `usuarios` (`id`),
-  ADD CONSTRAINT `participacion_comunidad_ibfk_2` FOREIGN KEY (`comunidad_id`) REFERENCES `comunidades` (`id`);
-
---
--- Filtros para la tabla `preguntas_trueques`
---
-ALTER TABLE `preguntas_trueques`
-  ADD CONSTRAINT `preguntas_trueques_ibfk_1` FOREIGN KEY (`trueque_id`) REFERENCES `trueques` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `preguntas_trueques_ibfk_2` FOREIGN KEY (`usuario_id`) REFERENCES `usuarios` (`id`) ON DELETE CASCADE;
-
---
--- Filtros para la tabla `reconocimientos_usuario`
---
-ALTER TABLE `reconocimientos_usuario`
-  ADD CONSTRAINT `reconocimientos_usuario_ibfk_1` FOREIGN KEY (`usuario_id`) REFERENCES `usuarios` (`id`),
-  ADD CONSTRAINT `reconocimientos_usuario_ibfk_2` FOREIGN KEY (`otorgado_por`) REFERENCES `usuarios` (`id`);
-
---
--- Filtros para la tabla `saberes_usuario`
---
-ALTER TABLE `saberes_usuario`
-  ADD CONSTRAINT `saberes_usuario_ibfk_1` FOREIGN KEY (`usuario_id`) REFERENCES `usuarios` (`id`);
-
---
--- Filtros para la tabla `valoraciones_trueque`
---
-ALTER TABLE `valoraciones_trueque`
-  ADD CONSTRAINT `valoraciones_trueque_ibfk_1` FOREIGN KEY (`acuerdo_id`) REFERENCES `acuerdos_trueque` (`id`),
-  ADD CONSTRAINT `valoraciones_trueque_ibfk_2` FOREIGN KEY (`evaluador_id`) REFERENCES `usuarios` (`id`),
-  ADD CONSTRAINT `valoraciones_trueque_ibfk_3` FOREIGN KEY (`evaluado_id`) REFERENCES `usuarios` (`id`);
-
---
--- Filtros para la tabla `visitas_trueques`
---
-ALTER TABLE `visitas_trueques`
-  ADD CONSTRAINT `visitas_trueques_ibfk_1` FOREIGN KEY (`trueque_id`) REFERENCES `trueques` (`id`),
-  ADD CONSTRAINT `visitas_trueques_ibfk_2` FOREIGN KEY (`usuario_id`) REFERENCES `usuarios` (`id`);
+ALTER TABLE `resultados_quiz`
+  ADD CONSTRAINT `resultados_quiz_ibfk_1` FOREIGN KEY (`numero_documento`) REFERENCES `usuarios` (`numero_documento`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
