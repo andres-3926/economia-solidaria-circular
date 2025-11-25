@@ -56,7 +56,7 @@ $cartilla = [
     [
         "tipo" => "contenido_con_actividad",
         "titulo" => "¡Los Residuos son Oportunidades!",
-        "texto" => "¡De la <span style='color: #FFD700;'>cáscara de plátano</span> al <span style='color: #32CD32;'>abono para tus plantas</span>, del <span style='color: #FF6B6B;'>retazo</span> a una <span style='color: #4ECDC4;'>nueva creación</span>!",
+        "texto" => "¡Lo que antes se botaba ahora puede convertirse en un recurso valioso para tu negocio: desde cascaras que se transforman en abono, hasta retazos que se convierten en nuevas creaciones.!",
         "actividad_titulo" => "Actividad del Tema 2: ¿Qué Residuo Ves Tú?",
         "actividad_descripcion" => "Observa tu espacio de trabajo (o tu casa). Nombra <b>3 tipos de residuos</b> que generas con frecuencia y piensa en una forma diferente de verlos (¿podría ser un recurso?).",
         "fondo" => "img/transformacion-residuos.jpg",
@@ -1617,6 +1617,28 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
             border: 3px solid #e74c3c;
             color: white;
         }
+        /* Compactar contenido y navegación en móviles */
+    @media (max-width: 768px) {
+        .container-fluid.header-aprende,
+        .container-fluid.header-aprende .row,
+        .container-fluid.header-aprende .col-12.col-lg-11.mx-auto.px-3 {
+            min-height: unset !important;
+            height: auto !important;
+            padding-bottom: 0 !important;
+        }
+        .cuadro-texto {
+            margin-bottom: 0.3rem !important;
+        }
+        .container-fluid.header-aprende .container-fluid.px-0 {
+            margin-top: 0 !important;
+            margin-bottom: 0 !important;
+            padding-bottom: 0 !important;
+        }
+        .footer {
+            margin-top: 0 !important;
+            padding-top: 1rem !important;
+        }
+    }
     </style>
 </head>
 
@@ -1865,14 +1887,13 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
             
         <div class="container-fluid h-100 p-0">
             <div class="row g-0 justify-content-center" style="height: 100vh;">
-                <div class="col-12 col-lg-11 mx-auto px-3 pt-2">
-                    <div class="cuadro-texto text-center mb-1" style="padding: 0.5rem 1rem; max-width: 1100px; margin: 0 auto;">
-                        <h1 class="mb-1" style="font-size: clamp(1.2rem, 3.3vw, 1.6rem); line-height: 1.2; color: #001122; font-weight: 900;">
-                            <?php echo $cartilla[$pagina]['titulo']; ?>
-                        </h1>
-                        <h3 class="mb-0" style="font-size: clamp(0.9rem, 2vw, 1.1rem); font-weight: 700; color: #003366;">
-                            <?php echo $cartilla[$pagina]['subtitulo']; ?>
-                        </h3>
+                <div class="col-12 col-lg-11 mx-auto px-3 pt-3 pb-2">
+                    <div class="cuadro-texto text-center mb-2" style="padding: 0.8rem 1.5rem; max-width: 1100px; margin: 0 auto;">
+                        <?php if (isset($cartilla[$pagina]['titulo'])): ?>
+                            <h1 class="mb-2" style="font-size: clamp(1.3rem, 3.5vw, 1.8rem); line-height: 1.3; color: #001122; font-weight: 900;">
+                                <?php echo $cartilla[$pagina]['titulo']; ?>
+                            </h1>
+                        <?php endif; ?>
                     </div>
                 </div>
                 
@@ -1934,7 +1955,9 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
             background-image: url('<?php echo $cartilla[$pagina]['fondo']; ?>');
             background-size: cover;
             background-position: center;
-            min-height: 100vh;">
+            min-height: 100vh;
+            padding-bottom: 0.5rem;">
+            
             
         <div class="container-fluid h-100 p-0">
             <div class="row g-0 justify-content-center" style="height: 100vh;">
@@ -2018,16 +2041,30 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
                     <?php endif; ?>
                     
                     <!-- Navegación compacta -->
-                    <div class="d-flex justify-content-between align-items-end mt-2">
-                        <a href="aprende.php?pagina=<?php echo $pagina-1; ?>" class="btn btn-lg text-white" style="background-color: #43be16; z-index: 10; padding: 0.4rem 0.85rem; font-size: clamp(0.8rem, 1.8vw, 0.95rem);">
+                    <div class="d-flex justify-content-between align-items-end mt-2" style="background: transparent !important; padding: 0;">
+                        <a href="aprende.php?pagina=<?php echo $pagina-1; ?>" 
+                        class="btn btn-lg text-white" 
+                        style="background-color: #43be16; 
+                                z-index: 10; 
+                                padding: 0.4rem 0.85rem; 
+                                font-size: clamp(0.8rem, 1.8vw, 0.95rem);">
                             <i class="fa fa-arrow-left me-1"></i> Anterior
                         </a>
-                        <div class="text-white text-center d-none d-md-block" style="font-size: clamp(0.7rem, 1.3vw, 0.85rem);">
+                        
+                        <div class="text-white text-center d-none d-md-block" 
+                            style="font-size: clamp(0.7rem, 1.3vw, 0.85rem); 
+                                    text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">
                             Página <?php echo $pagina+1; ?> de <?php echo $total_paginas; ?>
                         </div>
+                        
                         <div class="d-flex align-items-end">
                             <?php if ($pagina < $total_paginas-1): ?>
-                                <a href="aprende.php?pagina=<?php echo $pagina+1; ?>" class="btn btn-lg text-white" style="background-color: #43be16; z-index: 10; padding: 0.4rem 0.85rem; font-size: clamp(0.8rem, 1.8vw, 0.95rem);">
+                                <a href="aprende.php?pagina=<?php echo $pagina+1; ?>" 
+                                class="btn btn-lg text-white" 
+                                style="background-color: #43be16; 
+                                        z-index: 10; 
+                                        padding: 0.4rem 0.85rem; 
+                                        font-size: clamp(0.8rem, 1.8vw, 0.95rem);">
                                     Siguiente <i class="fa fa-arrow-right ms-1"></i>
                                 </a>
                             <?php endif; ?>
@@ -2046,7 +2083,7 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
             background-size: cover;
             background-position: center;
             min-height: 100vh;
-            padding-bottom: 6rem;">
+            padding-bottom: 0.5rem;">
             
         <div class="container-fluid h-100 p-0">
             <div class="row g-0 justify-content-center">
@@ -2063,7 +2100,7 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
                 </div>
                 
                 <!-- Contenido con scroll automático -->
-                <div class="col-12 col-lg-11 mx-auto px-3" style="max-height: none; overflow-y: visible;"> 
+                <div class="col-12 col-lg-11 mx-auto px-3" style="max-height: none; overflow-y: visible; padding-bottom: 0;"> 
                     <!-- Texto introductorio -->
                     <?php if (isset($cartilla[$pagina]['texto'])): ?>
                         <div class="cuadro-texto mx-auto mb-3" style="max-width: 1150px; padding: 0.8rem 1.2rem; width: 95%;">
@@ -2151,18 +2188,18 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
                     endif; 
                     ?>
                     
-                    <!-- Navegación SIN FONDO OSCURO Y PEGADA A LOS BORDES -->
-                    <div class="container-fluid px-0 mt-4 mb-3">
+                    <!-- Navegación ULTRA COMPACTA -->
+                    <div class="container-fluid px-0" style="margin-top: 0.5rem; margin-bottom: 0;">
                         <div class="row g-0 w-100">
-                            <div class="col-12 d-flex justify-content-between align-items-center px-2" style="background: transparent;">
-                                <a href="aprende.php?pagina=<?php echo $pagina-1; ?>" class="btn btn-lg text-white" style="background-color: #43be16; padding: 0.6rem 1.2rem; font-size: clamp(0.9rem, 2vw, 1.05rem);">
+                            <div class="col-12 d-flex justify-content-between align-items-center" style="padding: 0; background: transparent;">
+                                <a href="aprende.php?pagina=<?php echo $pagina-1; ?>" class="btn btn-lg text-white" style="background-color: #43be16; padding: 0.5rem 1rem; font-size: clamp(0.85rem, 1.8vw, 1rem);">
                                     <i class="fa fa-arrow-left me-2"></i> Anterior
                                 </a>
-                                <div class="text-white text-center d-none d-md-block" style="font-size: clamp(0.8rem, 1.5vw, 0.95rem); text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">
+                                <div class="text-white text-center d-none d-md-block" style="font-size: clamp(0.75rem, 1.4vw, 0.9rem); text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">
                                     Página <?php echo $pagina+1; ?> de <?php echo $total_paginas; ?>
                                 </div>
                                 <?php if ($pagina < $total_paginas-1): ?>
-                                    <a href="aprende.php?pagina=<?php echo $pagina+1; ?>" class="btn btn-lg text-white" style="background-color: #43be16; padding: 0.6rem 1.2rem; font-size: clamp(0.9rem, 2vw, 1.05rem);">
+                                    <a href="aprende.php?pagina=<?php echo $pagina+1; ?>" class="btn btn-lg text-white" style="background-color: #43be16; padding: 0.5rem 1rem; font-size: clamp(0.85rem, 1.8vw, 1rem);">
                                         Siguiente <i class="fa fa-arrow-right ms-2"></i>
                                     </a>
                                 <?php endif; ?>
@@ -2182,7 +2219,7 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
             background-size: cover;
             background-position: center;
             min-height: 100vh;
-            padding-bottom: 6rem;">
+            padding-bottom: 0.5rem;">
             
         <div class="container-fluid h-100 p-0">
             <div class="row g-0 justify-content-center">
@@ -2326,7 +2363,7 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
             background-position: center;
             background-repeat: no-repeat;
             min-height: 100vh;
-            padding-bottom: 6rem;">
+            padding-bottom: 0.5rem;">
             
         <div class="container-fluid h-100 p-0">
             <div class="row g-0 justify-content-center">
@@ -2440,7 +2477,7 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
             background-size: cover;
             background-position: center;
             min-height: 100vh;
-            padding-bottom: 6rem;">
+            padding-bottom: 0.5rem;">
             
         <div class="container-fluid h-100 p-0">
             <div class="row g-0 justify-content-center">
@@ -2587,15 +2624,49 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
                     </div>
                     
                     <!-- Navegación -->
-                    <div class="container-fluid px-0 mt-3 mb-3">
-                        <div class="row g-0 w-100">
-                            <div class="col-12 d-flex justify-content-between align-items-center px-2">
-                                <a href="aprende.php?pagina=<?php echo $pagina-1; ?>" class="btn btn-lg text-white" style="background-color: #43be16; padding: 0.6rem 1.2rem; font-size: clamp(0.9rem, 2vw, 1.05rem);">
-                                    <i class="fa fa-arrow-left me-2"></i> Anterior
-                                </a>
-                                <div class="text-white text-center d-none d-md-block" style="font-size: clamp(0.8rem, 1.5vw, 0.95rem); text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">
-                                    Página <?php echo $pagina+1; ?> de <?php echo $total_paginas; ?>
-                                </div>                                
+                    <div class="container-fluid px-0 mt-3 mb-0">
+                        <div class="row g-0">
+                            <div class="col-12">
+                                <div class="d-flex justify-content-between align-items-center px-3 py-2" style="background: rgba(0, 0, 0, 0.5); border-radius: 10px; max-width: 100%;">
+                                    <!-- Botón Anterior -->
+                                    <a href="aprende.php?pagina=<?php echo $pagina-1; ?>" 
+                                    class="btn btn-lg text-white" 
+                                    style="background-color: #43be16; 
+                                            padding: 0.6rem 1.2rem; 
+                                            font-size: clamp(0.85rem, 2vw, 1rem);
+                                            flex-shrink: 0;">
+                                        <i class="fa fa-arrow-left me-2"></i> Anterior
+                                    </a>
+                                    
+                                    <!-- Indicador de página (solo desktop) -->
+                                    <div class="text-white text-center flex-grow-1 d-none d-md-block" 
+                                        style="font-size: clamp(0.75rem, 1.5vw, 0.9rem); 
+                                                text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+                                                padding: 0 1rem;">
+                                        Página <?php echo $pagina+1; ?> de <?php echo $total_paginas; ?>
+                                    </div>
+                                    
+                                    <!-- Botón Siguiente -->
+                                    <?php if ($pagina < $total_paginas-1): ?>
+                                        <a href="aprende.php?pagina=<?php echo $pagina+1; ?>" 
+                                        class="btn btn-lg text-white" 
+                                        style="background-color: #43be16; 
+                                                padding: 0.6rem 1.2rem; 
+                                                font-size: clamp(0.85rem, 2vw, 1rem);
+                                                flex-shrink: 0;">
+                                            Siguiente <i class="fa fa-arrow-right ms-2"></i>
+                                        </a>
+                                    <?php else: ?>
+                                        <a href="aprende.php?pagina=0" 
+                                        class="btn btn-lg text-white" 
+                                        style="background-color: #003d82; 
+                                                padding: 0.6rem 1.2rem; 
+                                                font-size: clamp(0.85rem, 2vw, 1rem);
+                                                flex-shrink: 0;">
+                                            <i class="fa fa-home me-2"></i> Inicio
+                                        </a>
+                                    <?php endif; ?>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -2612,7 +2683,7 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
             background-size: cover;
             background-position: center;
             min-height: 100vh;
-            padding-bottom: 6rem;">
+            padding-bottom: 0.5rem;">
             
         <div class="container-fluid h-100 p-0">
             <div class="row g-0 justify-content-center">
@@ -2815,7 +2886,7 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
             background-size: cover;
             background-position: center;
             min-height: 100vh;
-            padding-bottom: 6rem;">
+            padding-bottom: 0.5rem;">
             
         <div class="container-fluid h-100 p-0">
             <div class="row g-0 justify-content-center">
@@ -2997,12 +3068,15 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
             min-height: 100vh;">
             
         <div class="container-fluid h-100 p-0">
-            <div class="row g-0 justify-content-center" style="height: 100vh;">
-                <!-- Contenido centrado -->
-                <div class="col-12 col-lg-8 mx-auto px-4 d-flex flex-column justify-content-end" style="height: <?php echo $height_bloque; ?>;"> 
+            <div class="row g-0 justify-content-center" style="min-height: 100vh;"> 
+                <!-- Contenido empujado hacia abajo -->
+                <div class="col-12 col-lg-8 mx-auto px-4 d-flex flex-column" style="justify-content: flex-end; min-height: 100vh; padding-bottom: 0.5rem;"> 
+                    
+                    <!-- ✅ ESPACIADOR GRANDE PARA EMPUJAR TODO HACIA ABAJO -->
+                    <div style="flex-grow: 1; min-height: 70vh;"></div>
                     
                     <!-- Título -->
-                    <div class="cuadro-texto text-center mx-auto mb-3">
+                    <div class="cuadro-texto text-center mx-auto mb-2" style="max-width: 800px;">
                         <h1 class="mb-2" style="font-size: clamp(1.5rem, 4vw, 2.2rem); color: #001122; font-weight: 900; line-height: 1.2;">
                             <?php echo $cartilla[$pagina]['titulo']; ?>
                         </h1>
@@ -3010,7 +3084,7 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
                     
                     <!-- Texto principal -->
                     <?php if (isset($cartilla[$pagina]['texto'])): ?>
-                        <div class="cuadro-texto mx-auto mb-3">
+                        <div class="cuadro-texto mx-auto mb-2" style="max-width: 800px;">
                             <div class="texto-contenido">
                                 <?php echo $texto_con_iconos; ?>
                             </div>
@@ -3019,7 +3093,7 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
                     
                     <!-- Texto secundario (si existe) -->
                     <?php if (isset($cartilla[$pagina]['texto2'])): ?>
-                        <div class="cuadro-texto mx-auto mb-3">
+                        <div class="cuadro-texto mx-auto mb-2" style="max-width: 800px;">
                             <div class="texto-contenido">
                                 <?php echo $cartilla[$pagina]['texto2']; ?>
                             </div>
@@ -3028,15 +3102,15 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
                     
                     <!-- Logo SENA (si existe) -->
                     <?php if (isset($cartilla[$pagina]['logo'])): ?>
-                        <div class="text-center mb-3">
+                        <div class="text-center mb-2">
                             <img src="<?php echo $cartilla[$pagina]['logo']; ?>" 
                                  alt="Logo SENA" 
                                  style="height: 80px; filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));">
                         </div>
                     <?php endif; ?>
                     
-                    <!-- Navegación -->
-                    <div class="d-flex justify-content-between align-items-end mt-3">
+                    <!-- ✅ NAVEGACIÓN PEGADA AL BORDE INFERIOR -->
+                    <div class="d-flex justify-content-between align-items-center mt-2" style="padding-bottom: 0.1rem;">
                         <?php if ($pagina > 0): ?>
                             <a href="aprende.php?pagina=<?php echo $pagina-1; ?>" class="btn btn-lg text-white" style="background-color: #43be16;">
                                 <i class="fa fa-arrow-left me-2"></i> Anterior
@@ -3757,6 +3831,7 @@ function mostrarResultadoQuiz(correctas, total, porcentaje, aprobado, tiempo) {
     mensajeDiv.style.display = 'block';
     mensajeDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
 }
+
     </script>
     
 </body>
