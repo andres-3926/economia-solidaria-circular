@@ -1618,31 +1618,81 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
             color: white;
         }
         /* Compactar contenido y navegación en móviles */
-    @media (max-width: 768px) {
-        .container-fluid.header-aprende,
-        .container-fluid.header-aprende .row,
-        .container-fluid.header-aprende .col-12.col-lg-11.mx-auto.px-3 {
-            min-height: unset !important;
-            height: auto !important;
-            padding-bottom: 0 !important;
+        @media (max-width: 768px) {
+            .container-fluid.header-aprende,
+            .container-fluid.header-aprende .row,
+            .container-fluid.header-aprende .col-12.col-lg-11.mx-auto.px-3 {
+                min-height: unset !important;
+                height: auto !important;
+                padding-bottom: 0.3rem !important;
+            }
+            .cuadro-texto {
+                margin-bottom: 0.3rem !important;
+            }
+            .container-fluid.header-aprende .container-fluid.px-0 {
+                margin-top: 0 !important;
+                margin-bottom: 0 !important;
+                padding-bottom: 0 !important;
+            }
+            .footer {
+                margin-top: 0 !important;
+                padding-top: 1rem !important;
+            }
         }
-        .cuadro-texto {
-            margin-bottom: 0.3rem !important;
+        @media (max-width: 768px) {
+            /* SOLO en la página 6 */
+            body[data-pagina="6"] .header-aprende .col-12.col-lg-10.mx-auto.px-3.py-4.d-flex.flex-column {
+                background: transparent !important;
+                box-shadow: none !important;
+                border: none !important;
+            }
+            body[data-pagina="6"] .header-aprende .d-flex.justify-content-start,
+            body[data-pagina="6"] .header-aprende .d-flex.justify-content-start.mt-3.px-2 {
+                background: transparent !important;
+                box-shadow: none !important;
+                border: none !important;
+            }
         }
-        .container-fluid.header-aprende .container-fluid.px-0 {
-            margin-top: 0 !important;
-            margin-bottom: 0 !important;
-            padding-bottom: 0 !important;
+        @media (max-width: 992px) {
+            /* Elimina fondo oscuro en TODOS los bloques de navegación */
+            .d-flex.justify-content-between.align-items-end,
+            .d-flex.justify-content-start,
+            .d-flex.justify-content-between.align-items-center,
+            .d-flex.justify-content-between,
+            .d-flex.justify-content-center {
+                background: transparent !important;
+                box-shadow: none !important;
+                border: none !important;
+            }
         }
-        .footer {
-            margin-top: 0 !important;
-            padding-top: 1rem !important;
+        @media (max-width: 768px) {
+            body[data-pagina="6"] .header-aprende .col-12.col-lg-10.mx-auto.px-3.py-4.d-flex.flex-column,
+            body[data-pagina="7"] .header-aprende .col-12.col-lg-10.mx-auto.px-3.py-4.d-flex.flex-column {
+                min-height: 100vh !important;
+                max-height: 100vh !important;
+                display: flex !important;
+                flex-direction: column !important;
+                overflow-y: auto !important;
+            }
+            body[data-pagina="6"] .header-aprende .d-flex.justify-content-start,
+            body[data-pagina="7"] .header-aprende .d-flex.justify-content-start {
+                margin-top: auto !important;
+                padding-bottom: 0.5rem !important;
+            }
+            /* Opcional: reduce el padding de los cuadros para liberar espacio */
+            body[data-pagina="6"] .cuadro-texto,
+            body[data-pagina="7"] .cuadro-texto,
+            body[data-pagina="6"] .cuadro-actividad,
+            body[data-pagina="7"] .cuadro-actividad {
+                padding: 0.7rem 0.5rem !important;
+                margin-bottom: 0.2rem !important;
+                max-width: 98vw !important;
+            }
         }
-    }
     </style>
 </head>
 
-<body>
+<body data-pagina="<?php echo $pagina; ?>">
     <!-- Spinner Start -->
     <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
         <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
@@ -2627,7 +2677,7 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
                     <div class="container-fluid px-0 mt-3 mb-0">
                         <div class="row g-0">
                             <div class="col-12">
-                                <div class="d-flex justify-content-between align-items-center px-3 py-2" style="background: rgba(0, 0, 0, 0.5); border-radius: 10px; max-width: 100%;">
+                                <div class="d-flex justify-content-between align-items-center px-3 py-2" style="background: transparent; border-radius: 10px; max-width: 100%;">
                                     <!-- Botón Anterior -->
                                     <a href="aprende.php?pagina=<?php echo $pagina-1; ?>" 
                                     class="btn btn-lg text-white" 
