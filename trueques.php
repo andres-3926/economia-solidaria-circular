@@ -572,7 +572,8 @@ $trueques_publicados = $result->fetch_all(MYSQLI_ASSOC);
                     <div class="row">
                     <?php foreach ($trueques_publicados as $t): ?>
                         <div class="col-md-6 col-lg-4 mb-4">
-                            <div class="card h-100 shadow-sm">
+                            <div class="card h-100 shadow-sm trueque-card" style="cursor:pointer;" onclick="window.location.href='trueques.php?id=<?php echo $t['id']; ?>'">
+                                
                                 <?php
                                 // Mostrar imágenes del trueque (máximo 3)
                                 $stmt_imgs = $conn->prepare("SELECT ruta_imagen FROM imagenes_trueque WHERE trueque_id = ?");
@@ -656,7 +657,7 @@ $trueques_publicados = $result->fetch_all(MYSQLI_ASSOC);
                                     <?php if (!empty($t['correo'])): ?>
                                         <small><i class="fa fa-envelope"></i> <?php echo htmlspecialchars($t['correo']); ?></small><br>
                                     <?php endif; ?>
-                                </div>
+                                </div>                                
                             </div>
                         </div>
                     <?php endforeach; ?>
@@ -835,6 +836,14 @@ $trueques_publicados = $result->fetch_all(MYSQLI_ASSOC);
         var form = document.getElementById(id);
         if(form) form.style.display = 'block';
     }
+    </script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+        tooltipTriggerList.forEach(function (tooltipTriggerEl) {
+            new bootstrap.Tooltip(tooltipTriggerEl);
+        });
+    });
     </script>
 </body>
 </html>

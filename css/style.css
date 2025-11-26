@@ -1,4 +1,3 @@
-/********** Template CSS **********/
 :root {
     --primary: #06BBCC;
     --light: #F0FBFC;
@@ -741,10 +740,6 @@ html, body {
         font-size: 0.75rem !important;
     }
 }
-/* ========================================
-   ✅ PÁGINA 11 - ELIMINAR ESPACIOS EN MÓVILES
-   ======================================== */
-
 @media (max-width: 992px) {
     .pagina-11 .container-fluid.header-aprende {
         min-height: auto !important;
@@ -790,4 +785,60 @@ html, body {
         padding: 0.4rem 0.8rem !important;
         font-size: 0.85rem !important;
     }
+}
+/* Efecto burbuja/levantar más notorio sobre fondo blanco Bootstrap */
+.trueque-card {
+    transition: box-shadow 0.25s, transform 0.25s;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(67,190,22,0.10), 0 1px 2px rgba(0,0,0,0.08);
+    border-radius: 14px;
+    background: #fff;
+    position: relative;
+    z-index: 1;
+}
+.trueque-card:hover {
+    box-shadow: 0 12px 32px rgba(67,190,22,0.22), 0 0 0 4px #43be1622, 0 4px 24px rgba(0,0,0,0.12);
+    transform: scale(1.04) translateY(-6px);
+    z-index: 2;
+    border: 2px solid #43be16;
+}
+/* Anula la sombra de Bootstrap en hover */
+.trueque-card:hover,
+.trueque-card:focus,
+.trueque-card:active {
+    box-shadow: 0 12px 32px rgba(67,190,22,0.22), 0 0 0 4px #43be1622, 0 4px 24px rgba(0,0,0,0.12) !important;
+}
+/* Fuerza el efecto burbuja/levantar en las tarjetas de trueque */
+.card.trueque-card:hover,
+.card.trueque-card:focus,
+.card.trueque-card:active {
+    box-shadow: 0 16px 40px rgba(67,190,22,0.28), 0 0 0 6px #43be1622, 0 8px 32px rgba(0,0,0,0.18) !important;
+    transform: scale(1.06) translateY(-10px) !important;
+    border: 2px solid #43be16 !important;
+    z-index: 10 !important;
+}
+.tooltip-trueque {
+    position: relative;
+}
+.tooltip-trueque .tooltip-text {
+    visibility: hidden;
+    opacity: 0;
+    background: #181d38;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 4px 12px;
+    position: absolute;
+    left: 50%;
+    bottom: 110%;
+    transform: translateX(-50%);
+    z-index: 20;
+    transition: opacity 0.2s;
+    font-size: 0.95rem;
+    pointer-events: none;
+    white-space: nowrap;
+}
+.tooltip-trueque:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
 }

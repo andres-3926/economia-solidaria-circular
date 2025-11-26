@@ -290,7 +290,7 @@ if (isset($_SESSION['numero_documento'])) {
                 <div class="row">
                 <?php foreach ($trueques_publicados as $t): ?>
                     <div class="col-md-6 col-lg-4 mb-4">
-                        <div class="card h-100 shadow-sm">
+                        <div class="card h-100 shadow-sm trueque-card" style="cursor:pointer;" onclick="window.location.href='trueques.php?id=<?php echo $t['id']; ?>'">
                             <?php
                             $stmt_imgs = $conn->prepare("SELECT ruta_imagen FROM imagenes_trueque WHERE trueque_id = ?");
                             $stmt_imgs->bind_param("i", $t['id']);
@@ -579,6 +579,15 @@ if (isset($_SESSION['numero_documento'])) {
                 document.getElementById('seccion-aprende').scrollIntoView({ behavior: 'smooth', block: 'center' });
             }, 500);
         }
+    });
+    </script>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+        tooltipTriggerList.forEach(function (tooltipTriggerEl) {
+            new bootstrap.Tooltip(tooltipTriggerEl);
+        });
     });
     </script>
 </body>
