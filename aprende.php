@@ -1715,7 +1715,17 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
                 <a href="aprende.php" class="nav-item nav-link fw-bold<?php echo $pagina_activa === 'aprende' ? ' active text-primary' : ' text-dark'; ?>">Aprende</a>
                 <?php
                 if (isset($_SESSION['numero_documento'])) {
-                    echo '<a href="perfil.php" class="nav-item nav-link fw-bold'.($pagina_activa === 'perfil' ? ' active text-primary' : ' text-dark').'">Perfil</a>';
+                    $nombre_usuario = '';
+                    $sql_nombre = "SELECT nombre_completo FROM usuarios WHERE numero_documento = ?";
+                    $stmt_nombre = $conn->prepare($sql_nombre);
+                    $stmt_nombre->bind_param("s", $_SESSION['numero_documento']);
+                    $stmt_nombre->execute();
+                    $res_nombre = $stmt_nombre->get_result();
+                    if ($row_nombre = $res_nombre->fetch_assoc()) {
+                        $nombre_usuario = $row_nombre['nombre_completo'];
+                    }
+                    $stmt_nombre->close();
+                    echo '<a href="perfil.php" class="nav-item nav-link fw-bold'.($pagina_activa === 'perfil' ? ' active text-primary' : ' text-dark').'" style="color:#43be16 !important;font-weight:bold !important;">'.($nombre_usuario ? htmlspecialchars($nombre_usuario) : 'Perfil').'</a>';
                     echo '<a href="logout.php" class="btn py-4 px-lg-5 d-none d-lg-block text-white" style="background-color: #43be16;">Cerrar sesión<i class="fa fa-arrow-right ms-3"></i></a>';
                     echo '<a href="logout.php" class="btn btn-success d-block d-lg-none my-3 w-100 text-white text-center justify-content-center align-items-center d-flex" style="background-color: #43be16;">'
                         .'<span class="mx-auto">Cerrar sesión</span>'

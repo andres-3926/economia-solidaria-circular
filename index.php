@@ -94,16 +94,26 @@ if (isset($_SESSION['numero_documento'])) {
                 <a href="javascript:location.reload();" class="nav-item nav-link fw-bold<?php echo $pagina_activa === 'inicio' ? ' active text-primary' : ' text-dark'; ?>">Inicio</a>
                 <a href="trueques.php" class="nav-item nav-link fw-bold<?php echo $pagina_activa === 'trueque-comunitario' ? ' active text-primary' : ' text-dark'; ?>">Trueques</a>
                 <a href="<?php echo isset($_SESSION['numero_documento']) ? 'aprende.php' : '#seccion-aprende'; ?>" class="nav-item nav-link fw-bold<?php echo $pagina_activa === 'aprende' ? ' active text-primary' : ' text-dark'; ?>">Aprende</a>
-                <?php
-                if(isset($_SESSION['numero_documento'])) {                   
-                    if (isset($admin) && strtolower(trim($admin['rol'])) === 'administrador' && $noti_pendientes > 0) {
-                        echo '<a href="perfil.php" class="nav-item nav-link animate__animated animate__flash animate__infinite">Perfil</a>';
-                    } else {
-                        $clave_perfil = ($pagina_activa === 'perfil') ? 'nav-item nav-link active text-primary' : 'nav-item nav-link text-dark';
-                        echo '<a href="perfil.php" class="' . $clave_perfil . '">Perfil</a>';
+                    <?php
+                    if(isset($_SESSION['numero_documento'])) {
+                        $nombre_usuario = '';
+                        $sql_nombre = "SELECT nombre_completo FROM usuarios WHERE numero_documento = ?";
+                        $stmt_nombre = $conn->prepare($sql_nombre);
+                        $stmt_nombre->bind_param("s", $_SESSION['numero_documento']);
+                        $stmt_nombre->execute();
+                        $res_nombre = $stmt_nombre->get_result();
+                        if ($row_nombre = $res_nombre->fetch_assoc()) {
+                            $nombre_usuario = $row_nombre['nombre_completo'];
+                        }
+                        $stmt_nombre->close();
+                        if (isset($admin) && strtolower(trim($admin['rol'])) === 'administrador' && $noti_pendientes > 0) {
+                            echo '<a href="perfil.php" class="nav-item nav-link animate__animated animate__flash animate__infinite" style="color:#43be16 !important;font-weight:bold !important;">' . ($nombre_usuario ? htmlspecialchars($nombre_usuario) : 'Perfil') . '</a>';
+                        } else {
+                            $clave_perfil = ($pagina_activa === 'perfil') ? 'nav-item nav-link active' : 'nav-item nav-link';
+                            echo '<a href="perfil.php" class="' . $clave_perfil . '" style="color:#43be16 !important;font-weight:bold !important;">' . ($nombre_usuario ? htmlspecialchars($nombre_usuario) : 'Perfil') . '</a>';
+                        }
                     }
-                }
-                ?>
+                    ?>
                 <?php
                 if (isset($_SESSION['numero_documento'])) {
                     echo '<a href="logout.php" class="btn py-4 px-lg-5 d-none d-lg-block text-white" style="background-color: #43be16;">Cerrar sesión<i class="fa fa-arrow-right ms-3"></i></a>';

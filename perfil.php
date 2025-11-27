@@ -158,18 +158,14 @@ if ($usuario['rol'] === 'administrador') {
         .card-tab {
              min-height: 120px;       /* Opcional: reduce la altura de la tarjeta */
         }
+        /* Eliminar el fondo gris del header */
         .page-header {
-            background: linear-gradient(rgba(24, 29, 56, .7), rgba(24, 29, 56, .7)), url('<?php echo htmlspecialchars($foto); ?>');
-            background-position: center 20%;
-            background-repeat: no-repeat;
-            background-size: 100% 120%;
-            min-height: 420px;
-            max-width: 1200px;
-            margin-left: auto !important;
-            margin-right: auto !important;
-            margin-top: 32px !important;
-            border-radius: 2.5vw;
-            overflow: hidden;
+            background: none;
+            min-height: 0;
+            max-width: 100%;
+            margin: 0;
+            border-radius: 0;
+            overflow: visible;
         }
         .badge-activo {
             background: #43be16 !important;
@@ -232,96 +228,81 @@ if ($usuario['rol'] === 'administrador') {
                     }
                     echo '</a>';
                 }
-                // Botón perfil
+                // Botón perfil SOLO UNA VEZ y SIEMPRE VERDE
                 if (isset($_SESSION['numero_documento'])) {
-                    $clave_perfil = ($pagina_activa === 'perfil') ? 'nav-item nav-link fw-bold active text-primary' : 'nav-item nav-link fw-bold text-dark';
-                    echo '<a href="perfil.php" class="' . $clave_perfil . '">Perfil</a>';
+                    $nombre_usuario = '';
+                    $sql_nombre = "SELECT nombre_completo FROM usuarios WHERE numero_documento = ?";
+                    $stmt_nombre = $conn->prepare($sql_nombre);
+                    $stmt_nombre->bind_param("s", $_SESSION['numero_documento']);
+                    $stmt_nombre->execute();
+                    $res_nombre = $stmt_nombre->get_result();
+                    if ($row_nombre = $res_nombre->fetch_assoc()) {
+                        $nombre_usuario = $row_nombre['nombre_completo'];
+                    }
+                    $stmt_nombre->close();
+                    echo '<a href="perfil.php" class="nav-item nav-link fw-bold" style="color:#43be16 !important;font-weight:bold !important;">'.htmlspecialchars($nombre_usuario).'</a>';
                 }
-                ?>
-                <?php
+                // Botón de cerrar sesión escritorio y móvil
                 if (isset($_SESSION['numero_documento'])) {
-                    // Botón de cerrar sesión escritorio
                     echo '<a href="logout.php" class="btn py-4 px-lg-5 d-none d-lg-block text-white" style="background-color: #43be16;">Cerrar sesión<i class="fa fa-arrow-right ms-3"></i></a>';
-                    // Botón de cerrar sesión móvil (hamburguesa)
                     echo '<a href="logout.php" class="btn btn-success d-block d-lg-none my-3 w-100 text-white text-center justify-content-center align-items-center d-flex" style="background-color: #43be16;">'
                         .'<span class="mx-auto">Cerrar sesión</span>'
                         .'<i class="fa fa-arrow-right ms-2"></i>'
                     .'</a>';
-                } else {
-                    // Botón registrate ahora solo si NO está logueado
-                    echo '<a href="registro.php" class="btn py-4 px-lg-5 d-none d-lg-block text-white" style="background-color: #43be16;">Registrate Ahora<i class="fa fa-arrow-right ms-3"></i></a>';
                 }
                 ?>
             </div>
         </div>
     </nav>
     <!-- Navbar End -->
-
-    <!-- Header Start -->
-    <div class="container-fluid bg-primary py-5 mb-5 page-header">
-        <div class="container py-5">
-            <div class="row">
-                <div class="col-lg-8 mx-auto ">
-                    <h1 class="display-3 animated slideInDown text-center" style="color: #2196f3; line-height: 1.3;">Perfil</h1>
+        <!-- Header Start -->
+        <div class="container-fluid mb-5">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8 text-center">
+                        <div style="background:#43be16;border-radius:40px;padding:40px 20px;max-width:100%;margin:30px auto 0 auto; display:flex; flex-direction:column; align-items:center; justify-content:center;">
+                            <h1 class="display-3 fw-bold text-white mb-4">Perfil</h1>
+                            <?php if (!empty($usuario['resena'])): ?>
+                                <div class="mb-4 text-white fs-4 text-center">
+                                    <i class="fa fa-quote-left"></i> <?php echo htmlspecialchars($usuario['resena']); ?> <i class="fa fa-quote-right"></i>
+                                </div>
+                            <?php endif; ?>
+                            <?php
+                            $imagenes = [];
+                            if (!empty($usuario['id'])) {
+                                $stmt = $conn->prepare("SELECT id, ruta_imagen FROM imagenes_emprendimiento WHERE usuario_id = ?");
+                                $stmt->bind_param("i", $usuario['id']);
+                                $stmt->execute();
+                                $result = $stmt->get_result();
+                                while ($img = $result->fetch_assoc()) {
+                                    $imagenes[] = $img;
+                                }
+                                $stmt->close();
+                            }
+                            if (!empty($imagenes)) {
+                                echo '<div class="mb-3 text-center">';
+                                foreach ($imagenes as $img) {
+                                    echo '<div style="display:inline-block; position:relative; margin:12px 10px 30px 10px;">';
+                                    echo '<img src="'.htmlspecialchars($img['ruta_imagen']).'" alt="Foto emprendimiento" style="width:120px;height:120px;object-fit:cover;border-radius:10px;display:block;">';
+                                    echo '<form method="POST" action="eliminar_imagen.php" style="position:absolute;left:50%;bottom:-28px;transform:translateX(40px);margin:0;padding:0;">';
+                                    echo '<input type="hidden" name="imagen_id" value="'.htmlspecialchars($img['id']).'">';
+                                    echo '<button type="submit" class="btn btn-sm" style="background:transparent;color:#fff;border:none;box-shadow:none;" title="Eliminar imagen" onclick="return confirm(\'¿Seguro que deseas eliminar esta imagen?\');">';
+                                    echo '<i class="fa fa-trash fa-lg" style="color:#fff;"></i>';
+                                    echo '</button></form></div>';
+                                }
+                                echo '</div>';
+                            }
+                            ?>
+                        </div>
+                    </div>
                 </div>
             </div>
-           <?php if (!empty($usuario['resena'])): ?>
-                <div class="text-center" style="
-                    color: #fff;
-                    font-size: 1.2em;
-                    font-weight: 500;
-                    margin-top: -10px;
-                    margin-bottom: 18px;
-                    text-shadow: 1px 1px 8px #1565c0;
-                ">
-                    <i class="fa fa-quote-left"></i>
-                    <?php echo nl2br(htmlspecialchars($usuario['resena'])); ?>
-                    <i class="fa fa-quote-right"></i>
-                </div>
-            <?php endif; ?>
-            <?php
-            // Mostrar imágenes del emprendimiento
-            $imagenes = [];
-            if (!empty($usuario['id'])) {
-                $stmt = $conn->prepare("SELECT id, ruta_imagen FROM imagenes_emprendimiento WHERE usuario_id = ?");
-                $stmt->bind_param("i", $usuario['id']);
-                $stmt->execute();
-                $result = $stmt->get_result();
-                while ($img = $result->fetch_assoc()) {
-                    $imagenes[] = $img;
-                }
-                $stmt->close();
-            }
-            if (!empty($imagenes)): ?>
-                <div class="mb-3 text-center">                  
-                   <?php foreach ($imagenes as $img): ?>
-                        <div style="display:inline-block; position:relative; margin:12px 10px 30px 10px;">
-                            <img src="<?php echo htmlspecialchars($img['ruta_imagen']); ?>" alt="Producto"
-                                style="width:120px;height:120px;object-fit:cover;border-radius:10px;display:block;">
-                            <!-- Botón fuera de la imagen, en la esquina inferior derecha del contenedor -->
-                            <form method="POST" action="eliminar_imagen.php" 
-                                style="position:absolute;left:50%;bottom:-28px;transform:translateX(40px);margin:0;padding:0;">
-                                <input type="hidden" name="imagen_id" value="<?php echo $img['id']; ?>">
-                                <button type="submit" 
-                                        class="btn btn-sm"
-                                        style="background:transparent;color:#fff;border:none;box-shadow:none;"
-                                        title="Eliminar imagen"
-                                        onclick="return confirm('¿Seguro que deseas eliminar esta imagen?');">
-                                    <i class="fa fa-trash fa-lg" style="color:#fff;"></i>
-                                </button>
-                            </form>
-                        </div>
-                    <?php endforeach; ?>
-                </div>
-            <?php endif; ?>
-            
         </div>
-    </div>
-    <!-- Header End -->
+        <!-- Header End -->
 
-    <!-- Perfil Start -->
-    <div class="container-xxl py-5">
-        <div class="container">
+        <!-- Perfil Start -->
+        <div class="container-xxl" style="padding-top:0px;">
+        <div class="container" style="margin-top:80px;">
             <div class="row justify-content-center">
                 <div class="col-lg-8">
                     <div class="card shadow-lg rounded-3 profile-card">

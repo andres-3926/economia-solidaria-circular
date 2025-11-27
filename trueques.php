@@ -371,14 +371,21 @@ $trueques_publicados = $result->fetch_all(MYSQLI_ASSOC);
                 <div class="navbar-nav ms-auto p-4 p-lg-0">
                     <a href="index.php" class="nav-item nav-link fw-bold<?php echo $pagina_activa === 'inicio' ? ' active text-primary' : ' text-dark'; ?>">Inicio</a>
                     <a href="trueques.php#trueques" class="nav-item nav-link fw-bold<?php echo $pagina_activa === 'trueques' ? ' active text-primary' : ' text-dark'; ?>">Trueques</a>
-                    <a href="aprende.php" class="nav-item nav-link fw-bold<?php echo $pagina_activa === 'aprende' ? ' active text-primary' : ' text-dark'; ?>">Aprende</a>           
+                    <a href="aprende.php" class="nav-item nav-link fw-bold<?php echo $pagina_activa === 'aprende' ? ' active text-primary' : ' text-dark'; ?>">Aprende</a>
                     <?php
-                    if (session_status() === PHP_SESSION_NONE ) {
-                        session_start();
-                    }
                     if(isset($_SESSION['numero_documento'])) {
+                        $nombre_usuario = '';
+                        $sql_nombre = "SELECT nombre_completo FROM usuarios WHERE numero_documento = ?";
+                        $stmt_nombre = $conn->prepare($sql_nombre);
+                        $stmt_nombre->bind_param("s", $_SESSION['numero_documento']);
+                        $stmt_nombre->execute();
+                        $res_nombre = $stmt_nombre->get_result();
+                        if ($row_nombre = $res_nombre->fetch_assoc()) {
+                            $nombre_usuario = $row_nombre['nombre_completo'];
+                        }
+                        $stmt_nombre->close();
                         $clase_perfil = $pagina_activa === 'perfil' ? ' active text-primary' : ' text-dark';
-                        echo '<a href="perfil.php" class="nav-item nav-link' . $clase_perfil . '">Perfil</a>';
+                        echo '<a href="perfil.php" class="nav-item nav-link' . $clase_perfil . '" style="color:#43be16 !important;font-weight:bold !important;">'.($nombre_usuario ? htmlspecialchars($nombre_usuario) : 'Perfil').'</a>';
                     }
                     ?>
                     <?php

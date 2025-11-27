@@ -71,6 +71,37 @@ $usuarios = $conn->query("SELECT numero_documento, celular, nombre_completo, cor
         echo "<div class='alert alert-warning mb-3'>".$notif['mensaje']."</div>";
     }
     ?>
+    <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
+        <a href="index.php" class="navbar-brand d-flex align-items-center px-2 px-lg-5">
+            <h2 class="m-0 text-shadow titulo-navbar text-break" style="color: #43be16;"><i class="fa-solid fa-recycle fa-beat fa-xl me-2"></i>Economía Solidaria y Circular</h2>
+        </a>
+        <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto p-4 p-lg-0">
+                <a href="index.php" class="nav-item nav-link fw-bold">Inicio</a>
+                <a href="trueques.php" class="nav-item nav-link fw-bold">Trueques</a>
+                <a href="aprende.php" class="nav-item nav-link fw-bold">Aprende</a>
+                <?php
+                if (isset($_SESSION['numero_documento'])) {
+                    $nombre_usuario = '';
+                    $sql_nombre = "SELECT nombre_completo FROM usuarios WHERE numero_documento = ?";
+                    $stmt_nombre = $conn->prepare($sql_nombre);
+                    $stmt_nombre->bind_param("s", $_SESSION['numero_documento']);
+                    $stmt_nombre->execute();
+                    $res_nombre = $stmt_nombre->get_result();
+                    if ($row_nombre = $res_nombre->fetch_assoc()) {
+                        $nombre_usuario = $row_nombre['nombre_completo'];
+                    }
+                    $stmt_nombre->close();
+                    echo '<a href="perfil.php" class="nav-item nav-link fw-bold" style="color:#43be16;font-weight:bold;">'.($nombre_usuario ? htmlspecialchars($nombre_usuario) : 'Perfil').'</a>';
+                                    echo '<a href="perfil.php" class="nav-item nav-link fw-bold" style="color:#43be16 !important;font-weight:bold !important;">'.($nombre_usuario ? htmlspecialchars($nombre_usuario) : 'Perfil').'</a>';
+                }
+                ?>
+            </div>
+        </div>
+    </nav>
     <h2 class="mb-4 text-success">Panel de Administración de Usuarios</h2>
     <?php if (isset($_GET['mensaje'])): ?>        
         <div id="toast-alert" style="
