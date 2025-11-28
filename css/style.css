@@ -1,3 +1,69 @@
+@media (max-width: 576px) {
+    .header-aprende-h3 {
+        font-size: 1.1rem !important;
+        display: block !important;
+        margin-top: 1.2rem !important;
+        margin-bottom: 1.2rem !important;
+        position: static !important;
+        z-index: 1000 !important;
+        width: 100% !important;
+        text-align: center !important;
+        line-height: 1.2 !important;
+    }
+    .header-aprende h2 {
+        margin-bottom: 1.2rem !important;
+        font-size: 1.1rem !important;
+        display: block !important;
+        text-align: center !important;
+        line-height: 1.2 !important;
+    }
+    .logo-sena-header {
+        height: 50px !important;
+        right: 10px !important;
+        bottom: 10px !important;
+        position: absolute !important;
+        z-index: 1001 !important;
+    }
+    .header-aprende {
+        min-height: 60vh !important;
+        padding-bottom: 1rem !important;
+    }
+    .contenido-header {
+        padding-bottom: 0 !important;
+        margin-bottom: 0 !important;
+    }
+    .header-aprende .row {
+        flex-direction: column !important;
+        align-items: center !important;
+    }
+    .header-aprende .col-12 {
+        padding: 0 !important;
+    }
+}
+@media (max-width: 576px) {
+    .header-aprende-h3 {
+        font-size: 1.1rem !important;
+        display: block !important;
+        margin-top: 0.5rem !important;
+        margin-bottom: 0.5rem !important;
+        position: static !important;
+        z-index: 1000 !important;
+        width: 100% !important;
+        text-align: center !important;
+    }
+    .header-aprende h2 {
+        margin-bottom: 0.5rem !important;
+    }
+    .logo-sena-header {
+        height: 60px !important;
+        right: 10px !important;
+        bottom: 10px !important;
+    }
+    .header-aprende {
+        min-height: 60vh !important;
+        padding-bottom: 1rem !important;
+    }
+}
 :root {
     --primary: #06BBCC;
     --light: #F0FBFC;

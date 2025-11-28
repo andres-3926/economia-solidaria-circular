@@ -1753,18 +1753,30 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
                     <h2 class="text-white mb-5 mt-4 text-center">
                         <?php echo $cartilla[$pagina]['subtitulo']; ?>
                     </h2>
+                    <div class="d-block d-sm-none" style="width: 100%; margin-bottom: 1rem;"><!-- SOLO MÓVIL -->
+                        <h3 class="mb-0 header-aprende-h3 text-center" style="font-size: 1.1rem; color: #fff !important; font-weight: 900; margin: 0.7rem 0 1.2rem 0; position: static; z-index: 1000; width: 100%; line-height: 1.2;">
+                            <?php echo $cartilla[$pagina]['frase']; ?>
+                        </h3>
+                    </div>
                     <div class="text-end boton-siguiente-margen" style="padding-right: 1rem;">
-                        <a href="aprende.php?pagina=1" class="btn btn-lg text-white" style="background-color: #43be16;">
-                            Siguiente <i class="fa fa-arrow-right ms-2"></i>
-                        </a>
+                        <div class="d-block d-sm-none" style="width: 100%; text-align: right; margin-bottom: 0.5rem;">
+                            <a href="aprende.php?pagina=1" class="btn btn-lg text-white" style="background-color: #43be16; position: absolute; right: 40px; bottom: 120px; z-index: 1100;">
+                                Siguiente <i class="fa fa-arrow-right ms-2"></i>
+                            </a>
+                        </div>
+                        <div class="d-none d-sm-block" style="position: absolute; right: 120px; top: 87%; transform: translateY(-50%); z-index: 1100;">
+                            <a href="aprende.php?pagina=1" class="btn btn-lg text-white" style="background-color: #43be16;">
+                                Siguiente <i class="fa fa-arrow-right ms-2"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
         <div style="position: absolute; right: 160px; bottom: 10px; display: flex; align-items: center; margin: 0;">
-            <h3 class="mb-0 header-aprende-h3 text-end" style="font-size: 2rem; color: #fff !important; font-weight: 900; margin: 0; background: none !important; padding: 0; border-radius: 0; opacity: 1 !important; filter: none !important; text-shadow: 0 0 0 #fff !important; mix-blend-mode: normal !important; max-width: none !important; position: relative; z-index: 1000;">
-                <?php echo $cartilla[$pagina]['frase']; ?>
-            </h3>
+            <h3 class="mb-0 header-aprende-h3 text-end d-none d-sm-block" style="font-size: 2rem; color: #fff !important; font-weight: 900; margin: 0; background: none !important; padding: 0; border-radius: 0; opacity: 1 !important; filter: none !important; text-shadow: 0 0 0 #fff !important; mix-blend-mode: normal !important; max-width: none !important; position: relative; z-index: 1000;">
+                 <?php echo $cartilla[$pagina]['frase']; ?>
+             </h3>
         </div>
         <img src="<?php echo $cartilla[$pagina]['logo']; ?>" alt="Logo SENA" class="logo-sena-header" style="height: 100px; position: absolute; right: 40px; bottom: 10px; margin: 0;">
     </div>
