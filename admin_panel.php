@@ -62,7 +62,7 @@ $usuarios = $conn->query("SELECT numero_documento, celular, nombre_completo, cor
     <title>Panel de Administrador</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body>
+<body style="padding-top:75px;">
 <div class="container mt-5">
     <?php
     // Mostrar notificaciones de usuarios esperando habilitación
@@ -95,8 +95,7 @@ $usuarios = $conn->query("SELECT numero_documento, celular, nombre_completo, cor
                         $nombre_usuario = $row_nombre['nombre_completo'];
                     }
                     $stmt_nombre->close();
-                    echo '<a href="perfil.php" class="nav-item nav-link fw-bold" style="color:#43be16;font-weight:bold;">'.($nombre_usuario ? htmlspecialchars($nombre_usuario) : 'Perfil').'</a>';
-                                    echo '<a href="perfil.php" class="nav-item nav-link fw-bold" style="color:#43be16 !important;font-weight:bold !important;">'.($nombre_usuario ? htmlspecialchars($nombre_usuario) : 'Perfil').'</a>';
+                    echo '<a href="perfil.php" class="nav-item nav-link fw-bold" style="color:#43be16 !important;font-weight:bold !important;">'.($nombre_usuario ? htmlspecialchars($nombre_usuario) : 'Perfil').'</a>';
                 }
                 ?>
             </div>

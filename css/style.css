@@ -121,8 +121,13 @@
 }
 
 .navbar-light.sticky-top {
-    top: -100px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1050;
     transition: .5s;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
 
 @media (max-width: 991.98px) {
@@ -577,6 +582,7 @@
 body {
     overflow-x: hidden;
     overflow-y: auto !important;
+    padding-top: 75px; /* Altura del navbar para evitar que el contenido quede oculto */
 }
 
 html, body {

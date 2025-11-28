@@ -343,7 +343,7 @@ $trueques_publicados = $result->fetch_all(MYSQLI_ASSOC);
     <link href="css/style.css" rel="stylesheet">
 </head>
 
-<body>
+<body style="padding-top:75px;">
 
     <?php
     if ($detalle_trueque) {
