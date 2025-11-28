@@ -173,7 +173,7 @@ $cartilla = [
                         </h6>
                         <div class='position-relative mx-auto' style='width: 140px; height: 140px;'>
                             <div class='position-absolute top-50 start-50 translate-middle text-center' style='z-index: 10;'>
-                                <div style='background: linear-gradient(135deg, #43be16, #38a01c); color: #000033; border-radius: 50%; width: 35px; height: 35px; display: flex; align-items: center; justify-content: center; font-weight: 900; box-shadow: 0 2px 8px rgba(67,190,22,0.4); border: 1px solid rgba(0,0,0,0.2);'>
+                                <div style='background: linear-gradient(135deg, #43be16, #38a01c); color: #000033; border-radius: 50%; width: 35px; height: 35px; display: flex; align-items: center; justify-content: center; font-weight: 900; box-shadow: 0 2px 8px rgba(67, 190, 22, 0.4); border: 1px solid rgba(0,0,0,0.2);'>
                                     <i class='fas fa-leaf' style='font-size: 0.8rem;'></i>
                                 </div>
                             </div>
@@ -1472,7 +1472,7 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
             }
             
             .cuadro-texto ul.list-unstyled li span:last-child {
-                font-size: 0.65rem !important;
+                font-size: 0.6rem !important;
             }
         }
 
@@ -1621,7 +1621,7 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
         @media (max-width: 768px) {
             .container-fluid.header-aprende,
             .container-fluid.header-aprende .row,
-            .container-fluid.header-aprende .col-12.col-lg-11.mx-auto.px-3 {
+            .container-fluid.header-aprende .col-12.col-lg-11.mx-auto.px-3.py-4.d-flex.flex-column {
                 min-height: unset !important;
                 height: auto !important;
                 padding-bottom: 0.3rem !important;
@@ -1743,7 +1743,7 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
     <?php if ($cartilla[$pagina]['tipo'] === 'portada'): ?>
     <!-- PORTADA -->
     <div class="container-fluid header-aprende"
-        style="position: relative; background-image: url('<?php echo $cartilla[$pagina]['fondo']; ?>'); background-size: cover; background-position: center;">
+        style="position: relative; background-image: url('<?php echo $cartilla[$pagina]['fondo']; ?>'); background-size: cover; background-position: center; min-height: 100vh;">
         <div class="container-fluid pt-0 m-0 contenido-header" style="background: transparent;">
             <div class="row g-0 justify-content-center mt-4">    
                 <div class="col-12 col-lg-10 mx-auto px-0">
@@ -1752,7 +1752,7 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
                     </h1>
                     <h2 class="text-white mb-5 mt-4 text-center">
                         <?php echo $cartilla[$pagina]['subtitulo']; ?>
-                    </h2>                    
+                    </h2>
                     <div class="text-end boton-siguiente-margen" style="padding-right: 1rem;">
                         <a href="aprende.php?pagina=1" class="btn btn-lg text-white" style="background-color: #43be16;">
                             Siguiente <i class="fa fa-arrow-right ms-2"></i>
@@ -1761,10 +1761,12 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
                 </div>
             </div>
         </div>
-        <div class="header-aprende-botton d-flex justify-content-end align-items-end mt-5" style="min-height: 120px;">
-            <h3 class="text-white mb-4 header-aprende-h3" style="margin-left: 40px; margin-bottom: 0;"><?php echo $cartilla[$pagina]['frase']; ?></h3>                    
-            <img src="<?php echo $cartilla[$pagina]['logo']; ?>" alt="Logo SENA" class="logo-sena-header" style="height: 150px; margin-right: 40px;">            
+        <div style="position: absolute; right: 160px; bottom: 10px; display: flex; align-items: center; margin: 0;">
+            <h3 class="mb-0 header-aprende-h3 text-end" style="font-size: 2rem; color: #fff !important; font-weight: 900; margin: 0; background: none !important; padding: 0; border-radius: 0; opacity: 1 !important; filter: none !important; text-shadow: 0 0 0 #fff !important; mix-blend-mode: normal !important; max-width: none !important; position: relative; z-index: 1000;">
+                <?php echo $cartilla[$pagina]['frase']; ?>
+            </h3>
         </div>
+        <img src="<?php echo $cartilla[$pagina]['logo']; ?>" alt="Logo SENA" class="logo-sena-header" style="height: 100px; position: absolute; right: 40px; bottom: 10px; margin: 0;">
     </div>
 
     <?php elseif ($cartilla[$pagina]['tipo'] === 'actividad_quiz'): ?>
@@ -1961,7 +1963,7 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
                     <?php if (isset($cartilla[$pagina]['texto'])): ?>
                         <div class="cuadro-texto mx-auto">
                             <div class="texto-contenido text-center">
-                                <?php echo $cartilla[$pagina]['texto']; ?>
+                                <?php echo $texto_con_iconos; ?>
                             </div>
                         </div>
                     <?php endif; ?>
@@ -1990,18 +1992,10 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
                         </div>
                     </div>
                     
-                    <div class="d-flex justify-content-between align-items-end mt-3">
-                        <a href="aprende.php?pagina=<?php echo $pagina-1; ?>" class="btn btn-lg text-white" style="background-color: #43be16; z-index: 10;">
+                    <div class="d-flex justify-content-start mt-3 px-2" style="flex-shrink: 0;">
+                        <a href="aprende.php?pagina=<?php echo $pagina-1; ?>" class="btn btn-lg text-white shadow-sm" style="background-color: #43be16; z-index: 10; min-width: 120px;">
                             <i class="fa fa-arrow-left me-2"></i> Anterior
                         </a>
-                        <div class="text-white-50 text-center text-shadow-custom fs-6" style="flex-grow: 1;">
-                            Página <?php echo $pagina+1; ?> de <?php echo $total_paginas; ?>
-                        </div>
-                        <div class="d-flex align-items-end">
-                            <a href="aprende.php?pagina=<?php echo $pagina+2; ?>" class="btn btn-lg text-white" style="background-color: #43be16; z-index: 10;">
-                                Siguiente <i class="fa fa-arrow-right ms-2"></i>
-                            </a>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -2101,7 +2095,7 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
                     <?php endif; ?>
                     
                     <!-- Navegación compacta -->
-                    <div class="d-flex justify-content-between align-items-end mt-2" style="background: transparent !important; padding: 0;">
+                    <div class="d-flex justify-content-between align-items-end mt-2" style="padding: 0;">
                         <a href="aprende.php?pagina=<?php echo $pagina-1; ?>" 
                         class="btn btn-lg text-white" 
                         style="background-color: #43be16; 
@@ -2128,142 +2122,6 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
                                     Siguiente <i class="fa fa-arrow-right ms-1"></i>
                                 </a>
                             <?php endif; ?>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <?php elseif ($cartilla[$pagina]['tipo'] === 'separacion_reciclables'): ?>
-    <!-- PÁGINA 11: SEPARACIÓN DE RECICLABLES - 5 CUADROS INDEPENDIENTES -->
-    <div class="container-fluid header-aprende"
-        style="position: relative;
-            background-image: url('<?php echo $cartilla[$pagina]['fondo']; ?>');
-            background-size: cover;
-            background-position: center;
-            min-height: 100vh;
-            padding-bottom: 0.5rem;">
-            
-        <div class="container-fluid h-100 p-0">
-            <div class="row g-0 justify-content-center">
-                <!-- Títulos principales -->
-                <div class="col-12 col-lg-11 mx-auto px-3 pt-3 pb-2">
-                    <div class="cuadro-texto text-center mb-2" style="padding: 0.8rem 1.5rem; max-width: 1100px; margin: 0 auto;">
-                        <h1 class="mb-2" style="font-size: clamp(1.3rem, 3.5vw, 1.8rem); line-height: 1.3; color: #001122; font-weight: 900;">
-                            <?php echo $cartilla[$pagina]['titulo']; ?>
-                        </h1>
-                        <h3 class="mb-0" style="font-size: clamp(1rem, 2.2vw, 1.3rem); font-weight: 700; color: #003366;">
-                            <?php echo $cartilla[$pagina]['subtitulo']; ?>
-                        </h3>
-                    </div>
-                </div>
-                
-                <!-- Contenido con scroll automático -->
-                <div class="col-12 col-lg-11 mx-auto px-3" style="max-height: none; overflow-y: visible; padding-bottom: 0;"> 
-                    <!-- Texto introductorio -->
-                    <?php if (isset($cartilla[$pagina]['texto'])): ?>
-                        <div class="cuadro-texto mx-auto mb-3" style="max-width: 1150px; padding: 0.8rem 1.2rem; width: 95%;">
-                            <div class="texto-contenido text-center" style="font-size: clamp(0.85rem, 1.8vw, 1rem); line-height: 1.4;">
-                                <?php echo $cartilla[$pagina]['texto']; ?>
-                            </div>
-                        </div>
-                    <?php endif; ?>
-                    
-                    <!-- 5 CUADROS INDEPENDIENTES DE CATEGORÍAS -->
-                    <?php if (isset($cartilla[$pagina]['categorias'])): 
-                        foreach ($cartilla[$pagina]['categorias'] as $index => $categoria): 
-                    ?>
-                        <!-- CUADRO INDIVIDUAL POR CATEGORÍA -->
-                        <div class="cuadro-texto mx-auto mb-3" style="max-width: 1250px; padding: 1.2rem; width: 98%; background: rgba(255, 255, 255, 0.35) !important; border: 3px solid <?php echo $categoria['color']; ?>; box-shadow: 0 8px 20px rgba(0,0,0,0.2);">
-                            
-                            <!-- TÍTULO DE LA CATEGORÍA CON EMOJI -->
-                            <h3 class="text-center mb-3" style="font-size: clamp(1.1rem, 3vw, 1.6rem); color: <?php echo $categoria['color']; ?>; line-height: 1.3; font-weight: 900; text-shadow: 3px 3px 8px rgba(255,255,255,1);">
-                                <?php echo $categoria['titulo']; ?>
-                            </h3>
-                            
-                            <?php if (isset($categoria['columna_unica'])): ?>
-                                <!-- TEXTILES - UNA SOLA COLUMNA -->
-                                <div style="background: rgba(255, 255, 255, 0.95); padding: 1rem; border-radius: 12px; border: 2px solid <?php echo $categoria['color']; ?>;">
-                                    <h4 class="mb-3 text-center" style="color: <?php echo $categoria['color']; ?>; font-weight: 800; font-size: clamp(0.95rem, 2.1vw, 1.2rem);">
-                                        <i class="fas fa-lightbulb me-2"></i><?php echo $categoria['columna_unica']['titulo']; ?>
-                                    </h4>
-                                    <ul class="list-unstyled mb-0">
-                                        <?php foreach ($categoria['columna_unica']['items'] as $item): ?>
-                                        <li class="mb-2 d-flex align-items-start" style="padding: 0.5rem; border-radius: 8px; background: rgba(255,255,255,0.5);">
-                                            <span style="font-size: clamp(1rem, 2.1vw, 1.25rem); margin-right: 0.4rem; flex-shrink: 0;"><?php echo $item['emoji']; ?></span>
-                                            <span style="color: #001122; font-weight: 700; font-size: clamp(0.85rem, 1.9vw, 1.05rem); line-height: 1.4;"><?php echo $item['texto']; ?></span>
-                                        </li>
-                                        <?php endforeach; ?>
-                                    </ul>
-                                </div>
-                            
-                            <?php else: ?>
-                                <!-- PLÁSTICOS, PAPEL, VIDRIO, ACEITES - DOS COLUMNAS -->
-                                <div class="row g-3">
-                                    <!-- COLUMNA IZQUIERDA -->
-                                    <div class="col-md-6">
-                                        <div style="background: rgba(255, 255, 255, 0.95); padding: 1rem; border-radius: 12px; border: 2px solid <?php echo $categoria['color']; ?>; height: 100%; min-height: 200px;">
-                                            <h4 class="mb-3 text-center" style="color: <?php echo $categoria['color']; ?>; font-weight: 800; font-size: clamp(0.95rem, 2.1vw, 1.2rem);">
-                                                <i class="fas fa-check-circle me-2"></i><?php echo $categoria['columna_izq']['titulo']; ?>
-                                            </h4>
-                                            <ul class="list-unstyled mb-0">
-                                                <?php foreach ($categoria['columna_izq']['items'] as $item): ?>
-                                                <li class="mb-2 d-flex align-items-start" style="padding: 0.5rem; border-radius: 8px; background: rgba(255,255,255,0.5);">
-                                                    <span style="font-size: clamp(1rem, 2.1vw, 1.25rem); margin-right: 0.4rem; flex-shrink: 0;"><?php echo $item['emoji']; ?></span>
-                                                    <span style="color: #001122; font-weight: 700; font-size: clamp(0.85rem, 1.9vw, 1.05rem); line-height: 1.4;"><?php echo $item['texto']; ?></span>
-                                                </li>
-                                                <?php endforeach; ?>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    
-                                    <!-- COLUMNA DERECHA -->
-                                    <div class="col-md-6">
-                                        <?php 
-                                        $color_borde_der = $categoria['columna_der']['color_borde'];
-                                        $icono_der = ($color_borde_der == '#e74c3c') ? 'times' : (($color_borde_der == '#FF5722') ? 'exclamation-triangle' : 'info');
-                                        ?>
-                                        <div style="background: rgba(255, 255, 255, 0.95); padding: 1rem; border-radius: 12px; border: 2px solid <?php echo $color_borde_der; ?>; height: 100%; min-height: 200px;">
-                                            <h4 class="mb-3 text-center" style="color: <?php echo $color_borde_der; ?>; font-weight: 800; font-size: clamp(0.95rem, 2.1vw, 1.2rem);">
-                                                <i class="fas fa-<?php echo $icono_der; ?>-circle me-2"></i><?php echo $categoria['columna_der']['titulo']; ?>
-                                            </h4>
-                                            <ul class="list-unstyled mb-0">
-                                                <?php foreach ($categoria['columna_der']['items'] as $item): ?>
-                                                <li class="mb-2 d-flex align-items-start" style="padding: 0.5rem; border-radius: 8px; background: rgba(255,255,255,0.5);">
-                                                    <span style="font-size: clamp(1rem, 2.1vw, 1.25rem); margin-right: 0.4rem; flex-shrink: 0;"><?php echo $item['emoji']; ?></span>
-                                                    <span style="color: #001122; font-weight: 700; font-size: clamp(0.85rem, 1.9vw, 1.05rem); line-height: 1.4;"><?php echo $item['texto']; ?></span>
-                                                </li>
-                                                <?php endforeach; ?>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            <?php endif; ?>
-                            
-                        </div>
-                        <!-- FIN CUADRO INDIVIDUAL -->
-                    <?php 
-                        endforeach;
-                    endif; 
-                    ?>
-                    
-                    <!-- Navegación ULTRA COMPACTA -->
-                    <div class="container-fluid px-0" style="margin-top: 0.5rem; margin-bottom: 0;">
-                        <div class="row g-0 w-100">
-                            <div class="col-12 d-flex justify-content-between align-items-center" style="padding: 0; background: transparent;">
-                                <a href="aprende.php?pagina=<?php echo $pagina-1; ?>" class="btn btn-lg text-white" style="background-color: #43be16; padding: 0.5rem 1rem; font-size: clamp(0.85rem, 1.8vw, 1rem);">
-                                    <i class="fa fa-arrow-left me-2"></i> Anterior
-                                </a>
-                                <div class="text-white text-center d-none d-md-block" style="font-size: clamp(0.75rem, 1.4vw, 0.9rem); text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">
-                                    Página <?php echo $pagina+1; ?> de <?php echo $total_paginas; ?>
-                                </div>
-                                <?php if ($pagina < $total_paginas-1): ?>
-                                    <a href="aprende.php?pagina=<?php echo $pagina+1; ?>" class="btn btn-lg text-white" style="background-color: #43be16; padding: 0.5rem 1rem; font-size: clamp(0.85rem, 1.8vw, 1rem);">
-                                        Siguiente <i class="fa fa-arrow-right ms-2"></i>
-                                    </a>
-                                <?php endif; ?>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -2362,8 +2220,18 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
                                 </div>
                                 
                                 <!-- Círculo numerado en el centro (solo desktop) -->
-                                <div class="d-none d-md-flex col-md-2 justify-content-center align-items-center order-md-1" style="z-index: 10;">
-                                    <div style="background: <?php echo $componente['color']; ?>; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 1.8rem; box-shadow: 0 6px 15px rgba(0,0,0,0.4); border: 4px solid white;">
+                                <div class="d-none d-md-flex col-md-2 justify-content-center align-items-center order-md-1" style="z-index:  10;">
+                                    <div style="background: <?php echo $componente['color']; ?>; 
+                                                    color: white; 
+                                                    width: 60px; height: 60px; 
+                                                    border-radius: 50%; 
+                                                    display: flex; 
+                                                    align-items: center; 
+                                                    justify-content: center; 
+                                                    font-weight: 900; 
+                                                    font-size: 1.8rem; 
+                                                    box-shadow: 0 6px 15px rgba(0,0,0,0.4); 
+                                                    border: 4px solid white;">
                                         <?php echo $componente['numero']; ?>
                                     </div>
                                 </div>
@@ -2382,145 +2250,55 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
                                 <i class="fas fa-seedling me-2"></i>¡Todo listo para comenzar!
                             </h4>
                             <p class="mb-0" style="font-size: clamp(0.85rem, 1.8vw, 1rem); color: #001122; font-weight: 700; line-height: 1.4;">
-                                Con este kit completo podrás transformar tus residuos orgánicos en <b>abono natural</b> en solo 10 días. <b>¡Estás contribuyendo a la economía circular y cuidando el planeta!</b> 🌱♻️
+                                Con este kit completo podrás transformar tus residuos orgánicos en abono natural en solo 10 días. <b>¡Estás lista para cuidar el planeta!</b> 🌱♻️
                             </p>
                         </div>
                     </div>
                     
                     <!-- Navegación -->
-                    <div class="container-fluid px-0 mt-3 mb-3">
-                        <div class="row g-0 w-100">
-                            <div class="col-12 d-flex justify-content-between align-items-center px-2">
-                                <a href="aprende.php?pagina=<?php echo $pagina-1; ?>" class="btn btn-lg text-white" style="background-color: #43be16; padding: 0.6rem 1.2rem; font-size: clamp(0.9rem, 2vw, 1.05rem);">
-                                    <i class="fa fa-arrow-left me-2"></i> Anterior
-                                </a>
-                                <div class="text-white text-center d-none d-md-block" style="font-size: clamp(0.8rem, 1.5vw, 0.95rem); text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">
-                                    Página <?php echo $pagina+1; ?> de <?php echo $total_paginas; ?>
-                                </div>
-                                <?php if ($pagina < $total_paginas-1): ?>
-                                    <a href="aprende.php?pagina=<?php echo $pagina+1; ?>" class="btn btn-lg text-white" style="background-color: #43be16; padding: 0.6rem 1.2rem; font-size: clamp(0.9rem, 2vw, 1.05rem);">
-                                        Siguiente <i class="fa fa-arrow-right ms-2"></i>
+                    <div class="container-fluid px-0 mt-3 mb-0">
+                        <div class="row g-0">
+                            <div class="col-12">
+                                <div class="d-flex justify-content-between align-items-center px-3 py-2" style="background: transparent; border-radius: 10px; max-width: 100%;">
+                                    <!-- Botón Anterior -->
+                                    <a href="aprende.php?pagina=<?php echo $pagina-1; ?>" 
+                                    class="btn btn-lg text-white" 
+                                    style="background-color: #43be16; 
+                                            padding: 0.6rem 1.2rem; 
+                                            font-size: clamp(0.9rem, 2vw, 1rem);
+                                            flex-shrink: 0;">
+                                        <i class="fa fa-arrow-left me-2"></i> Anterior
                                     </a>
-                                <?php else: ?>
-                                    <a href="aprende.php?pagina=0" class="btn btn-lg text-white" style="background-color: #003d82; padding: 0.6rem 1.2rem; font-size: clamp(0.9rem, 2vw, 1.05rem);">
-                                        <i class="fa fa-home me-2"></i> Inicio
-                                    </a>
-                                <?php endif; ?>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <?php elseif ($cartilla[$pagina]['tipo'] === 'proceso_compostaje'): ?>
-    <!-- PÁGINA 14: PROCESO DE COMPOSTAJE PASO A PASO -->
-    <div class="container-fluid header-aprende"
-        style="position: relative;
-            background-image: url('<?php echo $cartilla[$pagina]['fondo']; ?>');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            min-height: 100vh;
-            padding-bottom: 0.5rem;">
-            
-        <div class="container-fluid h-100 p-0">
-            <div class="row g-0 justify-content-center">
-                <!-- Títulos principales -->
-                <div class="col-12 col-lg-11 mx-auto px-3 pt-3 pb-2">
-                    <div class="cuadro-texto text-center mb-2" style="padding: 0.8rem 1.5rem; max-width: 1100px; margin: 0 auto;">
-                        <h1 class="mb-2" style="font-size: clamp(1.3rem, 3.5vw, 1.8rem); line-height: 1.3; color: #001122; font-weight: 900;">
-                            <span style="font-size: clamp(1.8rem, 4vw, 2.3rem); margin-right: 0.5rem;">⏱️</span>
-                            <?php echo $cartilla[$pagina]['titulo']; ?>
-                        </h1>
-                        <h3 class="mb-0" style="font-size: clamp(1rem, 2.2vw, 1.3rem); font-weight: 700; color: #003366;">
-                            <?php echo $cartilla[$pagina]['subtitulo']; ?>
-                        </h3>
-                    </div>
-                </div>
-                
-                <!-- Contenido principal -->
-                <div class="col-12 col-lg-11 mx-auto px-3">
-                    <!-- LÍNEA DE TIEMPO VISUAL -->
-                    <div class="row g-3 px-2 position-relative">
-                        <!-- Línea vertical conectora (solo desktop) -->
-                        <div class="d-none d-md-block position-absolute" style="left: 50%; top: 50px; bottom: 50px; width: 4px; background: linear-gradient(180deg, #43be16 0%, #2196F3 50%, #4CAF50 100%); transform: translateX(-50%); z-index: 0; border-radius: 10px;"></div>
-                        
-                        <?php foreach ($cartilla[$pagina]['pasos'] as $index => $paso): 
-                            $isLeft = ($index % 2 == 0);
-                        ?>
-                        <!-- PASO <?php echo $paso['numero']; ?> -->
-                        <div class="col-12">
-                            <div class="row g-0 align-items-center position-relative" style="z-index: 1;">
-                                <!-- Contenido del paso (alterna izquierda/derecha en desktop) -->
-                                <div class="col-md-5 <?php echo $isLeft ? 'order-md-1' : 'order-md-2 offset-md-1'; ?>">
-                                    <div class="cuadro-texto h-100" style="padding: 1.2rem; background: rgba(255, 255, 255, 0.45) !important; border: 3px solid <?php echo $paso['color']; ?>; border-radius: 15px; box-shadow: 0 8px 20px rgba(0,0,0,0.3); position: relative;">
-                                        <!-- Flecha apuntando al círculo (solo desktop) -->
-                                        <div class="d-none d-md-block position-absolute" style="<?php echo $isLeft ? 'right: -20px;' : 'left: -20px;'; ?> top: 50%; transform: translateY(-50%); width: 0; height: 0; border-top: 15px solid transparent; border-bottom: 15px solid transparent; <?php echo $isLeft ? 'border-left: 20px solid ' . $paso['color'] : 'border-right: 20px solid ' . $paso['color']; ?>;"></div>
-                                        
-                                        <!-- Emoji y título -->
-                                        <div class="d-flex align-items-center mb-2">
-                                            <span style="font-size: clamp(2rem, 4vw, 2.5rem); margin-right: 0.8rem; filter: drop-shadow(3px 3px 6px rgba(0,0,0,0.3));">
-                                                <?php echo $paso['emoji']; ?>
-                                            </span>
-                                            <h3 class="mb-0" style="font-size: clamp(1rem, 2.3vw, 1.3rem); color: #001122; font-weight: 900; line-height: 1.2; text-shadow: 2px 2px 4px rgba(255,255,255,1);">
-                                                Paso <?php echo $paso['numero']; ?>: <?php echo $paso['titulo']; ?>
-                                            </h3>
-                                        </div>
-                                        
-                                        <!-- Descripción -->
-                                        <p class="mb-0" style="font-size: clamp(0.85rem, 1.8vw, 1rem); color: #001122; font-weight: 700; line-height: 1.4; text-shadow: 1px 1px 3px rgba(255,255,255,0.9);">
-                                            <?php echo $paso['descripcion']; ?>
-                                        </p>
+                                    
+                                    <!-- Indicador de página (solo desktop) -->
+                                    <div class="text-white text-center flex-grow-1 d-none d-md-block" 
+                                        style="font-size: clamp(0.75rem, 1.4vw, 0.9rem); 
+                                                text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+                                                padding: 0 1rem;">
+                                        Página <?php echo $pagina+1; ?> de <?php echo $total_paginas; ?>
                                     </div>
+                                    
+                                    <!-- Botón Siguiente -->
+                                    <?php if ($pagina < $total_paginas-1): ?>
+                                        <a href="aprende.php?pagina=<?php echo $pagina+1; ?>" 
+                                        class="btn btn-lg text-white" 
+                                        style="background-color: #43be16; 
+                                                padding: 0.6rem 1.2rem; 
+                                                font-size: clamp(0.9rem, 2vw, 1rem);
+                                                flex-shrink: 0;">
+                                            Siguiente <i class="fa fa-arrow-right ms-2"></i>
+                                        </a>
+                                    <?php else: ?>
+                                        <a href="aprende.php?pagina=0" 
+                                        class="btn btn-lg text-white" 
+                                        style="background-color: #003d82; 
+                                                padding: 0.6rem 1.2rem; 
+                                                font-size: clamp(0.9rem, 2vw, 1rem);
+                                                flex-shrink: 0;">
+                                            <i class="fa fa-home me-2"></i> Inicio
+                                        </a>
+                                    <?php endif; ?>
                                 </div>
-                                
-                                <!-- Círculo numerado en el centro (solo desktop) -->
-                                <div class="d-none d-md-flex col-md-2 justify-content-center align-items-center order-md-1" style="z-index: 10;">
-                                    <div style="background: <?php echo $paso['color']; ?>; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 1.8rem; box-shadow: 0 6px 15px rgba(0,0,0,0.4); border: 4px solid white;">
-                                        <?php echo $paso['numero']; ?>
-                                    </div>
-                                </div>
-                                
-                                <!-- Espacio vacío en el otro lado (solo desktop) -->
-                                <div class="d-none d-md-block col-md-5 <?php echo $isLeft ? 'order-md-2' : 'order-md-1'; ?>"></div>
-                            </div>
-                        </div>
-                        <?php endforeach; ?>
-                    </div>
-                    
-                    <!-- Nota final motivacional -->
-                    <div class="cuadro-texto mx-auto mt-4 mb-3" style="max-width: 1150px; padding: 1rem 1.5rem; width: 95%; background: rgba(67, 190, 22, 0.4) !important; border: 3px solid #43be16;">
-                        <div class="text-center">
-                            <h4 class="mb-2" style="font-size: clamp(1rem, 2.3vw, 1.3rem); color: #001122; font-weight: 900;">
-                                <i class="fas fa-seedling me-2"></i>¡Tu primer compost está listo!
-                            </h4>
-                            <p class="mb-0" style="font-size: clamp(0.85rem, 1.8vw, 1rem); color: #001122; font-weight: 700; line-height: 1.4;">
-                                Ahora puedes usar este abono natural en tus plantas, macetas o huerta. <b>Estás contribuyendo a la economía circular</b> y reduciendo tu huella ambiental. 🌱💚
-                            </p>
-                        </div>
-                    </div>
-                    
-                    <!-- Navegación -->
-                    <div class="container-fluid px-0 mt-3 mb-3">
-                        <div class="row g-0 w-100">
-                            <div class="col-12 d-flex justify-content-between align-items-center px-2">
-                                <a href="aprende.php?pagina=<?php echo $pagina-1; ?>" class="btn btn-lg text-white" style="background-color: #43be16; padding: 0.6rem 1.2rem; font-size: clamp(0.9rem, 2vw, 1.05rem);">
-                                    <i class="fa fa-arrow-left me-2"></i> Anterior
-                                </a>
-                                <div class="text-white text-center d-none d-md-block" style="font-size: clamp(0.8rem, 1.5vw, 0.95rem); text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">
-                                    Página <?php echo $pagina+1; ?> de <?php echo $total_paginas; ?>
-                                </div>
-                                <?php if ($pagina < $total_paginas-1): ?>
-                                    <a href="aprende.php?pagina=<?php echo $pagina+1; ?>" class="btn btn-lg text-white" style="background-color: #43be16; padding: 0.6rem 1.2rem; font-size: clamp(0.9rem, 2vw, 1.05rem);">
-                                        Siguiente <i class="fa fa-arrow-right ms-2"></i>
-                                    </a>
-                                <?php else: ?>
-                                    <a href="aprende.php?pagina=0" class="btn btn-lg text-white" style="background-color: #003d82; padding: 0.6rem 1.2rem; font-size: clamp(0.9rem, 2vw, 1.05rem);">
-                                        <i class="fa fa-home me-2"></i> Inicio
-                                    </a>
-                                <?php endif; ?>
                             </div>
                         </div>
                     </div>
@@ -2628,7 +2406,7 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
                                     <div style="font-size: clamp(2rem, 4vw, 2.5rem); margin-bottom: 0.5rem;">
                                         <?php echo $item['emoji']; ?>
                                     </div>
-                                    <div style="font-size: clamp(0.85rem, 1.8vw, 1rem); 
+                                    <div style="font-size: clamp(0.85rem, 1.6vw, 1rem); 
                                                 color: #001122; 
                                                 font-weight: 700; 
                                                 line-height: 1.3;">
@@ -2651,8 +2429,7 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
                                         display: inline-block;
                                         border: 2px solid #ffc107;">
                                 <span style="color: #001122; font-weight: 900; font-size: clamp(0.9rem, 2vw, 1.1rem);">
-                                    <i class="fas fa-list-check me-2"></i>
-                                    Seleccionados: <span id="contadorSeleccionados">0</span> / <?php echo $cartilla[$pagina]['actividad_reto']['minimo_requerido']; ?> mínimo
+                                    <i class="fas fa-list-check me-2"></i>Seleccionados: <span id="contadorSeleccionados">0</span> / <?php echo $cartilla[$pagina]['actividad_reto']['minimo_requerido']; ?> mínimo
                                 </span>
                             </div>
                         </div>
@@ -2693,14 +2470,14 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
                                     class="btn btn-lg text-white" 
                                     style="background-color: #43be16; 
                                             padding: 0.6rem 1.2rem; 
-                                            font-size: clamp(0.85rem, 2vw, 1rem);
+                                            font-size: clamp(0.9rem, 2vw, 1rem);
                                             flex-shrink: 0;">
                                         <i class="fa fa-arrow-left me-2"></i> Anterior
                                     </a>
                                     
                                     <!-- Indicador de página (solo desktop) -->
                                     <div class="text-white text-center flex-grow-1 d-none d-md-block" 
-                                        style="font-size: clamp(0.75rem, 1.5vw, 0.9rem); 
+                                        style="font-size: clamp(0.75rem, 1.4vw, 0.9rem); 
                                                 text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
                                                 padding: 0 1rem;">
                                         Página <?php echo $pagina+1; ?> de <?php echo $total_paginas; ?>
@@ -2712,7 +2489,7 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
                                         class="btn btn-lg text-white" 
                                         style="background-color: #43be16; 
                                                 padding: 0.6rem 1.2rem; 
-                                                font-size: clamp(0.85rem, 2vw, 1rem);
+                                                font-size: clamp(0.9rem, 2vw, 1rem);
                                                 flex-shrink: 0;">
                                             Siguiente <i class="fa fa-arrow-right ms-2"></i>
                                         </a>
@@ -2721,215 +2498,12 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
                                         class="btn btn-lg text-white" 
                                         style="background-color: #003d82; 
                                                 padding: 0.6rem 1.2rem; 
-                                                font-size: clamp(0.85rem, 2vw, 1rem);
+                                                font-size: clamp(0.9rem, 2vw, 1rem);
                                                 flex-shrink: 0;">
                                             <i class="fa fa-home me-2"></i> Inicio
                                         </a>
                                     <?php endif; ?>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <?php elseif ($cartilla[$pagina]['tipo'] === 'reuso_reciclaje_timeline'): ?>
-    <!-- PÁGINA 16: REUSO Y RECICLAJE CON FOTOS ALTERNAS -->
-    <div class="container-fluid header-aprende"
-        style="position: relative;
-            background-image: url('<?php echo $cartilla[$pagina]['fondo']; ?>');
-            background-size: cover;
-            background-position: center;
-            min-height: 100vh;
-            padding-bottom: 0.5rem;">
-            
-        <div class="container-fluid h-100 p-0">
-            <div class="row g-0 justify-content-center">
-                <!-- Títulos principales -->
-                <div class="col-12 col-lg-11 mx-auto px-3 pt-3 pb-2">
-                    <div class="cuadro-texto text-center mb-2" style="padding: 0.8rem 1.5rem; max-width: 1100px; margin: 0 auto;">
-                        <h1 class="mb-2" style="font-size: clamp(1.3rem, 3.5vw, 1.8rem); line-height: 1.3; color: #001122; font-weight: 900;">
-                            <span style="font-size: clamp(1.8rem, 4vw, 2.3rem); margin-right: 0.5rem;">♻️</span>
-                            <?php echo $cartilla[$pagina]['titulo']; ?>
-                        </h1>
-                        <h3 class="mb-0" style="font-size: clamp(1rem, 2.2vw, 1.3rem); font-weight: 700; color: #003366;">
-                            <?php echo $cartilla[$pagina]['subtitulo']; ?>
-                        </h3>
-                    </div>
-                </div>
-                
-                <!-- Contenido principal -->
-                <div class="col-12 col-lg-11 mx-auto px-3">
-                    <?php foreach ($cartilla[$pagina]['categorias'] as $categoria): ?>
-                        <!-- TÍTULO DE CATEGORÍA -->
-                        <div class="cuadro-texto mx-auto mb-3" style="max-width: 1150px; padding: 0.6rem 1rem; width: 95%; background: rgba(<?php 
-                            $rgb = ($categoria['color'] == '#3498db') ? '52, 152, 219' : '156, 39, 176'; 
-                            echo $rgb; 
-                        ?>, 0.35) !important; border: 2px solid <?php echo $categoria['color']; ?>;">
-                            <h2 class="text-center mb-0" style="font-size: clamp(1.1rem, 2.8vw, 1.5rem); color: #001122; font-weight: 900;">
-                                <span style="font-size: clamp(1.5rem, 3.5vw, 2rem); margin-right: 0.5rem;"><?php echo $categoria['icono']; ?></span>
-                                <?php echo $categoria['titulo']; ?>
-                            </h2>
-                        </div>
-                        
-                        <!-- LÍNEA DE TIEMPO CON FOTOS ALTERNAS -->
-                        <div class="row g-3 px-2 position-relative mb-4">
-                            <!-- Línea vertical conectora (solo desktop) -->
-                            <div class="d-none d-md-block position-absolute" style="left: 50%; top: 50px; bottom: 50px; width: 4px; background: linear-gradient(180deg, <?php 
-                                $colores = array_column($categoria['ideas'], 'color');
-                                echo implode(', ', array_map(function($c, $i) use ($colores) {
-                                    $percent = ($i / (count($colores) - 1)) * 100;
-                                    return $c . ' ' . $percent . '%';
-                                }, $colores, array_keys($colores)));
-                            ?>); transform: translateX(-50%); z-index: 0; border-radius: 10px;"></div>
-                            
-                            <?php foreach ($categoria['ideas'] as $index => $idea): 
-                                $isLeft = ($index % 2 == 0);
-                            ?>
-                            <!-- IDEA <?php echo $idea['numero']; ?> CON FOTO ALTERNA -->
-                            <div class="col-12">
-                                <div class="row g-2 align-items-center position-relative" style="z-index: 1;">
-                                    
-                                    <!-- ✅ FOTO (alterna izquierda/derecha) -->
-                                    <div class="col-md-5 <?php echo $isLeft ? 'order-md-1' : 'order-md-2 offset-md-1'; ?>">
-                                        <div class="text-center">
-                                            <img src="<?php echo $idea['imagen']; ?>" 
-                                                alt="<?php echo $idea['titulo']; ?>" 
-                                                class="img-fluid" 
-                                                style="max-height: 250px; 
-                                                        border-radius: 15px; 
-                                                        box-shadow: 0 8px 20px rgba(0,0,0,0.4); 
-                                                        border: 4px solid <?php echo $idea['color']; ?>; 
-                                                        object-fit: cover; 
-                                                        width: 100%;">
-                                        </div>
-                                    </div>
-                                    
-                                    <!-- Círculo numerado en el centro (solo desktop) -->
-                                    <div class="d-none d-md-flex col-md-2 justify-content-center align-items-center order-md-1" style="z-index: 10;">
-                                        <div style="background: <?php echo $idea['color']; ?>; 
-                                                    color: white; 
-                                                    width: 70px; 
-                                                    height: 70px; 
-                                                    border-radius: 50%; 
-                                                    display: flex; 
-                                                    align-items: center; 
-                                                    justify-content: center; 
-                                                    font-weight: 900; 
-                                                    font-size: 2rem; 
-                                                    box-shadow: 0 6px 15px rgba(0,0,0,0.4); 
-                                                    border: 5px solid white;">
-                                            <?php echo $idea['numero']; ?>
-                                        </div>
-                                    </div>
-                                    
-                                    <!-- ✅ TEXTO (lado opuesto a la foto) -->
-                                    <div class="col-md-5 <?php echo $isLeft ? 'order-md-2' : 'order-md-1'; ?>">
-                                        <div class="cuadro-texto h-100" style="padding: 1.2rem; 
-                                                                            background: rgba(255, 255, 255, 0.45) !important; 
-                                                                            border: 3px solid <?php echo $idea['color']; ?>; 
-                                                                            border-radius: 15px; 
-                                                                            box-shadow: 0 8px 20px rgba(0,0,0,0.3); 
-                                                                            position: relative;">
-                                            
-                                            <!-- Emoji y título -->
-                                            <div class="d-flex align-items-center mb-2">
-                                                <span style="font-size: clamp(2rem, 4vw, 2.5rem); 
-                                                            margin-right: 0.8rem; 
-                                                            filter: drop-shadow(3px 3px 6px rgba(0,0,0,0.3));">
-                                                    <?php echo $idea['emoji']; ?>
-                                                </span>
-                                                <h3 class="mb-0" style="font-size: clamp(1rem, 2.3vw, 1.3rem); 
-                                                                    color: #001122; 
-                                                                    font-weight: 900; 
-                                                                    line-height: 1.2; 
-                                                                    text-shadow: 2px 2px 4px rgba(255,255,255,1);">
-                                                    <?php echo $idea['titulo']; ?>
-                                                </h3>
-                                            </div>
-                                            
-                                            <!-- Descripción -->
-                                            <p class="mb-2" style="font-size: clamp(0.85rem, 1.8vw, 1rem); 
-                                                                color: #001122; 
-                                                                font-weight: 700; 
-                                                                line-height: 1.4; 
-                                                                text-shadow: 1px 1px 3px rgba(255,255,255,0.9);">
-                                                <?php echo $idea['descripcion']; ?>
-                                            </p>
-                                            
-                                            <!-- Badge de beneficio -->
-                                            <div style="background: rgba(<?php 
-                                                list($r, $g, $b) = sscanf($idea['color'], "#%02x%02x%02x");
-                                                echo "$r, $g, $b";
-                                            ?>, 0.15); 
-                                                        padding: 0.6rem; 
-                                                        border-radius: 8px; 
-                                                        border: 2px solid <?php echo $idea['color']; ?>;">
-                                                <small style="color: #001122; 
-                                                            font-weight: 700; 
-                                                            display: block; 
-                                                            text-align: center; 
-                                                            font-size: clamp(0.75rem, 1.6vw, 0.9rem);">
-                                                    <i class="fas fa-check-circle me-1"></i><?php echo $idea['beneficio']; ?>
-                                                </small>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                </div>
-                            </div>
-                            <?php endforeach; ?>
-                        </div>
-                    <?php endforeach; ?>
-                    
-                    <!-- MENSAJE FINAL MOTIVACIONAL CON LAS 3R -->
-                    <div class="cuadro-texto mx-auto mt-4 mb-3" style="max-width: 1150px; padding: 1.5rem 2rem; width: 95%; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important; border: 3px solid rgba(255,255,255,0.3); box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);">
-                        <div class="text-center">
-                            <h4 class="mb-3" style="font-size: clamp(1.1rem, 2.5vw, 1.4rem); color: white; font-weight: 900;">
-                                <i class="fas fa-star me-2" style="color: #FFD700;"></i>
-                                <?php echo $cartilla[$pagina]['mensaje_final']['titulo']; ?>
-                            </h4>
-                            <p class="mb-4" style="font-size: clamp(0.9rem, 2vw, 1.1rem); color: white; font-weight: 700; line-height: 1.5;">
-                                <?php echo $cartilla[$pagina]['mensaje_final']['texto']; ?>
-                            </p>
-                            
-                            <!-- ICONOS DE LAS 3R -->
-                            <div class="row g-3 justify-content-center">
-                                <?php foreach ($cartilla[$pagina]['mensaje_final']['iconos_3r'] as $icono_3r): ?>
-                                <div class="col-4 col-md-2">
-                                    <div style="background: rgba(255,255,255,0.2); padding: 1rem; border-radius: 10px; text-align: center;">
-                                        <div style="font-size: 2.5rem; filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.3));">
-                                            <?php echo $icono_3r['emoji']; ?>
-                                        </div>
-                                        <p class="mb-0 mt-2" style="color: white; font-weight: 700; font-size: 0.85rem;"><?php echo $icono_3r['texto']; ?></p>
-                                    </div>
-                                </div>
-                                <?php endforeach; ?>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Navegación -->
-                    <div class="container-fluid px-0 mt-3 mb-3">
-                        <div class="row g-0 w-100">
-                            <div class="col-12 d-flex justify-content-between align-items-center px-2">
-                                <a href="aprende.php?pagina=<?php echo $pagina-1; ?>" class="btn btn-lg text-white" style="background-color: #43be16; padding: 0.6rem 1.2rem; font-size: clamp(0.9rem, 2vw, 1.05rem);">
-                                    <i class="fa fa-arrow-left me-2"></i> Anterior
-                                </a>
-                                <div class="text-white text-center d-none d-md-block" style="font-size: clamp(0.8rem, 1.5vw, 0.95rem); text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">
-                                    Página <?php echo $pagina+1; ?> de <?php echo $total_paginas; ?>
-                                </div>
-                                <?php if ($pagina < $total_paginas-1): ?>
-                                    <a href="aprende.php?pagina=<?php echo $pagina+1; ?>" class="btn btn-lg text-white" style="background-color: #43be16; padding: 0.6rem 1.2rem; font-size: clamp(0.9rem, 2vw, 1.05rem);">
-                                        Siguiente <i class="fa fa-arrow-right ms-2"></i>
-                                    </a>
-                                <?php else: ?>
-                                    <a href="aprende.php?pagina=0" class="btn btn-lg text-white" style="background-color: #003d82; padding: 0.6rem 1.2rem; font-size: clamp(0.9rem, 2vw, 1.05rem);">
-                                        <i class="fa fa-home me-2"></i> Inicio
-                                    </a>
-                                <?php endif; ?>
                             </div>
                         </div>
                     </div>
@@ -3512,7 +3086,8 @@ function mostrarResultado(correctas, total, porcentaje, aprobado, tiempo, minimo
                         <small>Acierto</small>
                     </div>
                 </div>
-                <p>Necesitas ${minimo} respuestas correctas de ${total}</p>
+                <p>Necesitas ${minimo} respuestas correctas de ${total} para aprobar</p>
+                <p class="mb-3">Revisa las explicaciones arriba y vuelve a intentarlo</p>
                 <button class="btn btn-light btn-lg mt-2" onclick="location.reload()">
                     <i class="fas fa-redo me-2"></i>Intentar de Nuevo
                 </button>
@@ -3878,7 +3453,16 @@ function mostrarResultadoQuiz(correctas, total, porcentaje, aprobado, tiempo) {
             <div style="background: linear-gradient(135deg, #e74c3c, #c0392b); color: white; padding: 2rem; border-radius: 15px;">
                 <i class="fas fa-times-circle fa-3x mb-3"></i>
                 <h3 class="mb-3"><b>Quiz No Aprobado</b></h3>
-                <p>Obtuviste <b>${correctas}/${total}</b> respuestas correctas (${porcentaje.toFixed(1)}%)</p>
+                <div class="row g-3 mb-3">
+                    <div class="col-md-6">
+                        <h5>${correctas}/${total}</h5>
+                        <small>Respuestas correctas</small>
+                    </div>
+                    <div class="col-md-6">
+                        <h5>${porcentaje.toFixed(1)}%</h5>
+                        <small>Acierto</small>
+                    </div>
+                </div>
                 <p>Necesitas al menos <b>${minimoAprobacion}/${total}</b> para aprobar</p>
                 <p class="mb-3">Revisa las explicaciones arriba y vuelve a intentarlo</p>
                 <button class="btn btn-light btn-lg mt-2" onclick="location.reload()">
@@ -3891,7 +3475,6 @@ function mostrarResultadoQuiz(correctas, total, porcentaje, aprobado, tiempo) {
     mensajeDiv.style.display = 'block';
     mensajeDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
 }
-
     </script>
     
 </body>
