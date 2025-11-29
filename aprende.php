@@ -2140,6 +2140,122 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
             </div>
         </div>
     </div>
+<?php elseif ($cartilla[$pagina]['tipo'] === 'separacion_reciclables'): ?>
+    <!-- PÁGINA 11: SEPARACIÓN DE RECICLABLES -->
+    <div class="container-fluid header-aprende"
+        style="position: relative;
+            background-image: url('<?php echo $cartilla[$pagina]['fondo']; ?>');
+            background-size: cover;
+            background-position: center;
+            min-height: 100vh;
+            padding-bottom: 0.5rem;">
+            
+        <div class="container-fluid h-100 p-0">
+            <div class="row g-0 justify-content-center">
+                <!-- Títulos principales -->
+                <div class="col-12 col-lg-11 mx-auto px-3 pt-3 pb-2">
+                    <div class="cuadro-texto text-center mb-2" style="padding: 0.8rem 1.5rem; max-width: 1100px; margin: 0 auto;">
+                        <h1 class="mb-2" style="font-size: clamp(1.3rem, 3.5vw, 1.8rem); line-height: 1.3; color: #001122; font-weight: 900;">
+                            <?php echo $cartilla[$pagina]['titulo']; ?>
+                        </h1>
+                        <h3 class="mb-0" style="font-size: clamp(1rem, 2.2vw, 1.3rem); font-weight: 700; color: #003366;">
+                            <?php echo $cartilla[$pagina]['subtitulo']; ?>
+                        </h3>
+                    </div>
+                </div>
+                <!-- Contenido con scroll automático -->
+                <div class="col-12 col-lg-11 mx-auto px-3" style="max-height: none; overflow-y: visible;">
+                    <!-- Texto introductorio -->
+                    <?php if (isset($cartilla[$pagina]['texto'])): ?>
+                        <div class="cuadro-texto mx-auto mb-3" style="max-width: 1150px; padding: 0.8rem 1.2rem; width: 95%;">
+                            <div class="texto-contenido text-center" style="font-size: clamp(0.85rem, 1.8vw, 1rem); line-height: 1.4;">
+                                <?php echo $cartilla[$pagina]['texto']; ?>
+                            </div>
+                        </div>
+                    <?php endif; ?>
+                    <!-- Cuadros por categoría -->
+                    <?php foreach ($cartilla[$pagina]['categorias'] as $categoria): ?>
+                        <div class="cuadro-texto mx-auto mb-3" style="max-width: 1250px; padding: 1.2rem; width: 98%; background: rgba(255, 255, 255, 0.35) !important; border: 3px solid <?php echo $categoria['color']; ?>; box-shadow: 0 8px 20px rgba(0,0,0,0.2);">
+                            <h3 class="text-center mb-3" style="font-size: clamp(1.1rem, 3vw, 1.6rem); color: <?php echo $categoria['color']; ?>; line-height: 1.3; font-weight: 900; text-shadow: 3px 3px 8px rgba(255,255,255,1);">
+                                <?php echo $categoria['titulo']; ?>
+                            </h3>
+                            <div class="row g-3">
+                                <?php if (isset($categoria['columna_izq'])): ?>
+                                    <div class="col-md-6">
+                                        <div style="background: rgba(255, 255, 255, 0.95); padding: 1rem; border-radius: 12px; border: 2px solid <?php echo $categoria['color']; ?>; height: 100%; min-height: 200px;">
+                                            <h4 class="mb-3 text-center" style="color: <?php echo $categoria['color']; ?>; font-weight: 800; font-size: clamp(0.95rem, 2.1vw, 1.2rem);">
+                                                <i class="fas fa-check-circle me-2"></i><?php echo $categoria['columna_izq']['titulo']; ?>
+                                            </h4>
+                                            <ul class="list-unstyled mb-0">
+                                                <?php foreach ($categoria['columna_izq']['items'] as $item): ?>
+                                                    <li class="mb-2 d-flex align-items-start" style="padding: 0.5rem; border-radius: 8px; background: rgba(255,255,255,0.5);">
+                                                        <span style="font-size: clamp(1rem, 2.1vw, 1.25rem); margin-right: 0.4rem; flex-shrink: 0;"><?php echo $item['emoji']; ?></span>
+                                                        <span style="color: #001122; font-weight: 700; font-size: clamp(0.85rem, 1.9vw, 1.05rem); line-height: 1.4;"><?php echo $item['texto']; ?></span>
+                                                    </li>
+                                                <?php endforeach; ?>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                <?php endif; ?>
+                                <?php if (isset($categoria['columna_der'])): ?>
+                                    <div class="col-md-6">
+                                        <div style="background: rgba(255, 255, 255, 0.95); padding: 1rem; border-radius: 12px; border: 2px solid <?php echo $categoria['columna_der']['color_borde'] ?? '#003366'; ?>; height: 100%; min-height: 200px;">
+                                            <h4 class="mb-3 text-center" style="color: <?php echo $categoria['columna_der']['color_borde'] ?? '#003366'; ?>; font-weight: 800; font-size: clamp(0.95rem, 2.1vw, 1.2rem);">
+                                                <i class="fas fa-info-circle me-2"></i><?php echo $categoria['columna_der']['titulo']; ?>
+                                            </h4>
+                                            <ul class="list-unstyled mb-0">
+                                                <?php foreach ($categoria['columna_der']['items'] as $item): ?>
+                                                    <li class="mb-2 d-flex align-items-start" style="padding: 0.5rem; border-radius: 8px; background: rgba(255,255,255,0.5);">
+                                                        <span style="font-size: clamp(1rem, 2.1vw, 1.25rem); margin-right: 0.4rem; flex-shrink: 0;"><?php echo $item['emoji']; ?></span>
+                                                        <span style="color: #001122; font-weight: 700; font-size: clamp(0.85rem, 1.9vw, 1.05rem); line-height: 1.4;"><?php echo $item['texto']; ?></span>
+                                                    </li>
+                                                <?php endforeach; ?>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                <?php endif; ?>
+                                <?php if (isset($categoria['columna_unica'])): ?>
+                                    <div class="col-12">
+                                        <div style="background: rgba(255, 255, 255, 0.95); padding: 1rem; border-radius: 12px; border: 2px solid <?php echo $categoria['color']; ?>;">
+                                            <h4 class="mb-3 text-center" style="color: <?php echo $categoria['color']; ?>; font-weight: 800; font-size: clamp(0.95rem, 2.1vw, 1.2rem);">
+                                                <i class="fas fa-lightbulb me-2"></i><?php echo $categoria['columna_unica']['titulo']; ?>
+                                            </h4>
+                                            <ul class="list-unstyled mb-0">
+                                                <?php foreach ($categoria['columna_unica']['items'] as $item): ?>
+                                                    <li class="mb-2 d-flex align-items-start" style="padding: 0.5rem; border-radius: 8px; background: rgba(255,255,255,0.5);">
+                                                        <span style="font-size: clamp(1rem, 2.1vw, 1.25rem); margin-right: 0.4rem; flex-shrink: 0;"><?php echo $item['emoji']; ?></span>
+                                                        <span style="color: #001122; font-weight: 700; font-size: clamp(0.85rem, 1.9vw, 1.05rem); line-height: 1.4;"><?php echo $item['texto']; ?></span>
+                                                    </li>
+                                                <?php endforeach; ?>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                <?php endif; ?>
+                            </div>
+                        </div>
+                    <?php endforeach; ?>
+                    <!-- Navegación -->
+                    <div class="container-fluid px-0 mt-4 mb-3">
+                        <div class="row g-0 w-100">
+                            <div class="col-12 d-flex justify-content-between align-items-center px-2" style="background: transparent;">
+                                <a href="aprende.php?pagina=<?php echo $pagina-1; ?>" class="btn btn-lg text-white" style="background-color: #43be16; padding: 0.6rem 1.2rem; font-size: clamp(0.9rem, 2vw, 1.05rem);">
+                                    <i class="fa fa-arrow-left me-2"></i> Anterior
+                                </a>
+                                <div class="text-white text-center d-none d-md-block" style="font-size: clamp(0.8rem, 1.5vw, 0.95rem); text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">
+                                    Página <?php echo $pagina+1; ?> de <?php echo $total_paginas; ?>
+                                </div>
+                                <?php if ($pagina < $total_paginas-1): ?>
+                                    <a href="aprende.php?pagina=<?php echo $pagina+1; ?>" class="btn btn-lg text-white" style="background-color: #43be16; padding: 0.6rem 1.2rem; font-size: clamp(0.9rem, 2vw, 1.05rem);">
+                                        Siguiente <i class="fa fa-arrow-right ms-2"></i>
+                                    </a>
+                                <?php endif; ?>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <?php elseif ($cartilla[$pagina]['tipo'] === 'kit_compostaje'): ?>
     <!-- PÁGINA 13: KIT DE COMPOSTAJE CASERO CON LÍNEA DE TIEMPO -->
@@ -2319,159 +2435,165 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
         </div>
     </div>
 
-    <?php elseif ($cartilla[$pagina]['tipo'] === 'soluciones_compostaje'): ?>
-    <!-- PÁGINA 15: SOLUCIONES COMPOSTAJE + ACTIVIDAD FINAL INTERACTIVA -->
+    <?php elseif ($cartilla[$pagina]['tipo'] === 'proceso_compostaje'): ?>
+    <!-- PÁGINA 14: PROCESO DE COMPOSTAJE PASO A PASO -->
     <div class="container-fluid header-aprende"
         style="position: relative;
-            background-image: url('<?php echo $cartilla[$pagina]['fondo']; ?>');
+            background-image: url('img/preparacion_abono.jpg');
             background-size: cover;
             background-position: center;
+            background-repeat: no-repeat;
             min-height: 100vh;
             padding-bottom: 0.5rem;">
-            
+
         <div class="container-fluid h-100 p-0">
             <div class="row g-0 justify-content-center">
                 <!-- Títulos principales -->
                 <div class="col-12 col-lg-11 mx-auto px-3 pt-3 pb-2">
                     <div class="cuadro-texto text-center mb-2" style="padding: 0.8rem 1.5rem; max-width: 1100px; margin: 0 auto;">
                         <h1 class="mb-2" style="font-size: clamp(1.3rem, 3.5vw, 1.8rem); line-height: 1.3; color: #001122; font-weight: 900;">
-                            <span style="font-size: clamp(1.8rem, 4vw, 2.3rem); margin-right: 0.5rem;">🛠️</span>
-                            <?php echo $cartilla[$pagina]['titulo']; ?>
+                            <span style="font-size: clamp(1.8rem, 4vw, 2.3rem); margin-right: 0.5rem;">⏱️</span>
+                            ¡Compost Listo en 10 Días! Paso a Paso
                         </h1>
                         <h3 class="mb-0" style="font-size: clamp(1rem, 2.2vw, 1.3rem); font-weight: 700; color: #003366;">
-                            <?php echo $cartilla[$pagina]['subtitulo']; ?>
+                            Guía práctica para transformar tus residuos en abono natural
                         </h3>
                     </div>
                 </div>
-                
                 <!-- Contenido principal -->
                 <div class="col-12 col-lg-11 mx-auto px-3">
-                    
-                    <!-- SECCIÓN 1: PROBLEMAS COMUNES (3 TARJETAS) -->
-                    <div class="row g-3 px-2 mb-4">
-                        <?php foreach ($cartilla[$pagina]['problemas'] as $problema): ?>
-                        <div class="col-md-4">
-                            <div class="cuadro-texto h-100" style="padding: 1.2rem; background: rgba(255, 255, 255, 0.45) !important; border: 3px solid <?php echo $problema['color']; ?>; border-radius: 15px; box-shadow: 0 8px 20px rgba(0,0,0,0.3);">
-                                <!-- Emoji del problema -->
-                                <div class="text-center mb-2">
-                                    <span style="font-size: clamp(2.5rem, 5vw, 3rem); filter: drop-shadow(3px 3px 6px rgba(0,0,0,0.3));">
-                                        <?php echo $problema['emoji']; ?>
-                                    </span>
-                                </div>
-                                
-                                <!-- Título del problema -->
-                                <h3 class="text-center mb-3" style="font-size: clamp(1.1rem, 2.5vw, 1.4rem); color: <?php echo $problema['color']; ?>; font-weight: 900; line-height: 1.2; text-shadow: 2px 2px 4px rgba(255,255,255,1);">
-                                    Problema: <?php echo $problema['titulo']; ?>
-                                </h3>
-                                
-                                <!-- Causa -->
-                                <div class="mb-3" style="background: rgba(255, 193, 7, 0.8); padding: 0.8rem; border-radius: 10px; border: 2px solid #ffc107;">
-                                    <h5 style="font-size: clamp(0.9rem, 2vw, 1.1rem); color: #001122; font-weight: 900; margin-bottom: 0.5rem;">
-                                        <i class="fas fa-exclamation-triangle me-2"></i>Causa:
-                                    </h5>
-                                    <p class="mb-0" style="font-size: clamp(0.8rem, 1.7vw, 0.95rem); color: #001122; font-weight: 700; line-height: 1.3;">
-                                        <?php echo $problema['causa']; ?>
-                                    </p>
-                                </div>
-                                
-                                <!-- Solución -->
-                                <div style="background: rgba(67, 190, 22, 0.8); padding: 0.8rem; border-radius: 10px; border: 2px solid #43be16;">
-                                    <h5 style="font-size: clamp(0.9rem, 2vw, 1.1rem); color: #001122; font-weight: 900; margin-bottom: 0.5rem;">
-                                        <i class="fas fa-lightbulb me-2"></i>Solución:
-                                    </h5>
-                                    <p class="mb-0" style="font-size: clamp(0.8rem, 1.7vw, 0.95rem); color: #001122; font-weight: 700; line-height: 1.3;">
-                                        <?php echo $problema['solucion']; ?>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <?php endforeach; ?>
-                    </div>
-                    
-                    <!-- SECCIÓN 2: ACTIVIDAD FINAL INTERACTIVA -->
-                    <div class="cuadro-texto cuadro-actividad mx-auto mb-4" style="max-width: 1150px; padding: 1.5rem; background: rgba(135, 206, 250, 0.4) !important; border: 3px solid #2196F3;">
-                        <h3 class="text-center mb-3" style="font-size: clamp(1.2rem, 3vw, 1.6rem); color: #001122; font-weight: 900;">
-                            <i class="fas fa-seedling me-2"></i>
-                            <?php echo $cartilla[$pagina]['actividad_reto']['titulo']; ?>
-                        </h3>
+                    <!-- LÍNEA DE TIEMPO VISUAL -->
+                    <div class="row g-3 px-2 position-relative">
+                        <!-- Línea vertical conectora (solo desktop) -->
+                        <div class="d-none d-md-block position-absolute" style="left: 50%; top: 50px; bottom: 50px; width: 4px; background: linear-gradient(180deg, #43be16 0%, #2196F3 50%, #4CAF50 100%); transform: translateX(-50%); z-index: 0; border-radius: 10px;"></div>
                         
-                        <p class="texto-contenido text-center mb-4" style="font-size: clamp(0.9rem, 2vw, 1.1rem); line-height: 1.5; color: #001122; font-weight: 700;">
-                            <?php echo $cartilla[$pagina]['actividad_reto']['descripcion']; ?>
-                        </p>
-                        
-                        <!-- GRID DE ÍTEMS SELECCIONABLES -->
-                        <div class="row g-3 mb-4" id="itemsCompostables">
-                            <?php foreach ($cartilla[$pagina]['actividad_reto']['items_compostables'] as $item): ?>
-                            <div class="col-md-6 col-lg-3">
-                                <div class="item-compostable" 
-                                    data-id="<?php echo $item['id']; ?>"
-                                    onclick="toggleItem(this)"
-                                    style="background: rgba(255, 255, 255, 0.9); 
-                                            padding: 1rem; 
-                                            border-radius: 12px; 
-                                            border: 3px solid #ddd; 
-                                            cursor: pointer; 
-                                            transition: all 0.3s ease;
-                                            text-align: center;
-                                            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-                                            position: relative;">
-                                    <div style="font-size: clamp(2rem, 4vw, 2.5rem); margin-bottom: 0.5rem;">
-                                        <?php echo $item['emoji']; ?>
-                                    </div>
-                                    <div style="font-size: clamp(0.85rem, 1.6vw, 1rem); 
-                                                color: #001122; 
-                                                font-weight: 700; 
-                                                line-height: 1.3;">
-                                        <?php echo $item['texto']; ?>
-                                    </div>
-                                    <!-- ✅ CHECKMARK OCULTO POR DEFECTO -->
-                                    <div class="checkmark" style="display: none; position: absolute; top: 10px; right: 10px; background: #43be16; color: white; width: 30px; height: 30px; border-radius: 50%; align-items: center; justify-content: center; font-size: 1.2rem;">
-                                        <i class="fas fa-check"></i>
+                        <!-- PASO 1 -->
+                        <div class="col-12">
+                            <div class="row g-0 align-items-center position-relative" style="z-index: 1;">
+                                <div class="col-md-5 order-md-1">
+                                    <div class="cuadro-texto h-100" style="padding: 1.2rem; background: rgba(255,255,255,0.45) !important; border: 3px solid #2196F3; border-radius: 15px; box-shadow: 0 8px 20px rgba(0,0,0,0.3); position: relative;">
+                                        <div class="d-none d-md-block position-absolute" style="right: -20px; top: 50%; transform: translateY(-50%); width: 0; height: 0; border-top: 15px solid transparent; border-bottom: 15px solid transparent; border-left: 20px solid #2196F3;"></div>
+                                        <div class="d-flex align-items-center mb-2">
+                                            <span style="font-size: clamp(2rem, 4vw, 2.5rem); margin-right: 0.8rem; filter: drop-shadow(3px 3px 6px rgba(0,0,0,0.3));">🧹</span>
+                                            <h3 class="mb-0" style="font-size: clamp(1rem, 2.3vw, 1.3rem); color: #001122; font-weight: 900; line-height: 1.2; text-shadow: 2px 2px 4px rgba(255,255,255,1);">Paso 1: Prepara tu compostera</h3>
+                                        </div>
+                                        <p class="mb-0" style="font-size: clamp(0.85rem, 1.8vw, 1rem); color: #001122; font-weight: 700; line-height: 1.4; text-shadow: 1px 1px 3px rgba(255,255,255,0.9);">Límpiala y ubícala en un lugar fresco y ventilado.</p>
                                     </div>
                                 </div>
-                            </div>
-                            <?php endforeach; ?>
-                        </div>
-                        
-                        <!-- Contador de seleccionados -->
-                        <div class="text-center mb-3">
-                            <div style="background: rgba(255, 193, 7, 0.9); 
-                                        padding: 0.8rem 1.5rem; 
-                                        border-radius: 10px; 
-                                        display: inline-block;
-                                        border: 2px solid #ffc107;">
-                                <span style="color: #001122; font-weight: 900; font-size: clamp(0.9rem, 2vw, 1.1rem);">
-                                    <i class="fas fa-list-check me-2"></i>Seleccionados: <span id="contadorSeleccionados">0</span> / <?php echo $cartilla[$pagina]['actividad_reto']['minimo_requerido']; ?> mínimo
-                                </span>
+                                <div class="d-none d-md-flex col-md-2 justify-content-center align-items-center order-md-1" style="z-index: 10;">
+                                    <div style="background: #2196F3; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 1.8rem; box-shadow: 0 6px 15px rgba(0,0,0,0.4); border: 4px solid white;">1</div>
+                                </div>
+                                <div class="d-none d-md-block col-md-5 order-md-2"></div>
                             </div>
                         </div>
-                        
-                        <!-- Botón de envío -->
-                        <div class="text-center mt-4">
-                            <button 
-                                type="button" 
-                                id="btnCompletarReto"
-                                class="btn btn-primary btn-lg px-5 py-3" 
-                                onclick="guardarRetoCompost()" 
-                                style="background-color: #43be16; 
-                                    border-color: #43be16; 
-                                    font-size: clamp(1rem, 2.2vw, 1.2rem); 
-                                    font-weight: 700;">
-                                <i class="fas fa-check-circle me-2"></i>
-                                ¡Completar Reto Final!
-                            </button>
+                        <!-- PASO 2 -->
+                        <div class="col-12">
+                            <div class="row g-0 align-items-center position-relative" style="z-index: 1;">
+                                <div class="col-md-5 order-md-2 offset-md-1">
+                                    <div class="cuadro-texto h-100" style="padding: 1.2rem; background: rgba(255,255,255,0.45) !important; border: 3px solid #FF9800; border-radius: 15px; box-shadow: 0 8px 20px rgba(0,0,0,0.3); position: relative;">
+                                        <div class="d-none d-md-block position-absolute" style="left: -20px; top: 50%; transform: translateY(-50%); width: 0; height: 0; border-top: 15px solid transparent; border-bottom: 15px solid transparent; border-right: 20px solid #FF9800;"></div>
+                                        <div class="d-flex align-items-center mb-2">
+                                            <span style="font-size: clamp(2rem, 4vw, 2.5rem); margin-right: 0.8rem; filter: drop-shadow(3px 3px 6px rgba(0,0,0,0.3));">🌾</span>
+                                            <h3 class="mb-0" style="font-size: clamp(1rem, 2.3vw, 1.3rem); color: #001122; font-weight: 900; line-height: 1.2; text-shadow: 2px 2px 4px rgba(255,255,255,1);">Paso 2: Primera capa</h3>
+                                        </div>
+                                        <p class="mb-0" style="font-size: clamp(0.85rem, 1.8vw, 1rem); color: #001122; font-weight: 700; line-height: 1.4; text-shadow: 1px 1px 3px rgba(255,255,255,0.9);">Pon una base de \"Material Secante Vegetal\".</p>
+                                    </div>
+                                </div>
+                                <div class="d-none d-md-flex col-md-2 justify-content-center align-items-center order-md-1" style="z-index: 10;">
+                                    <div style="background: #FF9800; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 1.8rem; box-shadow: 0 6px 15px rgba(0,0,0,0.4); border: 4px solid white;">2</div>
+                                </div>
+                                <div class="d-none d-md-block col-md-5 order-md-1"></div>
+                            </div>
                         </div>
-                        
-                        <!-- Mensaje de éxito -->
-                        <div id="mensajeExitoCompost" class="alert text-center mt-4" style="display: none; background-color: rgba(67, 190, 22, 0.9); border-color: #43be16; color: #001122; padding: 1.5rem; border-radius: 15px; font-size: clamp(0.9rem, 2vw, 1.1rem); font-weight: 700;">
-                            <i class="fas fa-trophy me-2" style="font-size: 2rem; color: #FFD700;"></i>
-                            <h4 class="mb-2"><b>¡FELICITACIONES! 🎉</b></h4>
-                            <p class="mb-2">Has completado toda la cartilla sobre compostaje.</p>
-                            <p class="mb-0">¡Ahora estás lista para transformar tus residuos en abono natural!</p>
-                            <small class="d-block mt-2">Redirigiendo en 5 segundos...</small>
+                        <!-- PASO 3 -->
+                        <div class="col-12">
+                            <div class="row g-0 align-items-center position-relative" style="z-index: 1;">
+                                <div class="col-md-5 order-md-1">
+                                    <div class="cuadro-texto h-100" style="padding: 1.2rem; background: rgba(255,255,255,0.45) !important; border: 3px solid #43be16; border-radius: 15px; box-shadow: 0 8px 20px rgba(0,0,0,0.3); position: relative;">
+                                        <div class="d-none d-md-block position-absolute" style="right: -20px; top: 50%; transform: translateY(-50%); width: 0; height: 0; border-top: 15px solid transparent; border-bottom: 15px solid transparent; border-left: 20px solid #43be16;"></div>
+                                        <div class="d-flex align-items-center mb-2">
+                                            <span style="font-size: clamp(2rem, 4vw, 2.5rem); margin-right: 0.8rem; filter: drop-shadow(3px 3px 6px rgba(0,0,0,0.3));">🍌</span>
+                                            <h3 class="mb-0" style="font-size: clamp(1rem, 2.3vw, 1.3rem); color: #001122; font-weight: 900; line-height: 1.2; text-shadow: 2px 2px 4px rgba(255,255,255,1);">Paso 3: Añade residuos orgánicos</h3>
+                                        </div>
+                                        <p class="mb-0" style="font-size: clamp(0.85rem, 1.8vw, 1rem); color: #001122; font-weight: 700; line-height: 1.4; text-shadow: 1px 1px 3px rgba(255,255,255,0.9);">Cáscaras, restos de frutas/verduras, café, pan. Pícalos.</p>
+                                    </div>
+                                </div>
+                                <div class="d-none d-md-flex col-md-2 justify-content-center align-items-center order-md-1" style="z-index: 10;">
+                                    <div style="background: #43be16; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 1.8rem; box-shadow: 0 6px 15px rgba(0,0,0,0.4); border: 4px solid white;">3</div>
+                                </div>
+                                <div class="d-none d-md-block col-md-5 order-md-2"></div>
+                            </div>
+                        </div>
+                        <!-- PASO 4 -->
+                        <div class="col-12">
+                            <div class="row g-0 align-items-center position-relative" style="z-index: 1;">
+                                <div class="col-md-5 order-md-2 offset-md-1">
+                                    <div class="cuadro-texto h-100" style="padding: 1.2rem; background: rgba(255,255,255,0.45) !important; border: 3px solid #9C27B0; border-radius: 15px; box-shadow: 0 8px 20px rgba(0,0,0,0.3); position: relative;">
+                                        <div class="d-none d-md-block position-absolute" style="left: -20px; top: 50%; transform: translateY(-50%); width: 0; height: 0; border-top: 15px solid transparent; border-bottom: 15px solid transparent; border-right: 20px solid #9C27B0;"></div>
+                                        <div class="d-flex align-items-center mb-2">
+                                            <span style="font-size: clamp(2rem, 4vw, 2.5rem); margin-right: 0.8rem; filter: drop-shadow(3px 3px 6px rgba(0,0,0,0.3));">⚗️</span>
+                                            <h3 class="mb-0" style="font-size: clamp(1rem, 2.3vw, 1.3rem); color: #001122; font-weight: 900; line-height: 1.2; text-shadow: 2px 2px 4px rgba(255,255,255,1);">Paso 4: Agrega acelerador y material seco</h3>
+                                        </div>
+                                        <p class="mb-0" style="font-size: clamp(0.85rem, 1.8vw, 1rem); color: #001122; font-weight: 700; line-height: 1.4; text-shadow: 1px 1px 3px rgba(255,255,255,0.9);">Cubre cada capa de orgánicos con el acelerador y luego con \"Material Secante Vegetal\".</p>
+                                    </div>
+                                </div>
+                                <div class="d-none d-md-flex col-md-2 justify-content-center align-items-center order-md-1" style="z-index: 10;">
+                                    <div style="background: #9C27B0; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 1.8rem; box-shadow: 0 6px 15px rgba(0,0,0,0.4); border: 4px solid white;">4</div>
+                                </div>
+                                <div class="d-none d-md-block col-md-5 order-md-1"></div>
+                            </div>
+                        </div>
+                        <!-- PASO 5 -->
+                        <div class="col-12">
+                            <div class="row g-0 align-items-center position-relative" style="z-index: 1;">
+                                <div class="col-md-5 order-md-1">
+                                    <div class="cuadro-texto h-100" style="padding: 1.2rem; background: rgba(255,255,255,0.45) !important; border: 3px solid #607D8B; border-radius: 15px; box-shadow: 0 8px 20px rgba(0,0,0,0.3); position: relative;">
+                                        <div class="d-none d-md-block position-absolute" style="right: -20px; top: 50%; transform: translateY(-50%); width: 0; height: 0; border-top: 15px solid transparent; border-bottom: 15px solid transparent; border-left: 20px solid #607D8B;"></div>
+                                        <div class="d-flex align-items-center mb-2">
+                                            <span style="font-size: clamp(2rem, 4vw, 2.5rem); margin-right: 0.8rem; filter: drop-shadow(3px 3px 6px rgba(0,0,0,0.3));">🛠️</span>
+                                            <h3 class="mb-0" style="font-size: clamp(1rem, 2.3vw, 1.3rem); color: #001122; font-weight: 900; line-height: 1.2; text-shadow: 2px 2px 4px rgba(255,255,255,1);">Paso 5: Mezcla suavemente</h3>
+                                        </div>
+                                        <p class="mb-0" style="font-size: clamp(0.85rem, 1.8vw, 1rem); color: #001122; font-weight: 700; line-height: 1.4; text-shadow: 1px 1px 3px rgba(255,255,255,0.9);">Usa las herramientas de tu kit cada 1–2 días.</p>
+                                    </div>
+                                </div>
+                                <div class="d-none d-md-flex col-md-2 justify-content-center align-items-center order-md-1" style="z-index: 10;">
+                                    <div style="background: #607D8B; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 1.8rem; box-shadow: 0 6px 15px rgba(0,0,0,0.4); border: 4px solid white;">5</div>
+                                </div>
+                                <div class="d-none d-md-block col-md-5 order-md-2"></div>
+                            </div>
+                        </div>
+                        <!-- PASO 6 -->
+                        <div class="col-12">
+                            <div class="row g-0 align-items-center position-relative" style="z-index: 1;">
+                                <div class="col-md-5 order-md-2 offset-md-1">
+                                    <div class="cuadro-texto h-100" style="padding: 1.2rem; background: rgba(255,255,255,0.45) !important; border: 3px solid #4CAF50; border-radius: 15px; box-shadow: 0 8px 20px rgba(0,0,0,0.3); position: relative;">
+                                        <div class="d-none d-md-block position-absolute" style="left: -20px; top: 50%; transform: translateY(-50%); width: 0; height: 0; border-top: 15px solid transparent; border-bottom: 15px solid transparent; border-right: 20px solid #4CAF50;"></div>
+                                        <div class="d-flex align-items-center mb-2">
+                                            <span style="font-size: clamp(2rem, 4vw, 2.5rem); margin-right: 0.8rem; filter: drop-shadow(3px 3px 6px rgba(0,0,0,0.3));">✨</span>
+                                            <h3 class="mb-0" style="font-size: clamp(1rem, 2.3vw, 1.3rem); color: #001122; font-weight: 900; line-height: 1.2; text-shadow: 2px 2px 4px rgba(255,255,255,1);">Paso 6: ¡Compost listo!</h3>
+                                        </div>
+                                        <p class="mb-0" style="font-size: clamp(0.85rem, 1.8vw, 1rem); color: #001122; font-weight: 700; line-height: 1.4; text-shadow: 1px 1px 3px rgba(255,255,255,0.9);">Debe tener olor a tierra, color oscuro y no verse restos de comida.</p>
+                                    </div>
+                                </div>
+                                <div class="d-none d-md-flex col-md-2 justify-content-center align-items-center order-md-1" style="z-index: 10;">
+                                    <div style="background: #4CAF50; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 1.8rem; box-shadow: 0 6px 15px rgba(0,0,0,0.4); border: 4px solid white;">6</div>
+                                </div>
+                                <div class="d-none d-md-block col-md-5 order-md-1"></div>
+                            </div>
                         </div>
                     </div>
-                    
+                    <!-- Nota final motivacional -->
+                    <div class="cuadro-texto mx-auto mt-4 mb-3" style="max-width: 1150px; padding: 1rem 1.5rem; width: 95%; background: rgba(67,190,22,0.4) !important; border: 3px solid #43be16;">
+                        <div class="text-center">
+                            <h4 class="mb-2" style="font-size: clamp(1rem, 2.3vw, 1.3rem); color: #001122; font-weight: 900;">
+                                <i class="fas fa-seedling me-2"></i>¡Tu primer compost está listo!
+                            </h4>
+                            <p class="mb-0" style="font-size: clamp(0.85rem, 1.8vw, 1rem); color: #001122; font-weight: 700; line-height: 1.4;">
+                                Ahora puedes usar este abono natural en tus plantas, macetas o huerta. <b>Estás contribuyendo a la economía circular</b> y reduciendo tu huella ambiental. 🌱💚
+                            </p>
+                        </div>
+                    </div>
+
                     <!-- Navegación -->
                     <div class="container-fluid px-0 mt-3 mb-0">
                         <div class="row g-0">
@@ -2517,6 +2639,792 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
                                     <?php endif; ?>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <?php elseif ($cartilla[$pagina]['tipo'] === 'soluciones_compostaje'): ?>
+    <!-- PÁGINA 15: SOLUCIONES COMPOSTAJE + ACTIVIDAD FINAL INTERACTIVA -->
+    <div class="container-fluid header-aprende"
+        style="position: relative;
+            background-image: url('img/preparacion_abono.jpg');
+            background-size: cover;
+            background-position: center;
+            min-height: 100vh;
+            padding-bottom: 0.5rem;">
+            
+        <div class="container-fluid h-100 p-0">
+            <div class="row g-0 justify-content-center">
+                <!-- Títulos principales -->
+                <div class="col-12 col-lg-11 mx-auto px-3 pt-3 pb-2">
+                    <div class="cuadro-texto text-center mb-2" style="padding: 0.8rem 1.5rem; max-width: 1100px; margin: 0 auto;">
+                        <h1 class="mb-2" style="font-size: clamp(1.3rem, 3.5vw, 1.8rem); line-height: 1.3; color: #001122; font-weight: 900;">
+                            <span style="font-size: clamp(1.8rem, 4vw, 2.3rem); margin-right: 0.5rem;">🛠️</span>
+                            ¿Un Reto con tu Compost? ¡Aquí la Solución!
+                        </h1>
+                        <h3 class="mb-0" style="font-size: clamp(1rem, 2.2vw, 1.3rem); font-weight: 700; color: #003366;">
+                            Guía de solución de problemas comunes
+                        </h3>
+                    </div>
+                </div>
+                
+                <!-- Contenido principal -->
+                <div class="col-12 col-lg-11 mx-auto px-3">
+                    <!-- SECCIÓN 1: PROBLEMAS COMUNES (3 TARJETAS) -->
+                    <div class="row g-3 px-2 mb-4">
+                        <!-- Tarjeta 1 -->
+                        <div class="col-md-4">
+                            <div class="cuadro-texto h-100" style="padding: 1.2rem; background: rgba(255,255,255,0.45); border: 3px solid #e74c3c; border-radius: 15px; box-shadow: 0 8px 20px rgba(0,0,0,0.3);">
+                                <div class="text-center mb-2">
+                                    <span style="font-size: clamp(2.5rem, 5vw, 3rem); filter: drop-shadow(3px 3px 6px rgba(0,0,0,0.3));">🤢</span>
+                                </div>
+                                <h3 class="text-center mb-3" style="font-size: clamp(1.1rem, 2.5vw, 1.4rem); color: #e74c3c; font-weight: 900; line-height: 1.2; text-shadow: 2px 2px 4px rgba(255,255,255,1);">
+                                    Problema: Mal olor
+                                </h3>
+                                <div class="mb-3" style="background: rgba(255,193,7,0.8); padding: 0.8rem; border-radius: 10px; border: 2px solid #ffc107;">
+                                    <h5 style="font-size: clamp(0.9rem, 2vw, 1.1rem); color: #001122; font-weight: 900; margin-bottom: 0.5rem;">
+                                        <i class="fas fa-exclamation-triangle me-2"></i>Causa:
+                                    </h5>
+                                    <p class="mb-0" style="font-size: clamp(0.8rem, 1.7vw, 0.95rem); color: #001122; font-weight: 700; line-height: 1.3;">
+                                        Exceso de húmedo/nitrógeno, falta de aire.
+                                    </p>
+                                </div>
+                                <div style="background: rgba(67,190,22,0.8); padding: 0.8rem; border-radius: 10px; border: 2px solid #43be16;">
+                                    <h5 style="font-size: clamp(0.9rem, 2vw, 1.1rem); color: #001122; font-weight: 900; margin-bottom: 0.5rem;">
+                                        <i class="fas fa-lightbulb me-2"></i>Solución:
+                                    </h5>
+                                    <p class="mb-0" style="font-size: clamp(0.8rem, 1.7vw, 0.95rem); color: #001122; font-weight: 700; line-height: 1.3;">
+                                        "Los Increíbles de la Montaña" y "Seca Rápido" están diseñados para esto. Si aún así huele, revisa si pusiste algo que no va o si necesitas más Seca Rápido.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Tarjeta 2 -->
+                        <div class="col-md-4">
+                            <div class="cuadro-texto h-100" style="padding: 1.2rem; background: rgba(255,255,255,0.45); border: 3px solid #9C27B0; border-radius: 15px; box-shadow: 0 8px 20px rgba(0,0,0,0.3);">
+                                <div class="text-center mb-2">
+                                    <span style="font-size: clamp(2.5rem, 5vw, 3rem); filter: drop-shadow(3px 3px 6px rgba(0,0,0,0.3));">🦟</span>
+                                </div>
+                                <h3 class="text-center mb-3" style="font-size: clamp(1.1rem, 2.5vw, 1.4rem); color: #9C27B0; font-weight: 900; line-height: 1.2; text-shadow: 2px 2px 4px rgba(255,255,255,1);">
+                                    Problema: Mosquitos
+                                </h3>
+                                <div class="mb-3" style="background: rgba(255,193,7,0.8); padding: 0.8rem; border-radius: 10px; border: 2px solid #ffc107;">
+                                    <h5 style="font-size: clamp(0.9rem, 2vw, 1.1rem); color: #001122; font-weight: 900; margin-bottom: 0.5rem;">
+                                        <i class="fas fa-exclamation-triangle me-2"></i>Causa:
+                                    </h5>
+                                    <p class="mb-0" style="font-size: clamp(0.8rem, 1.7vw, 0.95rem); color: #001122; font-weight: 700; line-height: 1.3;">
+                                        Residuos inadecuados, compost no cubierto.
+                                    </p>
+                                </div>
+                                <div style="background: rgba(67,190,22,0.8); padding: 0.8rem; border-radius: 10px; border: 2px solid #43be16;">
+                                    <h5 style="font-size: clamp(0.9rem, 2vw, 1.1rem); color: #001122; font-weight: 900; margin-bottom: 0.5rem;">
+                                        <i class="fas fa-lightbulb me-2"></i>Solución:
+                                    </h5>
+                                    <p class="mb-0" style="font-size: clamp(0.8rem, 1.7vw, 0.95rem); color: #001122; font-weight: 700; line-height: 1.3;">
+                                        El acelerador y la capa seca los evitan. Cubre siempre bien tu compostera.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Tarjeta 3 -->
+                        <div class="col-md-4">
+                            <div class="cuadro-texto h-100" style="padding: 1.2rem; background: rgba(255,255,255,0.45); border: 3px solid #2196F3; border-radius: 15px; box-shadow: 0 8px 20px rgba(0,0,0,0.3);">
+                                <div class="text-center mb-2">
+                                    <span style="font-size: clamp(2.5rem, 5vw, 3rem); filter: drop-shadow(3px 3px 6px rgba(0,0,0,0.3));">💧</span>
+                                </div>
+                                <h3 class="text-center mb-3" style="font-size: clamp(1.1rem, 2.5vw, 1.4rem); color: #2196F3; font-weight: 900; line-height: 1.2; text-shadow: 2px 2px 4px rgba(255,255,255,1);">
+                                    Problema: Exceso de líquidos
+                                </h3>
+                                <div class="mb-3" style="background: rgba(255,193,7,0.8); padding: 0.8rem; border-radius: 10px; border: 2px solid #ffc107;">
+                                    <h5 style="font-size: clamp(0.9rem, 2vw, 1.1rem); color: #001122; font-weight: 900; margin-bottom: 0.5rem;">
+                                        <i class="fas fa-exclamation-triangle me-2"></i>Causa:
+                                    </h5>
+                                    <p class="mb-0" style="font-size: clamp(0.8rem, 1.7vw, 0.95rem); color: #001122; font-weight: 700; line-height: 1.3;">
+                                        Demasiados materiales húmedos, falta de absorción.
+                                    </p>
+                                </div>
+                                <div style="background: rgba(67,190,22,0.8); padding: 0.8rem; border-radius: 10px; border: 2px solid #43be16;">
+                                    <h5 style="font-size: clamp(0.9rem, 2vw, 1.1rem); color: #001122; font-weight: 900; margin-bottom: 0.5rem;">
+                                        <i class="fas fa-lightbulb me-2"></i>Solución:
+                                    </h5>
+                                    <p class="mb-0" style="font-size: clamp(0.8rem, 1.7vw, 0.95rem); color: #001122; font-weight: 700; line-height: 1.3;">
+                                        "Seca Rápido" absorbe la humedad. Asegúrate de usarlo bien.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- SECCIÓN 2: ACTIVIDAD FINAL INTERACTIVA -->
+                    <div class="cuadro-texto cuadro-actividad mx-auto mb-4" style="max-width: 1150px; padding: 1.5rem; background: rgba(135,206,250,0.4); border: 3px solid #2196F3;">
+                        <h3 class="text-center mb-3" style="font-size: clamp(1.2rem, 3vw, 1.6rem); color: #001122; font-weight: 900;">
+                            <i class="fas fa-seedling me-2"></i>
+                            Reto del Tema 4: ¡Mi Primer Paso con el Compost!
+                        </h3>
+                        <p class="texto-contenido text-center mb-4" style="font-size: clamp(0.9rem, 2vw, 1.1rem); line-height: 1.5; color: #001122; font-weight: 700;">
+                            ¡Es hora de empezar! Selecciona <b>al menos 3 residuos orgánicos</b> que planeas compostar primero con tu kit.
+                        </p>
+                        <!-- GRID DE ÍTEMS SELECCIONABLES -->
+                        <div class="row g-3 mb-4" id="itemsCompostables">
+                            <!-- ... aquí van los ítems compostables, como en tu ejemplo ... -->
+                        </div>
+                        <!-- Contador de seleccionados -->
+                        <div class="text-center mb-3">
+                            <div style="background: rgba(255,193,7,0.9); padding: 0.8rem 1.5rem; border-radius: 10px; display: inline-block; border: 2px solid #ffc107;">
+                                <span style="color: #001122; font-weight: 900; font-size: clamp(0.9rem, 2vw, 1.1rem);">
+                                    <i class="fas fa-list-check me-2"></i>
+                                    Seleccionados: <span id="contadorSeleccionados">0</span> / 3 mínimo
+                                </span>
+                            </div>
+                        </div>
+                        <!-- Botón de envío -->
+                        <div class="text-center mt-4">
+                            <button 
+                                type="button" 
+                                id="btnCompletarReto"
+                                class="btn btn-primary btn-lg px-5 py-3" 
+                                onclick="guardarRetoCompost()" 
+                                style="background-color: #43be16; border-color: #43be16; font-size: clamp(1rem, 2.2vw, 1.2rem); font-weight: 700;">
+                                <i class="fas fa-check-circle me-2"></i>
+                                ¡Completar Reto Final!
+                            </button>
+                        </div>
+                        <!-- Mensaje de éxito -->
+                        <div id="mensajeExitoCompost" class="alert text-center mt-4" style="display: none; background-color: rgba(67,190,22,0.9); border-color: #43be16; color: #001122; padding: 1.5rem; border-radius: 15px; font-size: clamp(0.9rem, 2vw, 1.1rem); font-weight: 700;">
+                            <i class="fas fa-trophy me-2" style="font-size: 2rem; color: #FFD700;"></i>
+                            <h4 class="mb-2"><b>¡FELICITACIONES! 🎉</b></h4>
+                            <p class="mb-2">Has completado toda la cartilla sobre compostaje.</p>
+                            <p class="mb-0">¡Ahora estás lista para transformar tus residuos en abono natural!</p>
+                            <small class="d-block mt-2">Redirigiendo en 5 segundos...</small>
+                        </div>
+                    </div>
+                    
+                    <!-- Navegación -->
+                    <div class="container-fluid px-0 mt-3 mb-3">
+                        <div class="row g-0 w-100">
+                            <div class="col-12 d-flex justify-content-between align-items-center px-2">
+                                <a href="aprende.php?pagina=14" class="btn btn-lg text-white" style="background-color: #43be16; padding: 0.6rem 1.2rem; font-size: clamp(0.9rem, 2vw, 1.05rem);">
+                                    <i class="fa fa-arrow-left me-2"></i> Anterior
+                                </a>
+                                <div class="text-white text-center d-none d-md-block" style="font-size: clamp(0.8rem, 1.5vw, 0.95rem); text-shadow: 2px 2px 4px rgba(0,0,0,0.8); position: absolute; left: 50%; transform: translateX(-50%); width: max-content;">
+                                    Página 16 de 18
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <?php elseif ($cartilla[$pagina]['tipo'] === 'reuso_reciclaje_timeline'): ?>
+    <!-- PÁGINA 16: REUSO Y RECICLAJE CON FOTOS ALTERNAS -->
+    <div class="container-fluid header-aprende"
+        style="position: relative;
+            background-image: url('img/imagen_fondo_verde.jpg');
+            background-size: cover;
+            background-position: center;
+            min-height: 100vh;
+            padding-bottom: 0.5rem;">
+            
+        <div class="container-fluid h-100 p-0">
+            <div class="row g-0 justify-content-center">
+                <!-- Títulos principales -->
+                <div class="col-12 col-lg-11 mx-auto px-3 pt-3 pb-2">
+                    <div class="cuadro-texto text-center mb-2" style="padding: 0.8rem 1.5rem; max-width: 1100px; margin: 0 auto;">
+                        <h1 class="mb-2" style="font-size: clamp(1.3rem, 3.5vw, 1.8rem); line-height: 1.3; color: #001122; font-weight: 900;">
+                            <span style="font-size: clamp(1.8rem, 4vw, 2.3rem); margin-right: 0.5rem;">♻️</span>
+                            Reuso y Reciclaje: ¡Dale una Segunda Vida a Todo!                        </h1>
+                        <h3 class="mb-0" style="font-size: clamp(1rem, 2.2vw, 1.3rem); font-weight: 700; color: #003366;">
+                            El compostaje es solo el inicio. ¡Muchos otros residuos tienen una segunda oportunidad!                        </h3>
+                    </div>
+                </div>
+                
+                <!-- Contenido principal -->
+                <div class="col-12 col-lg-11 mx-auto px-3">
+                                            <!-- TÍTULO DE CATEGORÍA -->
+                        <div class="cuadro-texto mx-auto mb-3" style="max-width: 1150px; padding: 0.6rem 1rem; width: 95%; background: rgba(52, 152, 219, 0.35) !important; border: 2px solid #3498db;">
+                            <h2 class="text-center mb-0" style="font-size: clamp(1.1rem, 2.8vw, 1.5rem); color: #001122; font-weight: 900;">
+                                <span style="font-size: clamp(1.5rem, 3.5vw, 2rem); margin-right: 0.5rem;">🍽️</span>
+                                Ideas Creativas para Gastronomía                            </h2>
+                        </div>
+                        
+                        <!-- LÍNEA DE TIEMPO CON FOTOS ALTERNAS -->
+                        <div class="row g-3 px-2 position-relative mb-4">
+                            <!-- Línea vertical conectora (solo desktop) -->
+                            <div class="d-none d-md-block position-absolute" style="left: 50%; top: 50px; bottom: 50px; width: 4px; background: linear-gradient(180deg, #3498db 0%, #e74c3c 50%, #43be16 100%); transform: translateX(-50%); z-index: 0; border-radius: 10px;"></div>
+                            
+                                                        <!-- IDEA 1 CON FOTO ALTERNA -->
+                            <div class="col-12">
+                                <div class="row g-2 align-items-center position-relative" style="z-index: 1;">
+                                    
+                                    <!-- ✅ FOTO (alterna izquierda/derecha) -->
+                                    <div class="col-md-5 order-md-1">
+                                        <div class="text-center">
+                                            <img src="img/materos_plasticos.jpg" 
+                                                alt="Envases de Plástico" 
+                                                class="img-fluid" 
+                                                style="max-height: 250px; 
+                                                        border-radius: 15px; 
+                                                        box-shadow: 0 8px 20px rgba(0,0,0,0.4); 
+                                                        border: 4px solid #3498db; 
+                                                        object-fit: cover; 
+                                                        width: 100%;">
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Círculo numerado en el centro (solo desktop) -->
+                                    <div class="d-none d-md-flex col-md-2 justify-content-center align-items-center order-md-1" style="z-index: 10;">
+                                        <div style="background: #3498db; 
+                                                    color: white; 
+                                                    width: 70px; 
+                                                    height: 70px; 
+                                                    border-radius: 50%; 
+                                                    display: flex; 
+                                                    align-items: center; 
+                                                    justify-content: center; 
+                                                    font-weight: 900; 
+                                                    font-size: 2rem; 
+                                                    box-shadow: 0 6px 15px rgba(0,0,0,0.4); 
+                                                    border: 5px solid white;">
+                                            1                                        </div>
+                                    </div>
+                                    
+                                    <!-- ✅ TEXTO (lado opuesto a la foto) -->
+                                    <div class="col-md-5 order-md-2">
+                                        <div class="cuadro-texto h-100" style="padding: 1.2rem; 
+                                                                            background: rgba(255, 255, 255, 0.45) !important; 
+                                                                            border: 3px solid #3498db; 
+                                                                            border-radius: 15px; 
+                                                                            box-shadow: 0 8px 20px rgba(0,0,0,0.3); 
+                                                                            position: relative;">
+                                            
+                                            <!-- Emoji y título -->
+                                            <div class="d-flex align-items-center mb-2">
+                                                <span style="font-size: clamp(2rem, 4vw, 2.5rem); 
+                                                            margin-right: 0.8rem; 
+                                                            filter: drop-shadow(3px 3px 6px rgba(0,0,0,0.3));">
+                                                    📦                                                </span>
+                                                <h3 class="mb-0" style="font-size: clamp(1rem, 2.3vw, 1.3rem); 
+                                                                    color: #001122; 
+                                                                    font-weight: 900; 
+                                                                    line-height: 1.2; 
+                                                                    text-shadow: 2px 2px 4px rgba(255,255,255,1);">
+                                                    Envases de Plástico                                                </h3>
+                                            </div>
+                                            
+                                            <!-- Descripción -->
+                                            <p class="mb-2" style="font-size: clamp(0.85rem, 1.8vw, 1rem); 
+                                                                color: #001122; 
+                                                                font-weight: 700; 
+                                                                line-height: 1.4; 
+                                                                text-shadow: 1px 1px 3px rgba(255,255,255,0.9);">
+                                                Reutiliza envases limpios para guardar tus insumos, especias, harinas y otros ingredientes de manera organizada.                                            </p>
+                                            
+                                            <!-- Badge de beneficio -->
+                                            <div style="background: rgba(52, 152, 219, 0.15); 
+                                                        padding: 0.6rem; 
+                                                        border-radius: 8px; 
+                                                        border: 2px solid #3498db;">
+                                                <small style="color: #001122; 
+                                                            font-weight: 700; 
+                                                            display: block; 
+                                                            text-align: center; 
+                                                            font-size: clamp(0.75rem, 1.6vw, 0.9rem);">
+                                                    <i class="fas fa-check-circle me-1"></i>Organización + Ahorro                                                </small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                                                        <!-- IDEA 2 CON FOTO ALTERNA -->
+                            <div class="col-12">
+                                <div class="row g-2 align-items-center position-relative" style="z-index: 1;">
+                                    
+                                    <!-- ✅ FOTO (alterna izquierda/derecha) -->
+                                    <div class="col-md-5 order-md-2 offset-md-1">
+                                        <div class="text-center">
+                                            <img src="img/ideas_frascos_vidrio.jpg" 
+                                                alt="Frascos de Vidrio" 
+                                                class="img-fluid" 
+                                                style="max-height: 250px; 
+                                                        border-radius: 15px; 
+                                                        box-shadow: 0 8px 20px rgba(0,0,0,0.4); 
+                                                        border: 4px solid #e74c3c; 
+                                                        object-fit: cover; 
+                                                        width: 100%;">
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Círculo numerado en el centro (solo desktop) -->
+                                    <div class="d-none d-md-flex col-md-2 justify-content-center align-items-center order-md-1" style="z-index: 10;">
+                                        <div style="background: #e74c3c; 
+                                                    color: white; 
+                                                    width: 70px; 
+                                                    height: 70px; 
+                                                    border-radius: 50%; 
+                                                    display: flex; 
+                                                    align-items: center; 
+                                                    justify-content: center; 
+                                                    font-weight: 900; 
+                                                    font-size: 2rem; 
+                                                    box-shadow: 0 6px 15px rgba(0,0,0,0.4); 
+                                                    border: 5px solid white;">
+                                            2                                        </div>
+                                    </div>
+                                    
+                                    <!-- ✅ TEXTO (lado opuesto a la foto) -->
+                                    <div class="col-md-5 order-md-1">
+                                        <div class="cuadro-texto h-100" style="padding: 1.2rem; 
+                                                                            background: rgba(255, 255, 255, 0.45) !important; 
+                                                                            border: 3px solid #e74c3c; 
+                                                                            border-radius: 15px; 
+                                                                            box-shadow: 0 8px 20px rgba(0,0,0,0.3); 
+                                                                            position: relative;">
+                                            
+                                            <!-- Emoji y título -->
+                                            <div class="d-flex align-items-center mb-2">
+                                                <span style="font-size: clamp(2rem, 4vw, 2.5rem); 
+                                                            margin-right: 0.8rem; 
+                                                            filter: drop-shadow(3px 3px 6px rgba(0,0,0,0.3));">
+                                                    🍯                                                </span>
+                                                <h3 class="mb-0" style="font-size: clamp(1rem, 2.3vw, 1.3rem); 
+                                                                    color: #001122; 
+                                                                    font-weight: 900; 
+                                                                    line-height: 1.2; 
+                                                                    text-shadow: 2px 2px 4px rgba(255,255,255,1);">
+                                                    Frascos de Vidrio                                                </h3>
+                                            </div>
+                                            
+                                            <!-- Descripción -->
+                                            <p class="mb-2" style="font-size: clamp(0.85rem, 1.8vw, 1rem); 
+                                                                color: #001122; 
+                                                                font-weight: 700; 
+                                                                line-height: 1.4; 
+                                                                text-shadow: 1px 1px 3px rgba(255,255,255,0.9);">
+                                                Perfectos para almacenar salsas caseras, conservas, aderezos o presentar productos gourmet para la venta.                                            </p>
+                                            
+                                            <!-- Badge de beneficio -->
+                                            <div style="background: rgba(231, 76, 60, 0.15); 
+                                                        padding: 0.6rem; 
+                                                        border-radius: 8px; 
+                                                        border: 2px solid #e74c3c;">
+                                                <small style="color: #001122; 
+                                                            font-weight: 700; 
+                                                            display: block; 
+                                                            text-align: center; 
+                                                            font-size: clamp(0.75rem, 1.6vw, 0.9rem);">
+                                                    <i class="fas fa-check-circle me-1"></i>Presentación Premium                                                </small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                                                        <!-- IDEA 3 CON FOTO ALTERNA -->
+                            <div class="col-12">
+                                <div class="row g-2 align-items-center position-relative" style="z-index: 1;">
+                                    
+                                    <!-- ✅ FOTO (alterna izquierda/derecha) -->
+                                    <div class="col-md-5 order-md-1">
+                                        <div class="text-center">
+                                            <img src="img/idea_bolsa_tela.jpg" 
+                                                alt="Bolsas de Tela" 
+                                                class="img-fluid" 
+                                                style="max-height: 250px; 
+                                                        border-radius: 15px; 
+                                                        box-shadow: 0 8px 20px rgba(0,0,0,0.4); 
+                                                        border: 4px solid #43be16; 
+                                                        object-fit: cover; 
+                                                        width: 100%;">
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Círculo numerado en el centro (solo desktop) -->
+                                    <div class="d-none d-md-flex col-md-2 justify-content-center align-items-center order-md-1" style="z-index: 10;">
+                                        <div style="background: #43be16; 
+                                                    color: white; 
+                                                    width: 70px; 
+                                                    height: 70px; 
+                                                    border-radius: 50%; 
+                                                    display: flex; 
+                                                    align-items: center; 
+                                                    justify-content: center; 
+                                                    font-weight: 900; 
+                                                    font-size: 2rem; 
+                                                    box-shadow: 0 6px 15px rgba(0,0,0,0.4); 
+                                                    border: 5px solid white;">
+                                            3                                        </div>
+                                    </div>
+                                    
+                                    <!-- ✅ TEXTO (lado opuesto a la foto) -->
+                                    <div class="col-md-5 order-md-2">
+                                        <div class="cuadro-texto h-100" style="padding: 1.2rem; 
+                                                                            background: rgba(255, 255, 255, 0.45) !important; 
+                                                                            border: 3px solid #43be16; 
+                                                                            border-radius: 15px; 
+                                                                            box-shadow: 0 8px 20px rgba(0,0,0,0.3); 
+                                                                            position: relative;">
+                                            
+                                            <!-- Emoji y título -->
+                                            <div class="d-flex align-items-center mb-2">
+                                                <span style="font-size: clamp(2rem, 4vw, 2.5rem); 
+                                                            margin-right: 0.8rem; 
+                                                            filter: drop-shadow(3px 3px 6px rgba(0,0,0,0.3));">
+                                                    🛍️                                                </span>
+                                                <h3 class="mb-0" style="font-size: clamp(1rem, 2.3vw, 1.3rem); 
+                                                                    color: #001122; 
+                                                                    font-weight: 900; 
+                                                                    line-height: 1.2; 
+                                                                    text-shadow: 2px 2px 4px rgba(255,255,255,1);">
+                                                    Bolsas de Tela                                                </h3>
+                                            </div>
+                                            
+                                            <!-- Descripción -->
+                                            <p class="mb-2" style="font-size: clamp(0.85rem, 1.8vw, 1rem); 
+                                                                color: #001122; 
+                                                                font-weight: 700; 
+                                                                line-height: 1.4; 
+                                                                text-shadow: 1px 1px 3px rgba(255,255,255,0.9);">
+                                                Crea bolsas reutilizables con telas recicladas para compras de insumos o entregar productos a clientes.                                            </p>
+                                            
+                                            <!-- Badge de beneficio -->
+                                            <div style="background: rgba(67, 190, 22, 0.15); 
+                                                        padding: 0.6rem; 
+                                                        border-radius: 8px; 
+                                                        border: 2px solid #43be16;">
+                                                <small style="color: #001122; 
+                                                            font-weight: 700; 
+                                                            display: block; 
+                                                            text-align: center; 
+                                                            font-size: clamp(0.75rem, 1.6vw, 0.9rem);">
+                                                    <i class="fas fa-check-circle me-1"></i>Eco-friendly                                                </small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                                                    </div>
+                                            <!-- TÍTULO DE CATEGORÍA -->
+                        <div class="cuadro-texto mx-auto mb-3" style="max-width: 1150px; padding: 0.6rem 1rem; width: 95%; background: rgba(156, 39, 176, 0.35) !important; border: 2px solid #9C27B0;">
+                            <h2 class="text-center mb-0" style="font-size: clamp(1.1rem, 2.8vw, 1.5rem); color: #001122; font-weight: 900;">
+                                <span style="font-size: clamp(1.5rem, 3.5vw, 2rem); margin-right: 0.5rem;">🎨</span>
+                                Ideas Creativas para Artesanías                            </h2>
+                        </div>
+                        
+                        <!-- LÍNEA DE TIEMPO CON FOTOS ALTERNAS -->
+                        <div class="row g-3 px-2 position-relative mb-4">
+                            <!-- Línea vertical conectora (solo desktop) -->
+                            <div class="d-none d-md-block position-absolute" style="left: 50%; top: 50px; bottom: 50px; width: 4px; background: linear-gradient(180deg, #9C27B0 0%, #FF5722 50%, #8B4513 100%); transform: translateX(-50%); z-index: 0; border-radius: 10px;"></div>
+                            
+                                                        <!-- IDEA 4 CON FOTO ALTERNA -->
+                            <div class="col-12">
+                                <div class="row g-2 align-items-center position-relative" style="z-index: 1;">
+                                    
+                                    <!-- ✅ FOTO (alterna izquierda/derecha) -->
+                                    <div class="col-md-5 order-md-1">
+                                        <div class="text-center">
+                                            <img src="img/imagen_retazos_tela.jpg" 
+                                                alt="Retazos de Tela" 
+                                                class="img-fluid" 
+                                                style="max-height: 250px; 
+                                                        border-radius: 15px; 
+                                                        box-shadow: 0 8px 20px rgba(0,0,0,0.4); 
+                                                        border: 4px solid #9C27B0; 
+                                                        object-fit: cover; 
+                                                        width: 100%;">
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Círculo numerado en el centro (solo desktop) -->
+                                    <div class="d-none d-md-flex col-md-2 justify-content-center align-items-center order-md-1" style="z-index: 10;">
+                                        <div style="background: #9C27B0; 
+                                                    color: white; 
+                                                    width: 70px; 
+                                                    height: 70px; 
+                                                    border-radius: 50%; 
+                                                    display: flex; 
+                                                    align-items: center; 
+                                                    justify-content: center; 
+                                                    font-weight: 900; 
+                                                    font-size: 2rem; 
+                                                    box-shadow: 0 6px 15px rgba(0,0,0,0.4); 
+                                                    border: 5px solid white;">
+                                            4                                        </div>
+                                    </div>
+                                    
+                                    <!-- ✅ TEXTO (lado opuesto a la foto) -->
+                                    <div class="col-md-5 order-md-2">
+                                        <div class="cuadro-texto h-100" style="padding: 1.2rem; 
+                                                                            background: rgba(255, 255, 255, 0.45) !important; 
+                                                                            border: 3px solid #9C27B0; 
+                                                                            border-radius: 15px; 
+                                                                            box-shadow: 0 8px 20px rgba(0,0,0,0.3); 
+                                                                            position: relative;">
+                                            
+                                            <!-- Emoji y título -->
+                                            <div class="d-flex align-items-center mb-2">
+                                                <span style="font-size: clamp(2rem, 4vw, 2.5rem); 
+                                                            margin-right: 0.8rem; 
+                                                            filter: drop-shadow(3px 3px 6px rgba(0,0,0,0.3));">
+                                                    🧵                                                </span>
+                                                <h3 class="mb-0" style="font-size: clamp(1rem, 2.3vw, 1.3rem); 
+                                                                    color: #001122; 
+                                                                    font-weight: 900; 
+                                                                    line-height: 1.2; 
+                                                                    text-shadow: 2px 2px 4px rgba(255,255,255,1);">
+                                                    Retazos de Tela                                                </h3>
+                                            </div>
+                                            
+                                            <!-- Descripción -->
+                                            <p class="mb-2" style="font-size: clamp(0.85rem, 1.8vw, 1rem); 
+                                                                color: #001122; 
+                                                                font-weight: 700; 
+                                                                line-height: 1.4; 
+                                                                text-shadow: 1px 1px 3px rgba(255,255,255,0.9);">
+                                                Transforma sobrantes en nuevos diseños: accesorios, patchwork, bordados o productos textiles únicos.                                            </p>
+                                            
+                                            <!-- Badge de beneficio -->
+                                            <div style="background: rgba(156, 39, 176, 0.15); 
+                                                        padding: 0.6rem; 
+                                                        border-radius: 8px; 
+                                                        border: 2px solid #9C27B0;">
+                                                <small style="color: #001122; 
+                                                            font-weight: 700; 
+                                                            display: block; 
+                                                            text-align: center; 
+                                                            font-size: clamp(0.75rem, 1.6vw, 0.9rem);">
+                                                    <i class="fas fa-check-circle me-1"></i>Creatividad infinita                                                </small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                                                        <!-- IDEA 5 CON FOTO ALTERNA -->
+                            <div class="col-12">
+                                <div class="row g-2 align-items-center position-relative" style="z-index: 1;">
+                                    
+                                    <!-- ✅ FOTO (alterna izquierda/derecha) -->
+                                    <div class="col-md-5 order-md-2 offset-md-1">
+                                        <div class="text-center">
+                                            <img src="img/reutilizar_bolsas_plastico.webp" 
+                                                alt="Plásticos Reciclados" 
+                                                class="img-fluid" 
+                                                style="max-height: 250px; 
+                                                        border-radius: 15px; 
+                                                        box-shadow: 0 8px 20px rgba(0,0,0,0.4); 
+                                                        border: 4px solid #FF5722; 
+                                                        object-fit: cover; 
+                                                        width: 100%;">
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Círculo numerado en el centro (solo desktop) -->
+                                    <div class="d-none d-md-flex col-md-2 justify-content-center align-items-center order-md-1" style="z-index: 10;">
+                                        <div style="background: #FF5722; 
+                                                    color: white; 
+                                                    width: 70px; 
+                                                    height: 70px; 
+                                                    border-radius: 50%; 
+                                                    display: flex; 
+                                                    align-items: center; 
+                                                    justify-content: center; 
+                                                    font-weight: 900; 
+                                                    font-size: 2rem; 
+                                                    box-shadow: 0 6px 15px rgba(0,0,0,0.4); 
+                                                    border: 5px solid white;">
+                                            5                                        </div>
+                                    </div>
+                                    
+                                    <!-- ✅ TEXTO (lado opuesto a la foto) -->
+                                    <div class="col-md-5 order-md-1">
+                                        <div class="cuadro-texto h-100" style="padding: 1.2rem; 
+                                                                            background: rgba(255, 255, 255, 0.45) !important; 
+                                                                            border: 3px solid #FF5722; 
+                                                                            border-radius: 15px; 
+                                                                            box-shadow: 0 8px 20px rgba(0,0,0,0.3); 
+                                                                            position: relative;">
+                                            
+                                            <!-- Emoji y título -->
+                                            <div class="d-flex align-items-center mb-2">
+                                                <span style="font-size: clamp(2rem, 4vw, 2.5rem); 
+                                                            margin-right: 0.8rem; 
+                                                            filter: drop-shadow(3px 3px 6px rgba(0,0,0,0.3));">
+                                                    💎                                                </span>
+                                                <h3 class="mb-0" style="font-size: clamp(1rem, 2.3vw, 1.3rem); 
+                                                                    color: #001122; 
+                                                                    font-weight: 900; 
+                                                                    line-height: 1.2; 
+                                                                    text-shadow: 2px 2px 4px rgba(255,255,255,1);">
+                                                    Plásticos Reciclados                                                </h3>
+                                            </div>
+                                            
+                                            <!-- Descripción -->
+                                            <p class="mb-2" style="font-size: clamp(0.85rem, 1.8vw, 1rem); 
+                                                                color: #001122; 
+                                                                font-weight: 700; 
+                                                                line-height: 1.4; 
+                                                                text-shadow: 1px 1px 3px rgba(255,255,255,0.9);">
+                                                Dale nueva vida creando bisutería, decoraciones, macetas o elementos creativos para el hogar.                                            </p>
+                                            
+                                            <!-- Badge de beneficio -->
+                                            <div style="background: rgba(255, 87, 34, 0.15); 
+                                                        padding: 0.6rem; 
+                                                        border-radius: 8px; 
+                                                        border: 2px solid #FF5722;">
+                                                <small style="color: #001122; 
+                                                            font-weight: 700; 
+                                                            display: block; 
+                                                            text-align: center; 
+                                                            font-size: clamp(0.75rem, 1.6vw, 0.9rem);">
+                                                    <i class="fas fa-check-circle me-1"></i>Productos únicos                                                </small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                                                        <!-- IDEA 6 CON FOTO ALTERNA -->
+                            <div class="col-12">
+                                <div class="row g-2 align-items-center position-relative" style="z-index: 1;">
+                                    
+                                    <!-- ✅ FOTO (alterna izquierda/derecha) -->
+                                    <div class="col-md-5 order-md-1">
+                                        <div class="text-center">
+                                            <img src="img/maqueta_empaque_carton.webp" 
+                                                alt="Cartón Reciclado" 
+                                                class="img-fluid" 
+                                                style="max-height: 250px; 
+                                                        border-radius: 15px; 
+                                                        box-shadow: 0 8px 20px rgba(0,0,0,0.4); 
+                                                        border: 4px solid #8B4513; 
+                                                        object-fit: cover; 
+                                                        width: 100%;">
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Círculo numerado en el centro (solo desktop) -->
+                                    <div class="d-none d-md-flex col-md-2 justify-content-center align-items-center order-md-1" style="z-index: 10;">
+                                        <div style="background: #8B4513; 
+                                                    color: white; 
+                                                    width: 70px; 
+                                                    height: 70px; 
+                                                    border-radius: 50%; 
+                                                    display: flex; 
+                                                    align-items: center; 
+                                                    justify-content: center; 
+                                                    font-weight: 900; 
+                                                    font-size: 2rem; 
+                                                    box-shadow: 0 6px 15px rgba(0,0,0,0.4); 
+                                                    border: 5px solid white;">
+                                            6                                        </div>
+                                    </div>
+                                    
+                                    <!-- ✅ TEXTO (lado opuesto a la foto) -->
+                                    <div class="col-md-5 order-md-2">
+                                        <div class="cuadro-texto h-100" style="padding: 1.2rem; 
+                                                                            background: rgba(255, 255, 255, 0.45) !important; 
+                                                                            border: 3px solid #8B4513; 
+                                                                            border-radius: 15px; 
+                                                                            box-shadow: 0 8px 20px rgba(0,0,0,0.3); 
+                                                                            position: relative;">
+                                            
+                                            <!-- Emoji y título -->
+                                            <div class="d-flex align-items-center mb-2">
+                                                <span style="font-size: clamp(2rem, 4vw, 2.5rem); 
+                                                            margin-right: 0.8rem; 
+                                                            filter: drop-shadow(3px 3px 6px rgba(0,0,0,0.3));">
+                                                    📐                                                </span>
+                                                <h3 class="mb-0" style="font-size: clamp(1rem, 2.3vw, 1.3rem); 
+                                                                    color: #001122; 
+                                                                    font-weight: 900; 
+                                                                    line-height: 1.2; 
+                                                                    text-shadow: 2px 2px 4px rgba(255,255,255,1);">
+                                                    Cartón Reciclado                                                </h3>
+                                            </div>
+                                            
+                                            <!-- Descripción -->
+                                            <p class="mb-2" style="font-size: clamp(0.85rem, 1.8vw, 1rem); 
+                                                                color: #001122; 
+                                                                font-weight: 700; 
+                                                                line-height: 1.4; 
+                                                                text-shadow: 1px 1px 3px rgba(255,255,255,0.9);">
+                                                Crea maquetas, moldes, empaques personalizados o estructuras para tus productos artesanales.                                            </p>
+                                            
+                                            <!-- Badge de beneficio -->
+                                            <div style="background: rgba(139, 69, 19, 0.15); 
+                                                        padding: 0.6rem; 
+                                                        border-radius: 8px; 
+                                                        border: 2px solid #8B4513;">
+                                                <small style="color: #001122; 
+                                                            font-weight: 700; 
+                                                            display: block; 
+                                                            text-align: center; 
+                                                            font-size: clamp(0.75rem, 1.6vw, 0.9rem);">
+                                                    <i class="fas fa-check-circle me-1"></i>Versátil y económico                                                </small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                                                    </div>
+                                        
+                    <!-- MENSAJE FINAL MOTIVACIONAL CON LAS 3R -->
+                    <div class="cuadro-texto mx-auto mt-4 mb-3" style="max-width: 1150px; padding: 1.5rem 2rem; width: 95%; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important; border: 3px solid rgba(255,255,255,0.3); box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);">
+                        <div class="text-center">
+                            <h4 class="mb-3" style="font-size: clamp(1.1rem, 2.5vw, 1.4rem); color: white; font-weight: 900;">
+                                <i class="fas fa-star me-2" style="color: #FFD700;"></i>
+                                ¡La Creatividad No Tiene Límites!                            </h4>
+                            <p class="mb-4" style="font-size: clamp(0.9rem, 2vw, 1.1rem); color: white; font-weight: 700; line-height: 1.5;">
+                                Cada residuo que reutilizas es un paso hacia un emprendimiento más sostenible y rentable. ¡Sigue explorando nuevas formas de dar vida a los materiales!                            </p>
+                            
+                            <!-- ICONOS DE LAS 3R -->
+                            <div class="row g-3 justify-content-center">
+                                                                <div class="col-4 col-md-2">
+                                    <div style="background: rgba(255,255,255,0.2); padding: 1rem; border-radius: 10px; text-align: center;">
+                                        <div style="font-size: 2.5rem; filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.3));">
+                                            ♻️                                        </div>
+                                        <p class="mb-0 mt-2" style="color: white; font-weight: 700; font-size: 0.85rem;">Reduce</p>
+                                    </div>
+                                </div>
+                                                                <div class="col-4 col-md-2">
+                                    <div style="background: rgba(255,255,255,0.2); padding: 1rem; border-radius: 10px; text-align: center;">
+                                        <div style="font-size: 2.5rem; filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.3));">
+                                            🔄                                        </div>
+                                        <p class="mb-0 mt-2" style="color: white; font-weight: 700; font-size: 0.85rem;">Reutiliza</p>
+                                    </div>
+                                </div>
+                                                                <div class="col-4 col-md-2">
+                                    <div style="background: rgba(255,255,255,0.2); padding: 1rem; border-radius: 10px; text-align: center;">
+                                        <div style="font-size: 2.5rem; filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.3));">
+                                            🌱                                        </div>
+                                        <p class="mb-0 mt-2" style="color: white; font-weight: 700; font-size: 0.85rem;">Recicla</p>
+                                    </div>
+                                </div>
+                                                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Navegación -->
+                    <div class="container-fluid px-0 mt-3 mb-3">
+                        <div class="row g-0 w-100">
+                            <div class="col-12 d-flex justify-content-between align-items-center px-2">
+                                <a href="aprende.php?pagina=15" class="btn btn-lg text-white" style="background-color: #43be16; padding: 0.6rem 1.2rem; font-size: clamp(0.9rem, 2vw, 1.05rem);">
+                                    <i class="fa fa-arrow-left me-2"></i> Anterior
+                                </a>
+                                <div class="text-white text-center d-none d-md-block" style="font-size: clamp(0.8rem, 1.5vw, 0.95rem); text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">
+                                    Página 17 de 18                                </div>
+                                                                    <a href="aprende.php?pagina=17" class="btn btn-lg text-white" style="background-color: #43be16; padding: 0.6rem 1.2rem; font-size: clamp(0.9rem, 2vw, 1.05rem);">
+                                        Siguiente <i class="fa fa-arrow-right ms-2"></i>
+                                    </a>
+                                                            </div>
                         </div>
                     </div>
                 </div>
