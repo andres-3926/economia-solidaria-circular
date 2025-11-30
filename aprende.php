@@ -2642,7 +2642,7 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
         </div>
     </div>
 
-    <?php elseif ($cartilla[$pagina]['tipo'] === 'soluciones_compostaje'): ?>
+     <?php elseif ($cartilla[$pagina]['tipo'] === 'soluciones_compostaje'): ?>
     <!-- PÁGINA 15: SOLUCIONES COMPOSTAJE + ACTIVIDAD FINAL INTERACTIVA -->
     <div class="container-fluid header-aprende"
         style="position: relative;
@@ -2764,8 +2764,23 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
                             ¡Es hora de empezar! Selecciona <b>al menos 3 residuos orgánicos</b> que planeas compostar primero con tu kit.
                         </p>
                         <!-- GRID DE ÍTEMS SELECCIONABLES -->
-                        <div class="row g-3 mb-4" id="itemsCompostables">
-                            <!-- ... aquí van los ítems compostables, como en tu ejemplo ... -->
+                        <style>
+                            .item-compostable {
+                                margin: 12px;
+                            }
+                        </style>
+                        <div class="row g-4 mb-4" id="itemsCompostables">
+                            <?php foreach ($cartilla[$pagina]['actividad_reto']['items_compostables'] as $item): ?>
+                                <div class="col-12 col-sm-6 col-lg-3 d-flex align-items-stretch">
+                                    <div class="item-compostable w-100" data-id="<?php echo $item['id']; ?>" onclick="toggleItem(this)" style="background: #fff; padding: 1.2rem; border-radius: 15px; border: 3px solid #e0e0e0; cursor: pointer; transition: box-shadow 0.2s, border-color 0.2s; text-align: center; box-shadow: 0 4px 16px rgba(0,0,0,0.08); position: relative; display: flex; flex-direction: column; justify-content: center; height: 100%; min-height: 170px;">
+                                        <div style="font-size: 2.2rem; margin-bottom: 0.5rem;"><?php echo $item['emoji']; ?></div>
+                                        <div style="font-size: 1.1rem; color: #001122; font-weight: 700; line-height: 1.3;"><?php echo $item['texto']; ?></div>
+                                        <div class="checkmark" style="display: none; position: absolute; top: 10px; right: 10px; background: #43be16; color: white; width: 30px; height: 30px; border-radius: 50%; align-items: center; justify-content: center; font-size: 1.2rem;">
+                                            <i class="fas fa-check"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            <?php endforeach; ?>
                         </div>
                         <!-- Contador de seleccionados -->
                         <div class="text-center mb-3">
