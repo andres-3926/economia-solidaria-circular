@@ -1753,14 +1753,10 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
                     <h2 class="text-white mb-5 mt-4 text-center">
                         <?php echo $cartilla[$pagina]['subtitulo']; ?>
                     </h2>
-                    <div class="d-block d-sm-none" style="width: 100%; margin-bottom: 1rem;"><!-- SOLO MÓVIL -->
-                        <h3 class="mb-0 header-aprende-h3 text-center" style="font-size: 1.1rem; color: #fff !important; font-weight: 900; margin: 0.7rem 0 1.2rem 0; position: static; z-index: 1000; width: 100%; line-height: 1.2;">
-                            <?php echo $cartilla[$pagina]['frase']; ?>
-                        </h3>
-                    </div>
+                        <!-- Frase central eliminada para evitar duplicado -->
                     <div class="text-end boton-siguiente-margen" style="padding-right: 1rem;">
                         <div class="d-block d-sm-none" style="width: 100%; text-align: right; margin-bottom: 0.5rem;">
-                            <a href="aprende.php?pagina=1" class="btn btn-lg text-white" style="background-color: #43be16; position: absolute; right: 40px; bottom: 120px; z-index: 1100;">
+                            <a href="aprende.php?pagina=1" class="btn btn-lg text-white" style="background-color: #43be16; position: absolute; right: 40px; bottom: 60px; z-index: 1100;">
                                 Siguiente <i class="fa fa-arrow-right ms-2"></i>
                             </a>
                         </div>
