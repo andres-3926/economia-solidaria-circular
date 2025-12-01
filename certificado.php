@@ -74,11 +74,11 @@ $pdf->MultiCell(0, 8, utf8_decode("¡Felicitaciones, querido emprendedor!"), 0, 
 $pdf->Ln(14); // Más espacio antes del bloque verde
 $pdf->SetFont('Arial', '', 13);
 $pdf->MultiCell(0, 6, utf8_decode(
-    "Has alcanzado con éxito el curso básico sobre Economía Solidaria y Circular para Unidades Productivas de Cali, desarrollado por el CGTS del SENA Regional Valle en el marco del proyecto 'Reciclando Juntas, Produciendo Futuro'."
+    "Has aprobado con éxito el módulo formativo virtual 'Aprende', desarrollado en el marco del proyecto 'Reciclando Juntas, Produciendo Futuro'."
 ), 0, 'C');
 $pdf->Ln(8);
 $pdf->MultiCell(0, 6, utf8_decode(
-    "Este curso te ha permitido aprender sobre la gestión de residuos sólidos en economías populares de Cali, con enfoque de economía circular, reciclaje, preparación de bioabono y el aprovechamiento de residuos orgánicos generados en los procesos de tus propios oficios."
+    "Este proceso fortaleció tus conocimientos en gestión de residuos sólidos, economía circular, reciclaje, bioabonos y aprovechamiento de residuos orgánicos propios de tus oficios."
 ), 0, 'C');
 $pdf->Ln(18); // Más espacio antes del bloque rojo
 
@@ -88,7 +88,6 @@ $pdf->Ln(18); // Más espacio antes del bloque rojo
 
 
 $pdf->SetFont('Arial', 'B', 12);
-$pdf->Cell(0, 6, utf8_decode('SENA - Regional Valle'), 0, 1, 'C');
 $pdf->Cell(0, 6, utf8_decode('Proyecto: Reciclando Juntas, Produciendo Futuro'), 0, 1, 'C');
 $pdf->Ln(10);
 

@@ -438,7 +438,7 @@ $cartilla = [
         "subtitulo" => "Transforma tus residuos orgánicos en abono natural",
         "texto" => "Este kit te permitirá transformar tus residuos orgánicos en <b>abono natural</b> para tus plantas o huerta. Aquí puedes ver todo lo que incluye.",
         "fondo" => "img/fondo_cafe_claro.jpg",
-        "imagen_kit" => "img/kit_compostera[2].webp", // Foto grande del kit
+        "imagen_kit" => "img/imagen_compostera.png", // Foto grande del kit
         "componentes" => [
             [
                 "numero" => "1",
@@ -2309,7 +2309,7 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
                         </h2>
                     </div>
                     
-                    !-- LÍNEA DE TIEMPO VISUAL DE COMPONENTES -->
+                    <!-- LÍNEA DE TIEMPO VISUAL DE COMPONENTES -->
                     <div class="row g-3 px-2 position-relative">
                         <!-- Línea vertical conectora (solo desktop) -->
                         <div class="d-none d-md-block position-absolute" style="left: 50%; top: 50px; bottom: 50px; width: 4px; background: linear-gradient(180deg, #43be16 0%, #2196F3 25%, #FF9800 50%, #8B4513 75%, #4CAF50 100%); transform: translateX(-50%); z-index: 0; border-radius: 10px;"></div>

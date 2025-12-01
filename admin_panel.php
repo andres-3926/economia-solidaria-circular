@@ -22,33 +22,59 @@ if (!$admin || $admin['rol'] !== 'administrador') {
     exit;
 }
 
-// Cambiar rol si se envió el formulario
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['numero_documento'], $_POST['nuevo_rol'])) {
-    $numero_documento = $_POST['numero_documento'];
-    $nuevo_rol = $_POST['nuevo_rol'];
-    $update = $conn->prepare("UPDATE usuarios SET rol = ? WHERE numero_documento = ?");
-    $update->bind_param("ss", $nuevo_rol, $numero_documento);
-    $update->execute();
-    $update->close();
+// Cambiar rol o estado si se envió el formulario
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if (isset($_POST['numero_documento'], $_POST['nuevo_rol'])) {
+        $numero_documento = $_POST['numero_documento'];
+        $nuevo_rol = $_POST['nuevo_rol'];
+        $update = $conn->prepare("UPDATE usuarios SET rol = ? WHERE numero_documento = ?");
+        $update->bind_param("ss", $nuevo_rol, $numero_documento);
+        $update->execute();
+        $update->close();
 
-    // Si el nuevo rol es emprendedor, marca la notificación como leída
-    if ($nuevo_rol === 'emprendedor') {
-        // Obtener el id del usuario
-        $stmt = $conn->prepare("SELECT id FROM usuarios WHERE numero_documento = ?");
-        $stmt->bind_param("s", $numero_documento);
-        $stmt->execute();
-        $stmt->bind_result($usuario_id);
-        $stmt->fetch();
-        $stmt->close();
-
-        // Marcar la notificación como leída
-        $stmt = $conn->prepare("UPDATE notificaciones SET leida = 1 WHERE usuario_id = ?");
-        $stmt->bind_param("i", $usuario_id);
-        $stmt->execute();
-        $stmt->close();
+        // Si el nuevo rol es emprendedor, marca la notificación como leída
+        if ($nuevo_rol === 'emprendedor') {
+            $stmt = $conn->prepare("SELECT id FROM usuarios WHERE numero_documento = ?");
+            $stmt->bind_param("s", $numero_documento);
+            $stmt->execute();
+            $stmt->bind_result($usuario_id);
+            $stmt->fetch();
+            $stmt->close();
+            $stmt = $conn->prepare("UPDATE notificaciones SET leida = 1 WHERE usuario_id = ?");
+            $stmt->bind_param("i", $usuario_id);
+            $stmt->execute();
+            $stmt->close();
+        }
+        header("Location: admin_panel.php?mensaje= ✅ Rol actualizado correctamente");
+        exit;
     }
-    header("Location: admin_panel.php?mensaje= ✅ Rol actualizado correctamente");
-    exit;
+    // Habilitar/Inhabilitar usuario
+    if (isset($_POST['numero_documento_estado'], $_POST['accion_estado'])) {
+        $numero_documento = $_POST['numero_documento_estado'];
+        $accion = $_POST['accion_estado'];
+        // Si el botón es inhabilitar, el rol pasa a 'usuario'. Si es habilitar, el rol pasa a 'emprendedor'.
+        if ($accion === 'inhabilitar') {
+            $nuevo_rol = 'usuario';
+            // Ocultar trueques publicados por el emprendedor
+            $stmt = $conn->prepare("UPDATE trueques SET estado = 'inhabilitado' WHERE numero_documento = ?");
+            $stmt->bind_param("s", $numero_documento);
+            $stmt->execute();
+            $stmt->close();
+        } else {
+            $nuevo_rol = 'emprendedor';
+            // Opcional: puedes habilitar los trueques si lo deseas
+            $stmt = $conn->prepare("UPDATE trueques SET estado = 'activo' WHERE numero_documento = ?");
+            $stmt->bind_param("s", $numero_documento);
+            $stmt->execute();
+            $stmt->close();
+        }
+        $update = $conn->prepare("UPDATE usuarios SET rol = ? WHERE numero_documento = ?");
+        $update->bind_param("ss", $nuevo_rol, $numero_documento);
+        $update->execute();
+        $update->close();
+        header("Location: admin_panel.php?mensaje= ✅ Estado actualizado correctamente");
+        exit;
+    }
 }
 
 // Obtener todos los usuarios
@@ -169,6 +195,14 @@ $usuarios = $conn->query("SELECT numero_documento, celular, nombre_completo, cor
                     <a href="usuario_pdf.php?numero_documento=<?php echo urlencode($row['numero_documento']); ?>" class="btn btn-outline-danger btn-sm" target="_blank">
                         Descargar PDF
                     </a>
+                    <form method="POST" style="display:inline; margin-left:5px;">
+                        <input type="hidden" name="numero_documento_estado" value="<?php echo htmlspecialchars($row['numero_documento']); ?>">
+                        <?php if ($row['rol'] === 'usuario'): ?>
+                            <button type="submit" name="accion_estado" value="habilitar" class="btn btn-success btn-sm">Habilitar</button>
+                        <?php elseif ($row['rol'] === 'emprendedor'): ?>
+                            <button type="submit" name="accion_estado" value="inhabilitar" class="btn btn-danger btn-sm">Inhabilitar</button>
+                        <?php endif; ?>
+                    </form>
                 </td>
             </tr>
         <?php endwhile; ?>
