@@ -2309,59 +2309,63 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
                         </h2>
                     </div>
                     
-                    <!-- LÍNEA DE TIEMPO VISUAL DE COMPONENTES -->
+                    !-- LÍNEA DE TIEMPO VISUAL DE COMPONENTES -->
                     <div class="row g-3 px-2 position-relative">
                         <!-- Línea vertical conectora (solo desktop) -->
                         <div class="d-none d-md-block position-absolute" style="left: 50%; top: 50px; bottom: 50px; width: 4px; background: linear-gradient(180deg, #43be16 0%, #2196F3 25%, #FF9800 50%, #8B4513 75%, #4CAF50 100%); transform: translateX(-50%); z-index: 0; border-radius: 10px;"></div>
-                        
                         <?php foreach ($cartilla[$pagina]['componentes'] as $index => $componente): 
                             $isLeft = ($index % 2 == 0);
                         ?>
-                        <!-- COMPONENTE <?php echo $componente['numero']; ?> -->
                         <div class="col-12">
                             <div class="row g-0 align-items-center position-relative" style="z-index: 1;">
-                                <!-- Contenido del componente (alterna izquierda/derecha en desktop) -->
-                                <div class="col-md-5 <?php echo $isLeft ? 'order-md-1' : 'order-md-2 offset-md-1'; ?>">
-                                    <div class="cuadro-texto h-100" style="padding: 1.2rem; background: rgba(255, 255, 255, 0.45) !important; border: 3px solid <?php echo $componente['color']; ?>; border-radius: 15px; box-shadow: 0 8px 20px rgba(0,0,0,0.3); position: relative;">
-                                        <!-- Flecha apuntando al círculo (solo desktop) -->
-                                        <div class="d-none d-md-block position-absolute" style="<?php echo $isLeft ? 'right: -20px;' : 'left: -20px;'; ?> top: 50%; transform: translateY(-50%); width: 0; height: 0; border-top: 15px solid transparent; border-bottom: 15px solid transparent; <?php echo $isLeft ? 'border-left: 20px solid ' . $componente['color'] : 'border-right: 20px solid ' . $componente['color']; ?>;"></div>
-                                        
-                                        <!-- Emoji y título -->
-                                        <div class="d-flex align-items-center mb-2">
-                                            <span style="font-size: clamp(2rem, 4vw, 2.5rem); margin-right: 0.8rem; filter: drop-shadow(3px 3px 6px rgba(0,0,0,0.3));">
-                                                <?php echo $componente['emoji']; ?>
-                                            </span>
-                                            <h3 class="mb-0" style="font-size: clamp(1rem, 2.3vw, 1.3rem); color: #001122; font-weight: 900; line-height: 1.2; text-shadow: 2px 2px 4px rgba(255,255,255,1);">
-                                                <?php echo $componente['numero']; ?>. <?php echo $componente['titulo']; ?>
-                                            </h3>
+                                <?php if ($isLeft): ?>
+                                    <!-- Lado izquierdo -->
+                                    <div class="col-md-5 order-md-1">
+                                        <div class="cuadro-texto h-100" style="padding: 1.2rem; background: rgba(255, 255, 255, 0.45) !important; border: 3px solid <?php echo $componente['color']; ?>; border-radius: 15px; box-shadow: 0 8px 20px rgba(0,0,0,0.3); position: relative;">
+                                            <div class="d-none d-md-block position-absolute" style="right: -20px; top: 50%; transform: translateY(-50%); width: 0; height: 0; border-top: 15px solid transparent; border-bottom: 15px solid transparent; border-left: 20px solid <?php echo $componente['color']; ?>;"></div>
+                                            <div class="d-flex align-items-center mb-2">
+                                                <span style="font-size: clamp(2rem, 4vw, 2.5rem); margin-right: 0.8rem; filter: drop-shadow(3px 3px 6px rgba(0,0,0,0.3));">
+                                                    <?php echo $componente['emoji']; ?>
+                                                </span>
+                                                <h3 class="mb-0" style="font-size: clamp(1rem, 2.3vw, 1.3rem); color: #001122; font-weight: 900; line-height: 1.2; text-shadow: 2px 2px 4px rgba(255,255,255,1);">
+                                                    <?php echo $componente['numero']; ?>. <?php echo $componente['titulo']; ?>
+                                                </h3>
+                                            </div>
+                                            <p class="mb-0" style="font-size: clamp(0.85rem, 1.8vw, 1rem); color: #001122; font-weight: 700; line-height: 1.4; text-shadow: 1px 1px 3px rgba(255,255,255,0.9);">
+                                                <?php echo $componente['descripcion']; ?>
+                                            </p>
                                         </div>
-                                        
-                                        <!-- Descripción -->
-                                        <p class="mb-0" style="font-size: clamp(0.85rem, 1.8vw, 1rem); color: #001122; font-weight: 700; line-height: 1.4; text-shadow: 1px 1px 3px rgba(255,255,255,0.9);">
-                                            <?php echo $componente['descripcion']; ?>
-                                        </p>
                                     </div>
-                                </div>
-                                
-                                <!-- Círculo numerado en el centro (solo desktop) -->
-                                <div class="d-none d-md-flex col-md-2 justify-content-center align-items-center order-md-1" style="z-index:  10;">
-                                    <div style="background: <?php echo $componente['color']; ?>; 
-                                                    color: white; 
-                                                    width: 60px; height: 60px; 
-                                                    border-radius: 50%; 
-                                                    display: flex; 
-                                                    align-items: center; 
-                                                    justify-content: center; 
-                                                    font-weight: 900; 
-                                                    font-size: 1.8rem; 
-                                                    box-shadow: 0 6px 15px rgba(0,0,0,0.4); 
-                                                    border: 4px solid white;">
-                                        <?php echo $componente['numero']; ?>
+                                    <div class="d-none d-md-flex col-md-2 justify-content-center align-items-center order-md-2" style="z-index: 10;">
+                                        <div style="background: <?php echo $componente['color']; ?>; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 1.8rem; box-shadow: 0 6px 15px rgba(0,0,0,0.4); border: 4px solid white;">
+                                            <?php echo $componente['numero']; ?>
+                                        </div>
                                     </div>
-                                </div>
-                                
-                                <!-- Espacio vacío en el otro lado (solo desktop) -->
-                                <div class="d-none d-md-block col-md-5 <?php echo $isLeft ? 'order-md-2' : 'order-md-1'; ?>"></div>
+                                    <div class="d-none d-md-block col-md-5 order-md-3"></div>
+                                <?php else: ?>
+                                    <div class="d-none d-md-block col-md-5 order-md-1"></div>
+                                    <div class="d-none d-md-flex col-md-2 justify-content-center align-items-center order-md-2" style="z-index: 10;">
+                                        <div style="background: <?php echo $componente['color']; ?>; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 1.8rem; box-shadow: 0 6px 15px rgba(0,0,0,0.4); border: 4px solid white;">
+                                            <?php echo $componente['numero']; ?>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-5 order-md-3">
+                                        <div class="cuadro-texto h-100" style="padding: 1.2rem; background: rgba(255, 255, 255, 0.45) !important; border: 3px solid <?php echo $componente['color']; ?>; border-radius: 15px; box-shadow: 0 8px 20px rgba(0,0,0,0.3); position: relative;">
+                                            <div class="d-none d-md-block position-absolute" style="left: -20px; top: 50%; transform: translateY(-50%); width: 0; height: 0; border-top: 15px solid transparent; border-bottom: 15px solid transparent; border-right: 20px solid <?php echo $componente['color']; ?>;"></div>
+                                            <div class="d-flex align-items-center mb-2">
+                                                <span style="font-size: clamp(2rem, 4vw, 2.5rem); margin-right: 0.8rem; filter: drop-shadow(3px 3px 6px rgba(0,0,0,0.3));">
+                                                    <?php echo $componente['emoji']; ?>
+                                                </span>
+                                                <h3 class="mb-0" style="font-size: clamp(1rem, 2.3vw, 1.3rem); color: #001122; font-weight: 900; line-height: 1.2; text-shadow: 2px 2px 4px rgba(255,255,255,1);">
+                                                    <?php echo $componente['numero']; ?>. <?php echo $componente['titulo']; ?>
+                                                </h3>
+                                            </div>
+                                            <p class="mb-0" style="font-size: clamp(0.85rem, 1.8vw, 1rem); color: #001122; font-weight: 700; line-height: 1.4; text-shadow: 1px 1px 3px rgba(255,255,255,0.9);">
+                                                <?php echo $componente['descripcion']; ?>
+                                            </p>
+                                        </div>
+                                    </div>
+                                <?php endif; ?>
                             </div>
                         </div>
                         <?php endforeach; ?>
@@ -2460,124 +2464,65 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
                 <div class="col-12 col-lg-11 mx-auto px-3">
                     <!-- LÍNEA DE TIEMPO VISUAL -->
                     <div class="row g-3 px-2 position-relative">
-                        <!-- Línea vertical conectora (solo desktop) -->
-                        <div class="d-none d-md-block position-absolute" style="left: 50%; top: 50px; bottom: 50px; width: 4px; background: linear-gradient(180deg, #43be16 0%, #2196F3 50%, #4CAF50 100%); transform: translateX(-50%); z-index: 0; border-radius: 10px;"></div>
-                        
-                        <!-- PASO 1 -->
-                        <div class="col-12">
-                            <div class="row g-0 align-items-center position-relative" style="z-index: 1;">
+                    <!-- Línea vertical conectora (solo desktop) -->
+                    <div class="d-none d-md-block position-absolute" style="left: 50%; top: 50px; bottom: 50px; width: 4px; background: linear-gradient(180deg, #43be16 0%, #2196F3 50%, #4CAF50 100%); transform: translateX(-50%); z-index: 0; border-radius: 10px;"></div>
+                    <?php foreach ($cartilla[$pagina]['pasos'] as $index => $paso): 
+                        $isLeft = ($index % 2 == 0);
+                    ?>
+                    <div class="col-12">
+                        <div class="row g-0 align-items-center position-relative" style="z-index: 1;">
+                            <?php if ($isLeft): ?>
+                                <!-- Lado izquierdo -->
                                 <div class="col-md-5 order-md-1">
-                                    <div class="cuadro-texto h-100" style="padding: 1.2rem; background: rgba(255,255,255,0.45) !important; border: 3px solid #2196F3; border-radius: 15px; box-shadow: 0 8px 20px rgba(0,0,0,0.3); position: relative;">
-                                        <div class="d-none d-md-block position-absolute" style="right: -20px; top: 50%; transform: translateY(-50%); width: 0; height: 0; border-top: 15px solid transparent; border-bottom: 15px solid transparent; border-left: 20px solid #2196F3;"></div>
+                                    <div class="cuadro-texto h-100" style="padding: 1.2rem; background: rgba(255,255,255,0.45) !important; border: 3px solid <?php echo $paso['color']; ?>; border-radius: 15px; box-shadow: 0 8px 20px rgba(0,0,0,0.3); position: relative;">
+                                        <div class="d-none d-md-block position-absolute" style="right: -20px; top: 50%; transform: translateY(-50%); width: 0; height: 0; border-top: 15px solid transparent; border-bottom: 15px solid transparent; border-left: 20px solid <?php echo $paso['color']; ?>;"></div>
                                         <div class="d-flex align-items-center mb-2">
-                                            <span style="font-size: clamp(2rem, 4vw, 2.5rem); margin-right: 0.8rem; filter: drop-shadow(3px 3px 6px rgba(0,0,0,0.3));">🧹</span>
-                                            <h3 class="mb-0" style="font-size: clamp(1rem, 2.3vw, 1.3rem); color: #001122; font-weight: 900; line-height: 1.2; text-shadow: 2px 2px 4px rgba(255,255,255,1);">Paso 1: Prepara tu compostera</h3>
+                                            <span style="font-size: clamp(2rem, 4vw, 2.5rem); margin-right: 0.8rem; filter: drop-shadow(3px 3px 6px rgba(0,0,0,0.3));">
+                                                <?php echo $paso['emoji']; ?>
+                                            </span>
+                                            <h3 class="mb-0" style="font-size: clamp(1rem, 2.3vw, 1.3rem); color: #001122; font-weight: 900; line-height: 1.2; text-shadow: 2px 2px 4px rgba(255,255,255,1);">
+                                                Paso <?php echo $paso['numero']; ?>: <?php echo $paso['titulo']; ?>
+                                            </h3>
                                         </div>
-                                        <p class="mb-0" style="font-size: clamp(0.85rem, 1.8vw, 1rem); color: #001122; font-weight: 700; line-height: 1.4; text-shadow: 1px 1px 3px rgba(255,255,255,0.9);">Límpiala y ubícala en un lugar fresco y ventilado.</p>
+                                        <p class="mb-0" style="font-size: clamp(0.85rem, 1.8vw, 1rem); color: #001122; font-weight: 700; line-height: 1.4; text-shadow: 1px 1px 3px rgba(255,255,255,0.9);">
+                                            <?php echo $paso['descripcion']; ?>
+                                        </p>
                                     </div>
                                 </div>
-                                <div class="d-none d-md-flex col-md-2 justify-content-center align-items-center order-md-1" style="z-index: 10;">
-                                    <div style="background: #2196F3; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 1.8rem; box-shadow: 0 6px 15px rgba(0,0,0,0.4); border: 4px solid white;">1</div>
-                                </div>
-                                <div class="d-none d-md-block col-md-5 order-md-2"></div>
-                            </div>
-                        </div>
-                        <!-- PASO 2 -->
-                        <div class="col-12">
-                            <div class="row g-0 align-items-center position-relative" style="z-index: 1;">
-                                <div class="col-md-5 order-md-2 offset-md-1">
-                                    <div class="cuadro-texto h-100" style="padding: 1.2rem; background: rgba(255,255,255,0.45) !important; border: 3px solid #FF9800; border-radius: 15px; box-shadow: 0 8px 20px rgba(0,0,0,0.3); position: relative;">
-                                        <div class="d-none d-md-block position-absolute" style="left: -20px; top: 50%; transform: translateY(-50%); width: 0; height: 0; border-top: 15px solid transparent; border-bottom: 15px solid transparent; border-right: 20px solid #FF9800;"></div>
-                                        <div class="d-flex align-items-center mb-2">
-                                            <span style="font-size: clamp(2rem, 4vw, 2.5rem); margin-right: 0.8rem; filter: drop-shadow(3px 3px 6px rgba(0,0,0,0.3));">🌾</span>
-                                            <h3 class="mb-0" style="font-size: clamp(1rem, 2.3vw, 1.3rem); color: #001122; font-weight: 900; line-height: 1.2; text-shadow: 2px 2px 4px rgba(255,255,255,1);">Paso 2: Primera capa</h3>
-                                        </div>
-                                        <p class="mb-0" style="font-size: clamp(0.85rem, 1.8vw, 1rem); color: #001122; font-weight: 700; line-height: 1.4; text-shadow: 1px 1px 3px rgba(255,255,255,0.9);">Pon una base de \"Material Secante Vegetal\".</p>
+                                <div class="d-none d-md-flex col-md-2 justify-content-center align-items-center order-md-2" style="z-index: 10;">
+                                    <div style="background: <?php echo $paso['color']; ?>; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 1.8rem; box-shadow: 0 6px 15px rgba(0,0,0,0.4); border: 4px solid white;">
+                                        <?php echo $paso['numero']; ?>
                                     </div>
                                 </div>
-                                <div class="d-none d-md-flex col-md-2 justify-content-center align-items-center order-md-1" style="z-index: 10;">
-                                    <div style="background: #FF9800; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 1.8rem; box-shadow: 0 6px 15px rgba(0,0,0,0.4); border: 4px solid white;">2</div>
-                                </div>
+                                <div class="d-none d-md-block col-md-5 order-md-3"></div>
+                            <?php else: ?>
                                 <div class="d-none d-md-block col-md-5 order-md-1"></div>
-                            </div>
-                        </div>
-                        <!-- PASO 3 -->
-                        <div class="col-12">
-                            <div class="row g-0 align-items-center position-relative" style="z-index: 1;">
-                                <div class="col-md-5 order-md-1">
-                                    <div class="cuadro-texto h-100" style="padding: 1.2rem; background: rgba(255,255,255,0.45) !important; border: 3px solid #43be16; border-radius: 15px; box-shadow: 0 8px 20px rgba(0,0,0,0.3); position: relative;">
-                                        <div class="d-none d-md-block position-absolute" style="right: -20px; top: 50%; transform: translateY(-50%); width: 0; height: 0; border-top: 15px solid transparent; border-bottom: 15px solid transparent; border-left: 20px solid #43be16;"></div>
-                                        <div class="d-flex align-items-center mb-2">
-                                            <span style="font-size: clamp(2rem, 4vw, 2.5rem); margin-right: 0.8rem; filter: drop-shadow(3px 3px 6px rgba(0,0,0,0.3));">🍌</span>
-                                            <h3 class="mb-0" style="font-size: clamp(1rem, 2.3vw, 1.3rem); color: #001122; font-weight: 900; line-height: 1.2; text-shadow: 2px 2px 4px rgba(255,255,255,1);">Paso 3: Añade residuos orgánicos</h3>
-                                        </div>
-                                        <p class="mb-0" style="font-size: clamp(0.85rem, 1.8vw, 1rem); color: #001122; font-weight: 700; line-height: 1.4; text-shadow: 1px 1px 3px rgba(255,255,255,0.9);">Cáscaras, restos de frutas/verduras, café, pan. Pícalos.</p>
+                                <div class="d-none d-md-flex col-md-2 justify-content-center align-items-center order-md-2" style="z-index: 10;">
+                                    <div style="background: <?php echo $paso['color']; ?>; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 1.8rem; box-shadow: 0 6px 15px rgba(0,0,0,0.4); border: 4px solid white;">
+                                        <?php echo $paso['numero']; ?>
                                     </div>
                                 </div>
-                                <div class="d-none d-md-flex col-md-2 justify-content-center align-items-center order-md-1" style="z-index: 10;">
-                                    <div style="background: #43be16; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 1.8rem; box-shadow: 0 6px 15px rgba(0,0,0,0.4); border: 4px solid white;">3</div>
-                                </div>
-                                <div class="d-none d-md-block col-md-5 order-md-2"></div>
-                            </div>
-                        </div>
-                        <!-- PASO 4 -->
-                        <div class="col-12">
-                            <div class="row g-0 align-items-center position-relative" style="z-index: 1;">
-                                <div class="col-md-5 order-md-2 offset-md-1">
-                                    <div class="cuadro-texto h-100" style="padding: 1.2rem; background: rgba(255,255,255,0.45) !important; border: 3px solid #9C27B0; border-radius: 15px; box-shadow: 0 8px 20px rgba(0,0,0,0.3); position: relative;">
-                                        <div class="d-none d-md-block position-absolute" style="left: -20px; top: 50%; transform: translateY(-50%); width: 0; height: 0; border-top: 15px solid transparent; border-bottom: 15px solid transparent; border-right: 20px solid #9C27B0;"></div>
+                                <div class="col-md-5 order-md-3">
+                                    <div class="cuadro-texto h-100" style="padding: 1.2rem; background: rgba(255,255,255,0.45) !important; border: 3px solid <?php echo $paso['color']; ?>; border-radius: 15px; box-shadow: 0 8px 20px rgba(0,0,0,0.3); position: relative;">
+                                        <div class="d-none d-md-block position-absolute" style="left: -20px; top: 50%; transform: translateY(-50%); width: 0; height: 0; border-top: 15px solid transparent; border-bottom: 15px solid transparent; border-right: 20px solid <?php echo $paso['color']; ?>;"></div>
                                         <div class="d-flex align-items-center mb-2">
-                                            <span style="font-size: clamp(2rem, 4vw, 2.5rem); margin-right: 0.8rem; filter: drop-shadow(3px 3px 6px rgba(0,0,0,0.3));">⚗️</span>
-                                            <h3 class="mb-0" style="font-size: clamp(1rem, 2.3vw, 1.3rem); color: #001122; font-weight: 900; line-height: 1.2; text-shadow: 2px 2px 4px rgba(255,255,255,1);">Paso 4: Agrega acelerador y material seco</h3>
+                                            <span style="font-size: clamp(2rem, 4vw, 2.5rem); margin-right: 0.8rem; filter: drop-shadow(3px 3px 6px rgba(0,0,0,0.3));">
+                                                <?php echo $paso['emoji']; ?>
+                                            </span>
+                                            <h3 class="mb-0" style="font-size: clamp(1rem, 2.3vw, 1.3rem); color: #001122; font-weight: 900; line-height: 1.2; text-shadow: 2px 2px 4px rgba(255,255,255,1);">
+                                                Paso <?php echo $paso['numero']; ?>: <?php echo $paso['titulo']; ?>
+                                            </h3>
                                         </div>
-                                        <p class="mb-0" style="font-size: clamp(0.85rem, 1.8vw, 1rem); color: #001122; font-weight: 700; line-height: 1.4; text-shadow: 1px 1px 3px rgba(255,255,255,0.9);">Cubre cada capa de orgánicos con el acelerador y luego con \"Material Secante Vegetal\".</p>
+                                        <p class="mb-0" style="font-size: clamp(0.85rem, 1.8vw, 1rem); color: #001122; font-weight: 700; line-height: 1.4; text-shadow: 1px 1px 3px rgba(255,255,255,0.9);">
+                                            <?php echo $paso['descripcion']; ?>
+                                        </p>
                                     </div>
                                 </div>
-                                <div class="d-none d-md-flex col-md-2 justify-content-center align-items-center order-md-1" style="z-index: 10;">
-                                    <div style="background: #9C27B0; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 1.8rem; box-shadow: 0 6px 15px rgba(0,0,0,0.4); border: 4px solid white;">4</div>
-                                </div>
-                                <div class="d-none d-md-block col-md-5 order-md-1"></div>
-                            </div>
-                        </div>
-                        <!-- PASO 5 -->
-                        <div class="col-12">
-                            <div class="row g-0 align-items-center position-relative" style="z-index: 1;">
-                                <div class="col-md-5 order-md-1">
-                                    <div class="cuadro-texto h-100" style="padding: 1.2rem; background: rgba(255,255,255,0.45) !important; border: 3px solid #607D8B; border-radius: 15px; box-shadow: 0 8px 20px rgba(0,0,0,0.3); position: relative;">
-                                        <div class="d-none d-md-block position-absolute" style="right: -20px; top: 50%; transform: translateY(-50%); width: 0; height: 0; border-top: 15px solid transparent; border-bottom: 15px solid transparent; border-left: 20px solid #607D8B;"></div>
-                                        <div class="d-flex align-items-center mb-2">
-                                            <span style="font-size: clamp(2rem, 4vw, 2.5rem); margin-right: 0.8rem; filter: drop-shadow(3px 3px 6px rgba(0,0,0,0.3));">🛠️</span>
-                                            <h3 class="mb-0" style="font-size: clamp(1rem, 2.3vw, 1.3rem); color: #001122; font-weight: 900; line-height: 1.2; text-shadow: 2px 2px 4px rgba(255,255,255,1);">Paso 5: Mezcla suavemente</h3>
-                                        </div>
-                                        <p class="mb-0" style="font-size: clamp(0.85rem, 1.8vw, 1rem); color: #001122; font-weight: 700; line-height: 1.4; text-shadow: 1px 1px 3px rgba(255,255,255,0.9);">Usa las herramientas de tu kit cada 1–2 días.</p>
-                                    </div>
-                                </div>
-                                <div class="d-none d-md-flex col-md-2 justify-content-center align-items-center order-md-1" style="z-index: 10;">
-                                    <div style="background: #607D8B; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 1.8rem; box-shadow: 0 6px 15px rgba(0,0,0,0.4); border: 4px solid white;">5</div>
-                                </div>
-                                <div class="d-none d-md-block col-md-5 order-md-2"></div>
-                            </div>
-                        </div>
-                        <!-- PASO 6 -->
-                        <div class="col-12">
-                            <div class="row g-0 align-items-center position-relative" style="z-index: 1;">
-                                <div class="col-md-5 order-md-2 offset-md-1">
-                                    <div class="cuadro-texto h-100" style="padding: 1.2rem; background: rgba(255,255,255,0.45) !important; border: 3px solid #4CAF50; border-radius: 15px; box-shadow: 0 8px 20px rgba(0,0,0,0.3); position: relative;">
-                                        <div class="d-none d-md-block position-absolute" style="left: -20px; top: 50%; transform: translateY(-50%); width: 0; height: 0; border-top: 15px solid transparent; border-bottom: 15px solid transparent; border-right: 20px solid #4CAF50;"></div>
-                                        <div class="d-flex align-items-center mb-2">
-                                            <span style="font-size: clamp(2rem, 4vw, 2.5rem); margin-right: 0.8rem; filter: drop-shadow(3px 3px 6px rgba(0,0,0,0.3));">✨</span>
-                                            <h3 class="mb-0" style="font-size: clamp(1rem, 2.3vw, 1.3rem); color: #001122; font-weight: 900; line-height: 1.2; text-shadow: 2px 2px 4px rgba(255,255,255,1);">Paso 6: ¡Compost listo!</h3>
-                                        </div>
-                                        <p class="mb-0" style="font-size: clamp(0.85rem, 1.8vw, 1rem); color: #001122; font-weight: 700; line-height: 1.4; text-shadow: 1px 1px 3px rgba(255,255,255,0.9);">Debe tener olor a tierra, color oscuro y no verse restos de comida.</p>
-                                    </div>
-                                </div>
-                                <div class="d-none d-md-flex col-md-2 justify-content-center align-items-center order-md-1" style="z-index: 10;">
-                                    <div style="background: #4CAF50; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 1.8rem; box-shadow: 0 6px 15px rgba(0,0,0,0.4); border: 4px solid white;">6</div>
-                                </div>
-                                <div class="d-none d-md-block col-md-5 order-md-1"></div>
-                            </div>
+                            <?php endif; ?>
                         </div>
                     </div>
+                    <?php endforeach; ?>
+                </div>
                     <!-- Nota final motivacional -->
                     <div class="cuadro-texto mx-auto mt-4 mb-3" style="max-width: 1150px; padding: 1rem 1.5rem; width: 95%; background: rgba(67,190,22,0.4) !important; border: 3px solid #43be16;">
                         <div class="text-center">

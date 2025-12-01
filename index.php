@@ -440,7 +440,7 @@ if (isset($_SESSION['numero_documento'])) {
                             <div class="col-md-4 animate__animated animate__fadeInUp">
                                 <div class="p-4 rounded" style="background: rgba(255,255,255,0.15); backdrop-filter: blur(10px); border: 2px solid rgba(255,255,255,0.3);">
                                     <i class="fas fa-certificate fa-3x mb-3" style="color: #FFD700;"></i>
-                                    <h5 class="mb-2">Certificación SENA</h5>
+                                    <h5 class="mb-2">Certificación</h5>
                                     <p class="mb-0">Al completar todas las actividades</p>
                                 </div>
                             </div>
