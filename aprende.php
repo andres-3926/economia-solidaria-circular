@@ -3974,18 +3974,24 @@ function mostrarResultado(correctas, total, porcentaje, aprobado, tiempo, minimo
     mensajeDiv.style.display = 'block';
     mensajeDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
     
+    // Redirigir a la página siguiente si se aprueba el quiz y no es la última página
     if (aprobado) {
-        // Guardar el nombre en la sesión vía AJAX antes de redirigir
-        $.ajax({
-            url: 'guardar_nombre_sesion.php',
-            method: 'POST',
-            data: { nombre: '<?php echo $_SESSION['nombre'] ?? ""; ?>' },
-            complete: function() {
-                setTimeout(() => {
-                    window.location.href = 'certificado.php';
-                }, 5000);
-            }
-        });
+        if (<?php echo $pagina; ?> == 17) {
+            $.ajax({
+                url: 'guardar_nombre_sesion.php',
+                method: 'POST',
+                data: { nombre: '<?php echo $_SESSION['nombre'] ?? ""; ?>' },
+                complete: function() {
+                    setTimeout(() => {
+                        window.location.href = 'certificado.php';
+                    }, 5000);
+                }
+            });
+        } else {
+            setTimeout(function() {
+                window.location.href = 'aprende.php?pagina=' + (<?php echo $pagina; ?> + 1);
+            }, 3500);
+        }
     }
 }
 
