@@ -4030,13 +4030,17 @@ function mostrarResultado(correctas, total, porcentaje, aprobado, tiempo, minimo
     mensajeDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
     
     if (aprobado) {
-        setTimeout(() => {
-            if (<?php echo $pagina; ?> < <?php echo $total_paginas; ?> - 1) {
-                window.location.href = 'aprende.php?pagina=' + (<?php echo $pagina; ?> + 1);
-            } else {
-                window.location.href = 'aprende.php?pagina=0';
+        // Guardar el nombre en la sesión vía AJAX antes de redirigir
+        $.ajax({
+            url: 'guardar_nombre_sesion.php',
+            method: 'POST',
+            data: { nombre: '<?php echo $_SESSION['nombre'] ?? ""; ?>' },
+            complete: function() {
+                setTimeout(() => {
+                    window.location.href = 'certificado.php';
+                }, 5000);
             }
-        }, 5000);
+        });
     }
 }
 
@@ -4372,13 +4376,20 @@ function mostrarResultadoQuiz(correctas, total, porcentaje, aprobado, tiempo) {
                     </div>
                 </div>
                 <p class="mb-3">Has completado exitosamente la cartilla de Economía Circular</p>
-                <small>Redirigiendo al inicio en 5 segundos...</small>
+                <small>Redirigiendo al certificado en 5 segundos...</small>
             </div>
         `;
-        
-        setTimeout(() => {
-            window.location.href = 'aprende.php?pagina=0';
-        }, 5000);
+        // Guardar el nombre en la sesión vía AJAX antes de redirigir
+        $.ajax({
+            url: 'guardar_nombre_sesion.php',
+            method: 'POST',
+            data: { nombre: '<?php echo $_SESSION['nombre'] ?? ""; ?>' },
+            complete: function() {
+                setTimeout(() => {
+                    window.location.href = 'certificado.php';
+                }, 5000);
+            }
+        });
     } else {
         mensajeDiv.innerHTML = `
             <div style="background: linear-gradient(135deg, #e74c3c, #c0392b); color: white; padding: 2rem; border-radius: 15px;">

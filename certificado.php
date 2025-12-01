@@ -2,10 +2,34 @@
 require('fpdf186/fpdf.php');
 session_start();
 
-// Obtener el nombre del usuario desde la sesión
-$nombre = isset($_SESSION['nombre']) ? $_SESSION['nombre'] : 'Emprendedor/a';
 
-// Fecha y hora actual
+// Validar que el usuario esté autenticado por número de documento
+if (!isset($_SESSION['numero_documento'])) {
+    header('Location: login.php');
+    exit;
+}
+
+
+// Obtener el número de documento desde la sesión
+$documento = isset($_SESSION['numero_documento']) ? $_SESSION['numero_documento'] : '';
+
+// Consultar el nombre real del emprendedor en la base de datos
+include('conexion.php');
+$nombre = 'Emprendedor/a';
+if (!empty($documento)) {
+    $stmt = $conn->prepare("SELECT nombre_completo FROM usuarios WHERE numero_documento = ? LIMIT 1");
+    $stmt->bind_param("s", $documento);
+    $stmt->execute();
+    $res = $stmt->get_result();
+    if ($row = $res->fetch_assoc()) {
+        $nombre = $row['nombre_completo'];
+    }
+    $stmt->close();
+}
+
+
+// Ajustar zona horaria a Colombia
+date_default_timezone_set('America/Bogota');
 $fecha = date('d/m/Y');
 $hora = date('H:i');
 
@@ -22,39 +46,57 @@ $pdf->SetFont('Arial', 'B', 28);
 $pdf->Cell(0, 20, utf8_decode('CERTIFICADO DE APROBACIÓN'), 0, 1, 'C');
 $pdf->Ln(5);
 
-// Medalla (puedes cambiar por una imagen si tienes una medalla.png en img/)
-if (file_exists('img/medalla.png')) {
-    $pdf->Image('img/medalla.png', 120, 35, 50, 50);
-    $pdf->Ln(55);
-} else {
-    $pdf->SetFont('Arial', '', 60);
-    $pdf->Cell(0, 40, utf8_decode('🏅'), 0, 1, 'C');
-}
-$pdf->Ln(5);
 
-// Nombre del usuario
+
+// Eliminar medalla/emoji, no mostrar nada aquí
+
+// Nombre y documento del usuario
+
+
+
+
+
 $pdf->SetFont('Arial', 'B', 22);
-$pdf->Cell(0, 15, utf8_decode('Otorgado a: ' . $nombre), 0, 1, 'C');
-$pdf->Ln(5);
+$pdf->Cell(0, 12, utf8_decode('Otorgado a: ' . $nombre), 0, 1, 'C');
+$pdf->Ln(2);
+$pdf->SetFont('Arial', '', 15);
+$pdf->Cell(0, 8, utf8_decode('Número de documento: ' . $documento), 0, 1, 'C');
+$pdf->Ln(12); // Más espacio antes del bloque de felicitación
 
 // Texto de felicitación
-$pdf->SetFont('Arial', '', 16);
-$pdf->MultiCell(0, 10, utf8_decode(
-    "¡Felicitaciones, querido emprendedor!\n\n" .
-    "Has alcanzado con éxito el curso básico sobre Economía Solidaria y Circular para Unidades Productivas de Cali, desarrollado por el CGTS del SENA Regional Valle en el marco del proyecto 'Reciclando Juntas, Produciendo Futuro'.\n\n" .
-    "Este curso te ha permitido aprender sobre la gestión de residuos sólidos en economías populares de Cali, con enfoque de economía circular, reciclaje, preparación de bioabono y el aprovechamiento de residuos orgánicos generados en los procesos de tus propios oficios."
+
+
+
+
+
+$pdf->SetFont('Arial', 'B', 16);
+$pdf->MultiCell(0, 8, utf8_decode("¡Felicitaciones, querido emprendedor!"), 0, 'C');
+$pdf->Ln(14); // Más espacio antes del bloque verde
+$pdf->SetFont('Arial', '', 13);
+$pdf->MultiCell(0, 6, utf8_decode(
+    "Has alcanzado con éxito el curso básico sobre Economía Solidaria y Circular para Unidades Productivas de Cali, desarrollado por el CGTS del SENA Regional Valle en el marco del proyecto 'Reciclando Juntas, Produciendo Futuro'."
 ), 0, 'C');
 $pdf->Ln(8);
+$pdf->MultiCell(0, 6, utf8_decode(
+    "Este curso te ha permitido aprender sobre la gestión de residuos sólidos en economías populares de Cali, con enfoque de economía circular, reciclaje, preparación de bioabono y el aprovechamiento de residuos orgánicos generados en los procesos de tus propios oficios."
+), 0, 'C');
+$pdf->Ln(18); // Más espacio antes del bloque rojo
 
 // Proyecto y SENA
-$pdf->SetFont('Arial', 'B', 14);
-$pdf->Cell(0, 10, utf8_decode('SENA - Regional Valle'), 0, 1, 'C');
-$pdf->Cell(0, 10, utf8_decode('Proyecto: Reciclando Juntas, Produciendo Futuro'), 0, 1, 'C');
-$pdf->Ln(8);
+
+
+
+
+$pdf->SetFont('Arial', 'B', 12);
+$pdf->Cell(0, 6, utf8_decode('SENA - Regional Valle'), 0, 1, 'C');
+$pdf->Cell(0, 6, utf8_decode('Proyecto: Reciclando Juntas, Produciendo Futuro'), 0, 1, 'C');
+$pdf->Ln(10);
 
 // Fecha y hora
-$pdf->SetFont('Arial', '', 12);
-$pdf->Cell(0, 10, utf8_decode('Fecha de generación: ' . $fecha . ' - ' . $hora), 0, 1, 'C');
+
+
+$pdf->SetFont('Arial', '', 10);
+$pdf->Cell(0, 6, utf8_decode('Fecha de generación: ' . $fecha . ' - ' . $hora), 0, 1, 'C');
 
 // Logo SENA (opcional)
 if (file_exists('img/logo_sena.png')) {
