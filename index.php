@@ -35,6 +35,20 @@ if (isset($_SESSION['numero_documento'])) {
         }
     }
 }
+// Obtener datos del usuario actual para el color del botón perfil
+$usuario = null;
+if (isset($_SESSION['numero_documento'])) {
+    $sql_usuario = "SELECT rol, habilitado, nombre_completo FROM usuarios WHERE numero_documento = ?";
+    $stmt_usuario = $conn->prepare($sql_usuario);
+    $stmt_usuario->bind_param("s", $_SESSION['numero_documento']);
+    $stmt_usuario->execute();
+    $result_usuario = $stmt_usuario->get_result();
+    $usuario = $result_usuario->fetch_assoc();
+    $stmt_usuario->close();
+}
+
+// Determinar color del nombre en el botón perfil
+$colorNombrePerfil = (isset($usuario) && $usuario['rol'] === 'usuario' && isset($usuario['habilitado']) && intval($usuario['habilitado']) === 0) ? '#f0ad4e' : '#43be16';
 ?>
 
 <!DOCTYPE html>
@@ -106,12 +120,7 @@ if (isset($_SESSION['numero_documento'])) {
                             $nombre_usuario = $row_nombre['nombre_completo'];
                         }
                         $stmt_nombre->close();
-                        if (isset($admin) && strtolower(trim($admin['rol'])) === 'administrador' && $noti_pendientes > 0) {
-                            echo '<a href="perfil.php" class="nav-item nav-link animate__animated animate__flash animate__infinite" style="color:#43be16 !important;font-weight:bold !important;">' . ($nombre_usuario ? htmlspecialchars($nombre_usuario) : 'Perfil') . '</a>';
-                        } else {
-                            $clave_perfil = ($pagina_activa === 'perfil') ? 'nav-item nav-link active' : 'nav-item nav-link';
-                            echo '<a href="perfil.php" class="' . $clave_perfil . '" style="color:#43be16 !important;font-weight:bold !important;">' . ($nombre_usuario ? htmlspecialchars($nombre_usuario) : 'Perfil') . '</a>';
-                        }
+                        echo '<a href="perfil.php" class="nav-item nav-link fw-bold" style="color:'.$colorNombrePerfil.' !important;font-weight:bold !important;">'.htmlspecialchars($nombre_usuario).'</a>';
                     }
                     ?>
                 <?php

@@ -55,6 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Si el botón es inhabilitar, el rol pasa a 'usuario'. Si es habilitar, el rol pasa a 'emprendedor'.
         if ($accion === 'inhabilitar') {
             $nuevo_rol = 'usuario';
+            $nuevo_habilitado = 0;
             // Ocultar trueques publicados por el emprendedor
             $stmt = $conn->prepare("UPDATE trueques SET estado = 'inhabilitado' WHERE numero_documento = ?");
             $stmt->bind_param("s", $numero_documento);
@@ -62,14 +63,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $stmt->close();
         } else {
             $nuevo_rol = 'emprendedor';
+            $nuevo_habilitado = 1;
             // Opcional: puedes habilitar los trueques si lo deseas
             $stmt = $conn->prepare("UPDATE trueques SET estado = 'activo' WHERE numero_documento = ?");
             $stmt->bind_param("s", $numero_documento);
             $stmt->execute();
             $stmt->close();
         }
-        $update = $conn->prepare("UPDATE usuarios SET rol = ? WHERE numero_documento = ?");
-        $update->bind_param("ss", $nuevo_rol, $numero_documento);
+        $update = $conn->prepare("UPDATE usuarios SET rol = ?, habilitado = ? WHERE numero_documento = ?");
+        $update->bind_param("sis", $nuevo_rol, $nuevo_habilitado, $numero_documento);
         $update->execute();
         $update->close();
         header("Location: admin_panel.php?mensaje= ✅ Estado actualizado correctamente");
@@ -79,6 +81,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 // Obtener todos los usuarios
 $usuarios = $conn->query("SELECT numero_documento, celular, nombre_completo, correo, rol FROM usuarios");
+
+// Obtener datos del usuario actual para el color del botón perfil
+$usuario = null;
+if (isset($_SESSION['numero_documento'])) {
+    $sql_usuario = "SELECT rol, habilitado, nombre_completo FROM usuarios WHERE numero_documento = ?";
+    $stmt_usuario = $conn->prepare($sql_usuario);
+    $stmt_usuario->bind_param("s", $_SESSION['numero_documento']);
+    $stmt_usuario->execute();
+    $result_usuario = $stmt_usuario->get_result();
+    $usuario = $result_usuario->fetch_assoc();
+    $stmt_usuario->close();
+}
+// Determinar color del nombre en el botón perfil
+$colorNombrePerfil = (isset($usuario) && $usuario['rol'] === 'usuario' && isset($usuario['habilitado']) && intval($usuario['habilitado']) === 0) ? '#f0ad4e' : '#43be16';
 ?>
 
 <!DOCTYPE html>
@@ -121,7 +137,7 @@ $usuarios = $conn->query("SELECT numero_documento, celular, nombre_completo, cor
                         $nombre_usuario = $row_nombre['nombre_completo'];
                     }
                     $stmt_nombre->close();
-                    echo '<a href="perfil.php" class="nav-item nav-link fw-bold" style="color:#43be16 !important;font-weight:bold !important;">'.($nombre_usuario ? htmlspecialchars($nombre_usuario) : 'Perfil').'</a>';
+                    echo '<a href="perfil.php" class="nav-item nav-link fw-bold" style="color:'.$colorNombrePerfil.' !important;font-weight:bold !important;">'.htmlspecialchars($nombre_usuario).'</a>';
                 }
                 ?>
             </div>
