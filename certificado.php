@@ -74,7 +74,7 @@ $pdf->MultiCell(0, 8, utf8_decode("¡Felicitaciones, querido emprendedor!"), 0, 
 $pdf->Ln(14); // Más espacio antes del bloque verde
 $pdf->SetFont('Arial', '', 13);
 $pdf->MultiCell(0, 6, utf8_decode(
-    "Has aprobado con éxito el módulo formativo virtual 'Aprende', desarrollado en el marco del proyecto 'Reciclando Juntas, Produciendo Futuro'."
+    "Has interactuado exitosamente con cada interfaz de la página 'Aprende', dentro del aplicativo desarrollado en el marco del proyecto 'Reciclando Juntas, Produciendo Futuro'."
 ), 0, 'C');
 $pdf->Ln(8);
 $pdf->MultiCell(0, 6, utf8_decode(
