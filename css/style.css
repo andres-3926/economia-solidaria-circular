@@ -971,3 +971,11 @@ html, body {
     visibility: visible;
     opacity: 1;
 }
+.cuadro-economia-circular {
+  max-width: 2100px;
+}
+@media (max-width: 900px) {
+  .cuadro-economia-circular {
+    max-width: 98vw;
+  }
+}

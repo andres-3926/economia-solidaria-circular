@@ -22,21 +22,22 @@ try {
     $titulo_quiz = isset($_POST['titulo_quiz']) ? trim($_POST['titulo_quiz']) : 'Quiz sin título';
     
     // ✅ PREPARAR DATOS SEGÚN EL TIPO
+    $pagina = isset($_POST['pagina']) ? intval($_POST['pagina']) : null;
     if ($tipo_quiz === 'reto_compostaje') {
         // RETO 4: Compostaje con selección múltiple
-        $datos_respuestas = json_encode([
+        $datos_respuestas = [
             'items_seleccionados' => $_POST['items_seleccionados'] ?? '',
             'items_texto' => $_POST['items_texto'] ?? '',
             'total_seleccionados' => intval($_POST['total_seleccionados'] ?? 0),
             'minimo_requerido' => intval($_POST['minimo_requerido'] ?? 3),
-            'aprobado' => $_POST['aprobado'] ?? 'NO'
-        ]);
+            'aprobado' => $_POST['aprobado'] ?? 'NO',
+            'pagina' => $pagina
+        ];
     } else {
         // QUIZ TRADICIONALES (Página 6, 12, etc.)
         $respuestas = [];
         $respuestas_correctas = intval($_POST['respuestas_correctas'] ?? 0);
         $total_preguntas = intval($_POST['total_preguntas'] ?? 0);
-        
         // Capturar todas las respuestas
         for ($i = 1; $i <= 6; $i++) {
             if (isset($_POST['respuesta_' . $i]) && !empty($_POST['respuesta_' . $i])) {
@@ -46,12 +47,10 @@ try {
                 ];
             }
         }
-        
         // Calcular aprobación
         $minimo_requerido = ($total_preguntas === 3) ? 3 : 4;
         $aprobado = ($respuestas_correctas >= $minimo_requerido) ? 'SI' : 'NO';
-        
-        $datos_respuestas = json_encode([
+        $datos_respuestas = [
             'respuestas' => $respuestas,
             'respuestas_correctas' => $respuestas_correctas,
             'total_preguntas' => $total_preguntas,
@@ -59,9 +58,11 @@ try {
             'tiempo_segundos' => intval($_POST['tiempo_segundos'] ?? 0),
             'minimo_requerido' => $minimo_requerido,
             'aprobado' => $aprobado,
-            'instrucciones' => $_POST['instrucciones'] ?? ''
-        ]);
+            'instrucciones' => $_POST['instrucciones'] ?? '',
+            'pagina' => $pagina
+        ];
     }
+    $datos_respuestas = json_encode($datos_respuestas);
     
     // ✅ GUARDAR EN resultados_quiz (TABLA PRINCIPAL)
     $sql = "INSERT INTO resultados_quiz 

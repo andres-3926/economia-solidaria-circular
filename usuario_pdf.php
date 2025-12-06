@@ -290,46 +290,7 @@ if (count($quiz_nuevos) > 0) {
             }
             $pdf->SetTextColor(0);
             
-            // MOSTRAR PREGUNTAS Y RESPUESTAS DETALLADAS
-            if (isset($datos['respuestas']) && is_array($datos['respuestas'])) {
-                $pdf->Ln(3);
-                $pdf->SetFont('Arial', 'B', 10);
-                $pdf->SetFillColor(230, 247, 255);
-                $pdf->Cell(0, 7, utf8_decode('Detalle de respuestas:'), 0, 1, 'L', true);
-                $pdf->Ln(1);
-                
-                $num_pregunta = 1;
-                foreach ($datos['respuestas'] as $key => $respuesta) {
-                    // Encabezado de la pregunta
-                    $pdf->SetFont('Arial', 'B', 9);
-                    $pdf->SetFillColor(240, 240, 240);
-                    $pdf->Cell(0, 6, utf8_decode("Pregunta {$num_pregunta}:"), 1, 1, 'L', true);
-                    
-                    // Respuesta del usuario
-                    $pdf->SetFont('Arial', '', 9);
-                    $pdf->Cell(40, 5, utf8_decode('Respuesta:'), 1, 0);
-                    $pdf->MultiCell(0, 5, utf8_decode($respuesta['respuesta_usuario']), 1);
-                    
-                    // Estado (Correcta/Incorrecta)
-                    $pdf->Cell(40, 5, utf8_decode('Estado:'), 1, 0);
-                    
-                    if ($respuesta['es_correcta']) {
-                        $pdf->SetFillColor(200, 255, 200);
-                        $pdf->SetTextColor(0, 100, 0);
-                        $pdf->SetFont('Arial', 'B', 9);
-                        $pdf->Cell(0, 5, utf8_decode('✓ CORRECTA'), 1, 1, 'L', true);
-                    } else {
-                        $pdf->SetFillColor(255, 200, 200);
-                        $pdf->SetTextColor(150, 0, 0);
-                        $pdf->SetFont('Arial', 'B', 9);
-                        $pdf->Cell(0, 5, utf8_decode('✗ INCORRECTA'), 1, 1, 'L', true);
-                    }
-                    
-                    $pdf->SetTextColor(0, 0, 0);
-                    $pdf->Ln(2);
-                    $num_pregunta++;
-                }
-            }
+            // ...eliminar detalle de respuestas, solo mostrar resumen de estado aprobado/no aprobado
         }
         
         // Separador entre quiz

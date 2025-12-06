@@ -141,26 +141,26 @@ $cartilla = [
         "tipo" => "contenido",
         "titulo" => "La Economía Circular: Un Círculo de Oportunidades",
         "texto" => "
-            <div class='row g-1'>
+            <div class='row g-1' style='margin-top: -2.5rem;'>
                 <div class='col-md-6'>
                     <div class='text-center mb-1'>
-                        <h6 class='mb-1' style='color: #000033; font-weight: 900; font-size: 0.9rem; text-shadow: 2px 2px 4px rgba(255,255,255,1);'>
+                        <h6 class='mb-1' style='color: #000033; font-weight: 900; font-size: clamp(1.5rem, 3vw, 2.7rem); text-shadow: 2px 2px 4px rgba(255,255,255,1); margin-bottom: 1.2rem;'>
                             <i class='fas fa-arrow-down me-1'></i>Economía Lineal
                         </h6>
                         <div class='d-flex flex-column align-items-center'>
-                            <div class='economia-step-micro mb-1' style='background: linear-gradient(135deg, #ff6b6b, #ee5a52); color: #000033; padding: 0.3rem 0.6rem; border-radius: 8px; font-weight: 900; box-shadow: 0 1px 3px rgba(238,90,82,0.3); font-size: 0.7rem; border: 1px solid rgba(0,0,0,0.2);'>
+                            <div class='economia-step-micro mb-2' style='background: linear-gradient(135deg, #ff6b6b, #ee5a52); color: #000033; padding: 0.7rem 2rem; border-radius: 16px; font-weight: 900; box-shadow: 0 2px 8px rgba(238,90,82,0.3); font-size: clamp(1.3rem, 2.8vw, 2.3rem); border: 2px solid rgba(0,0,0,0.2);'>
                                 <i class='fas fa-mountain me-1'></i>Extraer
                             </div>
-                            <i class='fas fa-arrow-down mb-1' style='font-size: 0.8rem; color: #000033; text-shadow: 1px 1px 2px rgba(255,255,255,1);'></i>
-                            <div class='economia-step-micro mb-1' style='background: linear-gradient(135deg, #4ecdc4, #44a08d); color: #000033; padding: 0.3rem 0.6rem; border-radius: 8px; font-weight: 900; box-shadow: 0 1px 3px rgba(68,160,141,0.3); font-size: 0.7rem; border: 1px solid rgba(0,0,0,0.2);'>
+                            <i class='fas fa-arrow-down mb-2' style='font-size: clamp(1.3rem, 2.2vw, 2.1rem); color: #000033; text-shadow: 1px 1px 2px rgba(255,255,255,1);'></i>
+                            <div class='economia-step-micro mb-2' style='background: linear-gradient(135deg, #4ecdc4, #44a08d); color: #000033; padding: 0.7rem 2rem; border-radius: 16px; font-weight: 900; box-shadow: 0 2px 8px rgba(68,160,141,0.3); font-size: clamp(1.3rem, 2.8vw, 2.3rem); border: 2px solid rgba(0,0,0,0.2);'>
                                 <i class='fas fa-cogs me-1'></i>Producir
                             </div>
-                            <i class='fas fa-arrow-down mb-1' style='font-size: 0.8rem; color: #000033; text-shadow: 1px 1px 2px rgba(255,255,255,1);'></i>
-                            <div class='economia-step-micro mb-1' style='background: linear-gradient(135deg, #45b7d1, #96c93d); color: #000033; padding: 0.3rem 0.6rem; border-radius: 8px; font-weight: 900; box-shadow: 0 1px 3px rgba(69,183,209,0.3); font-size: 0.7rem; border: 1px solid rgba(0,0,0,0.2);'>
+                            <i class='fas fa-arrow-down mb-2' style='font-size: clamp(1.3rem, 2.2vw, 2.1rem); color: #000033; text-shadow: 1px 1px 2px rgba(255,255,255,1);'></i>
+                            <div class='economia-step-micro mb-2' style='background: linear-gradient(135deg, #45b7d1, #96c93d); color: #000033; padding: 0.7rem 2rem; border-radius: 16px; font-weight: 900; box-shadow: 0 2px 8px rgba(69,183,209,0.3); font-size: clamp(1.3rem, 2.8vw, 2.3rem); border: 2px solid rgba(0,0,0,0.2);'>
                                 <i class='fas fa-shopping-cart me-1'></i>Usar
                             </div>
-                            <i class='fas fa-arrow-down mb-1' style='font-size: 0.8rem; color: #000033; text-shadow: 1px 1px 2px rgba(255,255,255,1);'></i>
-                            <div class='economia-step-micro' style='background: linear-gradient(135deg, #6c5ce7, #a29bfe); color: #000033; padding: 0.3rem 0.6rem; border-radius: 8px; font-weight: 900; box-shadow: 0 1px 3px rgba(108,92,231,0.3); font-size: 0.7rem; border: 1px solid rgba(0,0,0,0.2);'>
+                            <i class='fas fa-arrow-down mb-2' style='font-size: clamp(1.3rem, 2.2vw, 2.1rem); color: #000033; text-shadow: 1px 1px 2px rgba(255,255,255,1);'></i>
+                            <div class='economia-step-micro' style='background: linear-gradient(135deg, #6c5ce7, #a29bfe); color: #000033; padding: 0.7rem 2rem; border-radius: 16px; font-weight: 900; box-shadow: 0 2px 8px rgba(108,92,231,0.3); font-size: clamp(1.3rem, 2.8vw, 2.3rem); border: 2px solid rgba(0,0,0,0.2);'>
                                 <i class='fas fa-trash me-1'></i>Botar
                             </div>
                         </div>
@@ -168,65 +168,57 @@ $cartilla = [
                 </div>
                 <div class='col-md-6'>
                     <div class='text-center mb-1'>
-                        <h6 class='mb-1' style='color: #000033; font-weight: 900; font-size: 0.9rem; text-shadow: 2px 2px 4px rgba(255,255,255,1);'>
+                        <h6 class='mb-1' style='color: #000033; font-weight: 900; font-size: clamp(1.5rem, 3vw, 2.7rem); text-shadow: 2px 2px 4px rgba(255,255,255,1); margin-bottom: 1.2rem;'>
                             <i class='fas fa-recycle me-1'></i>Economía Circular
                         </h6>
-                        <div class='position-relative mx-auto' style='width: 140px; height: 140px;'>
+                        <div class='position-relative mx-auto' style='width: clamp(260px, 40vw, 480px); height: clamp(260px, 40vw, 480px); left: -40px; position: relative;'>
                             <div class='position-absolute top-50 start-50 translate-middle text-center' style='z-index: 10;'>
-                                <div style='background: linear-gradient(135deg, #43be16, #38a01c); color: #000033; border-radius: 50%; width: 35px; height: 35px; display: flex; align-items: center; justify-content: center; font-weight: 900; box-shadow: 0 2px 8px rgba(67, 190, 22, 0.4); border: 1px solid rgba(0,0,0,0.2);'>
-                                    <i class='fas fa-leaf' style='font-size: 0.8rem;'></i>
+                                <div style='background: linear-gradient(135deg, #43be16, #38a01c); color: #000033; border-radius: 50%; width: clamp(70px, 10vw, 120px); height: clamp(70px, 10vw, 120px); display: flex; align-items: center; justify-content: center; font-weight: 900; box-shadow: 0 2px 12px rgba(67, 190, 22, 0.4); border: 3px solid rgba(0,0,0,0.2);'>
+                                    <i class='fas fa-leaf' style='font-size: clamp(1.7rem, 2.5vw, 2.8rem);'></i>
                                 </div>
                             </div>
-                            
                             <div class='position-absolute' style='top: 0px; left: 50%; transform: translateX(-50%);'>
-                                <div class='text-center' style='background: linear-gradient(135deg, #e74c3c, #c0392b); color: #000033; padding: 0.15rem 0.3rem; border-radius: 4px; font-size: 0.55rem; font-weight: 900; box-shadow: 0 1px 3px rgba(231,76,60,0.3); border: 1px solid rgba(0,0,0,0.2);'>
+                                <div class='text-center' style='background: linear-gradient(135deg, #e74c3c, #c0392b); color: #000033; padding: 0.5rem 1.2rem; border-radius: 12px; font-size: clamp(1.2rem, 2.2vw, 2.1rem); font-weight: 900; box-shadow: 0 2px 8px rgba(231,76,60,0.3); border: 2px solid rgba(0,0,0,0.2);'>
                                     <i class='fas fa-minus-circle me-1'></i>Reducir
                                 </div>
                             </div>
-                            
-                            <div class='position-absolute' style='top: 15px; right: 0px;'>
-                                <div class='text-center' style='background: linear-gradient(135deg, #f39c12, #e67e22); color: #000033; padding: 0.15rem 0.3rem; border-radius: 4px; font-size: 0.55rem; font-weight: 900; box-shadow: 0 1px 3px rgba(243,156,18,0.3); border: 1px solid rgba(0,0,0,0.2);'>
+                            <div class='position-absolute' style='top: 35px; right: 0px;'>
+                                <div class='text-center' style='background: linear-gradient(135deg, #f39c12, #e67e22); color: #000033; padding: 0.5rem 1.2rem; border-radius: 12px; font-size: clamp(1.2rem, 2.2vw, 2.1rem); font-weight: 900; box-shadow: 0 2px 8px rgba(243,156,18,0.3); border: 2px solid rgba(0,0,0,0.2);'>
                                     <i class='fas fa-redo me-1'></i>Reutilizar
                                 </div>
                             </div>
-                            
-                            <div class='position-absolute' style='bottom: 40px; right: 0px;'>
-                                <div class='text-center' style='background: linear-gradient(135deg, #27ae60, #2ecc71); color: #000033; padding: 0.15rem 0.3rem; border-radius: 4px; font-size: 0.55rem; font-weight: 900; box-shadow: 0 1px 3px rgba(39,174,96,0.3); border: 1px solid rgba(0,0,0,0.2);'>
+                            <div class='position-absolute' style='bottom: 80px; right: 0px;'>
+                                <div class='text-center' style='background: linear-gradient(135deg, #27ae60, #2ecc71); color: #000033; padding: 0.5rem 1.2rem; border-radius: 12px; font-size: clamp(1.2rem, 2.2vw, 2.1rem); font-weight: 900; box-shadow: 0 2px 8px rgba(39,174,96,0.3); border: 2px solid rgba(0,0,0,0.2);'>
                                     <i class='fas fa-recycle me-1'></i>Reciclar
                                 </div>
                             </div>
-                            
-                            <div class='position-absolute' style='bottom: 15px; left: 50%; transform: translateX(-50%);'>
-                                <div class='text-center' style='background: linear-gradient(135deg, #8e44ad, #9b59b6); color: #000033; padding: 0.15rem 0.3rem; border-radius: 4px; font-size: 0.55rem; font-weight: 900; box-shadow: 0 1px 3px rgba(142,68,173,0.3); border: 1px solid rgba(0,0,0,0.2);'>
+                            <div class='position-absolute' style='bottom: 35px; left: 50%; transform: translateX(-50%);'>
+                                <div class='text-center' style='background: linear-gradient(135deg, #8e44ad, #9b59b6); color: #000033; padding: 0.5rem 1.2rem; border-radius: 12px; font-size: clamp(1.2rem, 2.2vw, 2.1rem); font-weight: 900; box-shadow: 0 2px 8px rgba(142,68,173,0.3); border: 2px solid rgba(0,0,0,0.2);'>
                                     <i class='fas fa-tools me-1'></i>Reparar
                                 </div>
                             </div>
-                            
-                            <div class='position-absolute' style='bottom: 40px; left: 0px;'>
-                                <div class='text-center' style='background: linear-gradient(135deg, #3498db, #2980b9); color: #000033; padding: 0.15rem 0.3rem; border-radius: 4px; font-size: 0.55rem; font-weight: 900; box-shadow: 0 1px 3px rgba(52,152,219,0.3); border: 1px solid rgba(0,0,0,0.2);'>
+                            <div class='position-absolute' style='bottom: 80px; left: 0px;'>
+                                <div class='text-center' style='background: linear-gradient(135deg, #3498db, #2980b9); color: #000033; padding: 0.5rem 1.2rem; border-radius: 12px; font-size: clamp(1.2rem, 2.2vw, 2.1rem); font-weight: 900; box-shadow: 0 2px 8px rgba(52,152,219,0.3); border: 2px solid rgba(0,0,0,0.2);'>
                                     <i class='fas fa-heart me-1'></i>Recuperar
                                 </div>
                             </div>
-                            
-                            <div class='position-absolute' style='top: 15px; left: 0px;'>
-                                <div class='text-center' style='background: linear-gradient(135deg, #e91e63, #ad1457); color: #000033; padding: 0.15rem 0.3rem; border-radius: 4px; font-size: 0.55rem; font-weight: 900; box-shadow: 0 1px 3px rgba(233,30,99,0.3); border: 1px solid rgba(0,0,0,0.2);'>
+                            <div class='position-absolute' style='top: 35px; left: 0px;'>
+                                <div class='text-center' style='background: linear-gradient(135deg, #e91e63, #ad1457); color: #000033; padding: 0.5rem 1.2rem; border-radius: 12px; font-size: clamp(1.2rem, 2.2vw, 2.1rem); font-weight: 900; box-shadow: 0 2px 8px rgba(233,30,99,0.3); border: 2px solid rgba(0,0,0,0.2);'>
                                     <i class='fas fa-lightbulb me-1'></i>Rediseñar
                                 </div>
                             </div>
-                            
-                            <div class='position-absolute top-50 start-50 translate-middle' style='width: 110px; height: 110px; border: 2px dashed #000033; border-radius: 50%; opacity: 0.8;'></div>
+                            <div class='position-absolute top-50 start-50 translate-middle' style='width: clamp(180px, 25vw, 320px); height: clamp(180px, 25vw, 320px); border: 4px dashed #000033; border-radius: 50%; opacity: 0.8;'></div>
                         </div>
                     </div>
                 </div>
             </div>
-            
-            <div class='text-center mt-1'>
-                <p class='fw-bold' style='font-size: 0.8rem; color: #000033; line-height: 1.2; margin-bottom: 0.3rem; text-shadow: 2px 2px 4px rgba(255,255,255,1);'>
+            <div class='text-center mt-2'>
+                <p class='fw-bold' style='font-size: clamp(1.2rem, 2.5vw, 1.7rem); color: #000033; line-height: 1.2; margin-bottom: 0.3rem; text-shadow: 2px 2px 4px rgba(255,255,255,1);'>
                     <i class='fas fa-arrow-right me-1'></i>
                     En la <b>Economía Circular</b>, los recursos nunca se desperdician, siempre encuentran una nueva vida útil.
                 </p>
             </div>
-        ",
+            ",
         "fondo" => "img/imagen_economia_circular.webp",
         "logo" => "img/Logo-sena-blanco-sin-fondo.webp"
     ],
@@ -288,6 +280,7 @@ $cartilla = [
         "texto" => "Aprende a <b>separar correctamente</b> los materiales reciclables. Cada categoría tiene un proceso específico que facilita su aprovechamiento y contribuye a la <b>economía circular</b>.",
         "fondo" => "img/residuos-cocina-1.jpg",
         "categorias" => [
+           
             // 1. PLÁSTICOS
             [
                 "titulo" => "♻️ Plásticos",
@@ -545,7 +538,7 @@ $cartilla = [
                 "emoji" => "🤢",
                 "color" => "#e74c3c",
                 "causa" => "Exceso de húmedo/nitrógeno, falta de aire.",
-                "solucion" => "\"Los Increíbles de la Montaña\" y \"Seca Rápido\" están diseñados para esto. Si aún así huele, revisa si pusiste algo que no va o si necesitas más Seca Rápido."
+                "solucion" => "\"Cal\" y \"Ceniza de carbon o madera\" están diseñados para esto. Si aún así huele, revisa si pusiste algo que no va o si necesitas más Seca Rápido."
             ],
             [
                 "titulo" => "Mosquitos",
@@ -1790,21 +1783,21 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
     <div class="container-fluid header-aprende" style="position: relative; background-image: url('<?php echo $cartilla[$pagina]['fondo']; ?>'); background-size: cover; background-position: center; min-height: 100vh;">
         <div class="container-fluid h-100 p-0">
             <div class="row g-0 justify-content-center" style="min-height: 100vh;">
-                <div class="col-12 col-lg-10 mx-auto px-3 py-4 d-flex flex-column"> 
+                <div class="col-10 col-lg-10 mx-auto px-3 py-4 d-flex flex-column"> 
                     <?php if (isset($cartilla[$pagina]['texto'])): ?>
-                        <div class="cuadro-texto mx-auto mb-3" style="max-width: 900px; padding: 1.5rem; margin: 0.5rem 0;">
-                            <div class="texto-contenido text-center" style="font-size: 1rem; line-height: 1.5;">
+                        <div class="cuadro-texto mx-auto mb-3" style="max-width: 1100px; padding: 2.2rem; margin: 0.5rem 0;">
+                            <div class="texto-contenido text-center" style="font-size: 1.55rem; line-height: 1.7; font-weight: 700;">
                                 <?php echo $cartilla[$pagina]['texto']; ?>
                             </div>
                         </div>
                     <?php endif; ?>
                     
-                    <div class="cuadro-texto cuadro-actividad mx-auto flex-grow-1" style="max-width: 1000px; padding: 1.8rem;">
-                        <h3 class="text-center mb-3" style="font-size: 1.4rem;">
+                    <div class="cuadro-texto cuadro-actividad mx-auto flex-grow-1" style="max-width: 1100px; padding: 2.2rem;">
+                        <h3 class="text-center mb-3" style="font-size: 2rem;">
                             <i class="fas fa-clipboard-list me-2"></i>
                             <?php echo $cartilla[$pagina]['actividad_titulo']; ?>
                         </h3>
-                        <p class="texto-contenido mb-4 text-center" style="font-size: 1rem; line-height: 1.5;">
+                        <p class="texto-contenido mb-4 text-center" style="font-size: 1.25rem; line-height: 1.6;">
                             <?php echo $cartilla[$pagina]['actividad_instruccion']; ?>
                         </p>
                         
@@ -1824,27 +1817,27 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
                                                 data-bs-toggle="collapse" 
                                                 data-bs-target="#collapse<?php echo $numero; ?>" 
                                                 aria-expanded="<?php echo $isFirst ? 'true' : 'false'; ?>" 
-                                                style="background: rgba(255, 255, 255, 0.95); color: #003d82; font-weight: 700; font-size: 1rem;">
-                                            <span class="badge bg-primary me-2"><?php echo $numero; ?></span>
-                                            <span class="badge bg-info me-2"><?php echo $pregunta['categoria']; ?></span>
-                                            <?php echo $pregunta['pregunta']; ?>
+                                                style="background: rgba(255, 255, 255, 0.95); color: #003d82; font-weight: 700; font-size: 1.25rem; padding-top: 1.2rem; padding-bottom: 1.2rem;">
+                                            <span class="badge bg-primary me-2" style="font-size: 1.1rem; padding: 0.7em 1.1em;"><?php echo $numero; ?></span>
+                                            <span class="badge bg-info me-2" style="font-size: 1.1rem; padding: 0.7em 1.1em;"><?php echo $pregunta['categoria']; ?></span>
+                                            <span style="font-size: 1.25rem; font-weight: 700; color: #001a4d;"><?php echo $pregunta['pregunta']; ?></span>
                                         </button>
                                     </h2>
                                     <div id="collapse<?php echo $numero; ?>" 
                                          class="accordion-collapse collapse <?php echo $isFirst ? 'show' : ''; ?>">
-                                        <div class="accordion-body" style="background: rgba(255, 255, 255, 0.9); padding: 1.5rem;">
+                                        <div class="accordion-body" style="background: rgba(255, 255, 255, 0.9); padding: 1.7rem;">
                                             <?php foreach ($pregunta['opciones'] as $opcionIndex => $opcion): ?>
-                                            <div class="form-check mb-3 opcion-item" style="padding: 1rem; border-radius: 8px; cursor: pointer;">
+                                            <div class="form-check mb-3 opcion-item" style="padding: 1.2rem; border-radius: 10px; cursor: pointer;">
                                                 <input class="form-check-input" 
                                                        type="radio" 
                                                        name="pregunta_<?php echo $numero; ?>" 
                                                        id="p<?php echo $numero; ?>_op<?php echo $opcionIndex; ?>" 
                                                        value="<?php echo htmlspecialchars($opcion); ?>"
                                                        required
-                                                       style="cursor: pointer; width: 20px; height: 20px;">
+                                                       style="cursor: pointer; width: 24px; height: 24px;">
                                                 <label class="form-check-label" 
                                                        for="p<?php echo $numero; ?>_op<?php echo $opcionIndex; ?>" 
-                                                       style="cursor: pointer; font-weight: 600; color: #001a4d; margin-left: 0.5rem; font-size: 0.95rem;">
+                                                       style="cursor: pointer; font-weight: 700; color: #001a4d; margin-left: 0.7rem; font-size: 1.18rem;">
                                                     <?php echo $opcion; ?>
                                                 </label>
                                             </div>
@@ -1966,19 +1959,24 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
         <div class="container-fluid h-100 p-0">
             <div class="row g-0 justify-content-center" style="height: 100vh;">
                 <div class="col-12 col-lg-11 mx-auto px-3 pt-3 pb-2">
-                    <div class="cuadro-texto text-center mb-2" style="padding: 0.8rem 1.5rem; max-width: 1100px; margin: 0 auto;">
+                    <div class="cuadro-texto text-center mb-2" style="padding: 1.2rem 2rem; max-width: 1100px; margin: 0 auto;">
                         <?php if (isset($cartilla[$pagina]['titulo'])): ?>
-                            <h1 class="mb-2" style="font-size: clamp(1.3rem, 3.5vw, 1.8rem); line-height: 1.3; color: #001122; font-weight: 900;">
+                            <h1 class="mb-2" style="font-size: clamp(2.2rem, 7vw, 3rem); line-height: 1.15; color: #001122; font-weight: 900;">
                                 <?php echo $cartilla[$pagina]['titulo']; ?>
                             </h1>
+                        <?php endif; ?>
+                        <?php if (isset($cartilla[$pagina]['subtitulo'])): ?>
+                            <h2 class="mb-2" style="font-size: clamp(1.5rem, 5vw, 2.2rem); line-height: 1.1; color: #003366; font-weight: 700;">
+                                <?php echo $cartilla[$pagina]['subtitulo']; ?>
+                            </h2>
                         <?php endif; ?>
                     </div>
                 </div>
                 
                 <div class="col-12 col-lg-8 mx-auto px-4 d-flex flex-column justify-content-end" style="height: <?php echo $height_bloque; ?>;"> 
                     <?php if (isset($cartilla[$pagina]['texto'])): ?>
-                        <div class="cuadro-texto mx-auto">
-                            <div class="texto-contenido text-center">
+                        <div class="cuadro-texto mx-auto" style="max-width: 1100px;">
+                            <div class="texto-contenido text-center" style="font-size: clamp(1.2rem, 4vw, 1.7rem); line-height: 1.5;">
                                 <?php echo $texto_con_iconos; ?>
                             </div>
                         </div>
@@ -1989,7 +1987,7 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
                             <i class="fas fa-lightbulb me-2"></i>
                             <?php echo $cartilla[$pagina]['actividad_titulo']; ?>
                         </h3>
-                        <p class="texto-contenido mb-4 text-center">
+                        <p class="texto-contenido mb-4 text-center" style="font-size: 1.5rem;">
                             <?php echo $cartilla[$pagina]['actividad_descripcion']; ?>
                         </p>
                         
@@ -2034,10 +2032,10 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
                 <!-- Títulos con fondo semitransparente - MÁS COMPACTO -->
                 <div class="col-12 col-lg-11 mx-auto px-3 pt-2">
                     <div class="cuadro-texto text-center mb-1" style="padding: 0.5rem 1rem; max-width: 1100px; margin: 0 auto;">
-                        <h1 class="mb-1" style="font-size: clamp(1.2rem, 3.3vw, 1.6rem); line-height: 1.2; color: #001122; font-weight: 900;">
+                        <h1 class="mb-1" style="font-size: clamp(2rem, 4vw, 2rem); line-height: 1.2; color: #001122; font-weight: 900;">
                             <?php echo $cartilla[$pagina]['titulo']; ?>
                         </h1>
-                        <h3 class="mb-0" style="font-size: clamp(0.9rem,  2vw, 1.1rem); font-weight: 700; color: #003366;">
+                        <h3 class="mb-0" style="font-size: clamp(1.5rem,  3vw, 1.6rem); font-weight: 700; color: #003366;">
                             <?php echo $cartilla[$pagina]['subtitulo']; ?>
                         </h3>
                     </div>
@@ -2048,7 +2046,7 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
                     <!-- Texto introductorio muy compacto -->
                     <?php if (isset($cartilla[$pagina]['texto'])): ?>
                         <div class="cuadro-texto mx-auto mb-1" style="max-width: 1150px; padding: 0.4rem 0.8rem; width: 95%;">
-                            <div class="texto-contenido text-center" style="font-size: clamp(0.7rem, 1.5vw, 0.85rem); line-height: 1.2;">
+                            <div class="texto-contenido text-center" style="font-size: clamp(1.5rem, 1.5vw, 1.5rem); line-height: 1.2;">
                                 <?php echo $cartilla[$pagina]['texto']; ?>
                             </div>
                         </div>
@@ -2060,7 +2058,7 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
                     ?>
                         <div class="cuadro-texto mx-auto mb-1" style="max-width: 1250px; padding: clamp(0.5rem, 1.5vw, 0.9rem); background: rgba(67, 190, 22, 0.25) !important; border: 2px solid rgba(67, 190, 22, 0.5); width: 98%;">
                             <!-- Título del recuadro compacto -->
-                            <h3 class="text-center mb-2" style="font-size: clamp(0.9rem, 2.5vw, 1.2rem); color: #001122; line-height: 1.1; font-weight: 900;">
+                            <h3 class="text-center mb-2" style="font-size: clamp(1.5rem, 2.5vw, 1.7rem); color: #001122; line-height: 1.1; font-weight: 900;">
                                 <span style="font-size: clamp(1.3rem, 3.3vw, 1.7rem); margin-right: 0.3rem;"><?php echo $recuadro['icono']; ?></span>
                                 <?php echo $recuadro['titulo']; ?>
                             </h3>
@@ -2069,14 +2067,14 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
                                 <!-- QUÉ SÍ VA -->
                                 <div class="col-md-6">
                                     <div style="background: rgba(255, 255, 255, 0.9); padding: clamp(0.5rem, 1.1vw, 0.7rem); border-radius: 8px; border: 2px solid #43be16; height: 100%;">
-                                        <h4 class="mb-2" style="color: #43be16; font-weight: 800; text-align: center; font-size: clamp(0.75rem, 1.7vw, 0.95rem);">
+                                        <h4 class="mb-2" style="color: #43be16; font-weight: 800; text-align: center; font-size: clamp(1.5rem, 1.7vw, 1.7rem);">
                                             <i class="fas fa-check-circle me-1"></i><?php echo $recuadro['que_si']['titulo']; ?>
                                         </h4>
                                         <ul class="list-unstyled mb-0">
                                             <?php foreach ($recuadro['que_si']['items'] as $item): ?>
                                             <li class="mb-1 d-flex align-items-center" style="padding: 0.2rem; border-radius: 5px;">
-                                                <span style="font-size: clamp(1rem, 2.1vw, 1.25rem); margin-right: 0.4rem; flex-shrink: 0;"><?php echo $item['emoji']; ?></span>
-                                                <span style="color: #001122; font-weight: 700; font-size: clamp(0.65rem, 1.6vw, 0.8rem); line-height: 1.1;"><?php echo $item['texto']; ?></span>
+                                                <span style="font-size: clamp(1.5rem, 2.1vw, 1.7rem); margin-right: 0.4rem; flex-shrink: 0;"><?php echo $item['emoji']; ?></span>
+                                                <span style="color: #001122; font-weight: 700; font-size: clamp(1.2rem, 1.6vw, 1.2rem); line-height: 1.1;"><?php echo $item['texto']; ?></span>
                                             </li>
                                             <?php endforeach; ?>
                                         </ul>
@@ -2086,14 +2084,14 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
                                 <!-- QUÉ NO VA -->
                                 <div class="col-md-6">
                                     <div style="background: rgba(255, 255, 255, 0.9); padding: clamp(0.5rem, 1.1vw, 0.7rem); border-radius: 8px; border: 2px solid #e74c3c; height: 100%;">
-                                        <h4 class="mb-2" style="color: #e74c3c; font-weight: 800; text-align: center; font-size: clamp(0.75rem, 1.7vw, 0.95rem);">
+                                        <h4 class="mb-2" style="color: #e74c3c; font-weight: 800; text-align: center; font-size: clamp(1.5rem, 1.7vw, 1.7rem);">
                                             <i class="fas fa-times-circle me-1"></i><?php echo $recuadro['que_no']['titulo']; ?>
                                         </h4>
                                         <ul class="list-unstyled mb-0">
                                             <?php foreach ($recuadro['que_no']['items'] as $item): ?>
                                             <li class="mb-1 d-flex align-items-center" style="padding: 0.2rem; border-radius: 5px;">
-                                                <span style="font-size: clamp(1rem, 2.1vw, 1.25rem); margin-right: 0.4rem; flex-shrink: 0;"><?php echo $item['emoji']; ?></span>
-                                                <span style="color: #001122; font-weight: 700; font-size: clamp(0.65rem, 1.6vw, 0.8rem); line-height: 1.1;"><?php echo $item['texto']; ?></span>
+                                                <span style="font-size: clamp(1.5rem, 2.1vw, 1.7rem); margin-right: 0.4rem; flex-shrink: 0;"><?php echo $item['emoji']; ?></span>
+                                                <span style="color: #001122; font-weight: 700; font-size: clamp(1.2rem, 1.6vw, 1.2rem); line-height: 1.1;"><?php echo $item['texto']; ?></span>
                                             </li>
                                             <?php endforeach; ?>
                                         </ul>
@@ -2103,7 +2101,7 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
                             
                             <!-- CONSEJO muy compacto -->
                             <div class="mt-2" style="background: rgba(255, 193, 7, 0.9); padding: clamp(0.45rem, 1.1vw, 0.7rem); border-radius: 8px; border: 2px solid #ffc107;">
-                                <p class="mb-0 text-center" style="color: #001122; font-weight: 700; font-size: clamp(0.7rem, 1.6vw, 0.9rem); line-height: 1.2;">
+                                <p class="mb-0 text-center" style="color: #001122; font-weight: 700; font-size: clamp(1rem, 1.6vw, 1rem); line-height: 1.2;">
                                     <?php echo $recuadro['consejo']; ?>
                                 </p>
                             </div>
@@ -2159,10 +2157,10 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
                 <!-- Títulos principales -->
                 <div class="col-12 col-lg-11 mx-auto px-3 pt-3 pb-2">
                     <div class="cuadro-texto text-center mb-2" style="padding: 0.8rem 1.5rem; max-width: 1100px; margin: 0 auto;">
-                        <h1 class="mb-2" style="font-size: clamp(1.3rem, 3.5vw, 1.8rem); line-height: 1.3; color: #001122; font-weight: 900;">
+                        <h1 class="mb-2" style="font-size: clamp(1.7rem, 3.5vw, 1.8rem); line-height: 1.3; color: #001122; font-weight: 900;">
                             <?php echo $cartilla[$pagina]['titulo']; ?>
                         </h1>
-                        <h3 class="mb-0" style="font-size: clamp(1rem, 2.2vw, 1.3rem); font-weight: 700; color: #003366;">
+                        <h3 class="mb-0" style="font-size: clamp(1.5rem, 2.5vw, 1.5rem); font-weight: 700; color: #003366;">
                             <?php echo $cartilla[$pagina]['subtitulo']; ?>
                         </h3>
                     </div>
@@ -2172,7 +2170,7 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
                     <!-- Texto introductorio -->
                     <?php if (isset($cartilla[$pagina]['texto'])): ?>
                         <div class="cuadro-texto mx-auto mb-3" style="max-width: 1150px; padding: 0.8rem 1.2rem; width: 95%;">
-                            <div class="texto-contenido text-center" style="font-size: clamp(0.85rem, 1.8vw, 1rem); line-height: 1.4;">
+                            <div class="texto-contenido text-center" style="font-size: clamp(1.4rem, 2vw, 1.4rem); line-height: 1.4;">
                                 <?php echo $cartilla[$pagina]['texto']; ?>
                             </div>
                         </div>
@@ -2180,21 +2178,21 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
                     <!-- Cuadros por categoría -->
                     <?php foreach ($cartilla[$pagina]['categorias'] as $categoria): ?>
                         <div class="cuadro-texto mx-auto mb-3" style="max-width: 1250px; padding: 1.2rem; width: 98%; background: rgba(255, 255, 255, 0.35) !important; border: 3px solid <?php echo $categoria['color']; ?>; box-shadow: 0 8px 20px rgba(0,0,0,0.2);">
-                            <h3 class="text-center mb-3" style="font-size: clamp(1.1rem, 3vw, 1.6rem); color: <?php echo $categoria['color']; ?>; line-height: 1.3; font-weight: 900; text-shadow: 3px 3px 8px rgba(255,255,255,1);">
+                            <h3 class="text-center mb-3" style="font-size: clamp(1.5rem, 3vw, 1.5rem); color: <?php echo $categoria['color']; ?>; line-height: 1.3; font-weight: 900; text-shadow: 3px 3px 8px rgba(255,255,255,1);">
                                 <?php echo $categoria['titulo']; ?>
                             </h3>
                             <div class="row g-3">
                                 <?php if (isset($categoria['columna_izq'])): ?>
                                     <div class="col-md-6">
                                         <div style="background: rgba(255, 255, 255, 0.95); padding: 1rem; border-radius: 12px; border: 2px solid <?php echo $categoria['color']; ?>; height: 100%; min-height: 200px;">
-                                            <h4 class="mb-3 text-center" style="color: <?php echo $categoria['color']; ?>; font-weight: 800; font-size: clamp(0.95rem, 2.1vw, 1.2rem);">
+                                            <h4 class="mb-3 text-center" style="color: <?php echo $categoria['color']; ?>; font-weight: 800; font-size: clamp(1.2rem, 2.5vw, 1.2rem);">
                                                 <i class="fas fa-check-circle me-2"></i><?php echo $categoria['columna_izq']['titulo']; ?>
                                             </h4>
                                             <ul class="list-unstyled mb-0">
                                                 <?php foreach ($categoria['columna_izq']['items'] as $item): ?>
                                                     <li class="mb-2 d-flex align-items-start" style="padding: 0.5rem; border-radius: 8px; background: rgba(255,255,255,0.5);">
-                                                        <span style="font-size: clamp(1rem, 2.1vw, 1.25rem); margin-right: 0.4rem; flex-shrink: 0;"><?php echo $item['emoji']; ?></span>
-                                                        <span style="color: #001122; font-weight: 700; font-size: clamp(0.85rem, 1.9vw, 1.05rem); line-height: 1.4;"><?php echo $item['texto']; ?></span>
+                                                        <span style="font-size: clamp(1.2rem, 2.1vw, 1.25rem); margin-right: 0.4rem; flex-shrink: 0;"><?php echo $item['emoji']; ?></span>
+                                                        <span style="color: #001122; font-weight: 700; font-size: clamp(1.2rem, 1.9vw, 1.2rem); line-height: 1.4;"><?php echo $item['texto']; ?></span>
                                                     </li>
                                                 <?php endforeach; ?>
                                             </ul>
@@ -2204,14 +2202,14 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
                                 <?php if (isset($categoria['columna_der'])): ?>
                                     <div class="col-md-6">
                                         <div style="background: rgba(255, 255, 255, 0.95); padding: 1rem; border-radius: 12px; border: 2px solid <?php echo $categoria['columna_der']['color_borde'] ?? '#003366'; ?>; height: 100%; min-height: 200px;">
-                                            <h4 class="mb-3 text-center" style="color: <?php echo $categoria['columna_der']['color_borde'] ?? '#003366'; ?>; font-weight: 800; font-size: clamp(0.95rem, 2.1vw, 1.2rem);">
+                                            <h4 class="mb-3 text-center" style="color: <?php echo $categoria['columna_der']['color_borde'] ?? '#003366'; ?>; font-weight: 800; font-size: clamp(1.2rem, 2.5vw, 1.2rem);">
                                                 <i class="fas fa-info-circle me-2"></i><?php echo $categoria['columna_der']['titulo']; ?>
                                             </h4>
                                             <ul class="list-unstyled mb-0">
                                                 <?php foreach ($categoria['columna_der']['items'] as $item): ?>
                                                     <li class="mb-2 d-flex align-items-start" style="padding: 0.5rem; border-radius: 8px; background: rgba(255,255,255,0.5);">
-                                                        <span style="font-size: clamp(1rem, 2.1vw, 1.25rem); margin-right: 0.4rem; flex-shrink: 0;"><?php echo $item['emoji']; ?></span>
-                                                        <span style="color: #001122; font-weight: 700; font-size: clamp(0.85rem, 1.9vw, 1.05rem); line-height: 1.4;"><?php echo $item['texto']; ?></span>
+                                                        <span style="font-size: clamp(1.2rem, 2.1vw, 1.25rem); margin-right: 0.4rem; flex-shrink: 0;"><?php echo $item['emoji']; ?></span>
+                                                        <span style="color: #001122; font-weight: 700; font-size: clamp(1.2rem, 1.9vw, 1.2rem); line-height: 1.4;"><?php echo $item['texto']; ?></span>
                                                     </li>
                                                 <?php endforeach; ?>
                                             </ul>
@@ -2221,14 +2219,14 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
                                 <?php if (isset($categoria['columna_unica'])): ?>
                                     <div class="col-12">
                                         <div style="background: rgba(255, 255, 255, 0.95); padding: 1rem; border-radius: 12px; border: 2px solid <?php echo $categoria['color']; ?>;">
-                                            <h4 class="mb-3 text-center" style="color: <?php echo $categoria['color']; ?>; font-weight: 800; font-size: clamp(0.95rem, 2.1vw, 1.2rem);">
+                                            <h4 class="mb-3 text-center" style="color: <?php echo $categoria['color']; ?>; font-weight: 800; font-size: clamp(1.2rem, 2.5vw, 1.2rem);">
                                                 <i class="fas fa-lightbulb me-2"></i><?php echo $categoria['columna_unica']['titulo']; ?>
                                             </h4>
                                             <ul class="list-unstyled mb-0">
                                                 <?php foreach ($categoria['columna_unica']['items'] as $item): ?>
                                                     <li class="mb-2 d-flex align-items-start" style="padding: 0.5rem; border-radius: 8px; background: rgba(255,255,255,0.5);">
-                                                        <span style="font-size: clamp(1rem, 2.1vw, 1.25rem); margin-right: 0.4rem; flex-shrink: 0;"><?php echo $item['emoji']; ?></span>
-                                                        <span style="color: #001122; font-weight: 700; font-size: clamp(0.85rem, 1.9vw, 1.05rem); line-height: 1.4;"><?php echo $item['texto']; ?></span>
+                                                        <span style="font-size: clamp(1.2rem, 2.1vw, 1.25rem); margin-right: 0.4rem; flex-shrink: 0;"><?php echo $item['emoji']; ?></span>
+                                                        <span style="color: #001122; font-weight: 700; font-size: clamp(1.2rem, 1.9vw, 1.2rem); line-height: 1.4;"><?php echo $item['texto']; ?></span>
                                                     </li>
                                                 <?php endforeach; ?>
                                             </ul>
@@ -2276,11 +2274,11 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
                 <!-- Títulos principales -->
                 <div class="col-12 col-lg-11 mx-auto px-3 pt-3 pb-2">
                     <div class="cuadro-texto text-center mb-2" style="padding: 0.8rem 1.5rem; max-width: 1100px; margin: 0 auto;">
-                        <h1 class="mb-2" style="font-size: clamp(1.3rem, 3.5vw, 1.8rem); line-height: 1.3; color: #001122; font-weight: 900;">
-                            <span style="font-size: clamp(1.8rem, 4vw, 2.3rem); margin-right: 0.5rem;">♻️</span>
+                        <h1 class="mb-2" style="font-size: clamp(2.5rem, 5vw, 2.5rem); line-height: 1.3; color: #001122; font-weight: 900;">
+                            <span style="font-size: clamp(2.5rem, 5vw, 2.3rem); margin-right: 0.5rem;">♻️</span>
                             <?php echo $cartilla[$pagina]['titulo']; ?>
                         </h1>
-                        <h3 class="mb-0" style="font-size: clamp(1rem, 2.2vw, 1.3rem); font-weight: 700; color: #003366;">
+                        <h3 class="mb-0" style="font-size: clamp(2rem, 2.5vw, 2rem); font-weight: 700; color: #003366;">
                             <?php echo $cartilla[$pagina]['subtitulo']; ?>
                         </h3>
                     </div>
@@ -2290,7 +2288,7 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
                 <div class="col-12 col-lg-11 mx-auto px-3">
                     <!-- Texto introductorio -->
                     <div class="cuadro-texto mx-auto mb-3" style="max-width: 1150px; padding: 0.8rem 1.2rem; width: 95%;">
-                        <div class="texto-contenido text-center" style="font-size: clamp(0.85rem, 1.8vw, 1rem); line-height: 1.4;">
+                        <div class="texto-contenido text-center" style="font-size: clamp(1.5rem, 2vw, 1rem); line-height: 1.4;">
                             <?php echo $cartilla[$pagina]['texto']; ?>
                         </div>
                     </div>
@@ -2303,7 +2301,7 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
                                 alt="Kit de Compostaje Completo" 
                                 class="img-fluid" 
                                 style="max-height: 350px; border-radius: 15px; box-shadow: 0 8px 20px rgba(0,0,0,0.3); border: 3px solid #43be16;">
-                            <p class="mt-2 mb-0" style="font-size: clamp(0.75rem, 1.6vw, 0.9rem); color: #001122; font-weight: 700;">
+                            <p class="mt-2 mb-0" style="font-size: clamp(1rem, 1.6vw, 1rem); color: #001122; font-weight: 700;">
                                 <i class="fas fa-box-open me-2"></i>Kit Completo de Compostaje Casero
                             </p>
                         </div>
@@ -2312,7 +2310,7 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
                     
                     <!-- TÍTULO DE COMPONENTES -->
                     <div class="cuadro-texto mx-auto mb-3" style="max-width: 1150px; padding: 0.6rem 1rem; width: 95%; background: rgba(67, 190, 22, 0.35) !important; border: 2px solid #43be16;">
-                        <h2 class="text-center mb-0" style="font-size: clamp(1.1rem, 2.8vw, 1.5rem); color: #001122; font-weight: 900;">
+                        <h2 class="text-center mb-0" style="font-size: clamp(1.5rem, 2.8vw, 1.8rem); color: #001122; font-weight: 900;">
                             <i class="fas fa-list-ul me-2"></i>Componentes del Kit
                         </h2>
                     </div>
@@ -2332,14 +2330,14 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
                                         <div class="cuadro-texto h-100" style="padding: 1.2rem; background: rgba(255, 255, 255, 0.45) !important; border: 3px solid <?php echo $componente['color']; ?>; border-radius: 15px; box-shadow: 0 8px 20px rgba(0,0,0,0.3); position: relative;">
                                             <div class="d-none d-md-block position-absolute" style="right: -20px; top: 50%; transform: translateY(-50%); width: 0; height: 0; border-top: 15px solid transparent; border-bottom: 15px solid transparent; border-left: 20px solid <?php echo $componente['color']; ?>;"></div>
                                             <div class="d-flex align-items-center mb-2">
-                                                <span style="font-size: clamp(2rem, 4vw, 2.5rem); margin-right: 0.8rem; filter: drop-shadow(3px 3px 6px rgba(0,0,0,0.3));">
+                                                <span style="font-size: clamp(4rem, 6vw, 4rem); margin-right: 0.8rem; filter: drop-shadow(3px 3px 6px rgba(0,0,0,0.3));">
                                                     <?php echo $componente['emoji']; ?>
                                                 </span>
-                                                <h3 class="mb-0" style="font-size: clamp(1rem, 2.3vw, 1.3rem); color: #001122; font-weight: 900; line-height: 1.2; text-shadow: 2px 2px 4px rgba(255,255,255,1);">
+                                                <h3 class="mb-0" style="font-size: clamp(1.8rem, 2.3vw, 1.8rem); color: #001122; font-weight: 900; line-height: 1.2; text-shadow: 2px 2px 4px rgba(255,255,255,1);">
                                                     <?php echo $componente['numero']; ?>. <?php echo $componente['titulo']; ?>
                                                 </h3>
                                             </div>
-                                            <p class="mb-0" style="font-size: clamp(0.85rem, 1.8vw, 1rem); color: #001122; font-weight: 700; line-height: 1.4; text-shadow: 1px 1px 3px rgba(255,255,255,0.9);">
+                                            <p class="mb-0" style="font-size: clamp(1.5rem, 2vw, 1.5rem); color: #001122; font-weight: 700; line-height: 1.4; text-shadow: 1px 1px 3px rgba(255,255,255,0.9);">
                                                 <?php echo $componente['descripcion']; ?>
                                             </p>
                                         </div>
@@ -2361,14 +2359,14 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
                                         <div class="cuadro-texto h-100" style="padding: 1.2rem; background: rgba(255, 255, 255, 0.45) !important; border: 3px solid <?php echo $componente['color']; ?>; border-radius: 15px; box-shadow: 0 8px 20px rgba(0,0,0,0.3); position: relative;">
                                             <div class="d-none d-md-block position-absolute" style="left: -20px; top: 50%; transform: translateY(-50%); width: 0; height: 0; border-top: 15px solid transparent; border-bottom: 15px solid transparent; border-right: 20px solid <?php echo $componente['color']; ?>;"></div>
                                             <div class="d-flex align-items-center mb-2">
-                                                <span style="font-size: clamp(2rem, 4vw, 2.5rem); margin-right: 0.8rem; filter: drop-shadow(3px 3px 6px rgba(0,0,0,0.3));">
+                                                <span style="font-size: clamp(4rem, 6vw, 4rem); margin-right: 0.8rem; filter: drop-shadow(3px 3px 6px rgba(0,0,0,0.3));">
                                                     <?php echo $componente['emoji']; ?>
                                                 </span>
-                                                <h3 class="mb-0" style="font-size: clamp(1rem, 2.3vw, 1.3rem); color: #001122; font-weight: 900; line-height: 1.2; text-shadow: 2px 2px 4px rgba(255,255,255,1);">
+                                                <h3 class="mb-0" style="font-size: clamp(1.8rem, 2.3vw, 1.8rem); color: #001122; font-weight: 900; line-height: 1.2; text-shadow: 2px 2px 4px rgba(255,255,255,1);">
                                                     <?php echo $componente['numero']; ?>. <?php echo $componente['titulo']; ?>
                                                 </h3>
                                             </div>
-                                            <p class="mb-0" style="font-size: clamp(0.85rem, 1.8vw, 1rem); color: #001122; font-weight: 700; line-height: 1.4; text-shadow: 1px 1px 3px rgba(255,255,255,0.9);">
+                                            <p class="mb-0" style="font-size: clamp(1.5rem, 2vw, 1.5rem); color: #001122; font-weight: 700; line-height: 1.4; text-shadow: 1px 1px 3px rgba(255,255,255,0.9);">
                                                 <?php echo $componente['descripcion']; ?>
                                             </p>
                                         </div>
@@ -2382,10 +2380,10 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
                     <!-- Nota final motivacional -->
                     <div class="cuadro-texto mx-auto mt-4 mb-3" style="max-width: 1150px; padding: 1rem 1.5rem; width: 95%; background: rgba(67, 190, 22, 0.4) !important; border: 3px solid #43be16;">
                         <div class="text-center">
-                            <h4 class="mb-2" style="font-size: clamp(1rem, 2.3vw, 1.3rem); color: #001122; font-weight: 900;">
+                            <h4 class="mb-2" style="font-size: clamp(1.5rem, 2.3vw, 1.5rem); color: #001122; font-weight: 900;">
                                 <i class="fas fa-seedling me-2"></i>¡Todo listo para comenzar!
                             </h4>
-                            <p class="mb-0" style="font-size: clamp(0.85rem, 1.8vw, 1rem); color: #001122; font-weight: 700; line-height: 1.4;">
+                            <p class="mb-0" style="font-size: clamp(1.3rem, 2vw, 1.3rem); color: #001122; font-weight: 700; line-height: 1.4;">
                                 Con este kit completo podrás transformar tus residuos orgánicos en abono natural en solo 10 días. <b>¡Estás lista para cuidar el planeta!</b> 🌱♻️
                             </p>
                         </div>
@@ -2459,11 +2457,11 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
                 <!-- Títulos principales -->
                 <div class="col-12 col-lg-11 mx-auto px-3 pt-3 pb-2">
                     <div class="cuadro-texto text-center mb-2" style="padding: 0.8rem 1.5rem; max-width: 1100px; margin: 0 auto;">
-                        <h1 class="mb-2" style="font-size: clamp(1.3rem, 3.5vw, 1.8rem); line-height: 1.3; color: #001122; font-weight: 900;">
-                            <span style="font-size: clamp(1.8rem, 4vw, 2.3rem); margin-right: 0.5rem;">⏱️</span>
+                        <h1 class="mb-2" style="font-size: clamp(2.5rem, 5vw, 2.5rem); line-height: 1.3; color: #001122; font-weight: 900;">
+                            <span style="font-size: clamp(2.5rem, 5vw, 2.3rem); margin-right: 0.5rem;">⏱️</span>
                             ¡Compost Listo en 10 Días! Paso a Paso
                         </h1>
-                        <h3 class="mb-0" style="font-size: clamp(1rem, 2.2vw, 1.3rem); font-weight: 700; color: #003366;">
+                        <h3 class="mb-0" style="font-size: clamp(2rem, 2.5vw, 2rem); font-weight: 700; color: #003366;">
                             Guía práctica para transformar tus residuos en abono natural
                         </h3>
                     </div>
@@ -2485,14 +2483,14 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
                                     <div class="cuadro-texto h-100" style="padding: 1.2rem; background: rgba(255,255,255,0.45) !important; border: 3px solid <?php echo $paso['color']; ?>; border-radius: 15px; box-shadow: 0 8px 20px rgba(0,0,0,0.3); position: relative;">
                                         <div class="d-none d-md-block position-absolute" style="right: -20px; top: 50%; transform: translateY(-50%); width: 0; height: 0; border-top: 15px solid transparent; border-bottom: 15px solid transparent; border-left: 20px solid <?php echo $paso['color']; ?>;"></div>
                                         <div class="d-flex align-items-center mb-2">
-                                            <span style="font-size: clamp(2rem, 4vw, 2.5rem); margin-right: 0.8rem; filter: drop-shadow(3px 3px 6px rgba(0,0,0,0.3));">
+                                            <span style="font-size: clamp(4rem, 6vw, 4rem); margin-right: 0.8rem; filter: drop-shadow(3px 3px 6px rgba(0,0,0,0.3));">
                                                 <?php echo $paso['emoji']; ?>
                                             </span>
-                                            <h3 class="mb-0" style="font-size: clamp(1rem, 2.3vw, 1.3rem); color: #001122; font-weight: 900; line-height: 1.2; text-shadow: 2px 2px 4px rgba(255,255,255,1);">
+                                            <h3 class="mb-0" style="font-size: clamp(1.8rem, 2.3vw, 1.8rem); color: #001122; font-weight: 900; line-height: 1.2; text-shadow: 2px 2px 4px rgba(255,255,255,1);">
                                                 Paso <?php echo $paso['numero']; ?>: <?php echo $paso['titulo']; ?>
                                             </h3>
                                         </div>
-                                        <p class="mb-0" style="font-size: clamp(0.85rem, 1.8vw, 1rem); color: #001122; font-weight: 700; line-height: 1.4; text-shadow: 1px 1px 3px rgba(255,255,255,0.9);">
+                                        <p class="mb-0" style="font-size: clamp(1.5rem, 2vw, 1.5rem); color: #001122; font-weight: 700; line-height: 1.4; text-shadow: 1px 1px 3px rgba(255,255,255,0.9);">
                                             <?php echo $paso['descripcion']; ?>
                                         </p>
                                     </div>
@@ -2514,14 +2512,14 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
                                     <div class="cuadro-texto h-100" style="padding: 1.2rem; background: rgba(255,255,255,0.45) !important; border: 3px solid <?php echo $paso['color']; ?>; border-radius: 15px; box-shadow: 0 8px 20px rgba(0,0,0,0.3); position: relative;">
                                         <div class="d-none d-md-block position-absolute" style="left: -20px; top: 50%; transform: translateY(-50%); width: 0; height: 0; border-top: 15px solid transparent; border-bottom: 15px solid transparent; border-right: 20px solid <?php echo $paso['color']; ?>;"></div>
                                         <div class="d-flex align-items-center mb-2">
-                                            <span style="font-size: clamp(2rem, 4vw, 2.5rem); margin-right: 0.8rem; filter: drop-shadow(3px 3px 6px rgba(0,0,0,0.3));">
+                                            <span style="font-size: clamp(4rem, 6vw, 4rem); margin-right: 0.8rem; filter: drop-shadow(3px 3px 6px rgba(0,0,0,0.3));">
                                                 <?php echo $paso['emoji']; ?>
                                             </span>
-                                            <h3 class="mb-0" style="font-size: clamp(1rem, 2.3vw, 1.3rem); color: #001122; font-weight: 900; line-height: 1.2; text-shadow: 2px 2px 4px rgba(255,255,255,1);">
+                                            <h3 class="mb-0" style="font-size: clamp(1.8rem, 2.3vw, 1.8rem); color: #001122; font-weight: 900; line-height: 1.2; text-shadow: 2px 2px 4px rgba(255,255,255,1);">
                                                 Paso <?php echo $paso['numero']; ?>: <?php echo $paso['titulo']; ?>
                                             </h3>
                                         </div>
-                                        <p class="mb-0" style="font-size: clamp(0.85rem, 1.8vw, 1rem); color: #001122; font-weight: 700; line-height: 1.4; text-shadow: 1px 1px 3px rgba(255,255,255,0.9);">
+                                        <p class="mb-0" style="font-size: clamp(1.5rem, 2vw, 1.5rem); color: #001122; font-weight: 700; line-height: 1.4; text-shadow: 1px 1px 3px rgba(255,255,255,0.9);">
                                             <?php echo $paso['descripcion']; ?>
                                         </p>
                                     </div>
@@ -2534,10 +2532,10 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
                     <!-- Nota final motivacional -->
                     <div class="cuadro-texto mx-auto mt-4 mb-3" style="max-width: 1150px; padding: 1rem 1.5rem; width: 95%; background: rgba(67,190,22,0.4) !important; border: 3px solid #43be16;">
                         <div class="text-center">
-                            <h4 class="mb-2" style="font-size: clamp(1rem, 2.3vw, 1.3rem); color: #001122; font-weight: 900;">
+                            <h4 class="mb-2" style="font-size: clamp(1.5rem, 2.3vw, 1.5rem); color: #001122; font-weight: 900;">
                                 <i class="fas fa-seedling me-2"></i>¡Tu primer compost está listo!
                             </h4>
-                            <p class="mb-0" style="font-size: clamp(0.85rem, 1.8vw, 1rem); color: #001122; font-weight: 700; line-height: 1.4;">
+                            <p class="mb-0" style="font-size: clamp(1.3rem, 2vw, 1.3rem); color: #001122; font-weight: 700; line-height: 1.4;">
                                 Ahora puedes usar este abono natural en tus plantas, macetas o huerta. <b>Estás contribuyendo a la economía circular</b> y reduciendo tu huella ambiental. 🌱💚
                             </p>
                         </div>
@@ -2610,11 +2608,11 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
                 <!-- Títulos principales -->
                 <div class="col-12 col-lg-11 mx-auto px-3 pt-3 pb-2">
                     <div class="cuadro-texto text-center mb-2" style="padding: 0.8rem 1.5rem; max-width: 1100px; margin: 0 auto;">
-                        <h1 class="mb-2" style="font-size: clamp(1.3rem, 3.5vw, 1.8rem); line-height: 1.3; color: #001122; font-weight: 900;">
+                        <h1 class="mb-2" style="font-size: clamp(2.5rem, 5vw, 2.5rem); line-height: 1.3; color: #001122; font-weight: 900;">
                             <span style="font-size: clamp(1.8rem, 4vw, 2.3rem); margin-right: 0.5rem;">🛠️</span>
                             ¿Un Reto con tu Compost? ¡Aquí la Solución!
                         </h1>
-                        <h3 class="mb-0" style="font-size: clamp(1rem, 2.2vw, 1.3rem); font-weight: 700; color: #003366;">
+                        <h3 class="mb-0" style="font-size: clamp(2rem, 2.5vw, 2rem); font-weight: 700; color: #003366;">
                             Guía de solución de problemas comunes
                         </h3>
                     </div>
@@ -2630,23 +2628,23 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
                                 <div class="text-center mb-2">
                                     <span style="font-size: clamp(2.5rem, 5vw, 3rem); filter: drop-shadow(3px 3px 6px rgba(0,0,0,0.3));">🤢</span>
                                 </div>
-                                <h3 class="text-center mb-3" style="font-size: clamp(1.1rem, 2.5vw, 1.4rem); color: #e74c3c; font-weight: 900; line-height: 1.2; text-shadow: 2px 2px 4px rgba(255,255,255,1);">
+                                <h3 class="text-center mb-3" style="font-size: clamp(2rem, 2.5vw, 2rem); color: #e74c3c; font-weight: 900; line-height: 1.2; text-shadow: 2px 2px 4px rgba(255,255,255,1);">
                                     Problema: Mal olor
                                 </h3>
                                 <div class="mb-3" style="background: rgba(255,193,7,0.8); padding: 0.8rem; border-radius: 10px; border: 2px solid #ffc107;">
-                                    <h5 style="font-size: clamp(0.9rem, 2vw, 1.1rem); color: #001122; font-weight: 900; margin-bottom: 0.5rem;">
+                                    <h5 style="font-size: clamp(1.5rem, 2.5vw, 1.5rem); color: #001122; font-weight: 900; margin-bottom: 0.5rem;">
                                         <i class="fas fa-exclamation-triangle me-2"></i>Causa:
                                     </h5>
-                                    <p class="mb-0" style="font-size: clamp(0.8rem, 1.7vw, 0.95rem); color: #001122; font-weight: 700; line-height: 1.3;">
+                                    <p class="mb-0" style="font-size: clamp(1.2rem, 2vw, 1.2rem); color: #001122; font-weight: 700; line-height: 1.3;">
                                         Exceso de húmedo/nitrógeno, falta de aire.
                                     </p>
                                 </div>
                                 <div style="background: rgba(67,190,22,0.8); padding: 0.8rem; border-radius: 10px; border: 2px solid #43be16;">
-                                    <h5 style="font-size: clamp(0.9rem, 2vw, 1.1rem); color: #001122; font-weight: 900; margin-bottom: 0.5rem;">
+                                    <h5 style="font-size: clamp(1.5rem, 2.5vw, 1.5rem); color: #001122; font-weight: 900; margin-bottom: 0.5rem;">
                                         <i class="fas fa-lightbulb me-2"></i>Solución:
                                     </h5>
-                                    <p class="mb-0" style="font-size: clamp(0.8rem, 1.7vw, 0.95rem); color: #001122; font-weight: 700; line-height: 1.3;">
-                                        "Los Increíbles de la Montaña" y "Seca Rápido" están diseñados para esto. Si aún así huele, revisa si pusiste algo que no va o si necesitas más Seca Rápido.
+                                    <p class="mb-0" style="font-size: clamp(1.2rem, 2vw, 1.2rem); color: #001122; font-weight: 700; line-height: 1.3;">
+                                        "Cal" y "Ceniza de carbón o madera" están diseñados para esto. Si aún así huele, revisa si pusiste algo que no va o si necesitas más Seca Rápido.
                                     </p>
                                 </div>
                             </div>
@@ -2657,22 +2655,22 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
                                 <div class="text-center mb-2">
                                     <span style="font-size: clamp(2.5rem, 5vw, 3rem); filter: drop-shadow(3px 3px 6px rgba(0,0,0,0.3));">🦟</span>
                                 </div>
-                                <h3 class="text-center mb-3" style="font-size: clamp(1.1rem, 2.5vw, 1.4rem); color: #9C27B0; font-weight: 900; line-height: 1.2; text-shadow: 2px 2px 4px rgba(255,255,255,1);">
+                                <h3 class="text-center mb-3" style="font-size: clamp(2rem, 2.5vw, 2rem); color: #9C27B0; font-weight: 900; line-height: 1.2; text-shadow: 2px 2px 4px rgba(255,255,255,1);">
                                     Problema: Mosquitos
                                 </h3>
                                 <div class="mb-3" style="background: rgba(255,193,7,0.8); padding: 0.8rem; border-radius: 10px; border: 2px solid #ffc107;">
-                                    <h5 style="font-size: clamp(0.9rem, 2vw, 1.1rem); color: #001122; font-weight: 900; margin-bottom: 0.5rem;">
+                                    <h5 style="font-size: clamp(1.5rem, 2.5vw, 1.5rem); color: #001122; font-weight: 900; margin-bottom: 0.5rem;">
                                         <i class="fas fa-exclamation-triangle me-2"></i>Causa:
                                     </h5>
-                                    <p class="mb-0" style="font-size: clamp(0.8rem, 1.7vw, 0.95rem); color: #001122; font-weight: 700; line-height: 1.3;">
+                                    <p class="mb-0" style="font-size: clamp(1.2rem, 2vw, 1.2rem); color: #001122; font-weight: 700; line-height: 1.3;">
                                         Residuos inadecuados, compost no cubierto.
                                     </p>
                                 </div>
                                 <div style="background: rgba(67,190,22,0.8); padding: 0.8rem; border-radius: 10px; border: 2px solid #43be16;">
-                                    <h5 style="font-size: clamp(0.9rem, 2vw, 1.1rem); color: #001122; font-weight: 900; margin-bottom: 0.5rem;">
+                                    <h5 style="font-size: clamp(1.5rem, 2.5vw, 1.5rem); color: #001122; font-weight: 900; margin-bottom: 0.5rem;">
                                         <i class="fas fa-lightbulb me-2"></i>Solución:
                                     </h5>
-                                    <p class="mb-0" style="font-size: clamp(0.8rem, 1.7vw, 0.95rem); color: #001122; font-weight: 700; line-height: 1.3;">
+                                    <p class="mb-0" style="font-size: clamp(1.2rem, 2vw, 1.2rem); color: #001122; font-weight: 700; line-height: 1.3;">
                                         El acelerador y la capa seca los evitan. Cubre siempre bien tu compostera.
                                     </p>
                                 </div>
@@ -2684,22 +2682,22 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
                                 <div class="text-center mb-2">
                                     <span style="font-size: clamp(2.5rem, 5vw, 3rem); filter: drop-shadow(3px 3px 6px rgba(0,0,0,0.3));">💧</span>
                                 </div>
-                                <h3 class="text-center mb-3" style="font-size: clamp(1.1rem, 2.5vw, 1.4rem); color: #2196F3; font-weight: 900; line-height: 1.2; text-shadow: 2px 2px 4px rgba(255,255,255,1);">
+                                <h3 class="text-center mb-3" style="font-size: clamp(2rem, 2.5vw, 2rem); color: #2196F3; font-weight: 900; line-height: 1.2; text-shadow: 2px 2px 4px rgba(255,255,255,1);">
                                     Problema: Exceso de líquidos
                                 </h3>
                                 <div class="mb-3" style="background: rgba(255,193,7,0.8); padding: 0.8rem; border-radius: 10px; border: 2px solid #ffc107;">
-                                    <h5 style="font-size: clamp(0.9rem, 2vw, 1.1rem); color: #001122; font-weight: 900; margin-bottom: 0.5rem;">
+                                    <h5 style="font-size: clamp(1.5rem, 2.5vw, 1.5rem); color: #001122; font-weight: 900; margin-bottom: 0.5rem;">
                                         <i class="fas fa-exclamation-triangle me-2"></i>Causa:
                                     </h5>
-                                    <p class="mb-0" style="font-size: clamp(0.8rem, 1.7vw, 0.95rem); color: #001122; font-weight: 700; line-height: 1.3;">
+                                    <p class="mb-0" style="font-size: clamp(1.2rem, 2vw, 1.2rem); color: #001122; font-weight: 700; line-height: 1.3;">
                                         Demasiados materiales húmedos, falta de absorción.
                                     </p>
                                 </div>
                                 <div style="background: rgba(67,190,22,0.8); padding: 0.8rem; border-radius: 10px; border: 2px solid #43be16;">
-                                    <h5 style="font-size: clamp(0.9rem, 2vw, 1.1rem); color: #001122; font-weight: 900; margin-bottom: 0.5rem;">
+                                    <h5 style="font-size: clamp(1.5rem, 2.5vw, 1.5rem); color: #001122; font-weight: 900; margin-bottom: 0.5rem;">
                                         <i class="fas fa-lightbulb me-2"></i>Solución:
                                     </h5>
-                                    <p class="mb-0" style="font-size: clamp(0.8rem, 1.7vw, 0.95rem); color: #001122; font-weight: 700; line-height: 1.3;">
+                                    <p class="mb-0" style="font-size: clamp(1.2rem, 2vw, 1.2rem); color: #001122; font-weight: 700; line-height: 1.3;">
                                         "Seca Rápido" absorbe la humedad. Asegúrate de usarlo bien.
                                     </p>
                                 </div>
@@ -2709,11 +2707,11 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
                     
                     <!-- SECCIÓN 2: ACTIVIDAD FINAL INTERACTIVA -->
                     <div class="cuadro-texto cuadro-actividad mx-auto mb-4" style="max-width: 1150px; padding: 1.5rem; background: rgba(135,206,250,0.4); border: 3px solid #2196F3;">
-                        <h3 class="text-center mb-3" style="font-size: clamp(1.2rem, 3vw, 1.6rem); color: #001122; font-weight: 900;">
+                        <h3 class="text-center mb-3" style="font-size: clamp(2.5rem, 5vw, 2.5rem); color: #001122; font-weight: 900;">
                             <i class="fas fa-seedling me-2"></i>
                             Reto del Tema 4: ¡Mi Primer Paso con el Compost!
                         </h3>
-                        <p class="texto-contenido text-center mb-4" style="font-size: clamp(0.9rem, 2vw, 1.1rem); line-height: 1.5; color: #001122; font-weight: 700;">
+                        <p class="texto-contenido text-center mb-4" style="font-size: clamp(1.8rem, 2.5vw, 1.8rem); line-height: 1.5; color: #001122; font-weight: 700;">
                             ¡Es hora de empezar! Selecciona <b>al menos 3 residuos orgánicos</b> que planeas compostar primero con tu kit.
                         </p>
                         <!-- GRID DE ÍTEMS SELECCIONABLES -->
@@ -2726,8 +2724,8 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
                             <?php foreach ($cartilla[$pagina]['actividad_reto']['items_compostables'] as $item): ?>
                                 <div class="col-12 col-sm-6 col-lg-3 d-flex align-items-stretch">
                                     <div class="item-compostable w-100" data-id="<?php echo $item['id']; ?>" onclick="toggleItem(this)" style="background: #fff; padding: 1.2rem; border-radius: 15px; border: 3px solid #e0e0e0; cursor: pointer; transition: box-shadow 0.2s, border-color 0.2s; text-align: center; box-shadow: 0 4px 16px rgba(0,0,0,0.08); position: relative; display: flex; flex-direction: column; justify-content: center; height: 100%; min-height: 170px;">
-                                        <div style="font-size: 2.2rem; margin-bottom: 0.5rem;"><?php echo $item['emoji']; ?></div>
-                                        <div style="font-size: 1.1rem; color: #001122; font-weight: 700; line-height: 1.3;"><?php echo $item['texto']; ?></div>
+                                        <div style="font-size: 3rem; margin-bottom: 0.5rem;"><?php echo $item['emoji']; ?></div>
+                                        <div style="font-size: 1.3rem; color: #001122; font-weight: 700; line-height: 1.3;"><?php echo $item['texto']; ?></div>
                                         <div class="checkmark" style="display: none; position: absolute; top: 10px; right: 10px; background: #43be16; color: white; width: 30px; height: 30px; border-radius: 50%; align-items: center; justify-content: center; font-size: 1.2rem;">
                                             <i class="fas fa-check"></i>
                                         </div>
@@ -2738,7 +2736,7 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
                         <!-- Contador de seleccionados -->
                         <div class="text-center mb-3">
                             <div style="background: rgba(255,193,7,0.9); padding: 0.8rem 1.5rem; border-radius: 10px; display: inline-block; border: 2px solid #ffc107;">
-                                <span style="color: #001122; font-weight: 900; font-size: clamp(0.9rem, 2vw, 1.1rem);">
+                                <span style="color: #001122; font-weight: 900; font-size: clamp(1.2rem, 2vw, 1.2rem);">
                                     <i class="fas fa-list-check me-2"></i>
                                     Seleccionados: <span id="contadorSeleccionados">0</span> / 3 mínimo
                                 </span>
@@ -2799,10 +2797,10 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
                 <!-- Títulos principales -->
                 <div class="col-12 col-lg-11 mx-auto px-3 pt-3 pb-2">
                     <div class="cuadro-texto text-center mb-2" style="padding: 0.8rem 1.5rem; max-width: 1100px; margin: 0 auto;">
-                        <h1 class="mb-2" style="font-size: clamp(1.3rem, 3.5vw, 1.8rem); line-height: 1.3; color: #001122; font-weight: 900;">
-                            <span style="font-size: clamp(1.8rem, 4vw, 2.3rem); margin-right: 0.5rem;">♻️</span>
+                        <h1 class="mb-2" style="font-size: clamp(2.5rem, 5vw, 2.5rem); line-height: 1.3; color: #001122; font-weight: 900;">
+                            <span style="font-size: clamp(2.5rem, 5vw, 2.3rem); margin-right: 0.5rem;">♻️</span>
                             Reuso y Reciclaje: ¡Dale una Segunda Vida a Todo!                        </h1>
-                        <h3 class="mb-0" style="font-size: clamp(1rem, 2.2vw, 1.3rem); font-weight: 700; color: #003366;">
+                        <h3 class="mb-0" style="font-size: clamp(2rem, 2.5vw, 2rem); font-weight: 700; color: #003366;">
                             El compostaje es solo el inicio. ¡Muchos otros residuos tienen una segunda oportunidad!                        </h3>
                     </div>
                 </div>
@@ -2811,8 +2809,8 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
                 <div class="col-12 col-lg-11 mx-auto px-3">
                                             <!-- TÍTULO DE CATEGORÍA -->
                         <div class="cuadro-texto mx-auto mb-3" style="max-width: 1150px; padding: 0.6rem 1rem; width: 95%; background: rgba(52, 152, 219, 0.35) !important; border: 2px solid #3498db;">
-                            <h2 class="text-center mb-0" style="font-size: clamp(1.1rem, 2.8vw, 1.5rem); color: #001122; font-weight: 900;">
-                                <span style="font-size: clamp(1.5rem, 3.5vw, 2rem); margin-right: 0.5rem;">🍽️</span>
+                            <h2 class="text-center mb-0" style="font-size: clamp(2rem, 2.5vw, 2rem); color: #001122; font-weight: 900;">
+                                <span style="font-size: clamp(2rem, 2.5vw, 2rem); margin-right: 0.5rem;">🍽️</span>
                                 Ideas Creativas para Gastronomía                            </h2>
                         </div>
                         
@@ -2868,11 +2866,11 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
                                             
                                             <!-- Emoji y título -->
                                             <div class="d-flex align-items-center mb-2">
-                                                <span style="font-size: clamp(2rem, 4vw, 2.5rem); 
+                                                <span style="font-size: clamp(4rem, 6vw, 4rem); 
                                                             margin-right: 0.8rem; 
                                                             filter: drop-shadow(3px 3px 6px rgba(0,0,0,0.3));">
                                                     📦                                                </span>
-                                                <h3 class="mb-0" style="font-size: clamp(1rem, 2.3vw, 1.3rem); 
+                                                <h3 class="mb-0" style="font-size: clamp(1.8rem, 2.3vw, 1.8rem); 
                                                                     color: #001122; 
                                                                     font-weight: 900; 
                                                                     line-height: 1.2; 
@@ -2881,7 +2879,7 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
                                             </div>
                                             
                                             <!-- Descripción -->
-                                            <p class="mb-2" style="font-size: clamp(0.85rem, 1.8vw, 1rem); 
+                                            <p class="mb-2" style="font-size: clamp(1.5rem, 2vw, 1.5rem); 
                                                                 color: #001122; 
                                                                 font-weight: 700; 
                                                                 line-height: 1.4; 
@@ -2897,7 +2895,7 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
                                                             font-weight: 700; 
                                                             display: block; 
                                                             text-align: center; 
-                                                            font-size: clamp(0.75rem, 1.6vw, 0.9rem);">
+                                                            font-size: clamp(1.3rem, 2vw, 1.3rem);">
                                                     <i class="fas fa-check-circle me-1"></i>Organización + Ahorro                                                </small>
                                             </div>
                                         </div>
@@ -2952,11 +2950,11 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
                                             
                                             <!-- Emoji y título -->
                                             <div class="d-flex align-items-center mb-2">
-                                                <span style="font-size: clamp(2rem, 4vw, 2.5rem); 
+                                                <span style="font-size: clamp(4rem, 6vw, 4rem); 
                                                             margin-right: 0.8rem; 
                                                             filter: drop-shadow(3px 3px 6px rgba(0,0,0,0.3));">
                                                     🍯                                                </span>
-                                                <h3 class="mb-0" style="font-size: clamp(1rem, 2.3vw, 1.3rem); 
+                                                <h3 class="mb-0" style="font-size: clamp(1.8rem, 2.3vw, 1.8rem); 
                                                                     color: #001122; 
                                                                     font-weight: 900; 
                                                                     line-height: 1.2; 
@@ -2965,7 +2963,7 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
                                             </div>
                                             
                                             <!-- Descripción -->
-                                            <p class="mb-2" style="font-size: clamp(0.85rem, 1.8vw, 1rem); 
+                                            <p class="mb-2" style="font-size: clamp(1.5rem, 2vw, 1.5rem); 
                                                                 color: #001122; 
                                                                 font-weight: 700; 
                                                                 line-height: 1.4; 
@@ -2981,7 +2979,7 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
                                                             font-weight: 700; 
                                                             display: block; 
                                                             text-align: center; 
-                                                            font-size: clamp(0.75rem, 1.6vw, 0.9rem);">
+                                                            font-size: clamp(1.3rem, 2vw, 1.3rem);">
                                                     <i class="fas fa-check-circle me-1"></i>Presentación Premium                                                </small>
                                             </div>
                                         </div>
@@ -3036,11 +3034,11 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
                                             
                                             <!-- Emoji y título -->
                                             <div class="d-flex align-items-center mb-2">
-                                                <span style="font-size: clamp(2rem, 4vw, 2.5rem); 
+                                                <span style="font-size: clamp(4rem, 6vw, 4rem); 
                                                             margin-right: 0.8rem; 
                                                             filter: drop-shadow(3px 3px 6px rgba(0,0,0,0.3));">
                                                     🛍️                                                </span>
-                                                <h3 class="mb-0" style="font-size: clamp(1rem, 2.3vw, 1.3rem); 
+                                                <h3 class="mb-0" style="font-size: clamp(1.8rem, 2.3vw, 1.8rem); 
                                                                     color: #001122; 
                                                                     font-weight: 900; 
                                                                     line-height: 1.2; 
@@ -3049,7 +3047,7 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
                                             </div>
                                             
                                             <!-- Descripción -->
-                                            <p class="mb-2" style="font-size: clamp(0.85rem, 1.8vw, 1rem); 
+                                            <p class="mb-2" style="font-size: clamp(1.5rem, 2vw, 1.5rem); 
                                                                 color: #001122; 
                                                                 font-weight: 700; 
                                                                 line-height: 1.4; 
@@ -3065,7 +3063,7 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
                                                             font-weight: 700; 
                                                             display: block; 
                                                             text-align: center; 
-                                                            font-size: clamp(0.75rem, 1.6vw, 0.9rem);">
+                                                            font-size: clamp(1.3rem, 2vw, 1.3rem);">
                                                     <i class="fas fa-check-circle me-1"></i>Eco-friendly                                                </small>
                                             </div>
                                         </div>
@@ -3076,8 +3074,8 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
                                                     </div>
                                             <!-- TÍTULO DE CATEGORÍA -->
                         <div class="cuadro-texto mx-auto mb-3" style="max-width: 1150px; padding: 0.6rem 1rem; width: 95%; background: rgba(156, 39, 176, 0.35) !important; border: 2px solid #9C27B0;">
-                            <h2 class="text-center mb-0" style="font-size: clamp(1.1rem, 2.8vw, 1.5rem); color: #001122; font-weight: 900;">
-                                <span style="font-size: clamp(1.5rem, 3.5vw, 2rem); margin-right: 0.5rem;">🎨</span>
+                            <h2 class="text-center mb-0" style="font-size: clamp(2rem, 2.5vw, 2rem); color: #001122; font-weight: 900;">
+                                <span style="font-size: clamp(2rem, 2.5vw, 2rem); margin-right: 0.5rem;">🎨</span>
                                 Ideas Creativas para Artesanías                            </h2>
                         </div>
                         
@@ -3133,11 +3131,11 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
                                             
                                             <!-- Emoji y título -->
                                             <div class="d-flex align-items-center mb-2">
-                                                <span style="font-size: clamp(2rem, 4vw, 2.5rem); 
+                                                <span style="font-size: clamp(4rem, 6vw, 4rem); 
                                                             margin-right: 0.8rem; 
                                                             filter: drop-shadow(3px 3px 6px rgba(0,0,0,0.3));">
                                                     🧵                                                </span>
-                                                <h3 class="mb-0" style="font-size: clamp(1rem, 2.3vw, 1.3rem); 
+                                                <h3 class="mb-0" style="font-size: clamp(1.8rem, 2.3vw, 1.8rem); 
                                                                     color: #001122; 
                                                                     font-weight: 900; 
                                                                     line-height: 1.2; 
@@ -3146,7 +3144,7 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
                                             </div>
                                             
                                             <!-- Descripción -->
-                                            <p class="mb-2" style="font-size: clamp(0.85rem, 1.8vw, 1rem); 
+                                            <p class="mb-2" style="font-size: clamp(1.5rem, 2vw, 1.5rem); 
                                                                 color: #001122; 
                                                                 font-weight: 700; 
                                                                 line-height: 1.4; 
@@ -3162,7 +3160,7 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
                                                             font-weight: 700; 
                                                             display: block; 
                                                             text-align: center; 
-                                                            font-size: clamp(0.75rem, 1.6vw, 0.9rem);">
+                                                            font-size: clamp(1.3rem, 2vw, 1.3rem);">
                                                     <i class="fas fa-check-circle me-1"></i>Creatividad infinita                                                </small>
                                             </div>
                                         </div>
@@ -3217,11 +3215,11 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
                                             
                                             <!-- Emoji y título -->
                                             <div class="d-flex align-items-center mb-2">
-                                                <span style="font-size: clamp(2rem, 4vw, 2.5rem); 
+                                                <span style="font-size: clamp(4rem, 6vw, 4rem); 
                                                             margin-right: 0.8rem; 
                                                             filter: drop-shadow(3px 3px 6px rgba(0,0,0,0.3));">
                                                     💎                                                </span>
-                                                <h3 class="mb-0" style="font-size: clamp(1rem, 2.3vw, 1.3rem); 
+                                                <h3 class="mb-0" style="font-size: clamp(1.8rem, 2.3vw, 1.8rem); 
                                                                     color: #001122; 
                                                                     font-weight: 900; 
                                                                     line-height: 1.2; 
@@ -3230,7 +3228,7 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
                                             </div>
                                             
                                             <!-- Descripción -->
-                                            <p class="mb-2" style="font-size: clamp(0.85rem, 1.8vw, 1rem); 
+                                            <p class="mb-2" style="font-size: clamp(1.5rem, 2vw, 1.5rem); 
                                                                 color: #001122; 
                                                                 font-weight: 700; 
                                                                 line-height: 1.4; 
@@ -3246,7 +3244,7 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
                                                             font-weight: 700; 
                                                             display: block; 
                                                             text-align: center; 
-                                                            font-size: clamp(0.75rem, 1.6vw, 0.9rem);">
+                                                            font-size: clamp(1.3rem, 2vw, 1.3rem);">
                                                     <i class="fas fa-check-circle me-1"></i>Productos únicos                                                </small>
                                             </div>
                                         </div>
@@ -3301,11 +3299,11 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
                                             
                                             <!-- Emoji y título -->
                                             <div class="d-flex align-items-center mb-2">
-                                                <span style="font-size: clamp(2rem, 4vw, 2.5rem); 
+                                                <span style="font-size: clamp(4rem, 6vw, 4rem); 
                                                             margin-right: 0.8rem; 
                                                             filter: drop-shadow(3px 3px 6px rgba(0,0,0,0.3));">
                                                     📐                                                </span>
-                                                <h3 class="mb-0" style="font-size: clamp(1rem, 2.3vw, 1.3rem); 
+                                                <h3 class="mb-0" style="font-size: clamp(1.8rem, 2.3vw, 1.8rem); 
                                                                     color: #001122; 
                                                                     font-weight: 900; 
                                                                     line-height: 1.2; 
@@ -3314,7 +3312,7 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
                                             </div>
                                             
                                             <!-- Descripción -->
-                                            <p class="mb-2" style="font-size: clamp(0.85rem, 1.8vw, 1rem); 
+                                            <p class="mb-2" style="font-size: clamp(1.5rem, 2vw, 1.5rem); 
                                                                 color: #001122; 
                                                                 font-weight: 700; 
                                                                 line-height: 1.4; 
@@ -3330,7 +3328,7 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
                                                             font-weight: 700; 
                                                             display: block; 
                                                             text-align: center; 
-                                                            font-size: clamp(0.75rem, 1.6vw, 0.9rem);">
+                                                            font-size: clamp(1.3rem, 2vw, 1.3rem);">
                                                     <i class="fas fa-check-circle me-1"></i>Versátil y económico                                                </small>
                                             </div>
                                         </div>
@@ -3343,33 +3341,33 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
                     <!-- MENSAJE FINAL MOTIVACIONAL CON LAS 3R -->
                     <div class="cuadro-texto mx-auto mt-4 mb-3" style="max-width: 1150px; padding: 1.5rem 2rem; width: 95%; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important; border: 3px solid rgba(255,255,255,0.3); box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);">
                         <div class="text-center">
-                            <h4 class="mb-3" style="font-size: clamp(1.1rem, 2.5vw, 1.4rem); color: white; font-weight: 900;">
+                            <h4 class="mb-3" style="font-size: clamp(2rem, 2.5vw, 2rem); color: white; font-weight: 900;">
                                 <i class="fas fa-star me-2" style="color: #FFD700;"></i>
                                 ¡La Creatividad No Tiene Límites!                            </h4>
-                            <p class="mb-4" style="font-size: clamp(0.9rem, 2vw, 1.1rem); color: white; font-weight: 700; line-height: 1.5;">
+                            <p class="mb-4" style="font-size: clamp(1.3rem, 2vw, 1.3rem); color: white; font-weight: 700; line-height: 1.5;">
                                 Cada residuo que reutilizas es un paso hacia un emprendimiento más sostenible y rentable. ¡Sigue explorando nuevas formas de dar vida a los materiales!                            </p>
                             
                             <!-- ICONOS DE LAS 3R -->
                             <div class="row g-3 justify-content-center">
                                                                 <div class="col-4 col-md-2">
                                     <div style="background: rgba(255,255,255,0.2); padding: 1rem; border-radius: 10px; text-align: center;">
-                                        <div style="font-size: 2.5rem; filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.3));">
+                                        <div style="font-size: 4rem; filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.3));">
                                             ♻️                                        </div>
-                                        <p class="mb-0 mt-2" style="color: white; font-weight: 700; font-size: 0.85rem;">Reduce</p>
+                                        <p class="mb-0 mt-2" style="color: white; font-weight: 700; font-size: 1.5rem;">Reduce</p>
                                     </div>
                                 </div>
                                                                 <div class="col-4 col-md-2">
                                     <div style="background: rgba(255,255,255,0.2); padding: 1rem; border-radius: 10px; text-align: center;">
-                                        <div style="font-size: 2.5rem; filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.3));">
+                                        <div style="font-size: 4rem; filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.3));">
                                             🔄                                        </div>
-                                        <p class="mb-0 mt-2" style="color: white; font-weight: 700; font-size: 0.85rem;">Reutiliza</p>
+                                        <p class="mb-0 mt-2" style="color: white; font-weight: 700; font-size: 1.5rem;">Reutiliza</p>
                                     </div>
                                 </div>
                                                                 <div class="col-4 col-md-2">
                                     <div style="background: rgba(255,255,255,0.2); padding: 1rem; border-radius: 10px; text-align: center;">
-                                        <div style="font-size: 2.5rem; filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.3));">
+                                        <div style="font-size: 4rem; filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.3));">
                                             🌱                                        </div>
-                                        <p class="mb-0 mt-2" style="color: white; font-weight: 700; font-size: 0.85rem;">Recicla</p>
+                                        <p class="mb-0 mt-2" style="color: white; font-weight: 700; font-size: 1.5rem;">Recicla</p>
                                     </div>
                                 </div>
                                                             </div>
@@ -3411,11 +3409,11 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
                 <!-- Títulos principales -->
                 <div class="col-12 col-lg-11 mx-auto px-3 pt-3 pb-2">
                     <div class="cuadro-texto text-center mb-2" style="padding: 0.8rem 1.5rem; max-width: 1100px; margin: 0 auto;">
-                        <h1 class="mb-2" style="font-size: clamp(1.3rem, 3.5vw, 1.8rem); line-height: 1.3; color: #001122; font-weight: 900;">
-                            <span style="font-size: clamp(1.8rem, 4vw, 2.3rem); margin-right: 0.5rem;">❓</span>
+                        <h1 class="mb-2" style="font-size: clamp(2.5rem, 5vw, 2.5rem); line-height: 1.3; color: #001122; font-weight: 900;">
+                            <span style="font-size: clamp(2.5rem, 5vw, 2.5rem); margin-right: 0.5rem;">❓</span>
                             <?php echo $cartilla[$pagina]['titulo']; ?>
                         </h1>
-                        <h3 class="mb-0" style="font-size: clamp(1rem, 2.2vw, 1.3rem); font-weight: 700; color: #003366;">
+                        <h3 class="mb-0" style="font-size: clamp(2rem, 2.5vw, 2rem); font-weight: 700; color: #003366;">
                             <?php echo $cartilla[$pagina]['subtitulo']; ?>
                         </h3>
                     </div>
@@ -3426,7 +3424,7 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
                     
                     <!-- CUADRO INFORMATIVO -->
                     <div class="cuadro-texto mx-auto mb-3" style="max-width: 1000px; padding: 1rem; background: rgba(67, 190, 22, 0.25) !important; border: 2px solid #43be16;">
-                        <p class="texto-contenido text-center mb-0" style="font-size: clamp(0.9rem, 2vw, 1.1rem);">
+                        <p class="texto-contenido text-center mb-0" style="font-size: clamp(1.3rem, 2vw, 1.3rem);">
                             <i class="fas fa-info-circle me-2"></i>
                             Responde las <b><?php echo count($cartilla[$pagina]['preguntas']); ?> preguntas</b>. Necesitas <b><?php echo $cartilla[$pagina]['minimo_aprobacion']; ?> respuestas correctas</b> para aprobar.
                         </p>
@@ -3459,23 +3457,23 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
                                             style="background: rgba(255, 255, 255, 0.95); 
                                                 color: #001122; 
                                                 font-weight: 800; 
-                                                font-size: clamp(0.9rem, 2vw, 1.1rem);
+                                                font-size: clamp(2rem, 2.5vw, 2rem);
                                                 padding: 1rem 1.5rem;
                                                 border: none;">
                                         <!-- Emoji grande -->
-                                        <span style="font-size: clamp(1.5rem, 3vw, 2rem); margin-right: 0.8rem;">
+                                        <span style="font-size: clamp(4rem, 6vw, 4rem); margin-right: 0.8rem;">
                                             <?php echo $pregunta['emoji']; ?>
                                         </span>
                                         
                                         <!-- Badges -->
                                         <div class="d-flex flex-column flex-sm-row align-items-start align-items-sm-center gap-2 w-100">
-                                            <span class="badge me-2" style="background-color: <?php echo $colorCategoria; ?>; font-size: 0.85rem; padding: 0.4rem 0.8rem;">
+                                            <span class="badge me-2" style="background-color: <?php echo $colorCategoria; ?>; font-size: 1.3rem; padding: 0.4rem 0.8rem;">
                                                 Pregunta <?php echo $numero; ?>
                                             </span>
-                                            <span class="badge me-2" style="background-color: rgba(0,0,0,0.6); font-size: 0.8rem; padding: 0.3rem 0.7rem;">
+                                            <span class="badge me-2" style="background-color: rgba(0,0,0,0.6); font-size: 1.3rem; padding: 0.3rem 0.7rem;">
                                                 <?php echo $pregunta['categoria']; ?>
                                             </span>
-                                            <span class="flex-grow-1" style="font-size: clamp(0.85rem, 1.9vw, 1.05rem);">
+                                            <span class="flex-grow-1" style="font-size: clamp(1.5rem, 2vw, 1.5rem);">
                                                 <?php echo $pregunta['pregunta']; ?>
                                             </span>
                                         </div>
@@ -3510,7 +3508,7 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
                                                         font-weight: 700; 
                                                         color: #001122; 
                                                         margin-left: 0.7rem; 
-                                                        font-size: clamp(0.85rem, 1.9vw, 1.05rem);
+                                                        font-size: clamp(1.2rem, 2vw, 1.2rem);
                                                         line-height: 1.4;">
                                                 <span class="badge bg-secondary me-2" style="font-size: 0.8rem;">
                                                     <?php echo chr(65 + $opcionIndex); // A, B, C ?>
@@ -3594,16 +3592,16 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
                     <div style="flex-grow: 1; min-height: 70vh;"></div>
                     
                     <!-- Título -->
-                    <div class="cuadro-texto text-center mx-auto mb-2" style="max-width: 800px;">
-                        <h1 class="mb-2" style="font-size: clamp(1.5rem, 4vw, 2.2rem); color: #001122; font-weight: 900; line-height: 1.2;">
+                    <div class="cuadro-texto text-center mx-auto mb-2" style="max-width: 900px;">
+                        <h1 class="mb-2" style="font-size: clamp(2.2rem, 7vw, 3rem); color: #001122; font-weight: 900; line-height: 1.15;">
                             <?php echo $cartilla[$pagina]['titulo']; ?>
                         </h1>
                     </div>
                     
                     <!-- Texto principal -->
                     <?php if (isset($cartilla[$pagina]['texto'])): ?>
-                        <div class="cuadro-texto mx-auto mb-2" style="max-width: 800px;">
-                            <div class="texto-contenido">
+                        <div class="cuadro-texto mx-auto mb-2" style="max-width: 900px;">
+                            <div class="texto-contenido" style="font-size: clamp(1.2rem, 4vw, 1.7rem); line-height: 1.5;">
                                 <?php echo $texto_con_iconos; ?>
                             </div>
                         </div>
@@ -3611,8 +3609,8 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
                     
                     <!-- Texto secundario (si existe) -->
                     <?php if (isset($cartilla[$pagina]['texto2'])): ?>
-                        <div class="cuadro-texto mx-auto mb-2" style="max-width: 800px;">
-                            <div class="texto-contenido">
+                        <div class="cuadro-texto mx-auto mb-2" style="max-width: 900px;">
+                            <div class="texto-contenido" style="font-size: clamp(1.2rem, 4vw, 1.7rem); line-height: 1.5;">
                                 <?php echo $cartilla[$pagina]['texto2']; ?>
                             </div>
                         </div>
@@ -3886,7 +3884,8 @@ function enviarReto() {
         tiempo_segundos: tiempoSegundos,
         titulo_quiz: tituloQuiz,
         tipo_quiz: tipoQuiz,
-        instrucciones: instrucciones
+        instrucciones: instrucciones,
+        pagina: <?php echo json_encode($pagina); ?>
     };
     
     // Agregar respuestas según el total
@@ -4113,7 +4112,8 @@ function guardarRetoCompost() {
         items_texto: itemsTexto.join(' | '), // Textos separados por |
         total_seleccionados: itemsSeleccionados.length,
         minimo_requerido: minimoRequerido,
-        aprobado: itemsSeleccionados.length >= minimoRequerido ? 'SI' : 'NO'
+        aprobado: itemsSeleccionados.length >= minimoRequerido ? 'SI' : 'NO',
+        pagina: <?php echo json_encode($pagina); ?>
     };
     
     console.log('📤 Datos a enviar al servidor:', datosEnviar);
@@ -4276,7 +4276,7 @@ function enviarQuizPreguntas() {
         input.disabled = true;
     });
     
-    // Guardar en base de datos
+    // Guardar en base de datos, incluyendo el índice de página
     $.ajax({
         url: 'guardar_reto.php',
         method: 'POST',
@@ -4288,7 +4288,8 @@ function enviarQuizPreguntas() {
             total_preguntas: totalPreguntasQuiz,
             porcentaje_acierto: porcentaje.toFixed(2),
             tiempo_segundos: tiempoSegundos,
-            aprobado: aprobado ? 'SI' : 'NO'
+            aprobado: aprobado ? 'SI' : 'NO',
+            pagina: <?php echo json_encode($pagina); ?>
         },
         success: function(response) {
             console.log('✅ Quiz guardado:', response);
@@ -4308,45 +4309,76 @@ function mostrarResultadoQuiz(correctas, total, porcentaje, aprobado, tiempo) {
     const tiempoTexto = minutos > 0 ? `${minutos}m ${segundos}s` : `${segundos}s`;
     
     if (aprobado) {
-        let mensaje = correctas === total ? '¡PERFECTO! 🏆 100% de acierto' : '¡FELICITACIONES! 🎊';
-        mensajeDiv.innerHTML = `
-            <div style="background: linear-gradient(135deg, #43be16, #38a01c); color: white; padding: 2rem; border-radius: 15px;">
-                <i class="fas fa-trophy fa-3x mb-3" style="color: #FFD700;"></i>
-                <h3 class="mb-3"><b>${mensaje}</b></h3>
-                <h4 class="mb-3">Has aprobado el quiz</h4>
-                <div class="row g-3 mb-3">
-                    <div class="col-md-4">
-                        <div style="background: rgba(255,255,255,0.2); padding: 1rem; border-radius: 10px;">
-                            <h5>${correctas}/${total}</h5>
-                            <small>Respuestas correctas</small>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div style="background: rgba(255,255,255,0.2); padding: 1rem; border-radius: 10px;">
-                            <h5>${porcentaje.toFixed(1)}%</h5>
-                            <small>Acierto</small>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div style="background: rgba(255,255,255,0.2); padding: 1rem; border-radius: 10px;">
-                            <h5>${tiempoTexto}</h5>
-                            <small>Tiempo</small>
-                        </div>
-                    </div>
-                </div>
-                <p class="mb-3">Has completado exitosamente la cartilla de Economía Circular</p>
-                <small>Redirigiendo al certificado en 5 segundos...</small>
-            </div>
-        `;
-        // Guardar el nombre en la sesión vía AJAX antes de redirigir
+        // Validar vía AJAX si el usuario puede generar el certificado
         $.ajax({
-            url: 'guardar_nombre_sesion.php',
+            url: 'validar_certificado.php',
             method: 'POST',
-            data: { nombre: '<?php echo $_SESSION['nombre'] ?? ""; ?>' },
-            complete: function() {
-                setTimeout(() => {
-                    window.location.href = 'certificado.php';
-                }, 5000);
+            dataType: 'json',
+            success: function(resp) {
+                if (resp.certificado === 'permitido') {
+                    let mensaje = correctas === total ? '¡PERFECTO! 🏆 100% de acierto' : '¡FELICITACIONES! 🎊';
+                    mensajeDiv.innerHTML = `
+                        <div style="background: linear-gradient(135deg, #43be16, #38a01c); color: white; padding: 2rem; border-radius: 15px;">
+                            <i class="fas fa-trophy fa-3x mb-3" style="color: #FFD700;"></i>
+                            <h3 class="mb-3"><b>${mensaje}</b></h3>
+                            <h4 class="mb-3">Has aprobado el quiz</h4>
+                            <div class="row g-3 mb-3">
+                                <div class="col-md-4">
+                                    <div style="background: rgba(255,255,255,0.2); padding: 1rem; border-radius: 10px;">
+                                        <h5>${correctas}/${total}</h5>
+                                        <small>Respuestas correctas</small>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div style="background: rgba(255,255,255,0.2); padding: 1rem; border-radius: 10px;">
+                                        <h5>${porcentaje.toFixed(1)}%</h5>
+                                        <small>Acierto</small>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div style="background: rgba(255,255,255,0.2); padding: 1rem; border-radius: 10px;">
+                                        <h5>${tiempoTexto}</h5>
+                                        <small>Tiempo</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="mb-3">Has completado exitosamente la cartilla de Economía Circular</p>
+                            <small>Redirigiendo al certificado en 5 segundos...</small>
+                        </div>
+                    `;
+                    // Guardar el nombre en la sesión vía AJAX antes de redirigir
+                    $.ajax({
+                        url: 'guardar_nombre_sesion.php',
+                        method: 'POST',
+                        data: { nombre: '<?php echo $_SESSION['nombre'] ?? ""; ?>' },
+                        complete: function() {
+                            setTimeout(() => {
+                                window.location.href = 'certificado.php';
+                            }, 5000);
+                        }
+                    });
+                } else {
+                    mensajeDiv.innerHTML = `
+                        <div style="background: linear-gradient(135deg, #e67e22, #f39c12); color: white; padding: 2rem; border-radius: 15px;">
+                            <i class="fas fa-exclamation-triangle fa-3x mb-3"></i>
+                            <h3 class="mb-3"><b>Certificado no disponible</b></h3>
+                            <p>Debes aprobar <b>todos los quizzes de la cartilla</b> para poder generar tu certificado.</p>
+                            <p>Has aprobado <b>${resp.aprobados}</b> de <b>${resp.total}</b> quizzes requeridos.</p>
+                            <p class="mb-3">Por favor, completa y aprueba todos los quizzes antes de continuar.</p>
+                        </div>
+                    `;
+                }
+                mensajeDiv.style.display = 'block';
+                mensajeDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            },
+            error: function() {
+                mensajeDiv.innerHTML = `<div style="background: linear-gradient(135deg, #e74c3c, #c0392b); color: white; padding: 2rem; border-radius: 15px;">
+                    <i class='fas fa-times-circle fa-3x mb-3'></i>
+                    <h3 class='mb-3'><b>Error de validación</b></h3>
+                    <p>No se pudo validar el estado de los quizzes. Intenta de nuevo más tarde.</p>
+                </div>`;
+                mensajeDiv.style.display = 'block';
+                mensajeDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
             }
         });
     } else {
@@ -4371,6 +4403,8 @@ function mostrarResultadoQuiz(correctas, total, porcentaje, aprobado, tiempo) {
                 </button>
             </div>
         `;
+        mensajeDiv.style.display = 'block';
+        mensajeDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
     
     mensajeDiv.style.display = 'block';
