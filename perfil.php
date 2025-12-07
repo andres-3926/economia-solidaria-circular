@@ -565,10 +565,15 @@ $colorNombrePerfil = ($esInhabilitado) ? '#f0ad4e' : '#43be16';
                                                                                 <i class="fa fa-edit"></i> Editar
                                                                             </a>
                                                                         <?php endif; ?>
-                                                                        <?php if ($trueque['numero_documento'] == $_SESSION['numero_documento']): ?>
+                                                                        <?php if ($trueque['numero_documento'] == $_SESSION['numero_documento'] || (isset($_SESSION['rol']) && $_SESSION['rol'] === 'administrador')): ?>
                                                                             <a href="eliminar_trueque.php?id=<?php echo $trueque['id']; ?>" class="btn btn-sm btn-danger" onclick="return confirm('¿Estás seguro de eliminar este trueque?');">
                                                                                 <i class="fa fa-trash"></i> Eliminar
                                                                             </a>
+                                                                            <?php if ($trueque['estado'] === 'inhabilitado' && isset($_SESSION['rol']) && $_SESSION['rol'] === 'administrador'): ?>
+                                                                                <a href="activar_trueque.php?id=<?php echo $trueque['id']; ?>" class="btn btn-sm btn-success ms-2" onclick="return confirm('¿Estás seguro de activar este trueque?');">
+                                                                                    <i class="fa fa-check"></i> Activar
+                                                                                </a>
+                                                                            <?php endif; ?>
                                                                         <?php endif; ?>
                                                                     </div>
                                                                 </div>
