@@ -1,4 +1,5 @@
 <?php
+
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
@@ -72,13 +73,13 @@ $cartilla = [
                 "id" => 1,
                 "categoria" => "Gastronomía",
                 "pregunta" => "🍌 ¿Qué tipo de residuo son las Cáscaras de plátano?", 
-
                 "opciones" => [
                     "Orgánico para compost",
                     "Reutilizable para artesanías",
                     "Reciclable (plástico, vidrio, papel)"
                 ],
-                "respuesta_correcta" => "Orgánico para compost"
+                "respuesta_correcta" => "Orgánico para compost",
+                "explicacion" => "Las cáscaras de plátano son residuos orgánicos y biodegradables. Se pueden compostar para crear abono natural y devolver nutrientes a la tierra."
             ],
             [
                 "id" => 2,
@@ -89,7 +90,8 @@ $cartilla = [
                     "Reutilizable para artesanías",
                     "Reciclable (plástico, vidrio, papel)"
                 ],
-                "respuesta_correcta" => "Orgánico para compost"
+                "respuesta_correcta" => "Orgánico para compost",
+                "explicacion" => "La borra de café es un residuo orgánico ideal para el compostaje. Aporta nitrógeno y mejora la calidad del abono para plantas."
             ],
             [
                 "id" => 3,
@@ -100,7 +102,8 @@ $cartilla = [
                     "Reutilizable para artesanías",
                     "Reciclable (plástico, vidrio, papel)"
                 ],
-                "respuesta_correcta" => "Reutilizable para artesanías"
+                "respuesta_correcta" => "Reutilizable para artesanías",
+                "explicacion" => "El aceite de cocina usado no debe tirarse por el desagüe. Puede reutilizarse en la elaboración de jabones artesanales o ser entregado en puntos de recolección."
             ],
             [
                 "id" => 4,
@@ -111,7 +114,8 @@ $cartilla = [
                     "Reutilizable para artesanías",
                     "Reciclable (plástico, vidrio, papel)"
                 ],
-                "respuesta_correcta" => "Reutilizable para artesanías"
+                "respuesta_correcta" => "Reutilizable para artesanías",
+                "explicacion" => "Los retazos de tela pueden aprovecharse en manualidades, rellenos de cojines, bisutería textil o patchwork. Así se evita que terminen en la basura."
             ],
             [
                 "id" => 5,
@@ -122,7 +126,8 @@ $cartilla = [
                     "Reutilizable para artesanías",
                     "Reciclable (plástico, vidrio, papel)"
                 ],
-                "respuesta_correcta" => "Reciclable (plástico, vidrio, papel)"
+                "respuesta_correcta" => "Reciclable (plástico, vidrio, papel)",
+                "explicacion" => "El cartón y el papel kraft son reciclables. Al depositarlos en el reciclaje, pueden convertirse en nuevos productos de papel y cartón."
             ],
             [
                 "id" => 6,
@@ -133,9 +138,10 @@ $cartilla = [
                     "Reutilizable para artesanías",
                     "Reciclable (plástico, vidrio, papel)"
                 ],
-                "respuesta_correcta" => "Reutilizable para artesanías"
+                "respuesta_correcta" => "Reutilizable para artesanías",
+                "explicacion" => "Los hilos sobrantes pueden usarse en manualidades, bordados o para crear nuevos productos textiles, promoviendo el reuso y la creatividad."
             ]
-        ]
+        ]   
     ],
     [
         "tipo" => "contenido",
@@ -399,7 +405,8 @@ $cartilla = [
                     "Reciclaje",
                     "Reuso / Artesanías"
                 ],
-                "respuesta_correcta" => "Orgánicos"
+                "respuesta_correcta" => "Orgánicos",
+                "explicacion" => "Las cáscaras de plátano son residuos biodegradables o compostables. Al ser orgánicos, pueden convertirse en abono mediante el compostaje, devolviendo nutrientes a la tierra."
             ],
             [
                 "id" => 2,
@@ -410,7 +417,8 @@ $cartilla = [
                     "Reciclaje",
                     "Reuso / Artesanías"
                 ],
-                "respuesta_correcta" => "Reciclaje"
+                "respuesta_correcta" => "Reciclaje",
+                "explicacion" => "Las botellas plásticas limpias son reciclables. Al depositarlas en el reciclaje, se pueden transformar en nuevos productos plásticos, reduciendo la contaminación y el consumo de recursos."
             ],
             [
                 "id" => 3,
@@ -421,7 +429,8 @@ $cartilla = [
                     "Reciclaje",
                     "Reuso / Artesanías"
                 ],
-                "respuesta_correcta" => "Reuso / Artesanías"
+                "respuesta_correcta" => "Reuso / Artesanías",
+                "explicacion" => "Los retazos de tela pueden reutilizarse en manualidades, rellenos de cojines, bisutería textil o patchwork. Así se les da una segunda vida y se evita que terminen en la basura."
             ]
         ]
     ],
@@ -683,9 +692,9 @@ $cartilla = [
                 "emoji" => "🍌",
                 "pregunta" => "¿Puedo compostar cualquier resto de comida?",
                 "opciones" => [
-                    "Sí, todos los restos de comida",
-                    "Solo frutas, verduras y restos vegetales",
-                    "Solo carnes y lácteos"
+                    "Sí, todos los restos de comida",                    
+                    "Solo carnes y lácteos",
+                    "Solo frutas, verduras y restos vegetales"
                 ],
                 "respuesta_correcta" => "Solo frutas, verduras y restos vegetales",
                 "explicacion" => "<b>NO todos los restos son aptos.</b> Puedes compostar: frutas, verduras, cáscaras, café, té, pan. <b>NO compostar:</b> carnes, lácteos, huesos, grasas, aceites."
@@ -711,9 +720,9 @@ $cartilla = [
                 "emoji" => "🧴",
                 "pregunta" => "¿Debo lavar los envases antes de reciclarlos?",
                 "opciones" => [
-                    "No, se lavan en la planta de reciclaje",
-                    "Sí, es fundamental lavarlos",
-                    "Solo los de vidrio"
+                    "No, se lavan en la planta de reciclaje",                    
+                    "Solo los de vidrio",
+                    "Sí, es fundamental lavarlos"
                 ],
                 "respuesta_correcta" => "Sí, es fundamental lavarlos",
                 "explicacion" => "<b>Sí, es fundamental.</b> Los envases sucios contaminan todo el lote de reciclaje. Lávalos con agua y déjalos secar antes de reciclar."
@@ -725,8 +734,8 @@ $cartilla = [
                 "emoji" => "🛢️",
                 "pregunta" => "¿Qué hago con el aceite de cocina usado?",
                 "opciones" => [
-                    "Verterlo por el desagüe",
                     "Recolectarlo en botella y llevarlo a puntos de acopio",
+                    "Verterlo por el desagüe",                    
                     "Tirarlo a la basura común"
                 ],
                 "respuesta_correcta" => "Recolectarlo en botella y llevarlo a puntos de acopio",
@@ -739,9 +748,9 @@ $cartilla = [
                 "emoji" => "📄",
                 "pregunta" => "¿El papel mojado o con grasa se puede reciclar?",
                 "opciones" => [
-                    "Sí, todo el papel es reciclable",
-                    "No, la humedad y grasa lo contaminan",
-                    "Solo el papel de oficina"
+                    "Sí, todo el papel es reciclable",                    
+                    "Solo el papel de oficina",
+                    "No, la humedad y grasa lo contaminan"
                 ],
                 "respuesta_correcta" => "No, la humedad y grasa lo contaminan",
                 "explicacion" => "<b>NO.</b> El papel húmedo o con grasa (servilletas usadas, cajas de pizza sucias) no es reciclable. La humedad contamina las fibras."
@@ -767,9 +776,9 @@ $cartilla = [
                 "emoji" => "🧵",
                 "pregunta" => "¿Los retazos de tela pequeños sirven para algo?",
                 "opciones" => [
-                    "No, son demasiado pequeños",
-                    "Sí, para parches, rellenos, bisutería",
-                    "Solo para telas grandes"
+                    "No, son demasiado pequeños",                    
+                    "Solo para telas grandes",
+                    "Sí, para parches, rellenos, bisutería"
                 ],
                 "respuesta_correcta" => "Sí, para parches, rellenos, bisutería",
                 "explicacion" => "¡Absolutamente! Usa retazos para: parches decorativos, rellenos de cojines, bisutería textil, posavasos, bolsitas aromáticas o patchwork."
@@ -1711,21 +1720,27 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
                 $colorNombrePerfil = '#43be16';
                 $usuario = null;
                 if (isset($_SESSION['numero_documento'])) {
+                    echo '<!-- Debug: Sesión activa, documento: '.htmlspecialchars($_SESSION['numero_documento']).' -->';
                     $nombre_usuario = '';
                     $sql_usuario = "SELECT nombre_completo, rol, habilitado FROM usuarios WHERE numero_documento = ?";
-                    $stmt_usuario = $conn->prepare($sql_usuario);
-                    $stmt_usuario->bind_param("s", $_SESSION['numero_documento']);
-                    $stmt_usuario->execute();
-                    $res_usuario = $stmt_usuario->get_result();
-                    if ($row_usuario = $res_usuario->fetch_assoc()) {
-                        $usuario = $row_usuario;
-                        $nombre_usuario = $usuario['nombre_completo'];
-                        // Cambiar color si está inhabilitado
-                        if ($usuario['rol'] === 'usuario' && isset($usuario['habilitado']) && intval($usuario['habilitado']) === 0) {
-                            $colorNombrePerfil = '#f0ad4e';
+                    if ($stmt_usuario = $conn->prepare($sql_usuario)) {
+                        $stmt_usuario->bind_param("s", $_SESSION['numero_documento']);
+                        $stmt_usuario->execute();
+                        $res_usuario = $stmt_usuario->get_result();
+                        if ($row_usuario = $res_usuario->fetch_assoc()) {
+                            $usuario = $row_usuario;
+                            $nombre_usuario = $usuario['nombre_completo'];
+                            // Cambiar color si está inhabilitado
+                            if ($usuario['rol'] === 'usuario' && isset($usuario['habilitado']) && intval($usuario['habilitado']) === 0) {
+                                $colorNombrePerfil = '#f0ad4e';
+                            }
+                        } else {
+                            echo '<!-- Debug: Usuario no encontrado en la base de datos -->';
                         }
+                        $stmt_usuario->close();
+                    } else {
+                        echo '<!-- Debug: Error preparando la consulta SQL -->';
                     }
-                    $stmt_usuario->close();
                     echo '<a href="perfil.php" class="nav-item nav-link fw-bold'.($pagina_activa === 'perfil' ? ' active text-primary' : ' text-dark').'" style="color:'.$colorNombrePerfil.' !important;font-weight:bold !important;">'.($nombre_usuario ? htmlspecialchars($nombre_usuario) : 'Perfil').'</a>';
                     echo '<a href="logout.php" class="btn py-4 px-lg-5 d-none d-lg-block text-white" style="background-color: #43be16;">Cerrar sesión<i class="fa fa-arrow-right ms-3"></i></a>';
                     echo '<a href="logout.php" class="btn btn-success d-block d-lg-none my-3 w-100 text-white text-center justify-content-center align-items-center d-flex" style="background-color: #43be16;">'
@@ -1733,6 +1748,7 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
                         .'<i class="fa fa-arrow-right ms-2"></i>'
                     .'</a>';
                 } else {
+                    echo '<!-- Debug: Sesión no activa -->';
                     echo '<a href="registro.php" class="btn py-4 px-lg-5 d-none d-lg-block text-white" style="background-color: #43be16;">Regístrate Ahora<i class="fa fa-arrow-right ms-3"></i></a>';
                 }
                 ?>
@@ -2142,7 +2158,8 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
             </div>
         </div>
     </div>
-<?php elseif ($cartilla[$pagina]['tipo'] === 'separacion_reciclables'): ?>
+
+    <?php elseif ($cartilla[$pagina]['tipo'] === 'separacion_reciclables'): ?>
     <!-- PÁGINA 11: SEPARACIÓN DE RECICLABLES -->
     <div class="container-fluid header-aprende"
         style="position: relative;
@@ -2236,6 +2253,7 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
                             </div>
                         </div>
                     <?php endforeach; ?>
+                    
                     <!-- Navegación -->
                     <div class="container-fluid px-0 mt-4 mb-3">
                         <div class="row g-0 w-100">
@@ -3819,6 +3837,19 @@ const respuestasCorrectas = <?php
     }
 ?>;
 
+// Explicaciones para cada pregunta (como en página 17)
+const explicacionesQuiz = <?php 
+    if (isset($cartilla[$pagina]['preguntas'])) {
+        $explicaciones = [];
+        foreach ($cartilla[$pagina]['preguntas'] as $index => $p) {
+            $explicaciones[$index + 1] = isset($p['explicacion']) ? $p['explicacion'] : '';
+        }
+        echo json_encode($explicaciones);
+    } else {
+        echo '{}';
+    }
+?>;
+
 console.log('🔍 Respuestas correctas cargadas:', respuestasCorrectas);
 console.log('📊 Total de preguntas:', Object.keys(respuestasCorrectas).length);
 
@@ -3848,11 +3879,31 @@ function enviarReto() {
     
     let correctas = 0;
     for (let i = 1; i <= totalPreguntas; i++) {
-        if (respuestasUsuario[i] === respuestasCorrectas[i]) {
+        const esCorrecta = respuestasUsuario[i] === respuestasCorrectas[i];
+        if (esCorrecta) {
             correctas++;
             console.log(`✅ Pregunta ${i}: CORRECTA`);
         } else {
             console.log(`❌ Pregunta ${i}: INCORRECTA (Usuario: "${respuestasUsuario[i]}", Correcta: "${respuestasCorrectas[i]}")`);
+        }
+        // Mostrar explicación debajo de cada pregunta
+        let explicacion = explicacionesQuiz[i] || '';
+        let retroDiv = document.getElementById(`retro_quiz_${i}`);
+        if (!retroDiv) {
+            // Crear el div si no existe
+            const body = document.querySelector(`#collapse${i} .accordion-body`);
+            retroDiv = document.createElement('div');
+            retroDiv.id = `retro_quiz_${i}`;
+            retroDiv.style.display = 'block';
+            retroDiv.style.marginTop = '0.5rem';
+            body.appendChild(retroDiv);
+        }
+        if (esCorrecta) {
+            retroDiv.className = 'retroalimentacion-pregunta retroalimentacion-correcta';
+            retroDiv.innerHTML = `<div class='d-flex align-items-center mb-2'><i class='fas fa-check-circle fa-2x me-3' style='color: #43be16;'></i><h5 class='mb-0' style='color: #001122; font-weight: 900;'>¡Correcto! ✅</h5></div><p class='mb-0' style='color: #001122; font-weight: 700; font-size: 0.95rem; line-height: 1.4;'>${explicacion}</p>`;
+        } else {
+            retroDiv.className = 'retroalimentacion-pregunta retroalimentacion-incorrecta';
+            retroDiv.innerHTML = `<div class='d-flex align-items-center mb-2'><i class='fas fa-times-circle fa-2x me-3' style='color: white;'></i><h5 class='mb-0' style='color: white; font-weight: 900;'>Incorrecto ❌</h5></div><p class='mb-2' style='color: white; font-weight: 700; font-size: 0.95rem;'><b>Respuesta correcta:</b> ${respuestasCorrectas[i]}</p><p class='mb-0' style='color: white; font-weight: 700; font-size: 0.9rem; line-height: 1.4;'>${explicacion}</p>`;
         }
     }
     
@@ -3951,10 +4002,14 @@ function mostrarResultado(correctas, total, porcentaje, aprobado, tiempo, minimo
                         </div>
                     </div>
                 </div>
-                <small>Redirigiendo en 5 segundos...</small>
-            </div>
+                <button id="btnSiguienteQuiz" class="btn btn-light btn-lg mt-3 px-5 py-3" style="color:#003d82; border:2px solid #003d82; font-weight:700;" onclick="window.location.href='aprende.php?pagina=' + (parseInt(<?php echo $pagina; ?>) + 1);">
+                    <i class="fas fa-arrow-right me-2"></i>Siguiente Página
+                </button>
+            </div>  
         `;
     } else {
+
+                
         mensajeDiv.innerHTML = `
             <div style="background: linear-gradient(135deg, #e74c3c, #c0392b); color: white; padding: 2rem; border-radius: 15px;">
                 <i class="fas fa-times-circle fa-3x mb-3"></i>
@@ -3981,25 +4036,6 @@ function mostrarResultado(correctas, total, porcentaje, aprobado, tiempo, minimo
     mensajeDiv.style.display = 'block';
     mensajeDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
     
-    // Redirigir a la página siguiente si se aprueba el quiz y no es la última página
-    if (aprobado) {
-        if (<?php echo $pagina; ?> == 17) {
-            $.ajax({
-                url: 'guardar_nombre_sesion.php',
-                method: 'POST',
-                data: { nombre: '<?php echo $_SESSION['nombre'] ?? ""; ?>' },
-                complete: function() {
-                    setTimeout(() => {
-                        window.location.href = 'certificado.php';
-                    }, 5000);
-                }
-            });
-        } else {
-            setTimeout(function() {
-                window.location.href = 'aprende.php?pagina=' + (<?php echo $pagina; ?> + 1);
-            }, 3500);
-        }
-    }
 }
 
 $(document).ready(function() {
@@ -4343,20 +4379,38 @@ function mostrarResultadoQuiz(correctas, total, porcentaje, aprobado, tiempo) {
                                 </div>
                             </div>
                             <p class="mb-3">Has completado exitosamente la cartilla de Economía Circular</p>
-                            <small>Redirigiendo al certificado en 5 segundos...</small>
+                            <button id="btnFinalizarCertificado" class="btn btn-light btn-lg mt-3 px-5 py-3" style="color:#003d82; border:2px solid #003d82; font-weight:700;">
+                                <i class="fas fa-certificate me-2"></i>Finalizar y Generar Certificado
+                            </button>
                         </div>
                     `;
-                    // Guardar el nombre en la sesión vía AJAX antes de redirigir
-                    $.ajax({
-                        url: 'guardar_nombre_sesion.php',
-                        method: 'POST',
-                        data: { nombre: '<?php echo $_SESSION['nombre'] ?? ""; ?>' },
-                        complete: function() {
-                            setTimeout(() => {
-                                window.location.href = 'certificado.php';
-                            }, 5000);
+                    mensajeDiv.style.display = 'block';
+                    mensajeDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+                    // Agregar evento al botón Finalizar
+                    setTimeout(function() {
+                        const btnFinalizar = document.getElementById('btnFinalizarCertificado');
+                        if (btnFinalizar) {
+                            btnFinalizar.onclick = function() {
+                                btnFinalizar.disabled = true;
+                                btnFinalizar.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Generando certificado...';
+                                // Guardar el nombre en la sesión vía AJAX antes de redirigir
+                                $.ajax({
+                                    url: 'guardar_nombre_sesion.php',
+                                    method: 'POST',
+                                    data: { nombre: '<?php echo $_SESSION['nombre'] ?? ""; ?>' },
+                                    complete: function() {
+                                        // Abrir certificado en una nueva pestaña
+                                        window.open('certificado.php', '_blank');
+                                        // Redirigir a portada después de 5 segundos
+                                        setTimeout(() => {
+                                            window.location.href = 'aprende.php?pagina=0';
+                                        }, 5000);
+                                    }
+                                });
+                            };
                         }
-                    });
+                    }, 300); // Espera breve para asegurar que el botón existe
                 } else {
                     mensajeDiv.innerHTML = `
                         <div style="background: linear-gradient(135deg, #e67e22, #f39c12); color: white; padding: 2rem; border-radius: 15px;">
@@ -4367,9 +4421,9 @@ function mostrarResultadoQuiz(correctas, total, porcentaje, aprobado, tiempo) {
                             <p class="mb-3">Por favor, completa y aprueba todos los quizzes antes de continuar.</p>
                         </div>
                     `;
+                    mensajeDiv.style.display = 'block';
+                    mensajeDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
                 }
-                mensajeDiv.style.display = 'block';
-                mensajeDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
             },
             error: function() {
                 mensajeDiv.innerHTML = `<div style="background: linear-gradient(135deg, #e74c3c, #c0392b); color: white; padding: 2rem; border-radius: 15px;">
@@ -4414,3 +4468,7 @@ function mostrarResultadoQuiz(correctas, total, porcentaje, aprobado, tiempo) {
     
 </body>
 </html>
+
+
+
+
