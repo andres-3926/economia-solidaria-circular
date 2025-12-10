@@ -1,4 +1,3 @@
-
 <?php
 require('fpdf186/fpdf.php');
 session_start();
