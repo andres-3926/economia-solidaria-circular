@@ -1,5 +1,4 @@
 <?php
-
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
@@ -21,31 +20,35 @@ $cartilla = [
         "subtitulo" => 'Economía Solidaria y Circular para Unidades Productivas de Cali.',
         "frase" => 'El SENA te acompaña en la construcción de un futuro más próspero y sostenible.',
         "logo" => "img/Logo-sena-blanco-sin-fondo.webp",
-        "fondo" => "img/reciclando.png" 
+        "fondo" => "img/reciclando.png",
+        "pie_imagen" => "<b>Nota.</b> Fotografía de <i>tres mujeres de comunidades multiculturales sonriendo mientras depositan residuos en cestos de reciclaje.</i> Autor desconocido (s.f.).",
     ],
     [
         "tipo" => "contenido",
         "titulo" => "¡Hola, Emprendedora!",
         "texto" => "Sabemos que tu esfuerzo diario construye futuro. Esta guía está diseñada para acompañarte en un viaje donde cada residuo se convierte en una nueva oportunidad para tu negocio y tu comunidad. ¡Juntas vamos a transformar Cali!",
         "fondo" => "img/artesana-1.jpg",
+        "pie_imagen" => "<b>Fotografía 3.</b> Tomada durante el <i>primer encuentro de comunidades artesanales en Cali, donde se resalta la participación de diversas etnias en la economía solidaria,</i> por J. Guapacha, 2023.",
     ],
     [
         "tipo" => "contenido",
         "titulo" => "¿Por Qué Esta Guía Es Para Ti?",
         "texto" => "<ul>
-            <li><b><span style=\"color: #007bff;\">Reduce Costos:</span></b> Menos gastos en materiales nuevos, menos dinero en basura.</li>
-            <li><b><span style=\"color: #007bff;\">Genera Ingresos Extra:</span></b> Transforma residuos en productos o vendiendo reciclables.</li>
-            <li><b><span style=\"color: #007bff;\">Mejora tu Entorno:</span></b> Contribuye a una comunidad más limpia y sana.</li>
-            <li><b><span style=\"color: #007bff;\">Fortalece Tu Comunidad:</span></b> Trabaja en equipo y conecta con otras emprendedoras.</li>
+            <li><b><span style=\"color: #007bff;\">Reduce costos:</span></b> menos gastos en materiales nuevos, menos dinero en basura.</li>
+            <li><b><span style=\"color: #007bff;\">Genera ingresos extras:</span></b> transforma residuos en productos o vendiendo reciclables.</li>
+            <li><b><span style=\"color: #007bff;\">Mejora tu entorno:</span></b> contribuye a una comunidad más limpia y sana.</li>
+            <li><b><span style=\"color: #007bff;\">Fortalece tu comunidad:</span></b> trabaja en equipo y conecta con otras emprendedoras.</li>
         </ul>",
         "fondo" => "img/guia_economia_circular.webp",
-        "logo" => "img/Logo-sena-blanco-sin-fondo.webp"
+        "logo" => "img/Logo-sena-blanco-sin-fondo.webp",
+        "pie_imagen" => "<b>Nota.</b> Adaptado de <i>Toque de dedo con iconos de entorno sobre la conexión de red en el fondo de la ciudad, concepto de tecnología de ecología,</i> por Laymanzoom, 2019, iStock.",
     ],
     [
         "tipo" => "contenido",
         "titulo" => "¡Nuestro Entorno y Nuestras Riquezas!",            
         "texto" => "El dinamismo económico de Cali se sostiene en microeconomías barriales, con la mujer como pilar fundamental en la <b>gastronomía popular</b> y <b>artesanías</b>, preservando la cultura y el sustento familiar. Para asegurar la sostenibilidad, es vital adoptar la <b>economía circular</b>; el <b>reciclaje</b> es el motor de este cambio, pues genera empleo formal y reduce la extracción de recursos, ofreciendo grandes <b>beneficios socioeconómicos y ambientales</b> a toda la comunidad.",
         "fondo" => "img/pagina-4.jpg",
+        "pie_imagen" => "<b>Nota.</b> Collage elaborado por A. Echeverri (2025). <i>Las fotografías que integran esta composición fueron tomadas</i> por J. Guapacha (2023) <i>durante el encuentro de comunidades artesanales en Cali.</i>",
     ],
     [
         "tipo" => "contenido",
@@ -53,6 +56,7 @@ $cartilla = [
         "texto" => "El <b>residuo</b> es material desechado que aún puede ser <b>reciclado o reutilizado</b>. Su gestión es vital porque <b>evita la contaminación</b>, conserva los <b>recursos naturales</b> y es la base de la <b>Economía Circular</b>, asegurando un futuro más sostenible.",
         "texto2" => "La mala gestión de <b>residuos</b> genera rápidamente <b>malos olores</b> y <b>plagas</b>, comprometiendo la <b>salud pública</b>. Además, contamina gravemente el <b>agua</b>, el <b>suelo</b> y el <b>aire</b>, empeorando el impacto ambiental.",
         "fondo" => "img/residuos.jpg",
+        "pie_imagen" => "<b>Nota.</b> Collage elaborado por A. Echeverri (2025). <i>Las fotografías que componen esta pieza fueron tomadas</i> por J. Guapacha (2025) <i>durante las visitas de seguimiento a los emprendimientos de los usuarios.</i>",
     ],
     [
         "tipo" => "contenido_con_actividad",
@@ -61,6 +65,7 @@ $cartilla = [
         "actividad_titulo" => "Actividad del Tema 2: ¿Qué Residuo Ves Tú?",
         "actividad_descripcion" => "Observa tu espacio de trabajo (o tu casa). Nombra <b>3 tipos de residuos</b> que generas con frecuencia y piensa en una forma diferente de verlos (¿podría ser un recurso?).",
         "fondo" => "img/transformacion-residuos.jpg",
+        "pie_imagen" => "<b>Nota.</b> Collage elaborado por A. Echeverri (2025). Adapto de<i>Transformación de residuos y productos sostenibles,</i> por Proplanet S.A.S., s.f., Proplanet.",
     ],
     [
         "tipo" => "actividad_quiz",           
@@ -141,7 +146,8 @@ $cartilla = [
                 "respuesta_correcta" => "Reutilizable para artesanías",
                 "explicacion" => "Los hilos sobrantes pueden usarse en manualidades, bordados o para crear nuevos productos textiles, promoviendo el reuso y la creatividad."
             ]
-        ]   
+        ],
+        "pie_imagen" => "<b>Nota.</b> Collage elaborado por A. Echeverri (2025). Adapto de<i>Transformación de residuos y productos sostenibles,</i> por Proplanet S.A.S., s.f., Proplanet.",   
     ],
     [
         "tipo" => "contenido",
@@ -150,23 +156,23 @@ $cartilla = [
             <div class='row g-1' style='margin-top: -2.5rem;'>
                 <div class='col-md-6'>
                     <div class='text-center mb-1'>
-                        <h6 class='mb-1' style='color: #000033; font-weight: 900; font-size: clamp(1.5rem, 3vw, 2.7rem); text-shadow: 2px 2px 4px rgba(255,255,255,1); margin-bottom: 1.2rem;'>
+                        <h6 class='mb-1' style='color: #000033; font-weight: 900; font-size: clamp(1rem, 2.5vw, 2rem); text-shadow: 2px 2px 4px rgba(255,255,255,1); margin-bottom: 1rem;'>
                             <i class='fas fa-arrow-down me-1'></i>Economía Lineal
                         </h6>
                         <div class='d-flex flex-column align-items-center'>
-                            <div class='economia-step-micro mb-2' style='background: linear-gradient(135deg, #ff6b6b, #ee5a52); color: #000033; padding: 0.7rem 2rem; border-radius: 16px; font-weight: 900; box-shadow: 0 2px 8px rgba(238,90,82,0.3); font-size: clamp(1.3rem, 2.8vw, 2.3rem); border: 2px solid rgba(0,0,0,0.2);'>
+                            <div class='economia-step-micro mb-2' style='background: linear-gradient(135deg, #ff6b6b, #ee5a52); color: #000033; padding: 0.4rem 1rem; border-radius: 16px; font-weight: 900; box-shadow: 0 2px 8px rgba(238,90,82,0.3); font-size: clamp(0.7rem, 2vw, 1.5rem); border: 2px solid rgba(0,0,0,0.2);'>
                                 <i class='fas fa-mountain me-1'></i>Extraer
                             </div>
-                            <i class='fas fa-arrow-down mb-2' style='font-size: clamp(1.3rem, 2.2vw, 2.1rem); color: #000033; text-shadow: 1px 1px 2px rgba(255,255,255,1);'></i>
-                            <div class='economia-step-micro mb-2' style='background: linear-gradient(135deg, #4ecdc4, #44a08d); color: #000033; padding: 0.7rem 2rem; border-radius: 16px; font-weight: 900; box-shadow: 0 2px 8px rgba(68,160,141,0.3); font-size: clamp(1.3rem, 2.8vw, 2.3rem); border: 2px solid rgba(0,0,0,0.2);'>
+                            <i class='fas fa-arrow-down mb-2' style='font-size: clamp(1rem, 1.8vw, 2rem); color: #000033; text-shadow: 1px 1px 2px rgba(255,255,255,1);'></i>
+                            <div class='economia-step-micro mb-2' style='background: linear-gradient(135deg, #4ecdc4, #44a08d); color: #000033; padding: 0.4rem 1rem; border-radius: 16px; font-weight: 900; box-shadow: 0 2px 8px rgba(68,160,141,0.3); font-size: clamp(0.7rem, 2vw, 1.5rem); border: 2px solid rgba(0,0,0,0.2);'>
                                 <i class='fas fa-cogs me-1'></i>Producir
                             </div>
-                            <i class='fas fa-arrow-down mb-2' style='font-size: clamp(1.3rem, 2.2vw, 2.1rem); color: #000033; text-shadow: 1px 1px 2px rgba(255,255,255,1);'></i>
-                            <div class='economia-step-micro mb-2' style='background: linear-gradient(135deg, #45b7d1, #96c93d); color: #000033; padding: 0.7rem 2rem; border-radius: 16px; font-weight: 900; box-shadow: 0 2px 8px rgba(69,183,209,0.3); font-size: clamp(1.3rem, 2.8vw, 2.3rem); border: 2px solid rgba(0,0,0,0.2);'>
+                            <i class='fas fa-arrow-down mb-2' style='font-size: clamp(1rem, 1.8vw, 2rem); color: #000033; text-shadow: 1px 1px 2px rgba(255,255,255,1);'></i>
+                            <div class='economia-step-micro mb-2' style='background: linear-gradient(135deg, #45b7d1, #96c93d); color: #000033; padding: 0.4rem 1rem; border-radius: 16px; font-weight: 900; box-shadow: 0 2px 8px rgba(69,183,209,0.3); font-size: clamp(0.7rem, 2vw, 1.5rem); border: 2px solid rgba(0,0,0,0.2);'>
                                 <i class='fas fa-shopping-cart me-1'></i>Usar
                             </div>
-                            <i class='fas fa-arrow-down mb-2' style='font-size: clamp(1.3rem, 2.2vw, 2.1rem); color: #000033; text-shadow: 1px 1px 2px rgba(255,255,255,1);'></i>
-                            <div class='economia-step-micro' style='background: linear-gradient(135deg, #6c5ce7, #a29bfe); color: #000033; padding: 0.7rem 2rem; border-radius: 16px; font-weight: 900; box-shadow: 0 2px 8px rgba(108,92,231,0.3); font-size: clamp(1.3rem, 2.8vw, 2.3rem); border: 2px solid rgba(0,0,0,0.2);'>
+                            <i class='fas fa-arrow-down mb-2' style='font-size: clamp(1rem, 1.8vw, 2rem); color: #000033; text-shadow: 1px 1px 2px rgba(255,255,255,1);'></i>
+                            <div class='economia-step-micro' style='background: linear-gradient(135deg, #6c5ce7, #a29bfe); color: #000033; padding: 0.4rem 1rem; border-radius: 16px; font-weight: 900; box-shadow: 0 2px 8px rgba(108,92,231,0.3); font-size: clamp(0.7rem, 2vw, 1.5rem); border: 2px solid rgba(0,0,0,0.2);'>
                                 <i class='fas fa-trash me-1'></i>Botar
                             </div>
                         </div>
@@ -174,42 +180,42 @@ $cartilla = [
                 </div>
                 <div class='col-md-6'>
                     <div class='text-center mb-1'>
-                        <h6 class='mb-1' style='color: #000033; font-weight: 900; font-size: clamp(1.5rem, 3vw, 2.7rem); text-shadow: 2px 2px 4px rgba(255,255,255,1); margin-bottom: 1.2rem;'>
+                        <h6 class='mb-1' style='color: #000033; font-weight: 900; font-size: clamp(1rem, 2.5vw, 2rem); text-shadow: 2px 2px 4px rgba(255,255,255,1); margin-bottom: 1rem;'>
                             <i class='fas fa-recycle me-1'></i>Economía Circular
                         </h6>
-                        <div class='position-relative mx-auto' style='width: clamp(260px, 40vw, 480px); height: clamp(260px, 40vw, 480px); left: -40px; position: relative;'>
+                        <div class='position-relative mx-auto' style='width: clamp(310px, 50vw, 420px); height: clamp(310px, 50vw, 420px); left: -40px; position: relative;'>
                             <div class='position-absolute top-50 start-50 translate-middle text-center' style='z-index: 10;'>
-                                <div style='background: linear-gradient(135deg, #43be16, #38a01c); color: #000033; border-radius: 50%; width: clamp(70px, 10vw, 120px); height: clamp(70px, 10vw, 120px); display: flex; align-items: center; justify-content: center; font-weight: 900; box-shadow: 0 2px 12px rgba(67, 190, 22, 0.4); border: 3px solid rgba(0,0,0,0.2);'>
-                                    <i class='fas fa-leaf' style='font-size: clamp(1.7rem, 2.5vw, 2.8rem);'></i>
+                                <div style='background: linear-gradient(135deg, #43be16, #38a01c); color: #000033; border-radius: 50%; width: clamp(60px, 10vw, 100px); height: clamp(60px, 10vw, 100px); display: flex; align-items: center; justify-content: center; font-weight: 700; box-shadow: 0 2px 12px rgba(67, 190, 22, 0.4); border: 3px solid rgba(0,0,0,0.2);'>
+                                    <i class='fas fa-leaf' style='font-size: clamp(1.5rem, 2.5vw, 2rem);'></i>
                                 </div>
                             </div>
                             <div class='position-absolute' style='top: 0px; left: 50%; transform: translateX(-50%);'>
-                                <div class='text-center' style='background: linear-gradient(135deg, #e74c3c, #c0392b); color: #000033; padding: 0.5rem 1.2rem; border-radius: 12px; font-size: clamp(1.2rem, 2.2vw, 2.1rem); font-weight: 900; box-shadow: 0 2px 8px rgba(231,76,60,0.3); border: 2px solid rgba(0,0,0,0.2);'>
+                                <div class='text-center' style='background: linear-gradient(135deg, #e74c3c, #c0392b); color: #000033; padding: 0.3rem 0.8rem; border-radius: 12px; font-size: clamp(0.8rem, 1.8vw, 1.5rem); font-weight: 700; box-shadow: 0 2px 8px rgba(231,76,60,0.3); border: 2px solid rgba(0,0,0,0.2);'>
                                     <i class='fas fa-minus-circle me-1'></i>Reducir
                                 </div>
                             </div>
                             <div class='position-absolute' style='top: 35px; right: 0px;'>
-                                <div class='text-center' style='background: linear-gradient(135deg, #f39c12, #e67e22); color: #000033; padding: 0.5rem 1.2rem; border-radius: 12px; font-size: clamp(1.2rem, 2.2vw, 2.1rem); font-weight: 900; box-shadow: 0 2px 8px rgba(243,156,18,0.3); border: 2px solid rgba(0,0,0,0.2);'>
+                                <div class='text-center' style='background: linear-gradient(135deg, #f39c12, #e67e22); color: #000033; padding: 0.3rem 0.8rem; border-radius: 12px; font-size: clamp(0.8rem, 1.8vw, 1.5rem); font-weight: 700; box-shadow: 0 2px 8px rgba(243,156,18,0.3); border: 2px solid rgba(0,0,0,0.2);'>
                                     <i class='fas fa-redo me-1'></i>Reutilizar
                                 </div>
                             </div>
                             <div class='position-absolute' style='bottom: 80px; right: 0px;'>
-                                <div class='text-center' style='background: linear-gradient(135deg, #27ae60, #2ecc71); color: #000033; padding: 0.5rem 1.2rem; border-radius: 12px; font-size: clamp(1.2rem, 2.2vw, 2.1rem); font-weight: 900; box-shadow: 0 2px 8px rgba(39,174,96,0.3); border: 2px solid rgba(0,0,0,0.2);'>
+                                <div class='text-center' style='background: linear-gradient(135deg, #27ae60, #2ecc71); color: #000033; padding: 0.3rem 0.8rem; border-radius: 12px; font-size: clamp(0.8rem, 1.8vw, 1.5rem); font-weight: 700; box-shadow: 0 2px 8px rgba(39,174,96,0.3); border: 2px solid rgba(0,0,0,0.2);'>
                                     <i class='fas fa-recycle me-1'></i>Reciclar
                                 </div>
                             </div>
                             <div class='position-absolute' style='bottom: 35px; left: 50%; transform: translateX(-50%);'>
-                                <div class='text-center' style='background: linear-gradient(135deg, #8e44ad, #9b59b6); color: #000033; padding: 0.5rem 1.2rem; border-radius: 12px; font-size: clamp(1.2rem, 2.2vw, 2.1rem); font-weight: 900; box-shadow: 0 2px 8px rgba(142,68,173,0.3); border: 2px solid rgba(0,0,0,0.2);'>
+                                <div class='text-center' style='background: linear-gradient(135deg, #8e44ad, #9b59b6); color: #000033; padding: 0.3rem 0.8rem; border-radius: 12px; font-size: clamp(0.8rem, 1.8vw, 1.5rem); font-weight: 700; box-shadow: 0 2px 8px rgba(142,68,173,0.3); border: 2px solid rgba(0,0,0,0.2);'>
                                     <i class='fas fa-tools me-1'></i>Reparar
                                 </div>
                             </div>
                             <div class='position-absolute' style='bottom: 80px; left: 0px;'>
-                                <div class='text-center' style='background: linear-gradient(135deg, #3498db, #2980b9); color: #000033; padding: 0.5rem 1.2rem; border-radius: 12px; font-size: clamp(1.2rem, 2.2vw, 2.1rem); font-weight: 900; box-shadow: 0 2px 8px rgba(52,152,219,0.3); border: 2px solid rgba(0,0,0,0.2);'>
+                                <div class='text-center' style='background: linear-gradient(135deg, #3498db, #2980b9); color: #000033; padding: 0.3rem 0.8rem; border-radius: 12px; font-size: clamp(0.8rem, 1.8vw, 1.5rem); font-weight: 700; box-shadow: 0 2px 8px rgba(52,152,219,0.3); border: 2px solid rgba(0,0,0,0.2);'>
                                     <i class='fas fa-heart me-1'></i>Recuperar
                                 </div>
                             </div>
                             <div class='position-absolute' style='top: 35px; left: 0px;'>
-                                <div class='text-center' style='background: linear-gradient(135deg, #e91e63, #ad1457); color: #000033; padding: 0.5rem 1.2rem; border-radius: 12px; font-size: clamp(1.2rem, 2.2vw, 2.1rem); font-weight: 900; box-shadow: 0 2px 8px rgba(233,30,99,0.3); border: 2px solid rgba(0,0,0,0.2);'>
+                                <div class='text-center' style='background: linear-gradient(135deg, #e91e63, #ad1457); color: #000033; padding: 0.3rem 0.8rem; border-radius: 12px; font-size: clamp(0.8rem, 1.8vw, 1.5rem); font-weight: 700; box-shadow: 0 2px 8px rgba(233,30,99,0.3); border: 2px solid rgba(0,0,0,0.2);'>
                                     <i class='fas fa-lightbulb me-1'></i>Rediseñar
                                 </div>
                             </div>
@@ -226,25 +232,28 @@ $cartilla = [
             </div>
             ",
         "fondo" => "img/imagen_economia_circular.webp",
-        "logo" => "img/Logo-sena-blanco-sin-fondo.webp"
+        "logo" => "img/Logo-sena-blanco-sin-fondo.webp",
+        "pie_imagen" => "<b>Nota.</b> Adaptado de <i>Economía Circular: ¿qué es y por qué está ganando importancia?</i>, por EUDE Business School, 2023, EUDE.",
     ],
     [
         "tipo" => "contenido",
         "titulo" => "Beneficios en Tu Negocio y Tu Hogar",
         "texto" => "<ul>
-            <li><b><span style=\"color: #007bff;\">Ahorro Directo:</span></b> Menos compra de insumos, menos pago por recolección de basura.</li>
-            <li><b><span style=\"color: #007bff;\">Nuevos Ingresos:</span></b> Venta de reciclables, creación de productos únicos.</li>
-            <li><b><span style=\"color: #007bff;\">Cuidado del Ambiente:</span></b> Menos contaminación en agua, aire y suelo.</li>
-            <li><b><span style=\"color: #007bff;\">Reputación:</span></b> Tu negocio se destaca por ser sostenible.</li>
+            <li><b><span style=\"color: #007bff;\">Ahorro Directo:</span></b> menos compra de insumos, menos pago por recolección de basura.</li>
+            <li><b><span style=\"color: #007bff;\">Nuevos Ingresos:</span></b> venta de reciclables, creación de productos únicos.</li>
+            <li><b><span style=\"color: #007bff;\">Cuidado del Ambiente:</span></b> menos contaminación en agua, aire y suelo.</li>
+            <li><b><span style=\"color: #007bff;\">Reputación:</span></b> tu negocio se destaca por ser sostenible.</li>
         </ul>",
         "fondo" => "img/imagen_ahorro.webp",
-        "logo" => "img/Logo-sena-blanco-sin-fondo.webp"
+        "logo" => "img/Logo-sena-blanco-sin-fondo.webp",
+        "pie_imagen" => "<b>Nota.</b> Adaptado de <i>financiación climatica: un impulso para el planeta,</i>, por Iberdrola, s. f., Iberdrola.",
     ],
     [
         "tipo" => "contenido",
         "titulo" => "¡Manos a la Obra! Tu Guía Práctica",
         "texto" => "Es hora de pasar de la teoría a la acción. Aquí te enseñaremos cómo gestionar tus residuos de manera sencilla y efectiva.",
-        "fondo" => "img/mujeres_reciclando.jpeg"
+        "fondo" => "img/mujeres_reciclando.jpeg",
+        "pie_imagen" => "<b>Nota.</b> Adaptado de <i>lista la guia para aprender a reciclar,</i> por El Tabloide, 2021, El Tabloide.",
     ],
     [
         "tipo" => "separacion_fuente",
@@ -276,8 +285,9 @@ $cartilla = [
                     ["texto" => "Alimentos cocidos muy grasosos", "emoji" => "🍔"]
                 ]
             ],
-            "consejo" => "💡 <b>Consejo:</b> Ten un recipiente pequeño con tapa en tu área de trabajo para los orgánicos, vacíalo con frecuencia."
-        ]
+            "consejo" => "💡 <b>Consejo:</b> Ten un recipiente pequeño con tapa en tu área de trabajo para los orgánicos, vacíalo con frecuencia.",
+        ],
+        "pie_imagen" => "<b>Nota.</b> Fotografía capturada por J. Guapacha (2025), <i>durante visita de seguimiento técnico a los emprendimientos de los usuarios participantes</i> ."           
     ],
     [
         "tipo" => "separacion_reciclables",
@@ -387,7 +397,8 @@ $cartilla = [
                     ]
                 ]
             ]
-        ]
+        ],
+        "pie_imagen" => "<b>Nota.</b> Fotografía capturada por J. Guapacha (2025), <i>durante visita de seguimiento técnico a los emprendimientos de los usuarios participantes</i> ."
     ],
     [
         "tipo" => "actividad_quiz",
@@ -432,7 +443,8 @@ $cartilla = [
                 "respuesta_correcta" => "Reuso / Artesanías",
                 "explicacion" => "Los retazos de tela pueden reutilizarse en manualidades, rellenos de cojines, bisutería textil o patchwork. Así se les da una segunda vida y se evita que terminen en la basura."
             ]
-        ]
+        ],
+        "pie_imagen" => "<b>Nota.</b> Adaptado de <i>persona separando residuos en diferentes contenedores,</i> por Freepik, s. f., Freepik.",
     ],
     [
         "tipo" => "kit_compostaje",
@@ -441,6 +453,7 @@ $cartilla = [
         "texto" => "Este kit te permitirá transformar tus residuos orgánicos en <b>abono natural</b> para tus plantas o huerta. Aquí puedes ver todo lo que incluye.",
         "fondo" => "img/fondo_cafe_claro.jpg",
         "imagen_kit" => "img/imagen_compostera.png", // Foto grande del kit
+        "pie_imagen_kit" => "<b>Nota.</b> Fotografía de <i>kit de compostaje casero con todos sus componentes.</i> Imagen tomada por J. Guapacha (2025).",
         "componentes" => [
             [
                 "numero" => "1",
@@ -534,7 +547,8 @@ $cartilla = [
                 "emoji" => "✨",
                 "color" => "#4CAF50"
             ]
-        ]
+        ],
+        "pie_imagen" => "<b>Nota.</b> Adaptado de <i>Seis beneficios que puede esperar cuando comienza a compostar,</i> por TMKHB, s. f., TMKHB.",
     ],
     [
         "tipo" => "soluciones_compostaje",
@@ -578,7 +592,8 @@ $cartilla = [
                 ["id" => 8, "texto" => "Cartón y papel limpio", "emoji" => "📦"]
             ],
             "minimo_requerido" => 3
-        ]
+        ],
+        "pie_imagen" => "<b>Nota.</b> Adaptado de <i>seis beneficios que puede esperar cuando comienza a compostar,</i> por TMKHB, s. f., TMKHB.",
     ],
     [
         "tipo" => "reuso_reciclaje_timeline",
@@ -663,7 +678,8 @@ $cartilla = [
                 ["emoji" => "🔄", "texto" => "Reutiliza", "color" => "#ffc107"],
                 ["emoji" => "🌱", "texto" => "Recicla", "color" => "#2ecc71"]
             ]
-        ]
+        ],
+        "pie_imagen" => "<b>Nota.</b> Adaptado de <i>fondo del vector de la luz abstracta del bokeh verde,</i> por shunjia, s. f., FreeImages.",
     ],
     [
         "tipo" => "quiz_preguntas_respuestas",
@@ -784,6 +800,7 @@ $cartilla = [
                 "explicacion" => "¡Absolutamente! Usa retazos para: parches decorativos, rellenos de cojines, bisutería textil, posavasos, bolsitas aromáticas o patchwork."
             ]
         ],
+        "pie_imagen" => "<b>Nota.</b> Adaptado de <i>representación visual de la resolución de dudas y el diálogo comunitario,</i> por Sohu (2018, 28 de abril)., Sohu.",
         "minimo_aprobacion" => 6 // De 8 preguntas, mínimo 6 correctas para aprobar
     ],
 ];
@@ -1038,28 +1055,28 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
         /* ESTILOS ESPECÍFICOS PARA PÁGINA 7 - TEXTO GRANDE E INFOGRAFÍA AMPLIADA */
         .pagina-7-compacta .cuadro-texto {
             max-width: 800px !important; 
-            padding: 1.5rem 3rem !important; 
+            padding: 1rem 2rem !important; 
             margin: 0.5rem auto !important; 
-            width: 90% !important; 
+            width: 60% !important; 
         }
 
         .pagina-7-compacta .cuadro-texto .texto-contenido {
             text-align: center;
             margin: 0 auto;
-            font-size: 2rem !important; /* TEXTO GRANDE - OBJETIVO ALCANZADO */
+            font-size: 1rem !important; /* TEXTO GRANDE - OBJETIVO ALCANZADO */
             line-height: 2.2 !important;
-            font-weight: 800 !important;
-            max-width: 90% !important;
+            font-weight: 700 !important;
+            max-width: 70% !important;
         }
 
         .pagina-7-compacta .position-relative {
-            width: 180px !important; /* INFOGRAFÍA GRANDE - OBJETIVO ALCANZADO */
-            height: 180px !important;
+            width: 100px !important; /* INFOGRAFÍA GRANDE - OBJETIVO ALCANZADO */
+            height: 100px !important;
         }
 
         .pagina-7-compacta .translate-middle div {
-            width: 45px !important; /* CÍRCULO CENTRAL AMPLIADO */
-            height: 45px !important;
+            width: 25px !important; /* CÍRCULO CENTRAL AMPLIADO */
+            height: 25px !important;
         }
 
         .pagina-7-compacta .fa-leaf {
@@ -1147,8 +1164,18 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
         }
 
         @media (max-width: 576px) {
+            /* Título h1 grande solo para página 8 en móvil */
+            .pagina-7-compacta .cuadro-texto h1 {
+                font-size: 2.6rem !important;
+                line-height: 1.08 !important;
+            }
+            /* Título grande solo para página 8 en móvil */
+            .pagina-7-compacta h6 {
+                font-size: 2.6rem !important;
+                line-height: 1.08 !important;
+            }
             .cuadro-texto {
-                padding: 1.2rem;
+                padding: 2.2rem;
                 margin: 0.3rem;
                 background: rgba(173, 216, 230, 0.55) !important;
             }
@@ -1171,13 +1198,13 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
             .pagina-7-compacta .cuadro-texto {
                 max-width: 98% !important; 
                 width: 98% !important;
-                padding: 0.8rem 2rem !important;
+                padding: 4rem 2rem !important;
                 margin: 0.2rem auto !important;
                 background: rgba(173, 216, 230, 0.55) !important; 
             }
             
             .pagina-7-compacta .cuadro-texto .texto-contenido {
-                font-size: 1.6rem !important;
+                font-size: 5rem !important;
             }
             
             .pagina-7-compacta .position-relative {
@@ -1322,12 +1349,17 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
             
             /* PÁGINA 8 */
             .pagina-7-compacta .cuadro-texto {
-                padding: 0.6rem 0.8rem !important;
-                margin: 0.3rem auto !important;
+                padding: 6rem 0.8rem 0.6rem 0.8rem !important;
+                margin: 0.8rem auto !important;
+            }
+            .pagina-7-compacta .cuadro-texto h1 {
+                font-size: 2.3rem !important;
+                line-height: 1.15 !important;
+                word-break: break-word !important;
             }
             
             .pagina-7-compacta .cuadro-texto .texto-contenido {
-                font-size: 1.2rem !important;
+                font-size: 1rem !important;
             }
             
             .pagina-7-compacta .position-relative {
@@ -1588,6 +1620,212 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
                 font-size: 0.6rem !important;
             }
         }
+        /* --- AJUSTES PORTADA SOLO MÓVIL (FORZADO) --- */
+        @media (max-width: 600px) {
+                /* Forzar aumento de tamaño solo para los span destacados en color (azul, naranja, etc) en página 2 */
+                body[data-pagina="2"] .header-aprende .cuadro-texto li span[style*="color: #007bff"],
+                body[data-pagina="2"] .header-aprende .cuadro-texto li span[style*="color: #ff9800"],
+                body[data-pagina="2"] .header-aprende .cuadro-texto li span[style*="color: #43be16"],
+                body[data-pagina="2"] .header-aprende .cuadro-texto li span[style*="color: #2196f3"],
+                body[data-pagina="2"] .header-aprende .cuadro-texto li span[style*="color: #ffc107"] {
+                    font-size: 1.3rem !important;
+                    font-weight: 900 !important;
+                    line-height: 1.1 !important;
+                    display: inline-block !important;
+                }
+                /* Aumentar tamaño de íconos y textos destacados en página 2 móvil */
+                body[data-pagina="2"] .header-aprende .cuadro-texto li {
+                    font-size: 1.1rem !important;
+                }
+                body[data-pagina="2"] .header-aprende .cuadro-texto li > b {
+                    font-size: 1.8rem !important;
+                    font-weight: 800 !important;
+                }
+                body[data-pagina="2"] .header-aprende .cuadro-texto li > span {
+                    font-size: 2.2rem !important;
+                    font-weight: 900 !important;
+                }
+                body[data-pagina="2"] .header-aprende .cuadro-texto li > span[style*="color"] {
+                    font-size: 2.2rem !important;
+                    font-weight: 900 !important;
+                }
+                body[data-pagina="2"] .header-aprende .cuadro-texto li > i,
+                body[data-pagina="2"] .header-aprende .cuadro-texto li > img,
+                body[data-pagina="2"] .header-aprende .cuadro-texto li > svg {
+                    font-size: 2.5rem !important;
+                    height: 2.5rem !important;
+                    width: 2.5rem !important;
+                    vertical-align: middle !important;
+                }
+                /* Forzar aumento de tamaño solo para los span destacados en color (azul, naranja, etc) en página 2 */
+                body[data-pagina="8"] .header-aprende .cuadro-texto li span[style*="color: #007bff"],
+                body[data-pagina="8"] .header-aprende .cuadro-texto li span[style*="color: #ff9800"],
+                body[data-pagina="8"] .header-aprende .cuadro-texto li span[style*="color: #43be16"],
+                body[data-pagina="8"] .header-aprende .cuadro-texto li span[style*="color: #2196f3"],
+                body[data-pagina="8"] .header-aprende .cuadro-texto li span[style*="color: #ffc107"] {
+                    font-size: 1.3rem !important;
+                    font-weight: 900 !important;
+                    line-height: 1.1 !important;
+                    display: inline-block !important;
+                }
+                /* Aumentar tamaño de íconos y textos destacados en página 8 móvil */
+                body[data-pagina="8"] .header-aprende .cuadro-texto li {
+                    font-size: 1.1rem !important;
+                }
+                body[data-pagina="8"] .header-aprende .cuadro-texto li > b {
+                    font-size: 1.8rem !important;
+                    font-weight: 800 !important;
+                }
+                body[data-pagina="8"] .header-aprende .cuadro-texto li > span {
+                    font-size: 1.8rem !important;
+                    font-weight: 900 !important;
+                }
+                body[data-pagina="8"] .header-aprende .cuadro-texto li > span[style*="color"] {
+                    font-size: 2.2rem !important;
+                    font-weight: 900 !important;
+                }
+                body[data-pagina="5"] .header-aprende .cuadro-texto li > i,
+                body[data-pagina="8"] .header-aprende .cuadro-texto li > img,
+                body[data-pagina="8"] .header-aprende .cuadro-texto li > svg {
+                    font-size: 2.5rem !important;
+                    height: 2.5rem !important;
+                    width: 2.5rem !important;
+                    vertical-align: middle !important;
+                }
+                /* Aumentar tamaño de títulos en bloques de páginas de contenido en móvil */
+                body[data-pagina] .header-aprende .cuadro-texto h1 {
+                    font-size: 2rem !important;
+                    line-height: 1.2 !important;
+                }
+                /* Aumentar tamaño de texto en bloques de páginas de contenido en móvil */
+                body[data-pagina] .header-aprende .cuadro-texto .texto-contenido {
+                    font-size: 1.25rem !important;
+                    line-height: 1.6 !important;
+                }
+                /* Ajustes responsivos para el quiz de la página 12 (igual que página 6) */
+                body[data-pagina="12"] .header-aprende .cuadro-texto,
+                body[data-pagina="12"] .header-aprende .cuadro-actividad {
+                    box-sizing: border-box !important;
+                    width: 100% !important;
+                    max-width: 100vw !important;
+                    min-width: 0 !important;
+                    margin: 0.5rem 0 0.5rem 0 !important;
+                    padding-left: 0 !important;
+                    padding-right: 0 !important;
+                    border-radius: 10px !important;
+                }
+                body[data-pagina="12"] .header-aprende .row,
+                body[data-pagina="12"] .header-aprende .col-10,
+                body[data-pagina="12"] .header-aprende .col-12 {
+                    box-sizing: border-box !important;
+                    width: 100% !important;
+                    max-width: 100vw !important;
+                    min-width: 0 !important;
+                    margin: 0 !important;
+                    padding-left: 0 !important;
+                    padding-right: 0 !important;
+                }
+                body[data-pagina="12"] .header-aprende h3 {
+                    font-size: 1.2rem !important;
+                }
+                body[data-pagina="12"] .header-aprende p,
+                body[data-pagina="12"] .header-aprende .texto-contenido {
+                    font-size: 1rem !important;
+                    line-height: 1.3 !important;
+                }
+                body[data-pagina="12"] .header-aprende .btn {
+                    font-size: 1rem !important;
+                    padding: 0.7rem 1.2rem !important;
+                }
+                body[data-pagina="12"] .header-aprende .accordion {
+                    width: 100% !important;
+                    max-width: 100vw !important;
+                    min-width: 0 !important;
+                }
+                /* Mostrar la pregunta encima de las opciones en móvil (quiz página 12) */
+                body[data-pagina="12"] .header-aprende .accordion-button {
+                    display: flex !important;
+                    flex-direction: column !important;
+                    align-items: flex-start !important;
+                }
+                body[data-pagina="12"] .header-aprende .accordion-button > span {
+                    display: block !important;
+                    margin-bottom: 0.3em !important;
+                    margin-right: 0 !important;
+                }
+                body[data-pagina="12"] .header-aprende .accordion-button > span:last-child {
+                    margin-bottom: 0 !important;
+                }
+                /* Mostrar la pregunta encima de las opciones en móvil (quiz página 6) */
+                body[data-pagina="6"] .header-aprende .accordion-button {
+                    display: flex !important;
+                    flex-direction: column !important;
+                    align-items: flex-start !important;
+                }
+                body[data-pagina="6"] .header-aprende .accordion-button > span {
+                    display: block !important;
+                    margin-bottom: 0.3em !important;
+                    margin-right: 0 !important;
+                }
+                body[data-pagina="6"] .header-aprende .accordion-button > span:last-child {
+                    margin-bottom: 0 !important;
+                }
+          .header-aprende h1.display-3 {
+            font-size: 1.7rem !important;
+            line-height: 1.1 !important;
+            margin-bottom: 0.05rem !important;
+            margin-top: 1.2rem !important;
+            text-align: center !important;
+            width: 100%;
+          }
+          .header-aprende h2.text-white {
+            font-size: 1rem !important;
+            margin-top: 1.2rem !important;
+            margin-bottom: 0.1rem !important;
+            text-align: center !important;
+            width: 100%;
+          }
+                    .header-aprende-h3 {
+                        font-size: 0.85rem !important;
+                        margin-top: 0 !important;
+                        margin-bottom: 0.1rem !important;
+                        text-align: right !important;
+                        width: 85vw !important;
+                        max-width: 85vw !important;
+                        margin-right: 0.5rem !important;
+                        display: block !important;
+                    }
+                    .header-aprende .contenedor-frase-portada {
+                        bottom: 40px !important;
+                        right: 40px !important;
+                        z-index: 2100 !important;
+                        width: auto !important;
+                        max-width: 98vw !important;
+                    }
+          .header-aprende .logo-sena-header {
+            height: 40px !important;
+            margin-bottom: 0.2rem !important;
+            margin-top: 0.1rem !important;
+            align-self: flex-end !important;
+            margin-left: auto !important;
+            margin-right: 1rem !important;
+            position: static !important;
+          }
+          .header-aprende .pie-imagen-apa {
+            font-size: 0.4rem !important;
+            margin-bottom: 0.01rem !important;
+            margin-top: 0.05rem !important;
+            width: 100vw !important;
+            text-align: left !important;
+            background: none !important;
+            left: 0 !important;
+            bottom: 0 !important;
+            z-index: 2001 !important;
+            position: static !important;
+            display: block !important;
+            color: #fff !important;
+          }
+        }
         /* Efectos hover para las opciones */
         .opcion-pregunta:hover {
             background-color: rgba(67, 190, 22, 0.1) !important;
@@ -1691,6 +1929,102 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
                 max-width: 98vw !important;
             }
         }
+        /* Legibilidad portada escritorio: frase h3 y pie de imagen */
+        .header-aprende .contenedor-frase-portada h3 {
+            color: #fff !important;
+            opacity: 1 !important;
+            text-shadow: 2px 2px 6px rgba(0,0,0,0.7) !important;
+        }
+
+        .header-aprende .pie-imagen-apa {
+            color: #fff !important;
+            opacity: 1 !important;
+            text-shadow: 2px 2px 6px rgba(0,0,0,0.7) !important;
+        }
+        /* Ajustes solo para la línea de tiempo de componentes del kit en móvil */
+        @media (max-width: 600px) {
+            /* Número grande de la línea de tiempo (círculo) */
+            .header-aprende .row .col-md-2 > div[style*="border-radius: 50%"] {
+                font-size: 2.6rem !important;
+                width: 70px !important;
+                height: 70px !important;
+            }
+            /* Título y número dentro del cuadro de componente */
+            .header-aprende .cuadro-texto h3 {
+                font-size: 1.5rem !important;
+                line-height: 1.15 !important;
+            }
+            /* Descripción del componente */
+            .header-aprende .cuadro-texto p {
+                font-size: 1.35rem !important;
+            }
+        }
+        @media (min-width: 600px) {
+        /* Pie de imagen solo para página 14 en pantallas mayores a 600px */
+            body.aprende-pagina-14 .header-aprende .pie-imagen-apa {
+                text-align: left !important;
+                padding-left: 18vw !important;
+            }
+        }
+        @media (max-width: 600px) {
+            /* Nota motivacional solo para página 14 en móvil */
+            body[data-pagina="13"] .header-aprende h4 {
+                font-size: 1.6rem !important;
+            }
+            body[data-pagina="13"] .header-aprende .cuadro-texto.mt-4.mb-3 p {
+                font-size: 1.2rem !important;
+            }
+        }
+        @media (max-width: 600px) {
+            /* Nota motivacional solo para página 15 en móvil */
+            body[data-pagina="14"] .header-aprende h4 {
+                font-size: 1.6rem !important;
+            }
+            body[data-pagina="14"] .header-aprende .cuadro-texto.mt-4.mb-3 p {
+                font-size: 1.2rem !important;
+            }
+        }
+        @media (max-width: 600px) {
+            body[data-pagina="6"] .header-aprende .cuadro-texto,
+            body[data-pagina="6"] .header-aprende .cuadro-actividad {
+                box-sizing: border-box !important;
+                width: 100% !important;
+                max-width: 100vw !important;
+                min-width: 0 !important;
+                margin: 0.5rem 0 0.5rem 0 !important;
+                padding-left: 0 !important;
+                padding-right: 0 !important;
+                border-radius: 10px !important;
+            }
+            body[data-pagina="6"] .header-aprende .row,
+            body[data-pagina="6"] .header-aprende .col-10,
+            body[data-pagina="6"] .header-aprende .col-12 {
+                box-sizing: border-box !important;
+                width: 100% !important;
+                max-width: 100vw !important;
+                min-width: 0 !important;
+                margin: 0 !important;
+                padding-left: 0 !important;
+                padding-right: 0 !important;
+            }
+            body[data-pagina="6"] .header-aprende h3 {
+                font-size: 1.2rem !important;
+            }
+            body[data-pagina="6"] .header-aprende p,
+            body[data-pagina="6"] .header-aprende .texto-contenido {
+                font-size: 1rem !important;
+                line-height: 1.3 !important;
+            }
+            body[data-pagina="6"] .header-aprende .btn {
+                font-size: 1rem !important;
+                padding: 0.7rem 1.2rem !important;
+            }
+            body[data-pagina="6"] .header-aprende .accordion {
+                width: 100% !important;
+                max-width: 100vw !important;
+                min-width: 0 !important;
+            }
+        }
     </style>
 </head>
 
@@ -1786,12 +2120,17 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
                 </div>
             </div>
         </div>
-        <div style="position: absolute; right: 160px; bottom: 10px; display: flex; align-items: center; margin: 0;">
-            <h3 class="mb-0 header-aprende-h3 text-end d-none d-sm-block" style="font-size: 2rem; color: #fff !important; font-weight: 900; margin: 0; background: none !important; padding: 0; border-radius: 0; opacity: 1 !important; filter: none !important; text-shadow: 0 0 0 #fff !important; mix-blend-mode: normal !important; max-width: none !important; position: relative; z-index: 1000;">
+        <div class="contenedor-frase-portada" style="position: absolute; right: 220px; bottom: 70px; display: flex; align-items: center; margin: 0; z-index: 3000;">
+            <h3 class="mb-0 header-aprende-h3 text-end d-none d-sm-block">
                  <?php echo $cartilla[$pagina]['frase']; ?>
              </h3>
         </div>
-        <img src="<?php echo $cartilla[$pagina]['logo']; ?>" alt="Logo SENA" class="logo-sena-header" style="height: 100px; position: absolute; right: 40px; bottom: 10px; margin: 0;">
+        <img src="<?php echo $cartilla[$pagina]['logo']; ?>" alt="Logo SENA" class="logo-sena-header" style="position: absolute; right: 40px; bottom: 40px; margin: 0;">
+        <div class="pie-imagen-apa" style="position: absolute; left: 0; bottom: 0; width: 100%; padding: 8px 24px; z-index: 2001; pointer-events: none;">
+            <?php echo $cartilla[$pagina]['pie_imagen']; ?>
+        </div>
+        <!-- Espaciador solo para móvil, al final del bloque portada -->
+        <div class="espaciador-portada-movil"></div>
     </div>
 
     <?php elseif ($cartilla[$pagina]['tipo'] === 'actividad_quiz'): ?>
@@ -1873,11 +2212,19 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
                                     <i class="fas fa-paper-plane me-2"></i>
                                     ¡Enviar Reto!
                                 </button>
-                            </div>
-                        </form>
+                            </div>                            
+                        </form>                        
                         
                         <div id="mensajeResultado" class="alert text-center mt-3 mb-2" style="display: none; padding: 1.5rem; font-size: 1rem; border-radius: 15px;"></div>
                     </div>
+
+                    <!-- Pie de imagen (si existe) -->
+                    <?php if (isset($cartilla[$pagina]['pie_imagen']) && $cartilla[$pagina]['pie_imagen']): ?>
+                        <div class="pie-imagen-apa" style="width: 100%; padding: 8px 24px; color: #fff; opacity: 1; text-shadow: 2px 2px 6px rgba(0,0,0,0.7); font-size: 0.95rem; margin-bottom: 0.2rem;">
+                            <?php echo $cartilla[$pagina]['pie_imagen']; ?>
+                        </div>
+                    <?php endif; ?>
+                            
                     
                     <div class="d-flex justify-content-start mt-3 px-2">
                         <a href="aprende.php?pagina=<?php echo $pagina-1; ?>" class="btn btn-lg text-white" style="background-color: #43be16;">
@@ -1952,7 +2299,7 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
                             ¡Excelente! Has completado la actividad. Cada residuo es una nueva oportunidad.
                         </div>
                     </div>
-                    
+                                       
                     <div class="d-flex justify-content-start mt-3 px-2" style="flex-shrink: 0;">
                         <a href="aprende.php?pagina=<?php echo $pagina-1; ?>" class="btn btn-lg text-white shadow-sm" style="background-color: #43be16; z-index: 10; min-width: 120px;">
                             <i class="fa fa-arrow-left me-2"></i> Anterior
@@ -1992,13 +2339,13 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
                 <div class="col-12 col-lg-8 mx-auto px-4 d-flex flex-column justify-content-end" style="height: <?php echo $height_bloque; ?>;"> 
                     <?php if (isset($cartilla[$pagina]['texto'])): ?>
                         <div class="cuadro-texto mx-auto" style="max-width: 1100px;">
-                            <div class="texto-contenido text-center" style="font-size: clamp(1.2rem, 4vw, 1.7rem); line-height: 1.5;">
+                            <div class="texto-contenido text-center" style="font-size: clamp(1.2rem, 4vw, 1.2rem); line-height: 1.5;">
                                 <?php echo $texto_con_iconos; ?>
                             </div>
                         </div>
                     <?php endif; ?>
                     
-                    <div class="cuadro-texto cuadro-actividad mx-auto">
+                    <div class="cuadro-texto cuadro-actividad mx-auto">                    
                         <h3 class="text-center mb-3">
                             <i class="fas fa-lightbulb me-2"></i>
                             <?php echo $cartilla[$pagina]['actividad_titulo']; ?>
@@ -2021,7 +2368,14 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
                             </small>
                         </div>
                     </div>
-                    
+
+                    <!-- Pie de imagen (si existe) -->
+                    <?php if (isset($cartilla[$pagina]['pie_imagen']) && $cartilla[$pagina]['pie_imagen']): ?>
+                        <div class="pie-imagen-apa" style="width: 100%; padding: 8px 24px; color: #fff; opacity: 1; text-shadow: 2px 2px 6px rgba(0,0,0,0.7); font-size: 0.95rem; margin-bottom: 0.2rem;">
+                            <?php echo $cartilla[$pagina]['pie_imagen']; ?>
+                        </div>
+                    <?php endif; ?>
+
                     <div class="d-flex justify-content-start mt-3 px-2" style="flex-shrink: 0;">
                         <a href="aprende.php?pagina=<?php echo $pagina-1; ?>" class="btn btn-lg text-white shadow-sm" style="background-color: #43be16; z-index: 10; min-width: 120px;">
                             <i class="fa fa-arrow-left me-2"></i> Anterior
@@ -2061,7 +2415,7 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
                 <div class="col-12 col-lg-11 mx-auto px-3 d-flex flex-column justify-content-end" style="height: <?php echo $height_bloque; ?>;"> 
                     <!-- Texto introductorio muy compacto -->
                     <?php if (isset($cartilla[$pagina]['texto'])): ?>
-                        <div class="cuadro-texto mx-auto mb-1" style="max-width: 1150px; padding: 0.4rem 0.8rem; width: 95%;">
+                        <div class="cuadro-texto mx-auto mb-1" style="max-width: 1150px; padding: 0.3rem 0.6rem; width: 95%;">
                             <div class="texto-contenido text-center" style="font-size: clamp(1.5rem, 1.5vw, 1.5rem); line-height: 1.2;">
                                 <?php echo $cartilla[$pagina]['texto']; ?>
                             </div>
@@ -2121,6 +2475,13 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
                                     <?php echo $recuadro['consejo']; ?>
                                 </p>
                             </div>
+                        </div>
+                    <?php endif; ?>
+
+                    <!-- Pie de imagen (si existe) -->
+                    <?php if (isset($cartilla[$pagina]['pie_imagen']) && $cartilla[$pagina]['pie_imagen']): ?>
+                        <div class="pie-imagen-apa" style="width: 100%; padding: 8px 24px; color: #fff; opacity: 1; text-shadow: 2px 2px 6px rgba(0,0,0,0.7); font-size: 0.95rem; margin-bottom: 0.2rem;">
+                            <?php echo $cartilla[$pagina]['pie_imagen']; ?>
                         </div>
                     <?php endif; ?>
                     
@@ -2253,6 +2614,13 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
                             </div>
                         </div>
                     <?php endforeach; ?>
+
+                    <!-- Pie de imagen (si existe) -->
+                    <?php if (isset($cartilla[$pagina]['pie_imagen']) && $cartilla[$pagina]['pie_imagen']): ?>
+                        <div class="pie-imagen-apa" style="width: 100%; padding: 8px 24px; color: #fff; opacity: 1; text-shadow: 2px 2px 6px rgba(0,0,0,0.7); font-size: 0.95rem; margin-bottom: 0.2rem;">
+                            <?php echo $cartilla[$pagina]['pie_imagen']; ?>
+                        </div>
+                    <?php endif; ?>
                     
                     <!-- Navegación -->
                     <div class="container-fluid px-0 mt-4 mb-3">
@@ -2319,6 +2687,11 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
                                 alt="Kit de Compostaje Completo" 
                                 class="img-fluid" 
                                 style="max-height: 350px; border-radius: 15px; box-shadow: 0 8px 20px rgba(0,0,0,0.3); border: 3px solid #43be16;">
+                            <?php if (isset($cartilla[$pagina]['pie_imagen_kit']) && $cartilla[$pagina]['pie_imagen_kit']): ?>
+                                <div class="pie-imagen-apa mt-2" style="width: 100%; padding: 8px 24px; color: #001122; opacity: 1; text-shadow: 1px 1px 3px rgba(255,255,255,0.7); font-size: 0.95rem; margin-bottom: 0.2rem;">
+                                    <?php echo $cartilla[$pagina]['pie_imagen_kit']; ?>
+                                </div>
+                            <?php endif; ?>
                             <p class="mt-2 mb-0" style="font-size: clamp(1rem, 1.6vw, 1rem); color: #001122; font-weight: 700;">
                                 <i class="fas fa-box-open me-2"></i>Kit Completo de Compostaje Casero
                             </p>
@@ -2398,7 +2771,7 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
                     <!-- Nota final motivacional -->
                     <div class="cuadro-texto mx-auto mt-4 mb-3" style="max-width: 1150px; padding: 1rem 1.5rem; width: 95%; background: rgba(67, 190, 22, 0.4) !important; border: 3px solid #43be16;">
                         <div class="text-center">
-                            <h4 class="mb-2" style="font-size: clamp(1.5rem, 2.3vw, 1.5rem); color: #001122; font-weight: 900;">
+                            <h4 class="mb-2" style="color: #001122; font-weight: 900;">
                                 <i class="fas fa-seedling me-2"></i>¡Todo listo para comenzar!
                             </h4>
                             <p class="mb-0" style="font-size: clamp(1.3rem, 2vw, 1.3rem); color: #001122; font-weight: 700; line-height: 1.4;">
@@ -2547,6 +2920,7 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
                     </div>
                     <?php endforeach; ?>
                 </div>
+
                     <!-- Nota final motivacional -->
                     <div class="cuadro-texto mx-auto mt-4 mb-3" style="max-width: 1150px; padding: 1rem 1.5rem; width: 95%; background: rgba(67,190,22,0.4) !important; border: 3px solid #43be16;">
                         <div class="text-center">
@@ -2558,6 +2932,13 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
                             </p>
                         </div>
                     </div>
+
+                    <!-- Pie de imagen (si existe) -->
+                    <?php if (isset($cartilla[$pagina]['pie_imagen']) && $cartilla[$pagina]['pie_imagen']): ?>
+                        <div class="pie-imagen-apa" style="width: 100%; padding: 8px 24px; color: #fff; opacity: 1; text-shadow: 2px 2px 6px rgba(0,0,0,0.7); font-size: 0.95rem; margin-bottom: 0.2rem;">
+                            <?php echo $cartilla[$pagina]['pie_imagen']; ?>
+                        </div>
+                    <?php endif; ?>
 
                     <!-- Navegación -->
                     <div class="container-fluid px-0 mt-3 mb-0">
@@ -2781,7 +3162,14 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
                             <small class="d-block mt-2">Redirigiendo en 5 segundos...</small>
                         </div>
                     </div>
-                    
+
+                    <!-- Pie de imagen (si existe) -->
+                    <?php if (isset($cartilla[$pagina]['pie_imagen']) && $cartilla[$pagina]['pie_imagen']): ?>
+                        <div class="pie-imagen-apa" style="width: 100%; padding: 8px 24px; color: #fff; opacity: 1; text-shadow: 2px 2px 6px rgba(0,0,0,0.7); font-size: 0.95rem; margin-bottom: 0.2rem;">
+                            <?php echo $cartilla[$pagina]['pie_imagen']; ?>
+                        </div>
+                    <?php endif; ?>
+
                     <!-- Navegación -->
                     <div class="container-fluid px-0 mt-3 mb-3">
                         <div class="row g-0 w-100">
@@ -3391,6 +3779,13 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
                                                             </div>
                         </div>
                     </div>
+
+                    <!-- Pie de imagen (si existe) -->
+                    <?php if (isset($cartilla[$pagina]['pie_imagen']) && $cartilla[$pagina]['pie_imagen']): ?>
+                        <div class="pie-imagen-apa" style="width: 100%; padding: 8px 24px; color: #fff; opacity: 1; text-shadow: 2px 2px 6px rgba(0,0,0,0.7); font-size: 0.95rem; margin-bottom: 0.2rem;">
+                            <?php echo $cartilla[$pagina]['pie_imagen']; ?>
+                        </div>
+                    <?php endif; ?>
                     
                     <!-- Navegación -->
                     <div class="container-fluid px-0 mt-3 mb-3">
@@ -3576,6 +3971,13 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
                                 font-size: clamp(0.9rem, 2vw, 1.1rem); 
                                 border-radius: 15px;">
                     </div>
+
+                    <!-- Pie de imagen (si existe) -->
+                    <?php if (isset($cartilla[$pagina]['pie_imagen']) && $cartilla[$pagina]['pie_imagen']): ?>
+                        <div class="pie-imagen-apa" style="width: 100%; padding: 8px 24px; color: #fff; opacity: 1; text-shadow: 2px 2px 6px rgba(0,0,0,0.7); font-size: 0.95rem; margin-bottom: 0.2rem;">
+                            <?php echo $cartilla[$pagina]['pie_imagen']; ?>
+                        </div>
+                    <?php endif; ?>
                     
                     <!-- NAVEGACIÓN -->
                     <div class="d-flex justify-content-start mt-3 px-2">
@@ -3610,7 +4012,7 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
                     <div style="flex-grow: 1; min-height: 70vh;"></div>
                     
                     <!-- Título -->
-                    <div class="cuadro-texto text-center mx-auto mb-2" style="max-width: 900px;">
+                    <div class="cuadro-texto text-center mx-auto mb-2<?php echo ($pagina === 8) ? ' titulo-pagina-8' : ''; ?>" style="max-width: 900px;<?php echo ($pagina === 8) ? ' margin-top: 10rem;' : ' margin-top: 6rem;'; ?>">
                         <h1 class="mb-2" style="font-size: clamp(2.2rem, 7vw, 3rem); color: #001122; font-weight: 900; line-height: 1.15;">
                             <?php echo $cartilla[$pagina]['titulo']; ?>
                         </h1>
@@ -3642,7 +4044,14 @@ if ($pagina == 17) { $height_bloque = '70vh'; }
                                  style="height: 80px; filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));">
                         </div>
                     <?php endif; ?>
-                    
+
+                    <!-- Pie de imagen (si existe) -->
+                    <?php if (isset($cartilla[$pagina]['pie_imagen']) && $cartilla[$pagina]['pie_imagen']): ?>
+                        <div class="pie-imagen-apa" style="width: 100%; padding: 8px 24px; color: #fff; opacity: 1; text-shadow: 2px 2px 6px rgba(0,0,0,0.7); font-size: 0.95rem; margin-bottom: 0.2rem;">
+                            <?php echo $cartilla[$pagina]['pie_imagen']; ?>
+                        </div>
+                    <?php endif; ?>
+
                     <!-- ✅ NAVEGACIÓN PEGADA AL BORDE INFERIOR -->
                     <div class="d-flex justify-content-between align-items-center mt-2" style="padding-bottom: 0.1rem;">
                         <?php if ($pagina > 0): ?>

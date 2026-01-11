@@ -557,23 +557,26 @@ $trueques_publicados = $result->fetch_all(MYSQLI_ASSOC);
                     <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s" style="min-height: 400px;">
                         <div class="position-relative h-100">
                             <img class="img-fluid position-absolute w-100 h-100" src="img/trueque.png" alt="" style="object-fit: cover;">
+                            <div class="carousel-caption d-block w-100" style="position: absolute; bottom: -45px; left: 0; color: #000; padding-left: 24px; font-size: 0.9rem; font-weight: 200; text-align: left; text-shadow: none; z-index: 30;">
+                                <b>Nota.</b> Collage elaborado por A. Echeverri, (2025) <i>Los recursos visuales que integran esta pieza (abono orgánico, retazos de tela y frascos de vidrio) fueron recuperados de diversas fuentes de acceso público en la web sin autoría identificada.
+                            </div>
                         </div>
                     </div>
                     <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
                         <h6 class="section-title bg-white text-start text-primary pe-3">Trueque Comunitario</h6>
-                        <h1 class="mb-4">Bienvenido a tu espacio de intercambio solidario</h1>
+                        <h1 class="mb-4">Bienvenido a tu espacio de intercambio solidario.</h1>
                         <p class="mb-4">
                             El <strong>trueque</strong> es una forma ancestral de intercambio que nos permite compartir lo que tenemos y recibir lo que necesitamos, sin necesidad de dinero. Aquí podrás ofrecer objetos, conocimientos o servicios, y a su vez encontrar productos que aporten valor a tu vida. Nuestro objetivo es fortalecer la economía solidaria y promover el consumo responsable.
                         </p>
                         <div class="row gy-2 gx-4 mb-4">
                             <div class="col-sm-6">
-                                <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Intercambia productos, servicios o saberes</p>
+                                <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Intercambia productos, servicios o saberes.</p>
                             </div>
                             <div class="col-sm-6">
-                                <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Sin dinero, solo solidaridad y colaboración</p>
+                                <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Sin dinero, solo solidaridad y colaboración.</p>
                             </div>
                             <div class="col-sm-6">
-                                <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Fortalece tu comunidad y apoya la economía circular</p>
+                                <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Fortalece tu comunidad y apoya la economía circular.</p>
                             </div>
                         </div>
                     </div>

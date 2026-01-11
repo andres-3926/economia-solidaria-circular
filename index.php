@@ -51,6 +51,7 @@ if (isset($_SESSION['numero_documento'])) {
 $colorNombrePerfil = (isset($usuario) && $usuario['rol'] === 'usuario' && isset($usuario['habilitado']) && intval($usuario['habilitado']) === 0) ? '#f0ad4e' : '#43be16';
 ?>
 
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -83,6 +84,22 @@ $colorNombrePerfil = (isset($usuario) && $usuario['rol'] === 'usuario' && isset(
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+    <style>
+    /* Ajuste solo para móvil: pie de foto del carrusel (fotografía 1 y 2) */
+    @media (max-width: 576px) {
+        .header-carousel .carousel-caption {
+            font-size: 0.68rem !important;
+            padding-left: 10px !important;
+            padding-right: 10px !important;
+            bottom: -15px !important;
+        }
+        /* Pie de foto de la sección trueque (collage) */
+        #about .carousel-caption {
+            bottom: -25px !important;
+        }
+    }
+    </style>
 </head>
 
 <body style="padding-top:75px;">
@@ -146,6 +163,9 @@ $colorNombrePerfil = (isset($usuario) && $usuario['rol'] === 'usuario' && isset(
             <!-- SLIDE 1 -->
             <div class="owl-carousel-item position-relative">
                 <img class="img-fluid" src="img/gastronomia.jpg" alt="">
+                <div class="carousel-caption d-block w-100" style="position: absolute; bottom: 10px; left: 0; color: #fff; padding-left: 24px; font-size: 1rem; font-weight: 900; text-align: left; text-shadow: 1px 1px 6px #000; z-index: 30;">
+                    <b>Fotografía 1.</b> Tomada durante el <i>primer encuentro de comunidades artesanales en Cali, donde se resalta la participación de diversas etnias en la economía solidaria,</i> por J. Guapacha, 2023.
+                </div>
                 <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style="background: rgba(24, 29, 56, .5);">
                     <div class="container">
                         <div class="row justify-content-start">
@@ -178,6 +198,9 @@ $colorNombrePerfil = (isset($usuario) && $usuario['rol'] === 'usuario' && isset(
             <!-- SLIDE 2 -->
             <div class="owl-carousel-item position-relative">
                 <img class="img-fluid" src="img/portada.jpg" alt="">
+                <div class="carousel-caption d-block w-100" style="position: absolute; bottom: 10px; left: 0; color: #fff; padding-left: 24px; font-size: 1rem; font-weight: 900; text-align: left; text-shadow: 1px 1px 4px #000; z-index: 30;">
+                    <b>Fotografía 2.</b> Tomada durante el <i>primer encuentro de comunidades artesanales en Cali, donde se resalta la participación de diversas etnias en la economía solidaria,</i> por J. Guapacha, 2023.
+                </div>
                 <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style="background: rgba(24, 29, 56, .5);">
                     <div class="container">
                         <div class="row justify-content-start">
@@ -272,23 +295,26 @@ $colorNombrePerfil = (isset($usuario) && $usuario['rol'] === 'usuario' && isset(
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s" style="min-height: 400px;">
                     <div class="position-relative h-100">
                         <img class="img-fluid position-absolute w-100 h-100" src="img/trueque.png" alt="" style="object-fit: cover;">
+                        <div class="carousel-caption d-block w-100" style="position: absolute; bottom: -45px; left: 0; color: #000; padding-left: 24px; font-size: 0.9rem; font-weight: 200; text-align: left; text-shadow: none; z-index: 30;">
+                            <b>Nota.</b> Collage elaborado por A. Echeverri, (2025) <i>Los recursos visuales que integran esta pieza (abono orgánico, retazos de tela y frascos de vidrio) fueron recuperados de diversas fuentes de acceso público en la web sin autoría identificada.
+                        </div>
                     </div>
                 </div>
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
                     <h6 id="trueque-comunitario" class="section-title bg-white text-start text-primary pe-3">Trueque Comunitario</h6>
-                    <h1 class="mb-4">Bienvenido a tu espacio de intercambio solidario</h1>
+                    <h1 class="mb-4">Bienvenido a tu espacio de intercambio solidario.</h1>
                     <p class="mb-4">
                         El <strong>trueque</strong> es una forma ancestral de intercambio que nos permite compartir lo que tenemos y recibir lo que necesitamos, sin necesidad de dinero. Aquí podrás ofrecer objetos, conocimientos o servicios, y a su vez encontrar productos que aporten valor a tu vida. Nuestro objetivo es fortalecer la economía solidaria y promover el consumo responsable.
                     </p>
                     <div class="row gy-2 gx-4 mb-4">
                         <div class="col-sm-6">
-                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Intercambia productos, servicios o saberes</p>
+                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Intercambia productos, servicios o saberes.</p>
                         </div>
                         <div class="col-sm-6">
-                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Sin dinero, solo solidaridad y colaboración</p>
+                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Sin dinero, solo solidaridad y colaboración.</p>
                         </div>
                         <div class="col-sm-6">
-                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Fortalece tu comunidad y apoya la economía circular</p>
+                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Fortalece tu comunidad y apoya la economía circular.</p>
                         </div>
                     </div>
                 </div>
@@ -390,6 +416,9 @@ $colorNombrePerfil = (isset($usuario) && $usuario['rol'] === 'usuario' && isset(
                     <div class="text-center text-white wow fadeInUp" data-wow-delay="0.1s">
                         <div class="mb-4">
                             <img src="img/pagina-4.jpg" alt="Economía Circular" class="img-fluid rounded shadow-lg" style="max-height: 400px; object-fit: cover; border: 5px solid white;">
+                            <div class="carousel-caption d-block w-100" style="position: static; color: #111; padding: 10px 18px 0 18px; font-size: 0.95rem; font-weight: 700; text-align: left; text-shadow: none; z-index: 30; background: none; border-radius: 0;">
+                                <b>Nota.</b> Collage elaborado por A. Echeverri, (2025). <i>Las fotografías que integran esta composición fueron tomadas</i> por J. Guapacha (2023) <i>durante el encuentro de comunidades artesanales en Cali.</i>
+                            </div>
                         </div>
                         
                         <h6 class="text-uppercase mb-3 animate__animated animate__fadeInDown" style="color: #FFD700; font-weight: 700; letter-spacing: 2px;">
@@ -425,7 +454,7 @@ $colorNombrePerfil = (isset($usuario) && $usuario['rol'] === 'usuario' && isset(
                             <!-- 🔴 USUARIO NO AUTENTICADO: Debe registrarse -->
                             <div class="alert alert-warning d-inline-block mb-4 animate__animated animate__bounceIn" style="max-width: 700px; background: rgba(255, 193, 7, 0.95); border: 3px solid white; color: #001122; font-weight: 700;">
                                 <i class="fas fa-info-circle fa-2x me-3"></i>
-                                <strong>¡Regístrate gratis</strong> para acceder a todo el contenido educativo de la cartilla
+                                <strong>¡Regístrate gratis</strong> para acceder a todo el contenido educativo de la cartilla.
                             </div>
                             <div class="mt-4">
                                 <a href="registro.php?from=aprende" class="btn btn-lg px-5 py-3 me-3 animate__animated animate__pulse animate__infinite" style="background-color: #43be16; border-color: #43be16; color: white; font-weight: 700; font-size: 1.2rem; border-radius: 50px; box-shadow: 0 8px 20px rgba(0,0,0,0.3);">
@@ -443,21 +472,21 @@ $colorNombrePerfil = (isset($usuario) && $usuario['rol'] === 'usuario' && isset(
                                 <div class="p-4 rounded" style="background: rgba(255,255,255,0.15); backdrop-filter: blur(10px); border: 2px solid rgba(255,255,255,0.3);">
                                     <i class="fas fa-book fa-3x mb-3" style="color: #FFD700;"></i>
                                     <h5 class="mb-2">17 Páginas Interactivas</h5>
-                                    <p class="mb-0">Contenido educativo completo y práctico</p>
+                                    <p class="mb-0">Contenido educativo completo y práctico.</p>
                                 </div>
                             </div>
                             <div class="col-md-4 animate__animated animate__fadeInUp">
                                 <div class="p-4 rounded" style="background: rgba(255,255,255,0.15); backdrop-filter: blur(10px); border: 2px solid rgba(255,255,255,0.3);">
                                     <i class="fas fa-certificate fa-3x mb-3" style="color: #FFD700;"></i>
                                     <h5 class="mb-2">Certificación</h5>
-                                    <p class="mb-0">Al completar todas las actividades</p>
+                                    <p class="mb-0">Al completar todas las actividades.</p>
                                 </div>
                             </div>
                             <div class="col-md-4 animate__animated animate__fadeInRight">
                                 <div class="p-4 rounded" style="background: rgba(255,255,255,0.15); backdrop-filter: blur(10px); border: 2px solid rgba(255,255,255,0.3);">
                                     <i class="fas fa-seedling fa-3x mb-3" style="color: #FFD700;"></i>
                                     <h5 class="mb-2">100% Práctico</h5>
-                                    <p class="mb-0">Aplica lo aprendido en tu emprendimiento</p>
+                                    <p class="mb-0">Aplica lo aprendido en tu emprendimiento.</p>
                                 </div>
                             </div>
                         </div>
